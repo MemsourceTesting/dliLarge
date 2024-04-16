@@ -1,4 +1,0 @@
-This is a test asset for AEM.
-I'd like to see if we support it.
-Another line
-Line 4

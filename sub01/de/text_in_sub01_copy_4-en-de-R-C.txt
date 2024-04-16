@@ -1,0 +1,2 @@
+das ist eine Textdatei. edit
+Ende der Datei.

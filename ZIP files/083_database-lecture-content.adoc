@@ -1,0 +1,175 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='transactiondatabase-lecture']
+= Section Content
+
+== Accessing Databases by Using the JDBC, JPA, and SQL Components
+
+Camel provides multiple components to access relational databases:
+
+JDBC::
+Provided by the `+camel-jdbc+` library.
+This component uses Java Database Connectivity (JDBC) queries through the JDBC API.
+When using this component, you specify the database query as the message body.
+By default, the component returns query records in the message body as a list of `+Map+` objects.
+
+SQL::
+Provided by the `+camel-sql+` library.
+This component uses JDBC queries through the `+spring-jdbc+` dependency.
+By default, it returns the result of queries as a list of `+Map+` objects.
+In contrast to the JDBC component, which uses the Camel message body for queries, the SQL component uses the Camel endpoint to specify the query.
+The use of the JDBC, or the SQL component depends on the integration use case.
+For example, if you have static or simple queries that only require a few parameters, then the SQL component is easier to use and maintain.
+//ZG: When would you want to use this? Is it just personal preference for endpoint vs message body? Or are there specific scenarios where one is better?
+// PSV: There is no "right" solution but perhaps with the example we added makes it more clear.
+
+Java Persistence API (JPA)::
+Provided by the `+camel-jpa+` library.
+Similar to any JPA use case, you can use this component to access databases by using an Object Relational Mapping (ORM) layer.
+
+
+=== Configuring a Default Data Source in Spring Boot
+
+Spring Boot developers can configure database connection parameters for Camel components by specifying `+spring.datasource.*+` properties in the `+application.properties+` file.
+The following example shows basic connection parameters for a MySQL database:
+
+----
+spring.datasource.url=jdbc:mysql://localhost/my_database
+spring.datasource.username=dbuser
+spring.datasource.password=dbpass
+spring.datasource.platform=mysql
+----
+
+=== Using the JDBC Component
+
+The URI syntax is as follows:
+
+----
+jdbc:dataSourceName[?options]
+----
+
+Camel looks for the `+dataSourceName+` bean in the Camel registry.
+If `+dataSourceName+` is `+dataSource+` or `+default+`, then Camel attempts to use the default data source from the Camel registry.
+You can define the default data source by using the `+spring.datasource.*+` configuration properties.
+
+The `+jdbc+` component only supports producer endpoints, as the following example shows:
+
+[subs=+quotes]
+----
+from("direct:getUsers")
+    `+.setBody(constant("select * from users"))+` <1>
+    `+.to("jdbc:dataSource")+` <2>
+    `+.to("direct:processUsers")+` <3>
+----
+
+<1> The message body contains the query.
+This particular query selects all users from the database.
+<2> The `+jdbc+` component runs the query.
+The component uses the default data source.
+<3> The route sends the resulting list of users to another endpoint, for further processing.
+
+=== Using the SQL Component
+
+The URI syntax of the `+sql+` component is as follows:
+
+----
+sql:query[?options]
+----
+
+You can use exchange properties in a query, by prepending the property name with the `+#+` character.
+For example, you can select a user by using the syntax shown in the following example.
+
+[subs=+quotes]
+----
+sql:select * from users where id=:`++`#userId`++`
+----
+
+If the Camel message body is an instance of `+java.util.Map+`, then Camel looks for the `+userId+` property in the body.
+If the `+userId+` property is not in the body, or if the body is not a `+Map+` object, then Camel looks for the `+userId+` property in the message headers.
+
+You can also use expressions as parameters:
+
+[subs=+quotes]
+----
+sql:update users set email =:`++`#${headers.newEmail}`++` where id=:#userId
+----
+
+Alternatively, you can use an external file to define your query by using the `+classpath:file_path+` expression:
+
+[subs=+quotes]
+----
+sql:`++`classpath:path/to/my_query_file.sql`++`
+----
+
+Similar to the `+jdbc+` component, the result of a `+SELECT+` query is a list of `+Map+` objects.
+Both the `+jdbc+` and `+sql+` components, however, provide options to control the output type, such as `+outputType+` and `+outputClass+`.
+Refer to the documentation for more details about these options and the output of other SQL statements, such as `+INSERT+` or `+UPDATE+`.
+
+[NOTE]
+====
+In Spring Boot applications, you can use the `+camel-sql-starter+` dependency to extend the `+camel-sql+` library capabilities.
+
+The Spring Boot starter dependency enables Spring Boot autoconfiguration capabilities for this component.
+This means that users can configure the component by specifying `+camel.component.sql.*+` properties in the `+application.properties+` file.
+====
+
+=== Using the JPA Component
+
+The URI syntax of the `+jpa+` component is as follows:
+
+----
+jpa:entityClassName[?options]
+----
+
+The `+entityClassName+` parameter must be a valid JPA entity class name.
+
+The following example shows how to periodically read `+Order+` entities from a database.
+
+[subs=+quotes]
+----
+from(`+"jpa:com.redhat.training.entity.Order"+` <1>
+        `++ "persistenceUnit=mysql"+` <2>
+        `++ "&consumeDelete=false"+` <3>
+        `++ "&consumer.namedQuery=getPending"+` <4>
+        `++ "&maximumResults=5"+` <5>
+        `++ "&consumer.delay=3000"+` <6>
+        `++ "&consumeLockEntity=false"+` <7>
+    )
+    .process(new OrderProcessor()) <8>
+    .to("file:out");
+----
+
+<1> The `+Order+` class is a JPA entity used to query orders from the database.
+<2> The Persistence unit is MySQL.
+<3> Do not delete records from the database after consumption.
+<4> Use a named query from the JPA entity.
+In this particular example, the `+getPending+` named query of the `+Order+` entity retrieves pending orders only.
+If you do not specify this option, then the `+jpa+` component selects all records.
+<5> Retrieve at most five records in each poll.
+<6> Poll the database every three seconds.
+<7> Do not set an exclusive lock on each entity bean while processing the results from polling.
+<8> The processor receives instances of `+Order+` as message bodies.
+
+Similar to the preceding components, the `+jpa+` component provides options to control the output of different operations and queries.
+Refer to the documentation for a full list of configuration options.
+
+[NOTE]
+====
+In Spring Boot applications, you can use the `+camel-jpa-starter+` dependency to extend the `+camel-jpa+` library capabilities.
+
+You can set `+camel.component.jpa.*+` properties in the `+application.properties+` file to auto configure the component.
+====
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _JDBC Component_ chapter in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache{nbsp}Camel Component Reference_ at
+https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#jdbc-component
+
+For more information, refer to the _SQL Component_ chapter in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache{nbsp}Camel Component Reference_ at
+https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#sql-component
+
+For more information, refer to the _JPA Component_ chapter in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache{nbsp}Camel Component Reference_ at
+https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#jpa-component
+====

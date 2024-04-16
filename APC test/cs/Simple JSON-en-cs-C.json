@@ -1,0 +1,19 @@
+{
+  "boolean_key": "--- pravda\n",
+  "empty_string_translation": "",
+  "key_with_description": "Zkontrolujte tento aktualizovaný překlad pouze pro účely nuceného importu! Tento zcela nový aktualizovaný značka, nový klíč badass má popis! (Alespoň v některých formátech)",
+  "key_with_line-break": "Tento úžasný překlad obsahuje zalomení řádku.",
+  "nested.deeply.key": "Wow, tento nejnovější klíč je vnořen ještě hlouběji.",
+  "nested.key": "Tento klíč je vnořený do zcela nového aktualizovaného oboru názvů vynuceného importem.",
+  "null_translation": null,
+  "pluralized_key": {
+    "one": "Byla nalezena pouze jedna pluralizace.",
+    "other": "Páni, máte %s pluralizace!",
+    "zero": "Nemáte žádné množné číslo."
+  },
+  "sample_collection": [
+    "první položka",
+    "druhá položka",
+    "třetí položka"
+  ]
+}

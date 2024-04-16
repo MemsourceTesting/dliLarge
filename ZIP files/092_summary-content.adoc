@@ -1,0 +1,13 @@
+[id='transaction-summary']
+= Summary
+// Write a summary statement at the end of every chapter that summarizes the main ideas and key points of the chapter.
+// A summary lists the absolutely critical things the student must know in order to successfully meet the chapter objective.
+// After building your chapter, look back at each section and identify one or two things per section that are critical for the student to know and retain about the section.
+// A summary statement should not restate the section objectives.
+
+In this chapter, you learned:
+
+* You can use the JDBC, SQL, and JPA components in Camel to integrate with databases.
+* In Spring Boot, the data source of JDBC, SQL, and JPA components is configurable via `+spring.datasource.*+` properties.
+* Camel implements the Idempotent Consumer EIP to handle duplicate messages.
+* Transactions alleviate common Camel integration problems by rolling back operations and leaving the system in a consistent state.

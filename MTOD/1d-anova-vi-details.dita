@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="details">
+<title/>
+<refbody>
+ <refbodydiv conaction="pushreplace" conref="1d-anova-vi.dita#topic/addendum">
+  <section>
+<p>In the one-way analysis of variance, the VI tests whether the level of the factor has an effect on the experimental outcome.</p>
+
+</section><section>
+<title>1D ANOVA Factors and Levels</title>
+<p>A factor is a basis for categorizing data. For example, if you count the number of sit-ups individuals can do, one basis of categorization is age. For age, you might have the following levels.</p>
+<table><tgroup cols="0"><tbody><row><entry>Level 0</entry><entry>6 years old to 10 years old</entry></row>
+<row><entry>Level 1</entry><entry>11 years old to 15 years old</entry></row>
+<row><entry>Level 2</entry><entry>16 years old to 20 years old</entry></row></tbody></tgroup></table>
+<p>Now, suppose that you make a series of observations to see how many sit-ups people can do. If you take a random sampling of five people, you might find the following results.</p>
+<table><tgroup cols="0"><tbody><row><entry>Person 1</entry>
+<entry>8 years old (level 0)</entry>
+<entry>10 sit-ups</entry></row>
+<row><entry>Person 2</entry>
+<entry>12 years old (level 1)</entry>
+<entry>15 sit-ups</entry></row>
+<row><entry>Person 3</entry>
+<entry>16 years old (level 2)</entry>
+<entry>20 sit-ups</entry></row>
+<row><entry>Person 4</entry>
+<entry>20 years old (level 2)</entry>
+<entry>25 sit-ups</entry></row>
+<row><entry>Person 5</entry>
+<entry>13 years old (level 1)</entry>
+<entry>17 sit-ups</entry></row></tbody></tgroup></table>
+<p>Notice that you have made at least one observation per level. To perform an analysis of variance, you must make at least one observation per level.</p>
+<p>To perform the analysis of variance, you specify an array <b>X</b> of observations, with values 10, 15, 20, 25, and 17. The array <b>Index</b> specifies the level (or category) to which each observation applies. In this case, Index has the values 0, 1, 2, 2, and 1. Finally, there are three possible levels, so you pass in a value of 3 for the <b># of levels</b> parameter.</p>
+
+</section><section>
+<title>1D ANOVA Statistical Model</title>
+<p>Performing the analysis of variance, you express each experimental outcome as the sum of three parts. Let <i>x<sub>im</sub></i> be the <i>m</i><sup>th</sup> observation from the <i>i</i><sup>th</sup> level. Then each observation is written</p>
+<equation-inline><i>x<sub>im</sub></i> = &#0181; + &#945;<sub><i>i</i></sub> + &#949;<sub><i>im</i></sub></equation-inline>
+<p>where &#0181; is a standard effect, called the overall mean.</p>
+<p>&#945;<sub>i</sub> is the effect of the <i>i</i><sup>th</sup> level of the factor, which is the difference between the mean of the <i>i</i><sup>th</sup> level &#945;<sub><i>i</i></sub> and the overall mean</p>
+<equation-inline>&#0181;(&#0181;<sub><i>i</i></sub>) = &#0181; + &#945;<sub><i>i</i></sub></equation-inline>
+<p>and &#949;<sub><i>im</i></sub> is a random fluctuation.</p>
+
+</section><section>
+<title>1D ANOVA Hypothesis</title>
+<p>This VI tests the hypothesis that &#945;<sub><i>i</i></sub> = 0 for <i>i</i> = 0, 1, &#8230;, <i>k</i> &#8211; 1, where <i>k</i> is <b># of levels</b>. In other words, this hypothesis, referred to as the null hypothesis, states that no level affects the experimental outcome and then looks for evidence to the contrary.</p>
+
+</section><section>
+<title>1D ANOVA Assumptions</title>
+<p>Assume that the populations of measurements at each level are Normally distributed with mean &#0181;<sub><i>i</i></sub> and variance &#963;<sub>A</sub>&#178;, and assume that &#945;<sub><i>i</i></sub> sum to zero. Finally, assume that for each <i>i</i> and <i>m</i>, &#949;<sub><i>im</i></sub> is Normally distributed with mean 0 and variance &#963;<sub>A</sub>&#178;.</p>
+
+</section><section>
+<title>1D ANOVA General Method</title>
+<p>This VI computes the total sum of squares, <b>tss</b>, which is a measure of the total variation of the data from the overall population mean.</p>
+<p><b>tss</b> consists of two parts: <b>ssa</b>, a measure of variation attributed to the factor, and <b>sse</b>, a measure of variation attributed to random fluctuation. In other words,</p>
+<equation-inline><b>tss</b> = <b>ssa</b> + <b>sse</b>.</equation-inline>
+<p>The VI computes the two mean square quantities <b>msa</b> and <b>mse</b> from <b>ssa</b> and <b>sse</b> by dividing <b>ssa</b> and <b>sse</b> by their own degrees of freedom. The larger <b>msa</b> is relative to <b>mse</b>, the more significant effect the factor has on the experimental outcome.</p>
+<p>In particular, if the null hypothesis is true, then the ratio <b>f</b>, f = msa/mse, is taken from an F distribution with <i>k</i> &#8211; 1 and <i>n</i> &#8211; <i>k</i> degrees of freedom, from which you can calculate probabilities. Given a particular <b>f</b>, <b>sigA</b> is the probability that you get a value larger than <b>f</b> when sampling from this distribution.</p>
+
+</section><section>
+<title>Testing the 1D ANOVA Hypothesis</title>
+<p>Determine when to reject the null hypothesis by deciding how likely you want it to be that you mistakenly reject the null hypothesis. This is the level of significance, a common choice is 0.05. The output <b>sigA</b> is compared to the chosen level of significance to determine whether to accept or reject the null hypothesis. If <b>sigA</b> is less than the chosen level of significance, reject the null hypothesis. If you reject the null hypothesis, you must acknowledge that at least one level has some effect on the experimental outcome.</p>
+
+</section><section>
+<title>1D ANOVA Formulas</title>
+<p>Let <i>x<sub>im</sub></i> = the <i>m</i><sup>th</sup> observation made at the <i>i</i><sup>th</sup> level for <i>m</i> = 0, 1, &#8230;, <i>n<sub>i</sub></i> &#8211; 1 and <i>i</i> = 0, 1, &#8230;, <i>k</i> &#8211; 1, where <i>n<sub>i</sub></i> is the number of observations at the <i>i</i><sup>th</sup> level and <i>k</i> = <b># of levels</b>.</p>
+<p><equation-inline><image href="noloc_eq_1dan1.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan2.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan3.gif"/></equation-inline></p>
+<p>then</p>
+<p><equation-inline><image href="noloc_eq_1dan4.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan5.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan6.gif"/></equation-inline></p>
+<p><equation-inline><image href="loc_eq_1dan7.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan8.gif"/></equation-inline></p>
+<p><equation-inline><image href="loc_eq_1dan9.gif"/></equation-inline></p>
+<p><equation-inline>SigA = Prob{F<sub><i>k</i> &#8211; 1, <i>n</i> &#8211; <i>k</i></sub> &gt; f}</equation-inline></p>
+<p><equation-inline>F<sub><i>k</i> &#8211; 1, <i>n</i> &#8211; <i>k</i></sub></equation-inline></p>
+<p>is the F distribution with <i>k</i> &#8211; 1 and <i>n</i> &#8211; <i>k</i> degrees of freedom.</p>
+</section>
+</refbodydiv></refbody>
+</reference>

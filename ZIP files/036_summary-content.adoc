@@ -1,0 +1,12 @@
+[id='route-summary']
+= Summary
+
+In this chapter, you learned:
+
+* A Camel route describes the path of a message from an origin endpoint to a destination endpoint.
+* You can define routes with the Java DSL or the XML DSL.
+* To use the File or FTP components to read and write files.
+* For complex message routing, Camel provides built-in enterprise integration pattern (EIP) implementations.
+* Routes might include message processing logic.
+* You can use built-in or custom processors for message processing.
+* Processors are intended for integration logic, not business logic.

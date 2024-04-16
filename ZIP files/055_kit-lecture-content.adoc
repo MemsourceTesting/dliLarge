@@ -1,0 +1,191 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='testkit-lecture']
+= Section Content
+
+== Introduction to the Camel Test Kit
+
+Apache Camel provides a collection of modules and JUnit extension classes known as the Camel Test Kit.
+This kit is intended to make the testing of Camel routes easier for developers.
+
+Similar to testing any other piece of software, you should distribute your testing efforts by using various types of tests.
+The required effort to adopt each test type is defined by the testing pyramid.
+The testing pyramid suggests an agile testing strategy including unit, integration, and end-to-end acceptance tests.
+
+With the Camel Test Kit, you can implement unit and integration tests.
+Higher-level tests, such as user interface or end-to-end tests require additional testing frameworks, which are not covered in this course.
+
+
+The following are the available Camel Test Kit modules in Red{nbsp}Hat Fuse 7.10 for Spring Boot.
+
+camel-test::
+The main testing module, which provides a number of helpers for writing JUnit tests for Camel routes.
+
+camel-test-spring::
+This module wraps `+camel-test+` to make the Camel testing helpers available in Spring and Spring Boot tests.
+
+[NOTE]
+====
+Camel 3 replaces the preceding libraries with `+camel-test-junit5+` and `+camel-test-spring-junit5+`.
+These JUnit 5 libraries are not covered in this course, because Red{nbsp}Hat Fuse 7.10 is based on Camel 2.
+====
+
+== Configuring Camel Testing in Spring Boot
+
+. Add the `+spring-boot-starter-test+` dependency to your POM file.
+This module gathers a number of testing libraries, including JUnit, making it easier for Spring Boot developers to manage testing dependencies.
++
+----
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+----
+
+. Add the `+camel-test-spring+` dependency to your POM file.
+This module also adds `+camel-test+` as a transitive dependency.
++
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-test-spring</artifactId>
+    <scope>test</scope>
+</dependency>
+----
+
+
+
+
+[IMPORTANT]
+====
+If you do not use the Fuse Spring Boot BOM to control the versions of your dependencies, then you must explicitly declare the `+spring-boot-starter-test+` and `+camel-test-spring+` versions.
+====
+
+== Implementing Camel Tests in Spring Boot
+
+Consider a Camel route that receives a double type number, and sends a two-decimal string representation to the file endpoint.
+You can implement this route in Spring Boot as the following example shows:
+
+[subs=+quotes]
+----
+`+@Component+`
+public class DoubleNumbersRouteBuilder extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+        from( "direct:doubleNumber")
+            .process(exchange -> {
+                Double number = exchange.getIn().getBody(Double.class);
+                exchange.getIn().setBody(String.format("%,.2f", number));
+            })
+            .to("file:formatted");
+    }
+
+}
+----
+
+Note that the `+@Component+` Spring annotation is required for your Spring Boot tests to discover the route.
+
+Next, consider that you want to test that, given a double number, the preceding route produces the correct string representation.
+You can write a Spring Boot test case as follows:
+
+[subs=+quotes]
+----
+`+@RunWith( CamelSpringBootRunner.class )+` <1>
+`+@SpringBootTest( classes = Application.class )+` <2>
+public class DoubleNumbersRouteBuilderTest {
+
+    `@Autowired
+    private ProducerTemplate producerTemplate;` <3>
+
+    `@Autowired
+    private ConsumerTemplate consumerTemplate;` <4>
+
+    @Test
+    public void testRouteParsesLatestWarningText() {
+        `+producerTemplate.sendBody("direct:doubleNumber", Math.PI);+` <5>
+
+        `+String formatted = consumerTemplate.receiveBody(+` <6>
+            `"file:formatted",
+            String.class
+        );`
+
+        `+assertEquals("3.14", formatted);+` <7>
+    }
+}
+----
+
+<1> `+@CamelSpringBootRunner+` enables the Camel test helpers in Spring Boot test cases and automatically handles the Camel context.
+
+<2> `+@SpringBootTest+` specifies the configuration class to use for the Spring Boot application context.
+Note that you must also annotate the main configuration class of your application with `+@SpringBootApplication+`.
+
+<3> `+@Autowired+` injects the `+ProducerTemplate+` object.
+Use this template to send messages to a route endpoint.
+<4> `+@Autowired+` injects the `+ConsumerTemplate+` object.
+Use this template to receive messages from a route endpoint.
+<5> The producer template sends the Pi number to the `+direct:doubleNumber+` input endpoint.
+The `+ProducerTemplate+` class provides additional methods, other than `+sendBody+`, to easily send messages to endpoints.
+<6> The consumer template receives the resulting message body from the `+file:formatted+` destination endpoint.
+The `+ConsumerTemplate+` class provides additional methods, other than `+receiveBody+`, to easily receive messages from endpoints.
+
+<7> The test verifies that the resulting message body is a 2-decimal string representation of Pi.
+
+
+
+=== Injecting the Camel Context
+
+Although `+CamelSpringBootRunner+` is useful for automating the management of Camel context, in some cases a test case might need greater control over the Camel context.
+To get direct access to the Camel context in your test cases, inject the `+CamelContext+` dependency with the `+@Autowired+` Spring annotation.
+
+[subs=+quotes]
+----
+@RunWith( CamelSpringBootRunner.class )
+@SpringBootTest( classes = Application.class )
+public class MyRouteBuilderTest {
+
+    `@Autowired
+    private CamelContext context;`
+
+    @Test
+    public void testRouteParsesLatestWarningText() {
+        Collection<Endpoint> endpoints = context.getEndpoints();
+        ...
+    }
+}
+----
+
+=== Testing Utilities
+
+The `+TestSupport+` class provides a number of static testing utility methods.
+For example, if you want to create a directory before each test runs, then you can use the `+createDirectory+` method.
+
+[subs=+quotes]
+----
+@BeforeEach
+public void setUp() {
+    `+TestSupport.createDirectory( "my/testing/dir" );+`
+}
+----
+
+Similarly, you can delete a directory after each test, with the `+deleteDirectory+` method.
+
+[subs=+quotes]
+----
+@AfterEach
+public void clean() {
+    `+TestSupport.deleteDirectory( "my/testing/dir" );+`
+}
+----
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+https://martinfowler.com/articles/practical-test-pyramid.html[The Practical Test Pyramid]
+
+https://www.javadoc.io/static/org.apache.camel/camel-test/2.23.2/org/apache/camel/test/junit4/TestSupport.html[TestSupport Class Javadoc]
+
+For more information, refer to the _Testing with Camel Spring Boot_ section in the _Red{nbsp}Hat Fuse{nbsp}7.10 - Deploying into Spring Boot Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/deploying_into_spring_boot/index#test-with-camel-spring-boot
+====

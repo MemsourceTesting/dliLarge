@@ -1,0 +1,1458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Division" xml:space="preserve">
+    <value>Division</value>
+  </data>
+  <data name="API" xml:space="preserve">
+    <value>API</value>
+  </data>
+  <data name="KnowledgeCenter" xml:space="preserve">
+    <value>Knowledge Center</value>
+  </data>
+  <data name="NeedHelp" xml:space="preserve">
+    <value>Need Help?</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Something</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No really</value>
+  </data>
+  <data name="PortalName" xml:space="preserve">
+    <value>Johnson &amp; Johnson Global Translation Center</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Sector" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Powered by Amplexor</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="ReturnToKnowledgeCenter" xml:space="preserve">
+    <value>Return to Knowledge Center</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Johnson &amp; Johnson</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="UhOhMsg" xml:space="preserve">
+    <value>Uh oh! Something happened.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Divisions" xml:space="preserve">
+    <value>Divisions</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please wait...</value>
+  </data>
+  <data name="Regions" xml:space="preserve">
+    <value>Regions</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Sectors" xml:space="preserve">
+    <value>Sectors</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="SelectMultiples" xml:space="preserve">
+    <value>Use ctrl to select multiples.</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="SourceLanguage" xml:space="preserve">
+    <value>Source Language</value>
+  </data>
+  <data name="SourceLanguages" xml:space="preserve">
+    <value>Source Languages</value>
+  </data>
+  <data name="TargetLanguage" xml:space="preserve">
+    <value>Target Language</value>
+  </data>
+  <data name="TargetLanguages" xml:space="preserve">
+    <value>Target Languages</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="KPIs" xml:space="preserve">
+    <value>KPIs</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="Quotes" xml:space="preserve">
+    <value>Quotes</value>
+  </data>
+  <data name="TMs" xml:space="preserve">
+    <value>TMs</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Email required.</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="Owners" xml:space="preserve">
+    <value>Owners</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone is mine!</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ProjectStatus" xml:space="preserve">
+    <value>Project Status</value>
+  </data>
+  <data name="Recipients" xml:space="preserve">
+    <value>Recipients</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Sender" xml:space="preserve">
+    <value>Sender</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State of United</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Supplier</value>
+  </data>
+  <data name="Suppliers" xml:space="preserve">
+    <value>Suppliers</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AdditionalNotes" xml:space="preserve">
+    <value>Additional Notes</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Add New</value>
+  </data>
+  <data name="AreGraphicsIllustrationsTranslated" xml:space="preserve">
+    <value>Graphics or illustrations need to be really translated</value>
+  </data>
+  <data name="AreSpeakerNotesTranslated" xml:space="preserve">
+    <value>Speaker notes need to be translated</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad Request</value>
+  </data>
+  <data name="BidId" xml:space="preserve">
+    <value>Bid Id</value>
+  </data>
+  <data name="BidStatus" xml:space="preserve">
+    <value>Bid Status</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Created Date</value>
+  </data>
+  <data name="CreateProject" xml:space="preserve">
+    <value>Create Project</value>
+  </data>
+  <data name="Deadline" xml:space="preserve">
+    <value>Deadline</value>
+  </data>
+  <data name="DescriptionNotes" xml:space="preserve">
+    <value>Description &amp; Notes</value>
+  </data>
+  <data name="EarlyProjects" xml:space="preserve">
+    <value>Early Projects</value>
+  </data>
+  <data name="EditDisabledProjectCancelled" xml:space="preserve">
+    <value>Edit Disabled&lt;br&gt;Project Cancelled</value>
+  </data>
+  <data name="EditDisabledProjectClosed" xml:space="preserve">
+    <value>Edit Disabled&lt;br&gt;Project Closed</value>
+  </data>
+  <data name="EditDisabledSkipToProject" xml:space="preserve">
+    <value>Edit Disabled&lt;br&gt;Skip To Project</value>
+  </data>
+  <data name="FileRequired" xml:space="preserve">
+    <value>File required.</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="GenerateTM" xml:space="preserve">
+    <value>Generate TM</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Invitations" xml:space="preserve">
+    <value>Invitations</value>
+  </data>
+  <data name="IsUpdateProject" xml:space="preserve">
+    <value>Project update</value>
+  </data>
+  <data name="LanguagesFormatsServices" xml:space="preserve">
+    <value>Languages, Formats &amp; Services</value>
+  </data>
+  <data name="LargeProjectDiscount" xml:space="preserve">
+    <value>Large Project Discount my friend</value>
+  </data>
+  <data name="LateProjects" xml:space="preserve">
+    <value>Late Projects</value>
+  </data>
+  <data name="LinguisticMajorNCs" xml:space="preserve">
+    <value>Linguistic Major NCs</value>
+  </data>
+  <data name="LinguisticMinorNCs" xml:space="preserve">
+    <value>Linguistic Minor NCs</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Lost</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="NonConformances" xml:space="preserve">
+    <value>Non-Conformances</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="NotificationsDisabledProjectCancelled" xml:space="preserve">
+    <value>Send Message Disabled&lt;br&gt;Project Cancelled</value>
+  </data>
+  <data name="NotificationsDisabledProjectClosed" xml:space="preserve">
+    <value>Send Message Disabled&lt;br&gt;Project Closed</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OnTimeProjects" xml:space="preserve">
+    <value>On-Time Projects</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
+  <data name="PmMajorNCsCap" xml:space="preserve">
+    <value>PM MAJOR NCs</value>
+  </data>
+  <data name="PmMinorNCsCap" xml:space="preserve">
+    <value>PM MINOR NCs</value>
+  </data>
+  <data name="PONumber" xml:space="preserve">
+    <value>PO Number</value>
+  </data>
+  <data name="POs" xml:space="preserve">
+    <value>POs</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="ProjectDeadline" xml:space="preserve">
+    <value>Project Deadline</value>
+  </data>
+  <data name="ProjectDeadlineFlexible" xml:space="preserve">
+    <value>Project Deadline Is Flexible</value>
+  </data>
+  <data name="ProjectDescription" xml:space="preserve">
+    <value>Project Description</value>
+  </data>
+  <data name="ProjectKeyNotFound" xml:space="preserve">
+    <value>Project Key not found: {0}</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Project Name</value>
+  </data>
+  <data name="ProvideBasicsAboutKPI" xml:space="preserve">
+    <value>Provide the basics about your KPI.</value>
+  </data>
+  <data name="ProvideProjectBasicsMsg" xml:space="preserve">
+    <value>Provide the basics about your project.</value>
+  </data>
+  <data name="QuoteDeadline" xml:space="preserve">
+    <value>Quote Deadline</value>
+  </data>
+  <data name="QuoteDeadlineFlexible" xml:space="preserve">
+    <value>Quote Deadline Is Flexible</value>
+  </data>
+  <data name="QuoteKeyNotFound" xml:space="preserve">
+    <value>Quote Key not found: {0}</value>
+  </data>
+  <data name="QuoteRequest" xml:space="preserve">
+    <value>Quote Request</value>
+  </data>
+  <data name="QuoteStatus" xml:space="preserve">
+    <value>Quote Status</value>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="Requestor" xml:space="preserve">
+    <value>Requestor</value>
+  </data>
+  <data name="Requestors" xml:space="preserve">
+    <value>Requestors</value>
+  </data>
+  <data name="ResponseDate" xml:space="preserve">
+    <value>Response Date</value>
+  </data>
+  <data name="Responses" xml:space="preserve">
+    <value>Responses</value>
+  </data>
+  <data name="SectorDivisionRegion" xml:space="preserve">
+    <value>Sector / Division / Region</value>
+  </data>
+  <data name="SelectCurrencyEllipsis" xml:space="preserve">
+    <value>Select Currency...</value>
+  </data>
+  <data name="SendInvitations" xml:space="preserve">
+    <value>Send Invitations</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>Send Notification</value>
+  </data>
+  <data name="SendNotifications" xml:space="preserve">
+    <value>Send Notifications</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="SkipToProject" xml:space="preserve">
+    <value>Skip To Project</value>
+  </data>
+  <data name="SourceFileFormats" xml:space="preserve">
+    <value>Source File Formats</value>
+  </data>
+  <data name="SpendAwarded" xml:space="preserve">
+    <value>Spend Awarded</value>
+  </data>
+  <data name="SpendInvoiced" xml:space="preserve">
+    <value>Spend Invoiced</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="SupplierHistory" xml:space="preserve">
+    <value>Supplier History</value>
+  </data>
+  <data name="SupplierNotFound" xml:space="preserve">
+    <value>Supplier not found: {0}</value>
+  </data>
+  <data name="SuppliersHistory" xml:space="preserve">
+    <value>Suppliers History</value>
+  </data>
+  <data name="TargetFileFormats" xml:space="preserve">
+    <value>Target File Formats</value>
+  </data>
+  <data name="TechnicalMajorNCs" xml:space="preserve">
+    <value>Technical Major NCs</value>
+  </data>
+  <data name="TechnicalMinorNCs" xml:space="preserve">
+    <value>Technical Minor NCs</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Thank You</value>
+  </data>
+  <data name="TheBasics" xml:space="preserve">
+    <value>The Basics</value>
+  </data>
+  <data name="TMSavings" xml:space="preserve">
+    <value>TM Savings</value>
+  </data>
+  <data name="TotalCost" xml:space="preserve">
+    <value>Total Cost</value>
+  </data>
+  <data name="TotalMajorNCs" xml:space="preserve">
+    <value>Total Major NCs madafakas</value>
+  </data>
+  <data name="TotalMinorNCs" xml:space="preserve">
+    <value>Total Minor NCs</value>
+  </data>
+  <data name="TranslationCertificateRequired" xml:space="preserve">
+    <value>Translation certificate required</value>
+    <comment>.</comment>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploaded</value>
+  </data>
+  <data name="UploadTM" xml:space="preserve">
+    <value>Upload TM</value>
+  </data>
+  <data name="VolumeSavings" xml:space="preserve">
+    <value>Volume Savings</value>
+  </data>
+  <data name="Won" xml:space="preserve">
+    <value>Won</value>
+  </data>
+  <data name="WordCount" xml:space="preserve">
+    <value>Word Count</value>
+  </data>
+  <data name="CreateTemplate" xml:space="preserve">
+    <value>Create Template</value>
+  </data>
+  <data name="HideHistory" xml:space="preserve">
+    <value>Hide History</value>
+  </data>
+  <data name="RequestQuote" xml:space="preserve">
+    <value>Request Quote</value>
+  </data>
+  <data name="ReturnToProjects" xml:space="preserve">
+    <value>Return to Projects</value>
+  </data>
+  <data name="ReturnToQuotes" xml:space="preserve">
+    <value>Return to Quotes</value>
+  </data>
+  <data name="PleaseSelectSupplier" xml:space="preserve">
+    <value>Please select a new supplier.</value>
+  </data>
+  <data name="ShowHistory" xml:space="preserve">
+    <value>Show History</value>
+  </data>
+  <data name="SubmitQuoteRequest" xml:space="preserve">
+    <value>Submit Quote Request</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>closed</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="ProjectTurnaround" xml:space="preserve">
+    <value>Project Turnaround</value>
+  </data>
+  <data name="ReOpened" xml:space="preserve">
+    <value>re-opened</value>
+  </data>
+  <data name="ReturnToProject" xml:space="preserve">
+    <value>Return To Project</value>
+  </data>
+  <data name="SendDate" xml:space="preserve">
+    <value>Send Date</value>
+  </data>
+  <data name="SourceFormat" xml:space="preserve">
+    <value>Source Format</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="SubmittedOn" xml:space="preserve">
+    <value>Submitted On</value>
+  </data>
+  <data name="TargetFormats" xml:space="preserve">
+    <value>Target Formats</value>
+  </data>
+  <data name="AdditionalEmails" xml:space="preserve">
+    <value>Additional Emails</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="ClientName" xml:space="preserve">
+    <value>Client Name</value>
+  </data>
+  <data name="ClientRequired" xml:space="preserve">
+    <value>Client required.</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Coming Soon</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="ProjectDelivery" xml:space="preserve">
+    <value>Project Delivery</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="ReturnToKPIs" xml:space="preserve">
+    <value>Return to KPIs</value>
+  </data>
+  <data name="Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="StatusRequired" xml:space="preserve">
+    <value>Status required.</value>
+  </data>
+  <data name="Thanks" xml:space="preserve">
+    <value>Thanks!</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="ViewProject" xml:space="preserve">
+    <value>View Project</value>
+  </data>
+  <data name="BackToProject" xml:space="preserve">
+    <value>Back to Project</value>
+  </data>
+  <data name="BackToQuote" xml:space="preserve">
+    <value>Back to Quote</value>
+  </data>
+  <data name="InvalidEmailAddressEntered" xml:space="preserve">
+    <value>Invalid e-mail address entered.</value>
+  </data>
+  <data name="Activation" xml:space="preserve">
+    <value>Activation</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="ConfirmPasswordRequired" xml:space="preserve">
+    <value>Confirm password required.</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>First name required.</value>
+  </data>
+  <data name="LanguageRequired" xml:space="preserve">
+    <value>Language required.</value>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>Last name required.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordLengthCriterion" xml:space="preserve">
+    <value>The {0} must be at least {2} characters long.</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Password required.</value>
+  </data>
+  <data name="PasswordsDoNotMatch" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="RoleRequired" xml:space="preserve">
+    <value>Role required.</value>
+  </data>
+  <data name="SelectCategory" xml:space="preserve">
+    <value>Select Category...</value>
+  </data>
+  <data name="SelectDivision" xml:space="preserve">
+    <value>Select Division...</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Select Language...</value>
+  </data>
+  <data name="SelectProduct" xml:space="preserve">
+    <value>Select Product...</value>
+  </data>
+  <data name="SelectProject" xml:space="preserve">
+    <value>Select Project...</value>
+  </data>
+  <data name="SelectRegion" xml:space="preserve">
+    <value>Select Region...</value>
+  </data>
+  <data name="SelectSector" xml:space="preserve">
+    <value>Select Sector...</value>
+  </data>
+  <data name="SelectTimezone" xml:space="preserve">
+    <value>Select Timezone...</value>
+  </data>
+  <data name="TimezoneRequired" xml:space="preserve">
+    <value>Timezone required.</value>
+  </data>
+  <data name="TMStatusRequired" xml:space="preserve">
+    <value>TM status required.</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="NotApplicable" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>required</value>
+  </data>
+  <data name="SaveTemplate" xml:space="preserve">
+    <value>Save Template</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Conformances" xml:space="preserve">
+    <value>Conformances</value>
+  </data>
+  <data name="Dollars" xml:space="preserve">
+    <value>Dollars</value>
+  </data>
+  <data name="NonConformanceTypeBy" xml:space="preserve">
+    <value>Non-Conformance Type by {0}</value>
+  </data>
+  <data name="ProjectDeliveryBy" xml:space="preserve">
+    <value>Project Delivery by {0}</value>
+  </data>
+  <data name="SpendingAndSavingsBy" xml:space="preserve">
+    <value>Spending &amp; Savings by {0}</value>
+  </data>
+  <data name="TotalInvoiced" xml:space="preserve">
+    <value>Total Invoiced</value>
+  </data>
+  <data name="TotalNonConformancesBy" xml:space="preserve">
+    <value>Total Non-Conformances by {0}</value>
+  </data>
+  <data name="Words" xml:space="preserve">
+    <value>Words</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Not Approved</value>
+  </data>
+  <data name="Deliverables" xml:space="preserve">
+    <value>Deliverables</value>
+  </data>
+  <data name="SourceFormats" xml:space="preserve">
+    <value>Source Formats</value>
+  </data>
+  <data name="ProjectManagementMajorNCs" xml:space="preserve">
+    <value>Project Management Major NCs</value>
+  </data>
+  <data name="ProjectManagementMinorNCs" xml:space="preserve">
+    <value>Project Management Minor NCs</value>
+  </data>
+  <data name="ReportDate" xml:space="preserve">
+    <value>Report Date:</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SupplierName" xml:space="preserve">
+    <value>SupplierName</value>
+  </data>
+  <data name="TMStatus" xml:space="preserve">
+    <value>TM Status</value>
+  </data>
+  <data name="DownloadFiles" xml:space="preserve">
+    <value>Download Files</value>
+  </data>
+  <data name="EditDisabled" xml:space="preserve">
+    <value>Edit Disabled</value>
+  </data>
+  <data name="QuoteCancelled" xml:space="preserve">
+    <value>Quote Cancelled</value>
+  </data>
+  <data name="QuoteClosed" xml:space="preserve">
+    <value>Quote Closed</value>
+  </data>
+  <data name="Rights" xml:space="preserve">
+    <value>Rights</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>Keywords</value>
+  </data>
+  <data name="AllQuoteStatus" xml:space="preserve">
+    <value>All Quote Status</value>
+  </data>
+  <data name="AllRequestors" xml:space="preserve">
+    <value>All Owners</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AllClients" xml:space="preserve">
+    <value>All Clients</value>
+  </data>
+  <data name="PO" xml:space="preserve">
+    <value>PO</value>
+  </data>
+  <data name="ProjectCancelled" xml:space="preserve">
+    <value>Project Cancelled</value>
+  </data>
+  <data name="ProjectClosed" xml:space="preserve">
+    <value>Project Closed</value>
+  </data>
+  <data name="AllProjectStatus" xml:space="preserve">
+    <value>All Project Status</value>
+  </data>
+  <data name="AllOwners" xml:space="preserve">
+    <value>All Owners</value>
+  </data>
+  <data name="AllSuppliers" xml:space="preserve">
+    <value>All Suppliers</value>
+  </data>
+  <data name="AllCategories" xml:space="preserve">
+    <value>All Categories</value>
+  </data>
+  <data name="EditFile" xml:space="preserve">
+    <value>Edit File</value>
+  </data>
+  <data name="FileDetails" xml:space="preserve">
+    <value>File Details</value>
+  </data>
+  <data name="NoEditPermission" xml:space="preserve">
+    <value>No Edit Permission</value>
+  </data>
+  <data name="ReturnToFiles" xml:space="preserve">
+    <value>Return To Files</value>
+  </data>
+  <data name="NoDeletePermission" xml:space="preserve">
+    <value>No Delete Permission</value>
+  </data>
+  <data name="TranslationUnits" xml:space="preserve">
+    <value>Translation Units</value>
+  </data>
+  <data name="UploadDate" xml:space="preserve">
+    <value>Upload Date</value>
+  </data>
+  <data name="AllTmStatus" xml:space="preserve">
+    <value>All TM Status</value>
+  </data>
+  <data name="SearchTMs" xml:space="preserve">
+    <value>Search Translation Memories</value>
+  </data>
+  <data name="AllProjects" xml:space="preserve">
+    <value>All Projects</value>
+  </data>
+  <data name="AllSourceLanguages" xml:space="preserve">
+    <value>All Source Languages</value>
+  </data>
+  <data name="AllTargetLanguages" xml:space="preserve">
+    <value>All Target Languages</value>
+  </data>
+  <data name="ProjectNames" xml:space="preserve">
+    <value>Project Names</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="CombineMultipleTMStatus" xml:space="preserve">
+    <value>Combine multiple TM status in same file</value>
+  </data>
+  <data name="FilenamePrefix" xml:space="preserve">
+    <value>Filename Prefix</value>
+  </data>
+  <data name="GenerateTranslationMemory" xml:space="preserve">
+    <value>Generate Translation Memory</value>
+  </data>
+  <data name="GeneratingTM" xml:space="preserve">
+    <value>Generating TM</value>
+  </data>
+  <data name="WaitTMGenerating" xml:space="preserve">
+    <value>Please wait, your TM is being generated...</value>
+  </data>
+  <data name="ChooseFiles" xml:space="preserve">
+    <value>Choose Files</value>
+  </data>
+  <data name="UploadFiles" xml:space="preserve">
+    <value>Upload Files</value>
+  </data>
+  <data name="SaveFile" xml:space="preserve">
+    <value>Save File</value>
+  </data>
+  <data name="HideConversation" xml:space="preserve">
+    <value>Hide Notifications</value>
+  </data>
+  <data name="ShowConversation" xml:space="preserve">
+    <value>Show Notifications</value>
+  </data>
+  <data name="AllBidStatus" xml:space="preserve">
+    <value>All Bid Status</value>
+  </data>
+  <data name="FileCount" xml:space="preserve">
+    <value>File Count</value>
+  </data>
+  <data name="ProjectCount" xml:space="preserve">
+    <value>Project Count</value>
+  </data>
+  <data name="QuoteCount" xml:space="preserve">
+    <value>Quote Count</value>
+  </data>
+  <data name="TMCount" xml:space="preserve">
+    <value>TM Count</value>
+  </data>
+  <data name="AsYouSelectValues" xml:space="preserve">
+    <value>As you select values from each menu, the options in the subsequent menus will decrease, based on a predefined hierarchy. Furthermore, available options will depend on your level of system access rights.</value>
+  </data>
+  <data name="DetailsSectionIncludes" xml:space="preserve">
+    <value>The details section includes options that describe the structure and more granular data related to your company.</value>
+  </data>
+  <data name="UnderstandingDetails" xml:space="preserve">
+    <value>Understanding Details</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="AllMonths" xml:space="preserve">
+    <value>All Months</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="SelectWithEllipsis" xml:space="preserve">
+    <value>Select...</value>
+  </data>
+  <data name="ProjectChanges" xml:space="preserve">
+    <value>Project Changes</value>
+  </data>
+  <data name="Quote" xml:space="preserve">
+    <value>Quote Request</value>
+  </data>
+  <data name="QuoteChanges" xml:space="preserve">
+    <value>Quote Changes</value>
+  </data>
+  <data name="OptionalMessage" xml:space="preserve">
+    <value>Optional Message</value>
+  </data>
+  <data name="ProjectChange" xml:space="preserve">
+    <value>Project Change</value>
+  </data>
+  <data name="ProjectChangeNotifications" xml:space="preserve">
+    <value>Project Change Notifications</value>
+  </data>
+  <data name="QuoteChange" xml:space="preserve">
+    <value>Quote Request Change</value>
+  </data>
+  <data name="QuoteChangeNotifications" xml:space="preserve">
+    <value>Quote Request Change Notifications</value>
+  </data>
+  <data name="SelectRecipientsChange" xml:space="preserve">
+    <value>Select the recipients you would like to notify regarding this change.</value>
+  </data>
+  <data name="SelectRecipientsChanges" xml:space="preserve">
+    <value>Select the recipients you would like to notify regarding these changes.</value>
+  </data>
+  <data name="SendProjectChangeNotifications" xml:space="preserve">
+    <value>Send Project Change Notifications</value>
+  </data>
+  <data name="SendQuoteChangeNotifications" xml:space="preserve">
+    <value>Send Quote Request Change Notifications</value>
+  </data>
+  <data name="TranslationFiles" xml:space="preserve">
+    <value>Translation Files</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="Minute" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>No results found.</value>
+  </data>
+  <data name="PleaseSelectAClient" xml:space="preserve">
+    <value>Please select a client.</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>second</value>
+  </data>
+  <data name="AddFilePackage" xml:space="preserve">
+    <value>Add File Package</value>
+  </data>
+  <data name="SelectSupplierChange" xml:space="preserve">
+    <value>Select the suppliers you would like to notify regarding this change.</value>
+  </data>
+  <data name="SelectSupplierChanges" xml:space="preserve">
+    <value>Select the suppliers you would like to notify regarding these changes.</value>
+  </data>
+  <data name="InviteSuppliers" xml:space="preserve">
+    <value>Invite Suppliers</value>
+  </data>
+  <data name="SendQuoteInvitations" xml:space="preserve">
+    <value>Send Quote Invitations</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>File Size</value>
+  </data>
+  <data name="NoFilesAssociatedQuote" xml:space="preserve">
+    <value>There are no files associated with this quote.</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>Date Range</value>
+  </data>
+  <data name="TotalProjects" xml:space="preserve">
+    <value>Total Projects</value>
+  </data>
+  <data name="TotalWordCount" xml:space="preserve">
+    <value>Total Word Count</value>
+  </data>
+  <data name="EstimatedProcessTime" xml:space="preserve">
+    <value>Estimated Process Time</value>
+  </data>
+  <data name="EstimatedTMFileSize" xml:space="preserve">
+    <value>Estimated TM File Size</value>
+  </data>
+  <data name="EstimatedZipFileSize" xml:space="preserve">
+    <value>Estimated Zip File Size</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Last Updated</value>
+  </data>
+  <data name="UpdateHistory" xml:space="preserve">
+    <value>Update History</value>
+  </data>
+  <data name="NoFilesAssociatedProject" xml:space="preserve">
+    <value>There are no files associated with this project.</value>
+  </data>
+  <data name="QuoteDescription" xml:space="preserve">
+    <value>Quote Description</value>
+  </data>
+  <data name="NoSuppliersInvited" xml:space="preserve">
+    <value>No Suppliers Invited</value>
+  </data>
+  <data name="Recipient" xml:space="preserve">
+    <value>Recipient</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="SendMessageDisabled" xml:space="preserve">
+    <value>Send Message Disabled</value>
+  </data>
+  <data name="SelectSuppliers" xml:space="preserve">
+    <value>Select Suppliers</value>
+  </data>
+  <data name="YourMessageSentTo" xml:space="preserve">
+    <value>Your message has been sent to {0}</value>
+  </data>
+  <data name="AdministrativeReports" xml:space="preserve">
+    <value>Administrative Reports</value>
+  </data>
+  <data name="Auto" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="Translate" xml:space="preserve">
+    <value>Translate</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="AllCurrencies" xml:space="preserve">
+    <value>All Currencies</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="LinguisticMajorNCsCap" xml:space="preserve">
+    <value>LINGUISTIC MAJOR NCs</value>
+  </data>
+  <data name="LinguisticMajorNonConformances" xml:space="preserve">
+    <value>Linguistic Major Non-Conformances</value>
+  </data>
+  <data name="LinguisticMinorNCsCap" xml:space="preserve">
+    <value>LINGUISTIC MINOR NCs</value>
+  </data>
+  <data name="LinguisticMinorNonConformances" xml:space="preserve">
+    <value>Linguistic Minor Non-Conformances</value>
+  </data>
+  <data name="ProjectManagementMajorNonConformances" xml:space="preserve">
+    <value>Project Management Major Non-Conformances</value>
+  </data>
+  <data name="ProjectManagementMinorNonConformances" xml:space="preserve">
+    <value>Project Management Minor Non-Conformances</value>
+  </data>
+  <data name="TechnicalMajorNCsCap" xml:space="preserve">
+    <value>TECHNICAL MAJOR NCs</value>
+  </data>
+  <data name="TechnicalMajorNonConformances" xml:space="preserve">
+    <value>Technical Major Non-Conformances</value>
+  </data>
+  <data name="TechnicalMinorNCsCap" xml:space="preserve">
+    <value>TECHNICAL MINOR NCs</value>
+  </data>
+  <data name="TechnicalMinorNonConformances" xml:space="preserve">
+    <value>Technical Minor Non-Conformances</value>
+  </data>
+  <data name="TotalMajorNCsCap" xml:space="preserve">
+    <value>TOTAL MAJOR NCs</value>
+  </data>
+  <data name="TotalMinorNCsCap" xml:space="preserve">
+    <value>TOTAL MINOR NCs</value>
+  </data>
+  <data name="PackageFileDeletedSuccessfully" xml:space="preserve">
+    <value>The package file was deleted successfully.</value>
+  </data>
+  <data name="ProjectId" xml:space="preserve">
+    <value>Project ID</value>
+  </data>
+  <data name="QuoteId" xml:space="preserve">
+    <value>Quote ID</value>
+  </data>
+  <data name="WorkType" xml:space="preserve">
+    <value>Work Type</value>
+  </data>
+  <data name="ClearSearch" xml:space="preserve">
+    <value>Clear Search</value>
+  </data>
+  <data name="LoadSearch" xml:space="preserve">
+    <value>Load Search</value>
+  </data>
+  <data name="SaveSearch" xml:space="preserve">
+    <value>Save Search</value>
+  </data>
+  <data name="Originator" xml:space="preserve">
+    <value>Originator</value>
+  </data>
+  <data name="CantFindSomething" xml:space="preserve">
+    <value>Can't Find Something?</value>
+  </data>
+  <data name="RecommendChanges" xml:space="preserve">
+    <value>If you can't find a menu item you'd expect to be listed, you can &lt;span class="request-menu-item"&gt;request an additional menu item be added&lt;/span&gt; to your organization's hierarchy.</value>
+  </data>
+  <data name="DownloadFile" xml:space="preserve">
+    <value>Download File</value>
+  </data>
+  <data name="ExportHistory" xml:space="preserve">
+    <value>Export History</value>
+  </data>
+  <data name="TranslationUnitsAdded" xml:space="preserve">
+    <value>{0} translation units were added on {1}.</value>
+    <comment>Example - 534 translation units were added on July 1st 2020.</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Portal Home</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="NotifyRegardingChange" xml:space="preserve">
+    <value>Notify {0} regarding this change.</value>
+    <comment>Example - Notify Amplexor regarding this change.</comment>
+  </data>
+  <data name="SendTo" xml:space="preserve">
+    <value>Send To</value>
+  </data>
+  <data name="DeleteTemplate" xml:space="preserve">
+    <value>Delete Template</value>
+  </data>
+  <data name="EditTemplate" xml:space="preserve">
+    <value>Edit Template</value>
+  </data>
+  <data name="LoadTemplate" xml:space="preserve">
+    <value>Load Template</value>
+  </data>
+  <data name="SendInvitation" xml:space="preserve">
+    <value>Send Invitation</value>
+  </data>
+  <data name="EditDisabledGcsProject" xml:space="preserve">
+    <value>Edit Disabled&lt;br&gt;Project Created</value>
+  </data>
+  <data name="QuoteRequestSubmitted" xml:space="preserve">
+    <value>Quote Request Submitted</value>
+  </data>
+  <data name="FilesTargetLanguages" xml:space="preserve">
+    <value>Files &amp; Target Languages</value>
+  </data>
+  <data name="SourceLanguageServiceFormats" xml:space="preserve">
+    <value>Source Language, Service &amp; Formats</value>
+  </data>
+  <data name="DetailsDescription" xml:space="preserve">
+    <value>Details Description</value>
+  </data>
+  <data name="TotalAwarded" xml:space="preserve">
+    <value>Total Awarded</value>
+  </data>
+  <data name="MachineTranslate" xml:space="preserve">
+    <value>Machine Translate</value>
+  </data>
+  <data name="FileType" xml:space="preserve">
+    <value>File Type</value>
+  </data>
+  <data name="ClientDetails" xml:space="preserve">
+    <value>Client Details</value>
+  </data>
+  <data name="DownloadProjects" xml:space="preserve">
+    <value>Download Projects Report</value>
+  </data>
+  <data name="DownloadQuotes" xml:space="preserve">
+    <value>Download Quotes Report</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AllUsers" xml:space="preserve">
+    <value>All Users</value>
+  </data>
+  <data name="TeamMembers" xml:space="preserve">
+    <value>Team Members</value>
+  </data>
+  <data name="MajorNonConformances" xml:space="preserve">
+    <value>Major Non-Conformances</value>
+  </data>
+  <data name="MinorNonConformances" xml:space="preserve">
+    <value>Minor Non-Conformances</value>
+  </data>
+  <data name="ServicesRequested" xml:space="preserve">
+    <value>Services Requested</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="ReturnToLocalizations" xml:space="preserve">
+    <value>Return To Localizations</value>
+  </data>
+  <data name="ChooseDataLocalizationFilesToImport" xml:space="preserve">
+    <value>Choose Data Localization Files To Import</value>
+  </data>
+  <data name="ImportDataLocalization" xml:space="preserve">
+    <value>Import Data Localizations</value>
+  </data>
+  <data name="TheFilesHaveBeenSuccessfullyImported" xml:space="preserve">
+    <value>The files have been successfully imported.</value>
+  </data>
+  <data name="UploadAndImportFiles" xml:space="preserve">
+    <value>Upload And Import Files</value>
+  </data>
+  <data name="UploadAndImportTranslationFiles" xml:space="preserve">
+    <value>Upload And Import Translation Files</value>
+  </data>
+  <data name="AllServices" xml:space="preserve">
+    <value>All Services</value>
+  </data>
+  <data name="ReferenceMaterials" xml:space="preserve">
+    <value>Reference Materials</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Review</value>
+  </data>
+  <data name="TaskStatus" xml:space="preserve">
+    <value>Task Status</value>
+  </data>
+  <data name="TheFilesHaveBeenImportedWithExceptions" xml:space="preserve">
+    <value>The Files have been imported with exceptions. Some translations were not imported. See notes below. </value>
+  </data>
+  <data name="FilePackages" xml:space="preserve">
+    <value>File Packages</value>
+  </data>
+  <data name="PackageState" xml:space="preserve">
+    <value>Package State</value>
+  </data>
+  <data name="AllPackageStates" xml:space="preserve">
+    <value>All Package States</value>
+  </data>
+  <data name="PackageStates" xml:space="preserve">
+    <value>Package States</value>
+  </data>
+  <data name="DownloadFilePackagesReport" xml:space="preserve">
+    <value>Download File Packages Report</value>
+  </data>
+  <data name="FileNames" xml:space="preserve">
+    <value>File Names</value>
+  </data>
+  <data name="ReviewStatus" xml:space="preserve">
+    <value>Review Status</value>
+  </data>
+  <data name="ReturnToReferenceMaterials" xml:space="preserve">
+    <value>Return to Reference Materials</value>
+  </data>
+  <data name="UploadReferenceMaterials" xml:space="preserve">
+    <value>Upload Reference Materials</value>
+  </data>
+  <data name="DownloadReferenceMaterial" xml:space="preserve">
+    <value>Download Reference Material</value>
+  </data>
+  <data name="EditReferenceMaterialId" xml:space="preserve">
+    <value>Edit Reference Material {0}</value>
+  </data>
+  <data name="SaveReferenceMaterial" xml:space="preserve">
+    <value>Save Reference Material</value>
+  </data>
+  <data name="ViewReferenceMaterial" xml:space="preserve">
+    <value>View Reference Material {0}</value>
+  </data>
+  <data name="DeleteReferenceMaterial" xml:space="preserve">
+    <value>Delete Reference Material</value>
+  </data>
+  <data name="EditReferenceMaterial" xml:space="preserve">
+    <value>Edit Reference Material</value>
+  </data>
+  <data name="LanguagePairs" xml:space="preserve">
+    <value>Language Pairs</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>more</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="AltEmail" xml:space="preserve">
+    <value>Alternate Emails</value>
+  </data>
+  <data name="AdditionalEmailsFormatExample" xml:space="preserve">
+    <value>Example: user.one@email.com,user.two@email.com</value>
+  </data>
+  <data name="AdditionalEmailsFormatMsg" xml:space="preserve">
+    <value>Use a comma to enter multiple additional emails.</value>
+  </data>
+  <data name="AdditionalNotificationEmails" xml:space="preserve">
+    <value>Additional Notification Emails</value>
+  </data>
+  <data name="LanguagePair" xml:space="preserve">
+    <value>Language Pair</value>
+  </data>
+  <data name="FileLanguagePairs" xml:space="preserve">
+    <value>File Language Pairs</value>
+  </data>
+  <data name="PackageDetails" xml:space="preserve">
+    <value>Package Details</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>Reviewer</value>
+  </data>
+  <data name="NoRemovePermission" xml:space="preserve">
+    <value>No Remove Permission</value>
+  </data>
+</root>

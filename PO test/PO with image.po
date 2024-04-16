@@ -1,0 +1,4 @@
+# french_mountains_picture_desc
+#, <img src="https://peakvisor.com/img/news/french-mountains.jpg">
+msgid "The view of the French Alps"
+msgstr "blablabla"

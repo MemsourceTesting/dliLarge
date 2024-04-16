@@ -1,0 +1,271 @@
+product: update by Aleš in Revision step
+components:
+  -
+    type: update by Aleš in Revision step
+    classes: update by Aleš in Revision step
+    show_thumbnails: true
+    show_ratings: true
+    main_text: '<h1 itemprop="name" class="m-0">エルビーポンプ</h1>'
+    secondary_text: |
+        世界初のサイレントウェアラブル搾乳器。 
+        あなたのブラジャーとあなたの人生にフィットします。 
+        チューブはありません。ワイヤーなし。ノイズなし。
+    tertiary_text: |
+        2年保証。 
+        送料無料。 
+        PayPalクレジットを使用して、月額62.25ポンドから0％APRで。 
+        <a class="underline font-bold" href="#" data-target="#insurance" data-toggle="modal">FSA / HSA資金が受け入れられました（米国のみ）。</a>
+    text_position: 正しい
+    text_colour: 闇
+    product: update by Aleš in Revision step
+    heights: '300,600'
+    content_classes: 'lg：w-4 / 5'
+    slides:
+      -
+        type: 滑り台
+        background_image:
+          - "/assets/hero_banners/pump-carousel-in-bra-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-in-bra.jpg"
+        custom_arrangement: 'lg、xl'
+      -
+        type: 滑り台
+        background_image:
+          - "/assets/hero_banners/pump-carousel-1-product-group-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-1-product-group.jpg"
+        custom_arrangement: 'lg、xl'
+      -
+        type: 滑り台
+        background_image:
+          - "/assets/hero_banners/pump-carousel-2-front-and-back-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-2-front-and-back.jpg"
+        custom_arrangement: 'lg、xl'
+      -
+        type: 滑り台
+        background_image:
+          - "/assets/hero_banners/pump-carousel-3-app-screens-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-3-app-screens.jpg"
+        custom_arrangement: 'lg、xl'
+      -
+        type: 滑り台
+        background_image:
+          - "/assets/hero_banners/pump-carousel-4-held-in-hand-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-4-held-in-hand.jpg"
+        custom_arrangement: 'lg、xl'
+    disable_ecommerce: false
+  -
+    type: brand_box
+    images:
+      - "/assets/pump-lifestyle.png"
+    main_text: 'いつでもどこでもポンプ'
+    secondary_text: 'Elvieポンプは、自分の条件でポンプを送ることを可能にします -自宅でも、職場でも、外出先でも。食器棚に隠れて過ごした時間を捨て、壁や掃除用チューブにつなぎます。 Elvie Pumpを使用すると、ミーティングを主導したり、外に出たり、単に静かで静かな環境を楽しんだりできます。'
+    box_colour: 光
+  -
+    type: usp_block
+    heading: ウェアラブル
+    reveal_heading: 外形寸法
+    reveal_content: |
+        ！[]（/ assets / pump-dimensions.png）
+        
+        （a）128mm x（b）110mm x（c）68mm  
+        （a）5インチx（b）4.3インチx（c）2.7インチ  
+        225g / 7.9oz
+    main_text: '小型で軽量のElvie Pumpは、標準の授乳用ブラの内側に装着できるため、本当にハンズフリーです。あなたを縛るものは何もない -またはあなたを遅くします。'
+    image: "/assets/pump-usp-1-in-bra.jpg"
+    text_position: 左
+    layout: デフォルト
+  -
+    type: usp_block
+    heading: サイレント
+    main_text: '革新的なテクノロジーによりノイズを排除し、安心してポンプを使用できます - いつでもどこでも。それはステルスモードになっているので、そうする必要はありません。'
+    image: "/assets/pump-usp-2-silent.jpg"
+    text_position: 正しい
+    layout: 代わりの
+    section_classes: "bg-overlap-t"
+  -
+    type: usp_block
+    heading: 手間のかからない
+    main_text: 'セットアップからクリーンアップまで、Elvie Pumpの使用は簡単です -それはきれいにするためにちょうど5つの部品があり、組み立てるのに数秒かかります。コードなし、ワードローブの交換なし、大騒ぎなし。'
+    image: "/assets/pump-usp-3-simple-parts.jpg"
+    text_position: 左
+    layout: デフォルト
+  -
+    type: usp_block
+    image: "/assets/blog_images/elvie-pump-us2.png"
+    heading: スマート
+    reveal_heading: 'アプリの機能'
+    main_text: |
+        無料のElvie Pumpアプリに接続して、牛乳の量をリアルタイムで監視し、各乳房の搾乳履歴を追跡して、ポンプをリモートで制御します。 
+        <small>（Elvie Pumpはアプリの有無にかかわらず動作します）。</small>
+    reveal_content: |
+        -お使いの携帯電話からポンプを再生/一時停止します
+        -モードと強度を変更する
+        -リアルタイムの牛乳量を表示
+        -各乳房のポンプ履歴を追跡
+        -ポンピングタイマーを設定する
+    text_position: 正しい
+    layout: デフォルト
+    section_classes: "bg-elvie-white"
+  -
+    type: usp_block
+    image: "/assets/mum-baby.jpg"
+    heading: レスポンシブ
+    main_text: 'Elvie Pumpは、レットダウンを検出すると自動的に刺激モードから式モードに切り替わり、ボトルがいっぱいになると一時停止します。考えるべきことは1つ少なくなります。'
+    text_position: 左
+    layout: デフォルト
+  -
+    type: nitty_gritty
+    features:
+      -
+        type: 特徴
+        icon: "/assets/pump-nitty-gritty-icons_hands-free.svg"
+        details: |
+            **ハンズフリー**  
+            外部コードやチューブのないオールインワン設計
+      -
+        type: 特徴
+        icon: "/assets/pump-nitty-gritty-icons_2-phase.svg"
+        details: |
+            ** 2相**  
+            刺激と表現モード
+      -
+        type: 特徴
+        icon: "/assets/pump-nitty-gritty-icons_variable-suction.svg"
+        details: |
+            **可変吸引**  
+            7つの強度設定
+      -
+        type: 特徴
+        icon: "/assets/pump-nitty-gritty-icons_custom-fit.svg"
+        details: |
+            **カスタムフィット**  
+            3胸のシールドサイズ（2はボックスに含まれています）
+      -
+        type: 特徴
+        icon: "/assets/pump-nitty-gritty-icons_rechargeable.svg"
+        details: |
+            **充電式**  
+            マイクロUSB経由で2時間で充電
+      -
+        type: 特徴
+        icon: "/assets/pump-nitty-gritty-icons_smart-features.svg"
+        details: |
+            **スマート機能**  
+            アプリ内追跡とリモート制御
+      -
+        type: 特徴
+        icon: "/assets/pump-nitty-gritty-icons_reusable-bottle.svg"
+        details: |
+            **再利用可能なボトル**  
+            耐久性のある5oz / 150mlボトル
+      -
+        type: 特徴
+        icon: "/assets/pump-nitty-gritty-icons_bpa-free.svg"
+        details: |
+            ** BPAフリー**  
+            BPAを含まない、食器洗い機で安全なプラスチック製
+    section_classes: 'bg-elvie-white py-16'
+  -
+    type: メディア
+    custom_arrangement: 'sm、md、lg、xl'
+    heights: '375,700'
+    video: "7570123b-8fc6-4082-9454-32cd53a8bdab"
+    background: false
+  -
+    type: 推薦状
+    testimonials:
+      - "a07180e0-73c3-4e2d-83fc-ca267ffd69a5"
+      - "2e374983-e037-40e3-a5b8-f49458911381"
+      - "bc4db223-021e-483f-8b6c-b32d2dbc2ad9"
+      - "124e01db-65c1-4f3c-b2de-e4771cfd0bb0"
+      - "84e8aec5-da2a-48c7-adc3-51f8f25fcf51"
+  -
+    type: custom_partial
+    path: pump / whats_in_the_box
+  -
+    type: よくある質問
+    faqs:
+      - "88090c3c-6205-43d1-92cd-55d947c78c01"
+      - "c517b33e-7f15-4798-b42d-4f8ae5c8d614"
+      - "cd8d25de-9fe2-416a-8432-a033c0ab0be9"
+      - "3ec4e6ce-57a0-420c-b9cc-754d2dc054be"
+      - "8a495f13-1ccf-4d4f-80af-29a1d26669e3"
+    link_to: "7e6c5e5b-9d40-4b2e-9bb1-8886b709c3ac"
+    link_text: 'さらに質問を？ <br> Elvie PumpのFAQにアクセスする'
+  -
+    type: ugcs
+    heading: '革命に従う'
+    ugcs:
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-momommorgan.jpg"
+        customer: 'ゆうた'
+        link_customer: 'https://www.instagram.com/p/BzA-KflF1Me/'
+        link_customer_modal: 'インスタグラムで見る'
+        text: '4か月前のものを残すことの欠点side'
+        close_modal: 白い
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-rinart007.jpg"
+        customer: 'あずきっく'
+        link_customer: 'https://www.instagram.com/p/BwkvwpeHvJ8/'
+        link_customer_modal: 'インスタグラムで見る'
+        text: 'リリーと一緒に初めてザイオン国立公園に行きました。 @elvieのおかげで、外出先でポンプを使うことができました。リリーは食べて外に出なきゃ！私のエルビーは収まります、彼らは恐竜の卵のように見えます!!!'
+        close_modal: 白い
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-definitely.jpg"
+        customer: '@definitely_definitely'
+        link_customer: 'https://www.instagram.com/p/Bt4TqRNgnD4/'
+        link_customer_modal: 'インスタグラムで見る'
+        text: '今日ジムでボスのようにポンプでくまれました。 @elvieありがとうございます！ #roboboobs #mumatron #happymummy #happybaby #gymtimebaby'
+        close_modal: 白い
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-butfirstkw.jpg"
+        customer: '@butfirstkw'
+        link_customer: 'https://www.instagram.com/p/BuZjH1EgWxY/'
+        link_customer_modal: 'インスタグラムで見る'
+        text: 'ゲレンデ前後の揚水⛷@elvie'
+        close_modal: 白い
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-carlyrowena.jpg"
+        customer: 'あずきっく'
+        link_customer: 'https://www.instagram.com/p/BzC57EdJFo7/'
+        link_customer_modal: 'インスタグラムで見る'
+        text: 'Jaxの夜間給餌を行えるようにしながら、私の牛乳の供給を正常に削減するために、日中は@elvieでポンプとダンプを行っています！このガジェットは私のおっぱいの親友になりました。もはや牛のように感じることはありません。'
+        close_modal: 白い
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-wideeyedmum.jpg"
+        customer: 'ゆうたろう'
+        link_customer: 'https://www.instagram.com/p/BynBbTOlsDW/'
+        link_customer_modal: 'インスタグラムで見る'
+        text: '#baby boyがいないまま2泊した後、@ elvieが命を救ったことは間違いありません。空港、飛行機、バー、レストラン、クラクフの街を歩いているときに使用しました🙌🏻'
+        close_modal: 闇
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-vasavigail.jpg"
+        customer: '@vasavigail'
+        link_customer: 'https://www.instagram.com/p/ByYdz1BAEcH/'
+        link_customer_modal: 'インスタグラムで見る'
+        text: 'milk牛乳を作る。あなたの超大国は何ですか？🍼'
+        close_modal: 闇
+    link_to: 'https://www.instagram.com/elvie/'
+    link_text: '@ hello.elvieをフォロー'
+    section_classes: "bg-elvie-white"
+robots: インデックスフォロー
+navigation: 二次
+product_id:
+  - PUMP_SINGLE
+hide_site_banner: false
+newsletter_modal: true
+seo:
+  title: 'エルビーポンプ|サイレント、ウェアラブル、スマートな搾乳器|エルヴィー'
+  description: '最後に、いつでもどこでも搾乳できる搾乳器。 Elvie Pumpは、世界初のサイレントウェアラブル搾乳器です。 2年間の保証と無料配達で今すぐ入手してください。'
+  priority: '1.0'
+  change_frequency: 毎月
+template: ショップ/製品
+title: 'エルビーポンプ'
+fieldset: product_page
+id: "7ba328fd-e2f6-4bf8-9037-c2abdada7c24"

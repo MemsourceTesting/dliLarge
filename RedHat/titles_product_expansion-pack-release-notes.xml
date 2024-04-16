@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE book [
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
+%DOCBOOK_ENTS;
+]>
+<?asciidoc-toc maxdepth="3"?><?asciidoc-numbered?><book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<info>
+<title>Red Hat JBoss EAP XP 3.0.0 Release Notes</title><subtitle>For Use with JBoss EAP XP 3.0.0</subtitle>
+
+<date>2021-06-30</date>
+<productname>Red Hat JBoss Enterprise Application Platform</productname>
+<productnumber>7.4</productnumber>
+<abstract>
+  <para>This document provides general information about the JBoss EAP XP 3.0.0 release.</para>
+</abstract>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Author_Group.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Common_Content/Legal_Notice.xml"/>
+</info>
+<preface xml:id="making-open-source-more-inclusive">
+<title>Making open source more inclusive</title>
+<simpara>Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <link xlink:href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</link>.</simpara>
+</preface>
+<preface xml:id="proc_providing-feedback-on-red-hat-documentation_default">
+<title>Providing feedback on Red Hat documentation</title>
+<simpara>We appreciate your feedback on our documentation. To provide feedback, you can highlight the text in a document and add comments. Follow the steps in the procedure to learn about submitting feedback on Red Hat documentation.</simpara>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>Log in to the Red Hat Customer Portal.</simpara>
+</listitem>
+<listitem>
+<simpara>In the Red Hat Customer Portal, view the document in <emphasis role="strong">Multi-page HTML</emphasis> format.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Click <emphasis role="strong">Feedback</emphasis> to see existing reader comments.</simpara>
+<note>
+<simpara>The feedback feature is enabled only in the <emphasis role="strong">Multi-page HTML</emphasis> format.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Highlight the section of the document where you want to provide feedback.</simpara>
+</listitem>
+<listitem>
+<simpara>In the prompt menu that displays near the text you selected, click <emphasis role="strong">Add Feedback</emphasis>.</simpara>
+<simpara>A text box opens in the feedback section on the right side of the page.</simpara>
+</listitem>
+<listitem>
+<simpara>Enter your feedback in the text box and click <emphasis role="strong">Submit</emphasis>.</simpara>
+<simpara>You have created a documentation issue.</simpara>
+</listitem>
+<listitem>
+<simpara>To view the issue, click the issue tracker link in the feedback view.</simpara>
+</listitem>
+</orderedlist>
+</preface>
+<chapter xml:id="new_features_and_enhancements" remap="_new_features_and_enhancements">
+<title>New features and enhancements</title>
+<section xml:id="migration_default">
+<title>Migration</title>
+<bridgehead xml:id="migration_tools" renderas="sect3" remap="_migration_tools">Migration tools</bridgehead>
+<simpara>You can choose any one of the following tools to upgrade and migrate your JBoss EAP XP 2.0.0 product to the JBoss EAP XP 3.0.0 product:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>JBoss Server Migration Tool</simpara>
+</listitem>
+<listitem>
+<simpara>Migration Toolkit for Applications (MTA)</simpara>
+</listitem>
+</itemizedlist>
+<simpara>You cannot use the JBoss EAP XP manager to upgrade and migrate your JBoss EAP XP 2.0.0 product to the JBoss EAP XP 3.0.0 product.</simpara>
+<itemizedlist>
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about the JBoss Server Migration Tool, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/red_hat_jboss_eap_xp_3.0.0_migration_guide/#jboss-migration-tool-migrate-server-configurations_default">Use the JBoss Server Migration Tool to migrate your server configurations</link> in the <emphasis>JBoss EAP XP Migration Guide</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about the Migration Toolkit for Applications, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/red_hat_jboss_eap_xp_3.0.0_migration_guide/#use-red-hat-application-migration-toolkit-analyze-applications_default">Use the Migration Toolkit for Applications to analyze applications for migration</link> in the <emphasis>JBoss EAP XP Migration Guide</emphasis>.</simpara>
+</listitem>
+</itemizedlist>
+<bridgehead xml:id="name_change_for_a_configuration_element" renderas="sect3" remap="_name_change_for_a_configuration_element">Name change for a configuration element</bridgehead>
+<simpara>For JBoss EAP XP 3.0.0, the <literal>extraServerContentDirs</literal> configuration element replaces the <literal>extraServerContent</literal> configuration element. This replacement aligns with the pre-existing <literal>extra-server-content-dirs</literal> element.</simpara>
+<simpara>If you used the <literal>extraServerContent</literal> element in your JBoss EAP Maven plug-in configuration, you must replace this element with the <literal>extraServerContentDirs</literal> element. If you used the <literal>extra-server-content-dirs</literal> element then you do not need to make any configuration changes.</simpara>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about the <literal>extra-server-content-dirs</literal> configuration element, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_eclipse_microprofile_with_jboss_eap_xp_3.0.0/#enabling-http-authentication-bootable-jar-cli-script_default">Enabling HTTP authentication for bootable JAR with a CLI script</link> in the Using MicroProfile with JBoss EAP XP guide.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="microprofile_default">
+<title>MicroProfile</title>
+<bridgehead xml:id="support-for-mpconfig-2.0" renderas="sect3">Support for MicroProfile Config 2.0</bridgehead>
+<simpara>JBoss EAP supports MicroProfile Config 2.0, which is part of MicroProfile 4.0. This  <link xlink:href="https://github.com/eclipse/microprofile-config/blob/2.0/api/src/main/java/org/eclipse/microprofile/config/Config.java">Config</link> interface introduces new methods.</simpara>
+<simpara>For more information about the changes, see <link xlink:href="https://download.eclipse.org/microprofile/microprofile-config-2.0/microprofile-config-spec-2.0.html#release_notes_20">Release Notes for MicroProfile Config 2.0</link>.</simpara>
+<bridgehead xml:id="support-for-mpmetrics-3.0" renderas="sect3">Support for MicroProfile Metrics 3.0</bridgehead>
+<simpara>JBoss EAP supports MicroProfile Metrics 3.0, which is part of MicroProfile 4.0. The breaking changes of the new release include the following :</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Removed everything related to reusability from the API code. All metrics are now considered reusable.</simpara>
+</listitem>
+<listitem>
+<simpara>Changed metric registration. The CDI producers annotated with <literal>@Metric</literal> no longer trigger metric registration. You must use the <literal>MetricRegistry</literal> methods for registering a metric.</simpara>
+</listitem>
+<listitem>
+<simpara>Changed <literal>MetricRegistry</literal> from abstract class to interface.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>For a complete list of changes, see <link xlink:href="https://download.eclipse.org/microprofile/microprofile-metrics-3.0/microprofile-metrics-spec-3.0.html#release_notes_3_0">Changes in 3.0</link>.</simpara>
+<bridgehead xml:id="support-for-mphealth-3.0" renderas="sect3">Support for MicroProfile Health 3.0</bridgehead>
+<simpara>JBoss EAP supports MicroProfile Health 3.0, which is part of MicroProfile 4.0. The major changes are the following:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Pruned <literal>@Health</literal> qualifier</simpara>
+</listitem>
+<listitem>
+<simpara>Fixed <literal>HealthCheckResponse</literal> deserialization issue</simpara>
+</listitem>
+</itemizedlist>
+<simpara>This component upgrade also covers the upgrade of smallrye-health 3.0.0 that implements MicroProfile Health 3.0.
+For more information, see <link xlink:href="https://download.eclipse.org/microprofile/microprofile-health-3.0/microprofile-health-spec-3.0.html#release_notes_3_0">Release Notes for MicroProfile Health 3.0</link>.</simpara>
+<bridgehead xml:id="support-for-mpot-2.0" renderas="sect3">Support for MicroProfile OpenTracing 2.0</bridgehead>
+<simpara>JBoss EAP supports MicroProfile OpenTracing 2.0, which is part of MicroProfile 4.0. The new release removes the following APIs:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><literal>Scope = ScopeManager.active()</literal></simpara>
+</listitem>
+<listitem>
+<simpara><literal>Scope = ScopeManager.activate</literal>(Span, boolean)</simpara>
+</listitem>
+<listitem>
+<simpara><literal>Span = Scope.span()</literal></simpara>
+</listitem>
+<listitem>
+<simpara><literal>Scope = SpanBuilder.startActive()</literal></simpara>
+</listitem>
+<listitem>
+<simpara><literal>Span = Tracer.startManual()</literal></simpara>
+</listitem>
+<listitem>
+<simpara><literal>AutoFinishScopeManager</literal></simpara>
+</listitem>
+</itemizedlist>
+<simpara>For more information, see <link xlink:href="https://download.eclipse.org/microprofile/microprofile-opentracing-2.0/microprofile-opentracing-spec-2.0.html#_release_2_0">Release 2.0</link>.</simpara>
+</section>
+<section xml:id="bootable-jar_default">
+<title>Bootable JAR</title>
+<bridgehead xml:id="ability_to_update_the_server_configuration_of_a_bootable_jar_file_at_runtime" renderas="sect3" remap="_ability_to_update_the_server_configuration_of_a_bootable_jar_file_at_runtime">Ability to update the server configuration of a bootable JAR file at runtime</bridgehead>
+<simpara>You can now update the server configuration of a bootable JAR file at runtime using the <literal>--cli-script=&lt;path to CLI script&gt;</literal> argument. In the argument, &lt;path to CLI script&gt; means the path to a JBoss CLI script, a text file in Unicode Transformation Format 8-bit (UTF-8), to execute when starting the bootable JAR.</simpara>
+<simpara>This new functionality has the following caveats:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>If you perform any operation that requires a server restart, the bootable JAR server exits, which is the normal behavior of a bootable JAR restart.</simpara>
+</listitem>
+<listitem>
+<simpara>You cannot execute the following JBoss CLI commands at runtime: <literal>connect</literal>, <literal>reload</literal>, <literal>shutdown</literal>, <literal>jdbc-driver-info</literal>, and any command related to embedded server and <literal>patch</literal>.</simpara>
+</listitem>
+</itemizedlist>
+<bridgehead xml:id="ability_to_upgrade_bootable_jar_server_components" renderas="sect3" remap="_ability_to_upgrade_bootable_jar_server_components">Ability to upgrade bootable JAR server components</bridgehead>
+<simpara>You can upgrade the following server components present in a bootable JAR when building the JAR file from the bootable JAR maven plugin:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>The JAR files for <literal>JBoss Modules</literal> module, such as <literal>undertow-core</literal>.</simpara>
+</listitem>
+<listitem>
+<simpara><literal>EAP 7.4.x Galleon feature-pack</literal>, which is a dependency of the <literal>XP 3.0.x Galleon feature-pack</literal>.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="quickstarts_default">
+<title>Quickstarts</title>
+<bridgehead xml:id="openshift_quickstarts" renderas="sect3" remap="_openshift_quickstarts">OpenShift quickstarts</bridgehead>
+<simpara>Quickstarts released in JBoss EAP XP 1.0.0 to support OpenShift were Tech Preview.</simpara>
+<simpara>As of JBoss EAP XP 3.0.0, these quickstarts are fully supported.</simpara>
+<bridgehead xml:id="microprofile_quickstarts_for_the_bootable_jar" renderas="sect3" remap="_microprofile_quickstarts_for_the_bootable_jar">MicroProfile quickstarts for the bootable JAR</bridgehead>
+<simpara>JBoss EAP XP 3.0.0 provides MicroProfile quickstarts that you can use to understand the bootable JAR feature.</simpara>
+<simpara>Each quickstart provides a small, specific, working bootable JAR example. Use the quickstarts to run and test bootable JAR examples on your chosen platform.</simpara>
+<note>
+<simpara>MicroProfile quickstarts cannot be used to build and test a hollow bootable JAR.</simpara>
+</note>
+<simpara>Use the following MicroProfile quickstarts to test the bootable JAR on either a bare-metal platform or an OpenShift platform:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>MicroProfile Config</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Fault Tolerance</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Health</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile JWT</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Metrics</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile OpenAPI</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile OpenTracing</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile REST Client</simpara>
+</listitem>
+</itemizedlist>
+<bridgehead xml:id="quickstart_for_microprofile_reactive_messaging_1_0" renderas="sect3" remap="_quickstart_for_microprofile_reactive_messaging_1_0">Quickstart for MicroProfile Reactive Messaging 1.0</bridgehead>
+<simpara>JBoss EAP XP 3.0.0 provides a new quickstart and guide for MicroProfile Reactive Messaging 1.0 that describes the basic functionalities.</simpara>
+<simpara>You can use in-memory streams and streams backed by the Apache Kafka platform. If you are using a bare metal system, you can use the Docker platform to access Apache Kafka functionalities. On OpenShift, you can access Apache Kafka functionalities using the AMQ Streams operator.</simpara>
+</section>
+<section xml:id="technology-preview_default">
+<title>Technology preview features</title>
+<bridgehead xml:id="mpreactivemessaging_reactivemessagingcurrentversion_for_amq_streams_integration" renderas="sect3" remap="_mpreactivemessaging_reactivemessagingcurrentversion_for_amq_streams_integration">{MPReactiveMessaging} {ReactiveMessagingCurrentVersion} for AMQ Streams integration</bridgehead>
+<simpara>JBoss EAP XP now supports {MPReactiveMessaging} {ReactiveMessagingCurrentVersion}. You can use the {MPReactiveMessaging} {ReactiveMessagingCurrentVersion} APIs to interact with AMQ Streams 2021.Q2. That means, with JBoss EAP XP working as a message relayer, you can consume, process, and produce messages within your application. This technology preview functionality is available on OpenShift Container Platform.</simpara>
+</section>
+</chapter>
+<chapter xml:id="maintenance_support" remap="_maintenance_support">
+<title>Maintenance support</title>
+<section xml:id="maintenance-support_default">
+<title>Maintenance support for JBoss EAP XP</title>
+<simpara>When a new JBoss EAP XP major version is released, maintenance support for the previous major version begins. Maintenance support usually lasts for 12 weeks.</simpara>
+<simpara>If you use a JBoss EAP XP major version that is outside of its maintenance support length, you might experience issues as the development of security patches and bug fixes no longer apply. To avoid such issues, upgrade to the newest JBoss EAP XP major version release that is compatible with your JBoss EAP version.</simpara>
+<itemizedlist>
+<title>Additional resources</title>
+<listitem>
+<simpara>For information about maintenance support, see the <link xlink:href="https://access.redhat.com/support/policy/updates/jboss_eap_xp_notes">Red Hat JBoss Enterprise Application Platform expansion pack (JBoss EAP XP or EAP XP) Life Cycle and Support Policies</link> located on the Red Hat Customer Portal.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</chapter>
+<chapter xml:id="unsupported_features_and_deprecated_features" remap="_unsupported_features_and_deprecated_features">
+<title>Unsupported features and deprecated features</title>
+<section xml:id="unsupported-features_default">
+<title>Unsupported features</title>
+<simpara>Support for some technologies is removed due to the high maintenance cost, low community interest, and better alternative solutions. The following features are not supported in  JBoss EAP XP 3.0.0:</simpara>
+</section>
+<section xml:id="deprecated-features_default">
+<title>Deprecated features</title>
+<simpara>Some features have been deprecated with this release. This means that no enhancements are made to these features, and they might be removed in the future, usually the next major release.</simpara>
+<simpara>Red Hat continues to provide full support and bug fixes under our standard support terms and conditions. For more information about the Red Hat support policy for JBoss EAP XP, see the <link xlink:href="https://access.redhat.com/support/policy/updates/jboss_eap_xp_notes">Red Hat JBoss Enterprise Application Platform expansion pack life cycle and support policies</link> located on the Red Hat Customer Portal.</simpara>
+</section>
+</chapter>
+<chapter xml:id="resolved_issues_and_known_issues" remap="_resolved_issues_and_known_issues">
+<title>Resolved issues and known issues</title>
+<section xml:id="resolved-issues_default">
+<title>Resolved issues</title>
+<simpara>See <link xlink:href="https://issues.redhat.com/issues/?filter=12345381">Resolved issues for JBoss EAP XP 3.0.0</link> to view the list of issues that have been resolved for this release.</simpara>
+</section>
+<section xml:id="known-issues_default">
+<title>Known issues</title>
+<simpara>See <link xlink:href="https://issues.redhat.com/issues/?filter=12361845">Known issues for JBoss EAP XP 3.0.0</link> to view the list of known issues for this release.</simpara>
+</section>
+</chapter>
+</book>

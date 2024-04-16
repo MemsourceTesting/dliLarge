@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActivationLinkEmailedMsg" xml:space="preserve">
+    <value>Din aktiveringslänk har skickats till &lt;b&gt; {0} &lt;/b&gt;&lt;br&gt;&lt;br&gt;När du har fått e-postmeddelandet klickar du på aktiveringslänken för att slutföra processen.</value>
+    <comment>The substitution is the user's email address</comment>
+  </data>
+  <data name="Clinical" xml:space="preserve">
+    <value>Klinisk</value>
+  </data>
+  <data name="Corporate" xml:space="preserve">
+    <value>Företag</value>
+  </data>
+  <data name="FileLengthErrorMsg" xml:space="preserve">
+    <value>Filen kan inte ha noll längd.</value>
+  </data>
+  <data name="FileNotUploadedMsg" xml:space="preserve">
+    <value>Ingen fil har laddats upp.</value>
+  </data>
+  <data name="FileWrongFormatMsg" xml:space="preserve">
+    <value>Filen har fel format.</value>
+  </data>
+  <data name="ForDemoPurposes" xml:space="preserve">
+    <value>I DEMO-syfte är den nuvarande {0} -koden: {1}</value>
+    <comment>The first substitution is the name of the provider for two-factor verification and the second is the actual token. </comment>
+  </data>
+  <data name="InvalidCode" xml:space="preserve">
+    <value>Ogiltig kod.</value>
+  </data>
+  <data name="IssueUploadingAvatarMsg" xml:space="preserve">
+    <value>Det var ett problem med att ladda upp din avatar ( {0} )</value>
+    <comment>This is generated in response to an error while saving an Avitar. The substitution is the error message coming from the exception.  </comment>
+  </data>
+  <data name="Legal" xml:space="preserve">
+    <value>Juridisk</value>
+  </data>
+  <data name="LoginToPortalIssueMsg" xml:space="preserve">
+    <value>Det var ett problem med att logga in på portalen, försök igen. Om problemet kvarstår ska du använda systemet "Behöver du hjälp" för att kontakta en administratör.</value>
+  </data>
+  <data name="Marketing" xml:space="preserve">
+    <value>Marknadsföring</value>
+  </data>
+  <data name="MobileApps" xml:space="preserve">
+    <value>Mobila appar</value>
+  </data>
+  <data name="NewPasswordDifferentToOldMsg" xml:space="preserve">
+    <value>Det nya lösenordet måste vara ett annat än det gamla.</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Övriga</value>
+  </data>
+  <data name="PackagingLabeling" xml:space="preserve">
+    <value>Förpackning och märkning</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>Sidan har inte hittats</value>
+  </data>
+  <data name="PasswordUpdatedMsg" xml:space="preserve">
+    <value>Ditt lösenord har uppdaterats.</value>
+  </data>
+  <data name="PatentsAndPatentFiling" xml:space="preserve">
+    <value>Patent och patentansökningar</value>
+  </data>
+  <data name="ProblemSendingMessage" xml:space="preserve">
+    <value>Det var ett problem med att skicka ditt meddelande.&lt;br&gt;Försök igen.</value>
+  </data>
+  <data name="ProblemUpdatingPasswordMsg" xml:space="preserve">
+    <value>Det var ett problem med att uppdatera ditt lösenord.</value>
+  </data>
+  <data name="RD" xml:space="preserve">
+    <value>FOU</value>
+  </data>
+  <data name="Regulatory" xml:space="preserve">
+    <value>Reglering</value>
+  </data>
+  <data name="RequestNewActivationTokenMsg" xml:space="preserve">
+    <value>Den aktiveringstoken för kontot som vi skickade från början gick ut efter 24 timmar. Begär en ny aktiveringstoken för kontot.</value>
+  </data>
+  <data name="SingleSignOnMissingMsg" xml:space="preserve">
+    <value>Du har loggat in i tjänsten Single Sign On, men vi kunde inte hitta ditt portalkonto. Använd formuläret nedan för att begära ett portalkonto.</value>
+  </data>
+  <data name="SoftwareLocalization" xml:space="preserve">
+    <value>Lokalisering av programvara</value>
+  </data>
+  <data name="TrainingElearning" xml:space="preserve">
+    <value>Utbildning och eLearning</value>
+  </data>
+  <data name="UserPreferencesUpdatedMsg" xml:space="preserve">
+    <value>Dina användarinställningar har uppdaterats.</value>
+  </data>
+  <data name="WebsiteLocalization" xml:space="preserve">
+    <value>Lokalisering av webbplatser</value>
+  </data>
+</root>

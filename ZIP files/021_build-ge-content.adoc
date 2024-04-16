@@ -1,0 +1,196 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='routebuild-practice']
+= Creating Routes using the Java and XML DSL
+
+In this exercise, you will create one camel route by using Java DSL and a second camel route by using XML DSL.
+
+This exercise includes the following routes, methods, and components:
+
+[compact]
+* A Java DSL route.
+* An XML DSL route.
+* The Scheduler component to create exchanges.
+* The log method to create console output.
+* The direct component to break larger routes into reusable segments.
+
+== Outcomes
+
+You should be able to use Spring Boot to create Camel routes.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+route-build/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to prepare your system for this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start route-build*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/route-build/apps+` directory, into the `+~/AD221/route-build+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/route-build+` directory, and open the project with your editor of choice.
+
+2) Open the project's POM file, and add the following dependencies:
+
+[subs=+quotes]
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-spring-boot-starter</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+    <dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-test-spring</artifactId>
+    <scope>test</scope>
+</dependency>
+----
+
+3) Create the Java DSL route by updating the `+SchedulerRouteBuilder+` class.
+
+3.1) Open the `+SchedulerRouteBuilder.java+` file.
+
+Notice that the use of the `+org.springframework.stereotype.Component+` annotation is the marker that tells Spring Boot to pick up this class and use it to add a route to the CamelContext.
+
+3.2) Enable the route by extending the RouteBuilder superclass.
+
+[subs=+quotes]
+----
+`+import org.apache.camel.builder.RouteBuilder;+`
+...
+public class SchedulerRouteBuilder `+extends RouteBuilder+`
+----
+
+3.3) Set up the Scheduler component.
+
+The `+scheduler+` component comes with Camel's core library.
+In this exercise we are using the scheduler to generate message exchanges every 2 seconds.
+The name, `+myScheduler+`, is an arbitrary name assigned to this instance of the component.
+
+[subs=+quotes]
+----
+public void configure() throws Exception {
+    `+from("scheduler:myScheduler?delay=2000")+`
+----
+
+3.4) Set up a route ID.
+
+Each route can be uniquely identified by using a `+routeId+` method.
+Naming a route makes it easy to verify route execution in the logs, and also simplifies the process of creating unit tests.
+
+[subs=+quotes]
+----
+public void configure() throws Exception {
+    from("scheduler:myScheduler?delay=2000")
+        `+.routeId("Java DSL route")+`
+----
+
+3.5) Add an exchange header.
+
+The `+scheduler+` component is generating exchange messages with empty bodies.
+In this step of the route, use the `+setBody+` method and a `+simple+` expression to add the message creation timestamp to the body of the message.
+The `+simple+` expression in this example copies the time value from a message header field.
+
+[subs=+quotes]
+----
+public void configure() throws Exception {
+    from("scheduler:myScheduler?delay=2000")
+        .routeId("Java DSL route")
+        `+.setBody().simple("Current time is ${header.CamelTimerFiredTime}")+`
+----
+
+3.6) Log a message to the console with the `+Log+` method.
+
+Add a `+log+` step to the route.
+The log helps with tracking the progression of the message through the routes.
+
+[subs=+quotes]
+----
+    public void configure() throws Exception {
+        from("scheduler:myScheduler?delay=2000")
+            .routeId("Java DSL route")
+            .setBody().simple("Current time is ${header.CamelTimerFiredTime}")
+            `+.log("Sending message to the body logging route")+`
+----
+
+3.7) Add a producer with the Direct component.
+
+For the final step of this route, use the `+direct+` component to create a producer.
+The message produced by the `+to+` method in this route is consumed by the matching `+direct+` endpoint, which is created in the XML route discussed next in this lab.
+
+[subs=+quotes]
+----
+public void configure() throws Exception {
+    from("scheduler:myScheduler?delay=2000")
+        .routeId("Java DSL route")
+        .setBody().simple("Current time is ${header.CamelTimerFiredTime}")
+        .log("Sending message to the body logging route")
+        `+.to("direct:log_body");+`
+----
+
+
+4) Add an XML DSL route to receive the messages produced by the Java DSL route.
+Create the XML route by updating the `+camel-context.xml+` file.
+
+[NOTE]
+====
+Although the course focuses on the Java DSL, this step uses the XML DSL for illustrative purposes.
+You could create the same route by using the Java DSL.
+====
+
+4.1) Open the `+src/main/resources/camel/camel-context.xml+` file.
+
+By default, Spring Boot inspects the classpath for a folder called `+camel+`.
+Any XML files with routes defined in that folder are automatically discovered and added to the CamelContext by Spring Boot.
+
+4.2) Add the XML DSL route.
+
+Notice that the XML elements closely match the Java DSL methods.
+
+[subs=+quotes]
+----
+<route id="XML DSL route">
+  <from uri="direct:log_body"/>
+  <log message="Message body: ${body}"/>
+  <to uri="mock:next_service"/>
+</route>
+----
+
+In this example the `+mock+` component is used because a real component is not available.
+
+5)  Test the route.
+
+Test the two routes by executing the application and observing the output in the console.
+
+5.1) Run the `+./mvnw clean package spring-boot:run+` command to start the Spring Boot application.
+
+5.2) Observe that the Java DSL route sends exchanges to the XML DSL route, and that the timestamps in the log messages differ by 2 seconds for every exchange.
+
+----
+Java DSL route  : Sending message to the body logging route
+XML DSL route   : Message body: Current time is Thu Dec 02 17:39:33 EST 2021
+Java DSL route  : Sending message to the body logging route
+XML DSL route   : Message body: Current time is Thu Dec 02 17:39:35 EST 2021
+----
+
+== Finish
+
+
+Stop the Spring Boot application, return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish route-build*
+----

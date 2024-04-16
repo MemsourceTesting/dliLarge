@@ -1,0 +1,99 @@
+{
+  "botAuthorName": {
+    "text": "Robot Pomelo",
+    "note": "This is the name for the bot that sends automated messages for us, kind of like a chatbot."
+  },
+  "autoresponder": {
+    "firstMessage": {
+      "default": {
+        "text": "¡Hola! Nuestros médicos están disponibles las 24 horas del día, los 7 días de la semana para ayudarlo con necesidades médicas urgentes. ¿Es esto urgente? Si es así, simplemente responda \"AHORA\" y lo conectaremos con un médico de inmediato. Si su pregunta o inquietud no es urgente y puede esperar hasta la mañana, responda \"MÁS TARDE\" y nos pondremos en contacto con usted lo antes posible durante el día."
+      },
+      "holiday": {
+        "text": "¡Hola! Nuestros médicos están disponibles las 24 horas del día, los 7 días de la semana para ayudarlo con necesidades médicas urgentes. ¿Es esto urgente? Si es así, simplemente responda \"AHORA\" y lo conectaremos con un médico de inmediato. Si su pregunta o inquietud no es urgente y puede esperar hasta después de las vacaciones de {{holidayName}}, responda \"MÁS TARDE\" y nos pondremos en contacto con usted lo antes posible después de las vacaciones."
+      }
+    },
+    "noPatientReply": {
+      "default": {
+        "text": "¿Podemos ponernos en contacto con usted por la mañana? Si es así, escriba LATER."
+      },
+      "holiday": {
+        "text": "¿Podemos ponernos en contacto con usted después de las vacaciones de {{holidayName}}? Si es así, escriba LATER."
+      }
+    },
+    "waitUntilMorning": {
+      "default": {
+        "text": "Gracias, un médico hablará con usted lo antes posible durante el día"
+      },
+      "holiday": {
+        "text": "Gracias, un médico hablará con usted lo antes posible después de las vacaciones de {{holidayName}}.",
+        "note": "The {{holidayName}} value will also be translated (see the 'autoresponder.holidays' key for the list of holidays)"
+      }
+    },
+    "notifyingClinician": {
+      "text": "No hay problema, estamos notificando a un médico ahora y debería estar con usted en breve."
+    },
+    "nowReply": {
+      "text": "Ahora"
+    },
+    "laterReply": {
+      "text": "Más tarde"
+    },
+    "autoresponderAuthor": {
+      "text": "Robot Pomelo",
+      "note": "This is the name for the bot that sends automated messages for us, kind of like a chatbot."
+    },
+    "holidays": {
+      "newYearsDay": {
+        "text": "Día de Año Nuevo",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      },
+      "mlkJrDay": {
+        "text": "Martin Luther King Jr. Día",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      },
+      "presidentsDay": {
+        "text": "Día del Presidente",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      },
+      "memorialDay": {
+        "text": "Día de los caídos",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      },
+      "juneteenth": {
+        "text": "Juneteenth",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      },
+      "independenceDay": {
+        "text": "Día de la Independencia",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      },
+      "laborDay": {
+        "text": "Día del Trabajo",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      },
+      "thanksgiving": {
+        "text": "Acción de gracias",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      },
+      "christmas": {
+        "text": "Christmas",
+        "note": "This holiday will be used to replace {{holidayName}} in the 'autoresponder.firstMessage.holiday', 'autoresponder.noPatientReply.holiday', and 'autoresponder.waitUntilMorning' strings."
+      }
+    }
+  },
+  "notifications": {
+    "patientNewMessageInApp": {
+      "title": {
+        "text": "Nuevo mensaje"
+      },
+      "body": {
+        "text": "Tienes un nuevo mensaje de tu equipo de atención en la aplicación Pomelo Care."
+      }
+    }
+  },
+  "encounterSurvey": {
+    "message": {
+      "text": "¿Qué tan satisfecho estuvo con la atención que recibió de Pomelo? Por favor, responda con un número.\n\n5 = muy satisfecho\n4 = satisfecho\n3 = neutral\n2 = insatisfecho\n1 = muy insatisfecho\n\nSiempre estamos buscando comentarios. Cuéntanos más sobre lo que piensas."
+    }
+  }
+}

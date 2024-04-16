@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+Not translatable text.
+<tu note="context note" key="ID 254" maxlen="16"> 
+  <tuv lang="en">
+    <seg>First segment.</seg>
+  </tuv>
+  <tuv lang="de">
+    <seg>Erste segment</seg>
+  </tuv>
+  <tuv lang="fr">
+    <seg></seg>
+  </tuv>
+</tu>
+<tu note="another context note" key="ID 255" maxlen="18"> 
+  <tuv lang="en">
+    <seg>Second segment.</seg>
+  </tuv>
+  <tuv lang="de">
+    <seg></seg>
+  </tuv>
+  <tuv lang="fr">
+    <seg></seg>
+  </tuv>
+</tu>
+</root>

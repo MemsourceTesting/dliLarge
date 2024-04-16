@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % common_entities SYSTEM "common.ent" >
+%common_entities;
+]>
+<preface id="preface">
+  <title>Introduction</title>
+  <!-- This next section will need to be customized for most classes -->
+  <section id="course_intro">
+    <title>Cloud-native Integration with Red&nbsp;Hat Fuse</title>
+
+    <para>
+      <citetitle>Cloud-native Integration with Red&nbsp;Hat Fuse</citetitle>
+      is a hands-on, lab-based course that gives Java developers and architects an
+      understanding of Apache Camel and the enhancements and tools Red&nbsp;Hat offers
+      in support of Camel development. Camel and Red&nbsp;Hat Fuse enable developers to
+      create complex cloud-native integrations in a simple and maintainable format.
+    </para>
+    <para>
+      Attendees will learn the skills required to develop, implement, test, and
+      deploy applications with enterprise integration patterns (EIP) based on Apache
+      Camel in Red&nbsp;Hat Fuse running on Spring Boot, Quarkus, and Camel K.
+    </para>
+    <para>
+      This course can assist in the preparation for the
+      <citetitle>Red&nbsp;Hat Certificate of Expertise in Camel Development</citetitle> exam (EX221).
+    </para>
+
+    <informaltable frame="none">
+      <tgroup cols="2">
+        <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+        <colspec colname="c2" colnum="2" colwidth="2.2*"/>
+        <tbody>
+          <row>
+            <entry>
+              Course Objectives
+            </entry>
+            <entry>
+              <itemizedlist id="intro-objectives">
+                <listitem>
+                  <para>
+                    Students will work with a number of use cases that utilize
+                    the major features and capabilities of Camel to develop realistic cloud-native
+                    Camel integration applications.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Audience
+            </entry>
+            <entry>
+              <itemizedlist id="intro-audience">
+                <listitem>
+                  <para>
+                    Java developers focused on implementing cloud-native integration solutions in an enterprise.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              Prerequisites
+            </entry>
+            <entry>
+              <itemizedlist id="intro-prereqs">
+                <listitem>
+                  <para>
+                    Experience with Java application development or Red&nbsp;Hat Application Development I: Programming in Java EE (AD183) is required.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    Experience with SQL and applications that use relational databases is required.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    Experience developing with the Spring Boot and Quarkus frameworks is strongly recommended, but not required.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    Experience building and packaging applications using Apache Maven is strongly recommended.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    Experience with OpenShift or Introduction to OpenShift Applications (DO101) is strongly recommended, but not required.
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    Be proficient in using an IDE such as Red&nbsp;Hat® Developer Studio or VSCode.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+  <!-- Update the contents of the Intro-Classroom.xml file to reflect your course -->
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Intro-Classroom.xml"/>
+</preface>

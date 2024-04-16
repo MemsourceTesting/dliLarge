@@ -1,0 +1,135 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='patternconverter-practice']
+= Sample Title
+
+In this exercise, you will update an integration service of a smart home IoT software company.
+
+The IoT software company sends commands to air purifier devices for configuration.
+The current air purifier devices accept these commands in JSON data format.
+However, they renew the devices and use a second version of the air purifier devices.
+The new versioned devices accept a custom format instead of the JSON format.
+
+You must update the Camel route in the `+command-router+` application to send the configuration commands to the version-2 air purifier devices in the required custom format.
+
+== Outcomes
+
+In this exercise you should be able to:
+
+[compact]
+* Create a Camel route that reads the configuration data from a CSV file.
+* Unmarshal the configuration data into Java objects.
+* Create a custom type converter for converting the objects to the required command object format.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+pattern-converter/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start pattern-converter*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/pattern-converter/apps+` directory, into the `+~/AD221/pattern-converter+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/pattern-converter/air-purifier-v2+` directory, compile and run the application by using `+./mvnw package quarkus:dev+`.
+
+This is the application that represents the new version of the air purifier device.
+
+2) Navigate to the `+~/AD221/pattern-converter+` directory and open the `+command-router+` project with an editor, such as VSCodium.
+
+3) In the `+command-router+` application directory, run `+./mvnw clean test+` to execute the test.
+
+Verify that the unit test fails.
+
+The unit test fails because the current `+command-router+` application sends JSON formatted messages to the `+air-purifier-v2+` application.
+The `+air-purifier-v2+` application does not accept JSON format, it accepts a custom data format instead, so the Quarkus application throws an exception.
+
+4) Examine the `+CommandConfiguration+` class.
+This class acts as a Data Transfer Object (DTO) for preparing the data in the right custom format.
+The `+toString+` method of the class creates a formatted String similar to the following:
+
+[subs=+quotes]
+----
+`+name+`=A Command Name|`+sentDate+`=26/02/2022|`+type+`=A COMMAND TYPE|`+value+`=2
+----
+
+This is the format that the `+air-purifier-v2+` application accepts.
+
+5) Open the `+CommandConfigurationConverter+` class and add the `+@Converter+` annotations both for the class level and the method level.
+
+Implement the `+convertToCommandConfiguration+` method by setting the attributes of the `+commandConfig+` object instance.
+
+The `+commandConfig+` is an instance of the `+CommandConfiguration+` class.
+The code uses the `+toString+` method to obtain formatted results.
+
+Use the `+csvRecord+` object instance to obtain the attribute values.
+
+
+[subs=+quotes]
+----
+// TODO: Add the converter annotation
+`+@Converter+`
+public class CommandConfigurationConverter {
+
+    private CommandConfigurationConverter() {}
+
+    // TODO: Add the converter annotation
+    `+@Converter+`
+    public final InputStream convertToCommandConfiguration(CommandConfigurationCSVRecord csvRecord){
+
+        CommandConfiguration commandConfig = new CommandConfiguration();
+        // TODO: Implement the converter by setting the values of CommandConfiguration object.
+        `commandConfig.setName(csvRecord.getName());
+        commandConfig.setType(csvRecord.getType());
+        commandConfig.setValue(csvRecord.getValue());
+        commandConfig.setSentDate(Calendar.getInstance().getTime());`
+
+        return new ByteArrayInputStream(commandConfig.toString().getBytes());
+    }
+}
+----
+
+6) Navigate to the `+src/main/resources/META-INF/services/org/apache/camel/TypeConverter+` file and add the package definition for the converter you created.
+
+The package definition of the `+CommandConfigurationConverter+` is `+com.redhat.training.route.converter+`.
+Camel scans this package and activates the `+CommandConfigurationConverter+` class in the relevant package.
+
+[subs=+quotes]
+----
+#TODO: Add converter package definition
+`+com.redhat.training.route.converter+`
+----
+
+7) Open the `+CommandConfigurationRouteBuilder+` class and comment out or remove the JSON type conversion.
+
+[subs=+quotes]
+----
+// TODO: Comment-out or remove the following conversion to JSON
+`+//.marshal(new JacksonDataFormat(CommandConfigurationCSVRecord.class))+`
+----
+
+You do not need this conversion because Camel uses the `+CommandConfigurationConverter+` for a custom conversion instead of a JSON conversion.
+The custom conversion happens automatically before sending the data to the `+http4+` component.
+
+8) Run `+./mvnw clean test+` to execute the test of the `+command-router+` application again.
+
+Verify that the test passes.
+
+9) Stop the `+air-purifier-v2+` application.
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish pattern-converter*
+----

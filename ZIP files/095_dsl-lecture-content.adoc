@@ -1,0 +1,230 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='restdsl-lecture']
+= Implementing REST services with the REST DSL
+
+== Introducing the REST DSL API
+
+Representational state transfer (REST) is a way to architect and design web services for simplicity, scalability, and portability.
+RESTful web services associate URLs and HTTP methods such as GET and POST to actions on entities or resources that elicit a response from the service in the form of a response payload.
+This response is either an HTTP status, an XML, or a JSON payload with the response body.
+
+For example, a `+GET+` request to the `+/users/1+` endpoint can either return a `+404 - Not Found+` status code if the user is not present in the system, or it can return a JSON representation of the user if it exists.
+
+Beginning in version 2.14, Camel offers a REST DSL that developers can use in route definitions to build REST web services.
+You can use the REST DSL to define REST services in Camel routes by using verbs that align with the REST HTTP protocol, such as GET, POST, DELETE, and so on.
+
+The benefit of using this DSL is that it drastically reduces the amount of development time necessary to build REST services into your Camel routes.
+This reduction comes from eliminating a lot of the boilerplate networking code and enables you to focus on the business logic that supports the REST service.
+
+The DSL builds REST endpoints as consumers for Camel routes.
+The REST DSL requires an underlying REST implementation provided by components such as Restlet, Spark, and other components that include REST integration.
+
+The following is an example of the REST DSL:
+
+[subs=+quotes]
+----
+public class HelloRoute extends RouteBuilder {
+
+    public void configure() throws Exception {
+        restConfiguration()
+           .component("servlet") <1>
+           .port(8080);
+
+        rest("/speak") <2>
+           .get("/hello")
+              .transform().constant("Hello World");
+    }
+}
+----
+<1> Uses the `+camel-servlet+` component to implement the REST service.
+<2> Returns a `+Hello World+` message on requests to the  `+/speak/hello+` GET request.
+//ZG: Should we explain what this example is doing? Can just be a sentence or two
+//RT: Added callouts to the example.  Another alternative is to remove the example since it is covered in the rest of the lecture that follows.
+//PSV: I tweaked a little the callouts. I'm also OK on removing the example.
+
+The REST DSL works as an extension to the existing Camel routing DSL, by using specialized keywords to more closely resemble the underlying REST and HTTP technologies.
+
+The REST DSL provides a simple syntax that extends Camel's existing DSL by mapping each keyword to a method.
+This also means that all existing functionality of a Camel route is available inside of a REST DSL defined route, enabling REST developers to leverage EIPs and other Camel features to implement their service.
+
+== Configuring the REST DSL
+
+When using the REST DSL, you must specify which of the REST DSL capable components should handle the requests made to the REST services.
+Each of the underlying implementations is different, but their functionality as it relates to the REST DSL is fundamentally the same.
+This course focuses on `+servlet+`, however, all of the concepts taught here should apply to the other REST DSL supported components.
+
+The following are some of the components that currently support the REST DSL:
+
+[compact]
+* `+camel-servlet+`: Uses Servlets
+* `+camel-jetty+`: Uses the Jetty HTTP server
+* `+camel-restlet+`: Uses the Restlet library
+* `+camel-spark-rest+`: Uses the Java Spark library
+* `+camel-undertow+`: Uses the JBoss Undertow HTTP server
+
+To specify the REST implementation to use, the REST DSL provides the `+restConfiguration+` method.
+By using this method, you can control the resulting REST service created by Camel, as shown in the following example:
+
+[subs=+quotes]
+----
+restConfiguration()
+    .component("servlet") <1>
+    .contextPath("/restService") <2>
+    .port(8080); <3>
+----
+
+<1> Camel REST component to use
+<2> Root context path for all endpoints
+<3> Port to bind the REST endpoints
+
+Because the REST DSL is not an implementation, only a subset of the options common to all implementations, most options are specific to the REST component used by the DSL.
+The following is a table of the common options across all components:
+
+.REST DSL Common Configuration Options
+[cols="1,3"]
+|===
+| Option | Description
+
+| `+component+`
+| The Camel component to use as the HTTP server. Options include `+servlet+`, `+jetty+`, `+restlet+`, `+spark-rest+`, and `+undertow+`.
+
+| `+schema+`
+| The HTTP schema to use, HTTP (default) or HTTPS.
+
+| `+hostname+`
+| The host name or IP where the HTTP server is bound.
+
+| `+port+`
+| The port number to use for the HTTP server.
+
+| `+contextPath+`
+| The base context path for the HTTP server.
+|===
+
+You can also set options on the `+restConfiguration+` DSL method to configure the intended Component, Endpoint, and Consumer.
+Because options vary from Component to Component, to set them you must use a generic DSL method, as shown in the following table:
+
+.REST Configuration Generic Options
+[cols="1,1"]
+|===
+| Option type | DSL method
+
+| component
+| `+componentProperty+`
+
+| endpoint
+| `+endpointProperty+`
+
+| consumer
+| `+consumerProperty+`
+|===
+
+To use any of these properties, you must set a key and value, where the key corresponds to the name of a property available for that component, endpoint, or consumer.
+
+The following example sets the `+minThreads+` and `+maxThreads+` properties for the Jetty web server:
+
+[subs=+quotes]
+----
+restConfiguration()
+    .component("jetty")
+    .componentProperty("minThreads", "1")
+    .componentProperty("maxThreads", "8");
+----
+
+[NOTE]
+====
+Ensure that any component, endpoint, or consumer properties you set are using key values that match the component, endpoint, or consumer available options.
+If you try to set an option that does not exist, then the route compiles but throws a runtime error.
+====
+
+=== Developing with the REST DSL
+
+After you have configured the component for the REST DSL to use, adding a REST service definition to your Camel route is simple.
+First, define the set of services with the `+rest+` method, and set the context path that is specific to this set of services.
+
+You can then define individual services by using REST DSL methods such as `+get+`, `+post+`, `+put+`, and `+delete+`.
+You can also define path parameters by using the `+{}+` syntax for each service.
+
+The following example shows how to use the REST DSL to define multiple services:
+
+[subs=+quotes]
+----
+public class OrderRoute extends RouteBuilder {
+    public void configure() throws Exception {
+
+    restConfiguration()
+        .component("servlet")
+        .port(8080);
+
+    rest("/orders")
+        `+.get("{id}")+` <1>
+            .to("bean:orderService?method=getOrder(${header.id})")
+        `+.post()+` <2>
+            .to("bean:orderService?method=createOrder")
+        `+.put()+` <3>
+            .to("bean:orderService?method=updateOrder")
+        `+.delete("{id}")+` <4>
+            .to("bean:orderService?method=cancelOrder(${header.id})");
+    }
+}
+----
+
+<1> Maps to any HTTP GET requests received at `+http://localhost:8080/orders/id+`
+<2> Maps to any HTTP POST requests received at `+http://localhost:8080/orders/+`
+<3> Maps to any HTTP PUT requests received at `+http://localhost:8080/orders/+`
+<4> Maps to any HTTP DELETE requests received at `+http://localhost:8080/orders/id+`
+
+== Customizing the REST Payload with Data Binding
+
+The REST DSL supports automatic binding of XML and JSON data to POJOs by using Camel's data formats.
+This means that incoming JSON or XML data is automatically unmarshaled into model objects, and any processing done inside the service can use the Java model classes instead of raw JSON or XML data.
+
+For example, a service that consumes new order records in JSON format can automatically unmarshal that JSON into the Order model class for easier processing by subsequent components in the Camel route.
+
+The following table lists the supported binding modes in the REST DSL, which are defined in the `+org.apache.camel.model.rest.RestBindingMode+` enumeration:
+
+.REST DSL Binding Modes
+[cols="1,6"]
+|===
+| Mode | Description
+
+| `+off+`
+| Turns off automated binding. This is the default.
+
+| `+auto+`
+| Binding is automatic, assuming class path contains the necessary data formats. Typically based on the `+Content-Type+` header.
+
+| `+json+`
+| Enables binding to and from JSON, requires `+camel-jackson+` on the class path.
+
+| `+xml+`
+| Enables binding to and from XML, requires `+camel-jaxb+` on the class path.
+
+| `+json_xml+`
+| Enables binding to and from JSON and XML. Requires class path containing both data formats.
+|===
+
+Similar to other configurations for REST DSL, the `+restConfiguration+` method sets the binding mode, as shown in the following example:
+
+[subs=+quotes]
+----
+restConfiguration()
+    .component("spark-rest").port(8080)
+    .bindingMode(RestBindingMode.json) <1>
+    .dataFormatProperty("prettyPrint", "true");
+----
+
+<1> Sets the REST binding mode to JSON
+
+Similar to component or endpoint properties, data format properties specific to the data format you are using can be set generically by using `+dataFormatProperty+`.
+In the previous example, Jackson's `+prettyPrint+` option is set to `+true+` by using a data format property that formats the JSON output in a human-readable format.
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _Defining REST Services_ chapter in the _Apache Camel Component Reference Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#RestServices
+
+_Camel in Action, Second Edition_ (2018) by Claus Ibsen and Jonathan Anstey; Manning. ISBN 978-1-617-29293-4.
+====

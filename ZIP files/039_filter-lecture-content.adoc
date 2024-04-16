@@ -1,0 +1,352 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='patternfilter-lecture']
+
+= Transforming and Filtering Messages
+
+== Camel Data Transformation Terms
+
+One of the most common problems when integrating disparate systems is that those systems do not use a consistent data format.
+For example, you might receive new product information from a vendor in CSV format, but your production information system only accepts JSON data.
+This difference in data format means you must transform the data from one system before another system can correctly process it.
+Camel is designed to handle these differences by providing support for dozens of different data formats, including the ability to transform data from one format to another.
+The data formats that Camel supports include JSON, XML, CSV, flat files, EDI, and many others.
+
+The following terms are commonly used to describe transformation features in Camel.
+
+Data Formats:: _Data Formats_ in Camel are the various forms that your data can be represented, either in binary or text.
+Each data format has a class you must instantiate and optionally configure before you can use it in a route.
+
+Marshaling Data:: _Marshaling_ is the process where Camel converts the message payload from a memory-based format (for example, a Java object) to a data format suitable for storage or transmission (XML or JSON, for example). To perform marshaling, Camel uses the `+marshal+` method, which requires a `+DataFormat+` object as a parameter.
+
+Unmarshaling Data:: _Unmarshaling_ is the opposite process of marshaling, where Camel converts the message payload from a data format suitable for transmission such as XML or JSON to a memory-based format, typically a Java object.
+To perform unmarshaling explicitly in a Camel route, use the `+unmarshal+` method in the Java DSL.
+
+== Transforming XML Data by Using JAXB
+
+There are multiple options for working with XML data in Camel.
+JAXB is a very popular XML framework and is the XML marshaling library focused on throughout this course.
+To use JAXB with Camel, include the `+camel-jaxb+` library as a dependency of your project:
+
+[subs=+quotes]
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-jaxb</artifactId>
+</dependency>
+----
+
+The `+camel-jaxb+` library also provides the JAXB annotations that you must use to annotate your model class.
+JAXB matches fields on the model class to elements and attributes contained in the XML data by using the information provided by the JAXB annotations.
+
+Given the following XML content:
+
+[subs=+quotes]
+----
+<order id="10" description="N2PENCIL" value="1.5" tax="0.15"/>
+----
+
+The following JAXB model class contains the necessary annotations to marshal the XML to a Java object:
+
+[subs=+quotes]
+----
+package com.redhat.training;
+
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAttribute;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Order implements Serializable { <1>
+
+    private static final long serialVersionUID = 5851038813219503043L;
+
+    @XmlAttribute
+    private String id;
+
+    @XmlAttribute
+    private String description;
+
+    @XmlAttribute
+    private double value;
+
+    @XmlAttribute
+    private double tax;
+}
+----
+<1> Note that this model class implements the java.io.Serializable interface, which is required by JAXB to execute the marshaling and unmarshaling process.
+
+In the previous example, each field in the Java class represents an attribute on the root Order element.
+By default, if no alternate name is specified in the JAXB annotation parameters, the marshaller uses the name of the field directly to map the XML data.
+
+[NOTE]
+====
+JAXB annotations are beyond the scope of this course. You can find more documentation in the JAXB user guide.
+====
+
+In the following sample route, an external system places Java objects in the body of a message and then sends the message to an ActiveMQ queue called `+itemInput+`.
+The Camel route consumes the messages, and JAXB marshals the object to XML data and replaces the contents of the exchange body with the corresponding XML equivalent.
+The route then sends the XML data in a message to an ActiveMQ queue called `+itemOutput+`.
+
+[subs=+quotes]
+----
+from("activemq:queue:itemInput)
+  .marshal().jaxb()
+  .to("activemq:queue:itemOutput);
+----
+
+Notice that in the previous example route, no JAXB data format is instantiated.
+This is possible because `+camel-jaxb+` automatically finds all classes that contain JAXB annotations if no context path is specified, and uses those annotations to marshal to the XML data.
+
+== Transforming JSON Data by Using Jackson
+
+Similar to XML, Camel offers multiple libraries for working with JSON data.
+Like JAXB, Jackson is a very popular framework for working with JSON data in Java and this course focuses on this approach for working with JSON data.
+To use Jackson with Camel, you must include the `+camel-jackson+` library as a dependency of your project.
+
+[subs=+quotes]
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-jackson</artifactId>
+</dependency>
+----
+
+Similar to JAXB, Jackson also provides a set of annotations you use to control the mapping of JSON data into your model classes.
+
+Given the following JSON data:
+[subs=+quotes]
+----
+{
+    "ID": "1",
+    "value": 5.00,
+    "tax": 0.50,
+    ...
+----
+
+The following example is a Jackson-annotated model class which you can use to marshal the JSON data:
+
+[subs=+quotes]
+----
+package com.redhat.training;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Order implements Serializable{
+
+    private static final long serialVersionUID = 5851038813219503043L;
+
+    @JsonProperty("ID") <1>
+    private String id;
+
+    @JsonIgnore <2>
+    private String description;
+
+    private double value;
+
+    private double tax;
+}
+----
+<1> Use the `+@JsonProperty+` annotation to override the field name with a name for `+Jackson+` to use when marshaling and unmarshaling JSON data for that property.
+<2> Use the `+@JsonIgnore+` annotation to make `+Jackson+` ignore a field entirely when marshaling an instance of the model class into JSON data.
+
+The following is a Java DSL example of using Jackson to marshal JSON data before writing the JSON data to a file in the outbox directory:
+
+[subs=+quotes]
+----
+from("queue:activemq:queue:itemInput")
+  .marshal().json(JsonLibrary.Jackson)
+  .to("file:outbox")
+----
+
+== Transforming Directly Between XML and JSON Data
+
+As discussed previously, Camel supports data formats to perform both XML and JSON-related conversions.
+Both of these transformations, however, require a Java model class object either as an input (marshaling) or they produce a Java object as output (unmarshaling).
+The `+camel-xmljson+` data format provides the capability to convert data from XML to JSON directly and vice versa without needing to use intermediate Java objects.
+Directly transforming XML to JSON is preferred as there is significant performance overhead involved in doing extra transformations.
+
+When you use the `+camel-xmljson+` library, the terminologies `+marshaling+` and `+unmarshaling+` are not as obvious because there are no Java objects involved.
+The library defines XML as the high-level format or the equivalent of what your Java model classes typically represent, and JSON as the low-level format more suitable for transmission or storage.
+This designation is mostly arbitrary for the purpose of defining the `+marshal+` and `+unmarshal+` terms.
+
+The terms marshal and unmarshal are defined as follows:
+
+Marshaling:: Converting from XML to JSON
+
+Unmarshaling:: Converting from JSON to XML
+
+To use the `+XmlJsonDataFormat+` class in your Camel routes you must add the following dependencies to your POM file:
+
+[subs=+quotes]
+----
+<dependency>
+  <groupId>org.apache.camel</groupId>
+  <artifactId>camel-xmljson</artifactId>
+</dependency>
+<dependency>
+  <groupId>xom</groupId>
+  <artifactId>xom</artifactId>
+</dependency>
+----
+
+[NOTE]
+====
+The XOM library cannot be included by default due to an incompatible license with Apache Software Foundation.
+You need to add this dependency manually for the `+camel-xmljson+` module to function.
+====
+
+The following example Camel route includes the use of the XmlJsonDataFormat:
+
+[subs=+quotes]
+----
+XmlJsonDataFormat xmlJsonFormat = new XmlJsonDataFormat();
+
+// From XML to JSON
+from("direct:marshal")
+  .marshal(xmlJsonFormat)
+  .to("direct:json");
+
+// From JSON to XML
+from("direct:unmarshal")
+  .unmarshal(xmlJsonFormat)
+  .to("direct:xml");
+----
+
+
+== Filtering Messages
+
+Camel defines the Message Filter pattern to remove some messages during route execution based on the content of the Camel message.
+
+To filter messages sent to a destination, use the following Java DSL:
+
+[subs=+quotes]
+----
+from("<Endpoint URI>")
+    .filter(<filter>)
+    .to("<Endpoint URI>");
+----
+
+The `+<filter>+` must be a Camel predicate, which evaluates to either true or false based on the message content.
+The filter drops any messages that evaluate to false and the remainder of the route is not processed.
+Predicates can be created using expressions, which Camel evaluates at runtime.
+
+Because of the number of data formats supported by integration systems, a set of technologies can be used to filter information.
+For example, in an XML-based message, `+XPath+` can be used to identify fields in an XML file.
+
+To evaluate if a certain value is available at a specific XML element, use the following syntax:
+
+[subs=+quotes]
+----
+filter(xpath("/body/title/text() = 'Hello World'"))
+----
+
+Likewise, the Simple expression language can be used to filter Java objects.
+
+[subs=+quotes]
+----
+from("direct:a")
+    .filter(simple("${header.foo} == 'bar'"))
+    .to("direct:b")
+----
+
+
+=== Implementing Predicates
+Camel uses expressions to look for information inside messages.
+Expressions support a large number of data formats, including Java-based data and common data format exchanges (XML, JSON, SQL, and so on).
+
+Predicates in Camel are essentially expressions that must return a Boolean value.
+This is often used to look for a certain value in an Exchange instance.
+Predicates can be leveraged by Camel in conjunction with expression languages to customize routes and filter data in a route.
+For example, to use the Simple expression language in a filter, the Simple expression must be called inside a route calling the `+simple+` method.
+Similarly, to use an XPath expression, there is a method called `+xpath+`.
+
+The following XML is used as an example to explain the XPath syntax.
+
+[subs=+quotes]
+----
+<order>
+    <orderId>100</orderId>
+    <shippingAddress>
+        <zipCode>22322</zipCode>
+    </shippingAddress>
+</order>
+----
+
+To navigate in an XML file, XPath separates each element with a forward slash (/).
+Therefore, to get the text within the `+<orderId>+` element, use the following XPath expression:
+
+[subs=+quotes]
+----
+/order/orderId/text()
+----
+
+To get the zipCode from the previous XML, use the following expression:
+[subs=+quotes]
+----
+/order/orderId/shippingAddress/zipCode/text()
+----
+
+To get all XML contents where zipCode is not 23221, use the following expression:
+
+[subs=+quotes]
+----
+/order/orderId/shippingAddress/[not(contains(zipCode,'23221'))]
+----
+
+To use the expression as a predicate in a Camel route, the XPath method parses the XPath expression and returns a Boolean:
+
+[subs=+quotes]
+----
+xpath("/order/orderId/shippingAddress/[not(contains(zipCode,'23221'))]")
+----
+
+To filter XML messages sent to a destination, use the following Java DSL example:
+
+[subs=+quotes]
+----
+from("file:orders/incoming?include=order.*xml")
+    `+.filter(xpath("/order/orderItems/orderItem/orderItemQty > 1"))+`
+    .to("file:orders/outgoing/?fileExist=Fail");
+----
+
+An expression language (EL) used to identify Java objects is the Simple EL.
+It uses a syntax that resembles many other scripting languages, using dots to step through nested Java objects.
+For example, in a class called Order, with an address attribute that contains a ZIP code, the Simple EL to search for the zip code 33212 is:
+
+[subs=+quotes]
+----
+${order.address.zipCode = '33212'}
+----
+
+== Implementing the Wire Tap Pattern in a Camel Route
+
+The ((Wire Tap)) EIP is an integration pattern that creates a duplicate copy of each processed message, and then forwards the duplicate message to a secondary destination.
+This functionality is useful for inspecting messages as they travel along a Camel route without impacting the route execution itself.
+
+To implement this pattern, Camel provides the `+wireTap+` component.
+
+[subs=+quotes]
+----
+from("activemq:queue:orders.in")
+  `+.wireTap("file:backup")+`
+  .to("direct:start");
+----
+
+The preceding example uses the Wire Tap pattern, and sends a copy of every message received on the `+activemq:queue:orders.in+` endpoint to the `+file:backup+` endpoint.
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _JAXB DataFormat_ chapter in the _Apache Camel Component Reference Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#jaxb-dataformat
+
+For more information, refer to the _JSON Jackson DataFormat_ chapter in the _Apache Camel Component Reference Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#json-jackson-dataformat
+
+For more information, refer to the _Message Filter_ chapter in the _Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#MsgRout-MsgFilter
+
+For more information, refer to the _Wire Tap_ chapter in the _Apache Camel Development Guide_ https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#WireTap
+====

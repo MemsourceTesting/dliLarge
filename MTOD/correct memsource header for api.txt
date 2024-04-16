@@ -1,0 +1,1 @@
+{"targetLangs": ["it"],"useProjectFileImportSettings": "true","workflowSettings": [{"id": "20910941","assignments": [{"targetLang": "it","providers": [{"id": "0xAqVczXWmRFpOE1bQnfFf","type": "VENDOR"}]}],"notifyProvider": {"organizationEmailTemplate": {"id": "4672103"},"notificationIntervalInMinutes": "10"}}]}

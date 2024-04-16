@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><translationObjectFile fileType="I18NDICTIONARY" sourcePath="/apps/i18n/fr.json">
+  <translationObjectProperties>
+    <property isMultiValue="false" nodePath="/apps/i18n/fr.json" propertyName="Login as representative">Login as representative</property>
+    <property isMultiValue="false" nodePath="/apps/i18n/fr.json" propertyName="You are also eligible for the following services:">You are also eligible for the following services:</property>
+    <property isMultiValue="false" nodePath="/apps/i18n/fr.json" propertyName="Congratulations ! Your  ((Thank you with user name))">Congratulations ! Your Geometrixx.Gov | All Rights Reserved</property>
+    <property isMultiValue="false" nodePath="/apps/i18n/fr.json" propertyName="Request for Hardship Determination">Request for Hardship Determination</property>
+    <property isMultiValue="false" nodePath="/apps/i18n/fr.json" propertyName="Please specify your application tracking number.">Please specify your application tracking number.</property>
+    <property isMultiValue="false" nodePath="/apps/i18n/fr.json" propertyName="Thank You">Thank You</property>
+    <property isMultiValue="false" nodePath="/apps/i18n/fr.json" propertyName=" has been submitted. Please note down your Application Tracking Number "> Request has been submitted. Please note down your Application Tracking Number </property>
+    <property isMultiValue="false" nodePath="/apps/i18n/fr.json" propertyName="You can also call 1-877-222-XXX to check the status of your application. ">You can also call 1-877-222-XXX to check the status of your application. Thank you.</property>
+  </translationObjectProperties>
+</translationObjectFile>

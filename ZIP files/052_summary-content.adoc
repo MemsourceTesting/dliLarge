@@ -1,0 +1,12 @@
+[id='pattern-summary']
+= Summary
+
+In this chapter, you learned:
+
+* You can use the JAXB library to transform messages to and from XML.
+* You can use the Jackson library to transform messages to and from JSON.
+* A message filter selectively removes message exchanges from a route based upon message contents.
+* Camel type converters run implicitly to convert data from the source data format to the target data format.
+* You can create a custom type converter and register it with Camel's type conversion system.
+* Camel supports the Splitter pattern, enabling you to break messages into chunks for separate processing.
+* You can use the Aggregator pattern to combine multiple related messages into a single message.

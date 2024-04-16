@@ -1,0 +1,271 @@
+product: update by Aleš in Revision step
+components:
+  -
+    type: update by Aleš in Revision step
+    classes: update by Aleš in Revision step
+    show_thumbnails: true
+    show_ratings: true
+    main_text: '<h1 itemprop="name" class="m-0">Bomba Elvie</h1>'
+    secondary_text: |
+        A primeira bomba de mama silenciosa vestível do mundo.  
+        Cabe no seu sutiã e na sua vida.  
+        Sem tubos. Sem fios. Sem barulho.
+    tertiary_text: |
+        2 anos de garantia.  
+        Frete grátis.  
+        A partir de £62.25/mês em 0% de abril com crédito PayPal.  
+        <a class="underline font-bold" href="#" data-target="#insurance" data-toggle="modal">Fundos FSA/HSA aceitos (somente nos EUA).</a>
+    text_position: certo
+    text_colour: escuro
+    product: update by Aleš in Revision step
+    heights: '300,600'
+    content_classes: 'lg:w-4/5'
+    slides:
+      -
+        type: slide
+        background_image:
+          - "/assets/hero_banners/pump-carousel-in-bra-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-in-bra.jpg"
+        custom_arrangement: 'lg, xl'
+      -
+        type: slide
+        background_image:
+          - "/assets/hero_banners/pump-carousel-1-product-group-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-1-product-group.jpg"
+        custom_arrangement: 'lg, xl'
+      -
+        type: slide
+        background_image:
+          - "/assets/hero_banners/pump-carousel-2-front-and-back-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-2-front-and-back.jpg"
+        custom_arrangement: 'lg, xl'
+      -
+        type: slide
+        background_image:
+          - "/assets/hero_banners/pump-carousel-3-app-screens-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-3-app-screens.jpg"
+        custom_arrangement: 'lg, xl'
+      -
+        type: slide
+        background_image:
+          - "/assets/hero_banners/pump-carousel-4-held-in-hand-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-4-held-in-hand.jpg"
+        custom_arrangement: 'lg, xl'
+    disable_ecommerce: false
+  -
+    type: brand_box
+    images:
+      - "/assets/pump-lifestyle.png"
+    main_text: 'Bombeie a qualquer hora,'
+    secondary_text: 'Elvie Pump torna possível bombear em seus próprios termos - em casa, no trabalho ou em movimento. Deixe as horas passadas escondidas em armários, amarradas a uma parede ou tubos de limpeza. Com Elvie Pump você pode liderar a reunião, sair ou simplesmente desfrutar de um pouco de paz e tranquilidade... tudo enquanto você bombeia.'
+    box_colour: luz
+  -
+    type: usp_block
+    heading: Wearable
+    reveal_heading: Dimensões
+    reveal_content: |
+        ![] (/assets/pump-dimensions.png)
+        
+        (a) 128 mm x (b) 110 mm x (c) 68 mm  
+        (a) 5 pol x (b) 4,3 pol x (c) 2,7 pol  
+        225g/7,9 oz
+    main_text: 'Pequeno e leve, a bomba Elvie é usada dentro de um sutiã de enfermagem padrão, tornando-o verdadeiramente mãos-livres. Nada para amarrá-lo - ou te atrasar.'
+    image: "/assets/pump-usp-1-in-bra.jpg"
+    text_position: esquerda
+    layout: default
+  -
+    type: usp_block
+    heading: Silêncio
+    main_text: 'Tecnologia revolucionária elimina ruído para que você possa bombear em paz A qualquer hora, em qualquer lugar. Está em modo furtivo para que você não tenha que estar.'
+    image: "/assets/pump-usp-2-silent.jpg"
+    text_position: certo
+    layout: alternativo
+    section_classes: "bg-sobreposição-t"
+  -
+    type: usp_block
+    heading: Livre de complicações
+    main_text: 'Desde a configuração até a limpeza, usar a bomba Elvie é simples - tem apenas 5 peças para limpar e leva segundos para montar. Sem cordas, sem mudanças de guarda-roupa, sem barulho.'
+    image: "/assets/pump-usp-3-simple-parts.jpg"
+    text_position: esquerda
+    layout: default
+  -
+    type: usp_block
+    image: "/assets/blog_images/elvie-pump-us2.png"
+    heading: Inteligente
+    reveal_heading: 'Recursos do aplicativo'
+    main_text: |
+        Conecte-se ao aplicativo gratuito Elvie Pump para monitorar o volume do leite em tempo real, acompanhar o histórico de bombeamento para cada peito e controlar a bomba remotamente.  
+        <small>(Elvie Pump funciona com ou sem o aplicativo).</small>
+    reveal_content: |
+        - Reproduzir/pausar a bomba do seu telefone
+        - Mudar o modo e a intensidade
+        - Ver volume de leite em tempo real
+        - Histórico de bombeamento de trilha para cada peito
+        - Definir temporizador de bombeamento
+    text_position: certo
+    layout: default
+    section_classes: "bg-elvie-branco"
+  -
+    type: usp_block
+    image: "/assets/mum-baby.jpg"
+    heading: Responsivo
+    main_text: 'Elvie Pump muda automaticamente do modo de Estimulação para Expressão quando detecta a descida e pausa quando a garrafa está cheia. Uma coisa a menos para pensar.'
+    text_position: esquerda
+    layout: default
+  -
+    type: nitty_gritty
+    features:
+      -
+        type: funcionalidade
+        icon: "/assets/pump-nitty-gritty-icons_hands-free.svg"
+        details: |
+            **Mãos livro**  
+            Design tudo-em-um sem cabos ou tubos externos
+      -
+        type: funcionalidade
+        icon: "/assets/pump-nitty-gritty-icons_2-phase.svg"
+        details: |
+            **2-fase**  
+            Modos de estimulação e expressão
+      -
+        type: funcionalidade
+        icon: "/assets/pump-nitty-gritty-icons_variable-suction.svg"
+        details: |
+            **Sucção variável**  
+            7 configurações de intensidade
+      -
+        type: funcionalidade
+        icon: "/assets/pump-nitty-gritty-icons_custom-fit.svg"
+        details: |
+            **Ajuste personalizado**  
+            3 tamanhos de escudo de mama (2 incluídos na caixa)
+      -
+        type: funcionalidade
+        icon: "/assets/pump-nitty-gritty-icons_rechargeable.svg"
+        details: |
+            **Recarregável**  
+            Carrega em 2 horas via micro-USB
+      -
+        type: funcionalidade
+        icon: "/assets/pump-nitty-gritty-icons_smart-features.svg"
+        details: |
+            **Recursos inteligentes**  
+            Rastreamento no aplicativo e controle remoto
+      -
+        type: funcionalidade
+        icon: "/assets/pump-nitty-gritty-icons_reusable-bottle.svg"
+        details: |
+            **Garrafas reutilizável**  
+            Garrafas duráveis de 150 ml
+      -
+        type: funcionalidade
+        icon: "/assets/pump-nitty-gritty-icons_bpa-free.svg"
+        details: |
+            **Livre de BPA**  
+            Feito com plástico livre de BPA, lava-louças
+    section_classes: 'bg-elvie-branco py-16'
+  -
+    type: mídia
+    custom_arrangement: 'sm, md, lg, xl'
+    heights: '375.700'
+    video: "7570123b-8fc6-4082-9454-32cd53a8bdab"
+    background: false
+  -
+    type: depoimentos
+    testimonials:
+      - "a07180e0-73c3-4e2d-83fc-ca267ffd69a5"
+      - "2e374983-e037-40e3-a5b8-f49458911381"
+      - "bc4db223-021e-483f-8b6c-b32d2dbc2ad9"
+      - "124e01db-65c1-4f3c-b2de-e4771cfd0bb0"
+      - "84e8aec5-da2a-48c7-adc3-51f8f25fcf51"
+  -
+    type: custom_partial
+    path: pump/whats_in_the_box
+  -
+    type: FAQs
+    faqs:
+      - "88090c3c-6205-43d1-92cd-55d947c78c01"
+      - "c517b33e-7f15-4798-b42d-4f8ae5c8d614"
+      - "cd8d25de-9fe2-416a-8432-a033c0ab0be9"
+      - "3ec4e6ce-57a0-420c-b9cc-754d2dc054be"
+      - "8a495f13-1ccf-4d4f-80af-29a1d26669e3"
+    link_to: "7e6c5e5b-9d40-4b2e-9bb1-8886b709c3ac"
+    link_text: 'Mais perguntas?<br>Visite as perguntas frequentes sobre a bomba Elvie'
+  -
+    type: UGCS
+    heading: 'Siga a revolução'
+    ugcs:
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-momommorgan.jpg"
+        customer: '@momommorgan'
+        link_customer: 'https://www.instagram.com/p/BzA-KflF1Me/'
+        link_customer_modal: 'Ver no Instagram'
+        text: 'A desvantagem de deixar um 4 meses de idade 🐄🤱👶🏼'
+        close_modal: branco
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-rinart007.jpg"
+        customer: '@rinart007'
+        link_customer: 'https://www.instagram.com/p/BwkvwpeHvJ8/'
+        link_customer_modal: 'Ver no Instagram'
+        text: 'Fizemos nossa primeira viagem com Lily ao Parque Nacional de Zion. Graças a @elvie eu poderia bombear em movimento. Lily tem que comer e tirar!! Meus Elvies se encaixam, eles se parecem com ovos de dinossauro!!!'
+        close_modal: branco
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-definitely.jpg"
+        customer: '@definitely_definitely'
+        link_customer: 'https://www.instagram.com/p/Bt4TqRNgnD4/'
+        link_customer_modal: 'Ver no Instagram'
+        text: 'Bombeado como um chefe na academia hoje. Obrigado @elvie! #roboboobs #mumatron #happymummy #happybaby #gymtimebaby'
+        close_modal: branco
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-butfirstkw.jpg"
+        customer: '@butfirstkw'
+        link_customer: 'https://www.instagram.com/p/BuZjH1EgWxY/'
+        link_customer_modal: 'Ver no Instagram'
+        text: 'Bombeamento antes e depois de bater as encostas ⛷ @elvie'
+        close_modal: branco
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-carlyrowena.jpg"
+        customer: '@carlyrowena'
+        link_customer: 'https://www.instagram.com/p/BzC57EdJFo7/'
+        link_customer_modal: 'Ver no Instagram'
+        text: 'A fim de reduzir meu suprimento de leite com sucesso enquanto também mantê-lo indo para que eu possa fazer uma alimentação noturna para Jax eu estou bombeando e despejando com meu @elvie durante o dia! Este gadget se tornou meus peitos melhor amigo, não me sinto mais como uma vaca, me dá liberdade, independência'
+        close_modal: branco
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-wideeyedmum.jpg"
+        customer: '@wide_eyed_mum'
+        link_customer: 'https://www.instagram.com/p/BynBbTOlsDW/'
+        link_customer_modal: 'Ver no Instagram'
+        text: 'Depois de 2 noites fora sem o meu #baby boy eu posso definitivamente dizer que o @elvie foi um salva-vidas. Eu usei no aeroporto, no avião, em um bar, em um restaurante e enquanto caminhava pelas ruas de Cracóvia 🙌🏻'
+        close_modal: escuro
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-vasavigail.jpg"
+        customer: '@vasavigail'
+        link_customer: 'https://www.instagram.com/p/ByYdz1BAEcH/'
+        link_customer_modal: 'Ver no Instagram'
+        text: '🍼 Eu faço leite. Qual é o seu superpoder?🍼'
+        close_modal: escuro
+    link_to: 'https://www.instagram.com/elvie/'
+    link_text: 'siga @hello .elvie'
+    section_classes: "bg-elvie-branco"
+robots: "index-follow"
+navigation: secundário
+product_id:
+  - PUMP_SINGLE
+hide_site_banner: false
+newsletter_modal: true
+seo:
+  title: 'Elvie bomba | silenciosa, vestível, inteligente bomba de mama | Elvie'
+  description: 'Finalmente, uma bomba de mama que permite bombear a qualquer hora, em qualquer lugar. Elvie Pump é a primeira bomba de mama silenciosa vestível do mundo. Obtenha agora com 2 anos de garantia e entrega gratuita.'
+  priority: '1.0'
+  change_frequency: mensal
+template: loja/produto
+title: 'Bomba Elvie'
+fieldset: product_page
+id: "7ba328fd-e2f6-4bf8-9037-c2abdada7c24"

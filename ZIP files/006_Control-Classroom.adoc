@@ -1,0 +1,131 @@
+
+=== Controlling Your Systems
+
+[role="ilt"]
+In an instructor-led training classroom, you are assigned a physical computer (`+foundation__X__.ilt.example.com+`), which is used to access the virtual machines that run on that host.
+You are automatically logged in to the physical machine as the `+kiosk+` user, using `+redhat+` as the password.
+The classroom systems that you work with are virtual machines running on that host.
+
+[role="ilt"]
+On `+foundation__X__+`, you use the `+rht-vmctl+` command to work with the virtual machines.
+Run the commands in the following table as the `+kiosk+` user on `+foundation__X__+`.
+These commands can be used with any of the virtual machines.
+
+[frame="all",role="ilt"]
+.`+rht-vmctl+` Commands
+[cols="1,1",options="header"]
+|===
+|Action |Command
+|Start the virtual machine named `+server+`.|`+rht-vmctl start server+`
+|Display the "physical console" for the virtual machine named `+server+`, to log in and work on that system |`+rht-vmview view server+`.
+|Reset the virtual machine named `+server+` to its initial course state and restart it. |`+rht-vmctl reset server+`
+|===
+
+[role="ilt"]
+At the start of a lab exercise, if the instruction "reset your servera" appears, then run the `+rht-vmctl reset servera+` command on the `+foundation__X__+` system as the `+kiosk+` user.
+Likewise, if the instruction "reset your workstation" appears, then run the `+rht-vmctl reset workstation+` command on `+foundation__X__+` as the `+kiosk+` user.
+
+[role="role"]
+You are assigned remote computers in a Red{nbsp}Hat Online Learning (ROLE) classroom.
+Self-paced courses are accessed through a web application that is hosted at http://rol.redhat.com[rol.redhat.com].
+Log in to this site with your Red{nbsp}Hat Customer Portal user credentials.
+
+[role='role']
+=== Controlling the Virtual Machines
+
+[role="role"]
+The virtual machines in your classroom environment are controlled through web page interface controls.
+The state of each classroom virtual machine is displayed on the btn:[Lab Environment] tab.
+
+[role="role"]
+[id='rol-classroom-controls']
+.An example course Lab Environment management page
+image::images/courseintro/rol-classroom-controls.png[scalefit="1",wdith="100%",align="center"]
+
+[frame="all",role="role"]
+.Machine States
+[cols="1,3",options="header"]
+|===
+|Virtual Machine State |Description
+|building |The virtual machine is being created.
+|active |The virtual machine is running and available.
+If it just started, it still might be starting services.
+|stopped |The virtual machine is completely shut down.
+On starting, the virtual machine boots into the same state it was in before shutdown.
+The disk state is preserved.
+|===
+
+[frame="all",role="role"]
+.Classroom Actions
+[cols="1,3",options="header"]
+|===
+|Button or Action |Description
+|btn:[CREATE] |Create the ROLE classroom.
+Creates and starts all the virtual machines needed for this classroom.
+Creation can take several minutes to complete.
+|btn:[CREATING] |The ROLE classroom virtual machines are being created.
+Creates and starts all the virtual machines that are needed for this classroom.
+Creation can take several minutes to complete.
+|btn:[DELETE] |Delete the ROLE classroom.
+Destroys all virtual machines in the classroom.
+*All saved work on those systems' disks is lost.*
+|btn:[START] |Start all virtual machines in the classroom.
+|btn:[STARTING] |All virtual machines in the classroom are starting.
+|btn:[STOP] |Stop all virtual machines in the classroom.
+|===
+
+[frame="all",role="role"]
+.Machine Actions
+[cols="1,3",options="header"]
+|===
+|Button or Action |Description
+|btn:[OPEN CONSOLE] |Connect to the system console of the virtual machine in a new browser tab.
+You can log in directly to the virtual machine and run commands, when required.
+Normally, log in to the `+workstation+` virtual machine only, and from there, use `+ssh+` to connect to the other virtual machines.
+|menu:ACTION[Start] |Start (power on) the virtual machine.
+|menu:ACTION[Shutdown] |Gracefully shut down the virtual machine, preserving disk contents.
+|menu:ACTION[Power Off] |Forcefully shut down the virtual machine, while still preserving disk contents.
+This is equivalent to removing the power from a physical machine.
+|menu:ACTION[Reset] |Forcefully shut down the virtual machine and reset associated storage to its initial state.
+*All saved work on that system's disks is lost.*
+|===
+
+[role="role"]
+At the start of an exercise, if instructed to reset a single virtual machine node, click menu:ACTION[Reset]
+for only that specific virtual machine.
+
+[role="role"]
+At the start of an exercise, if instructed to reset all virtual machines, click menu:ACTION[Reset]
+on every virtual machine in the list.
+
+[role="role"]
+If you want to return the classroom environment to its original state at the start of the course, then click btn:[DELETE] to remove the entire classroom environment.
+After the lab has been deleted, then click btn:[CREATE] to provision a new set of classroom systems.
+
+[role="role"]
+[WARNING]
+====
+
+The btn:[DELETE] operation cannot be undone.
+All completed work in the classroom environment is lost.
+
+====
+
+[role='role']
+=== The Auto-stop and Auto-destroy Timers
+
+[role='role']
+The Red{nbsp}Hat Online Learning enrollment entitles you to a set allotment of computer time.
+To help conserve your allotted time, the ROLE classroom uses timers, which shut down or delete the classroom environment when the appropriate timer expires.
+
+// I have no idea why the btn tagging is behaving like this.
+// The first one needs to be escaped; the second two must not.
+// Side effect of the nbsp?
+[role="role"]
+To adjust the timers, locate the two btn:[\+] buttons at the bottom of the course management page.
+Click the auto-stop{nbsp}btn:[+] button to add another hour to the auto-stop timer.
+Click the auto-destroy{nbsp}btn:[+] button to add another day to the auto-destroy timer.
+Auto-stop has a maximum of 11 hours, and auto-destroy has a maximum of 14 days.
+Be careful to keep the timers set while you are working, so that your environment is not unexpectedly shut down.
+Be careful not to set the timers unnecessarily high, which could waste your subscription time allotment.
+

@@ -1,0 +1,1098 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LocalizedStringsDictionary source_language="">
+  <entry key="Test">
+    <loc>Test attempt 3</loc>
+  </entry>
+  <entry key="ActionImageButton_Image_2000Action_2000Button_ActionButton_BaseName">
+    <loc>Image Action Button</loc>
+  </entry>
+  <entry key="ActionImageButton_Image_2000Action_2000Button_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="ActionTextButton_Text_2000Action_2000Button_ActionButton_BaseName">
+    <loc>Text Action Button</loc>
+  </entry>
+  <entry key="ActionTextButton_Text_2000Action_2000Button_ActionButton_Content">
+    <loc>Button</loc>
+  </entry>
+  <entry key="BoolCtrl_Round_2000LED_ChannelLED_BaseName">
+    <loc>Round LED</loc>
+  </entry>
+  <entry key="BoolCtrl_Round_2000LED_ChannelLED_FalseContent">
+    <loc>Off</loc>
+  </entry>
+  <entry key="BoolCtrl_Round_2000LED_ChannelLED_TrueContent">
+    <loc>On</loc>
+  </entry>
+  <entry key="Canvas_Canvas_ScreenSurfaceCanvas_BaseName">
+    <loc>Canvas</loc>
+  </entry>
+  <entry key="Category_ActionControls_Display">
+    <loc>Actions</loc>
+  </entry>
+  <entry key="Category_ActionControls_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_ActionControls_Synonyms">
+    <loc>Actions</loc>
+  </entry>
+  <entry key="Category_Automotive_Display">
+    <loc>Automotive</loc>
+  </entry>
+  <entry key="Category_Automotive_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_Automotive_Synonyms">
+    <loc>Automotive</loc>
+  </entry>
+  <entry key="Category_Boolean_Display">
+    <loc>Booleans</loc>
+  </entry>
+  <entry key="Category_Boolean_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_Boolean_Synonyms">
+    <loc>Booleans</loc>
+  </entry>
+  <entry key="Category_Containers_Display">
+    <loc>Containers</loc>
+  </entry>
+  <entry key="Category_Containers_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_Containers_Synonyms">
+    <loc>Containers</loc>
+  </entry>
+  <entry key="Category_Graphs_Display">
+    <loc>Graphs</loc>
+  </entry>
+  <entry key="Category_Graphs_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_Graphs_Synonyms">
+    <loc>Graphs</loc>
+  </entry>
+  <entry key="Category_Numeric_Display">
+    <loc>Numerics</loc>
+  </entry>
+  <entry key="Category_Numeric_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_Numeric_Synonyms">
+    <loc>Numerics</loc>
+  </entry>
+  <entry key="Category_PullDowns_Display">
+    <loc>Pull Downs</loc>
+  </entry>
+  <entry key="Category_PullDowns_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_PullDowns_Synonyms">
+    <loc>Pull Downs</loc>
+  </entry>
+  <entry key="Category_Shapes_Display">
+    <loc>Drawings</loc>
+  </entry>
+  <entry key="Category_Shapes_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_Shapes_Synonyms">
+    <loc>Drawings</loc>
+  </entry>
+  <entry key="Category_StringPath_Display">
+    <loc>Text</loc>
+  </entry>
+  <entry key="Category_StringPath_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Category_StringPath_Synonyms">
+    <loc>Text</loc>
+  </entry>
+  <entry key="CheckBox_Checkbox_ChannelCheckBox_BaseName">
+    <loc>Checkbox</loc>
+  </entry>
+  <entry key="CheckBox_Checkbox_ChannelCheckBox_Content">
+    <loc>Off/On</loc>
+  </entry>
+  <entry key="Circle_Circle_Ellipse_BaseName">
+    <loc>Circle</loc>
+  </entry>
+  <entry key="FFTGraph_Frequency_2000Spectrum_2000Graph_0_FFTGraphAxis_Label">
+    <loc>Frequency [Hz]</loc>
+  </entry>
+  <entry key="FFTGraph_Frequency_2000Spectrum_2000Graph_0_HmiGraphPlot_Label">
+    <loc>Plot</loc>
+  </entry>
+  <entry key="FFTGraph_Frequency_2000Spectrum_2000Graph_1_FFTGraphAxis_Label">
+    <loc>Amplitude</loc>
+  </entry>
+  <entry key="FFTGraph_Frequency_2000Spectrum_2000Graph_BaseName">
+    <loc>Frequency Spectrum Graph</loc>
+  </entry>
+  <entry key="FFTGraph_Hold_ComposableButton_BaseName">
+    <loc>Hold</loc>
+  </entry>
+  <entry key="FFTGraph_Hold_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/GraphTools_Pause.png</loc>
+  </entry>
+  <entry key="FFTGraph_Hold_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="FFTGraph_Hold_Label_Text">
+    <loc>Hold</loc>
+  </entry>
+  <entry key="FFTGraph_Horizontal_2000Zoom_ComposableButton_BaseName">
+    <loc>Horizontal Zoom</loc>
+  </entry>
+  <entry key="FFTGraph_Horizontal_2000Zoom_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomHorizontal.png</loc>
+  </entry>
+  <entry key="FFTGraph_Horizontal_2000Zoom_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="FFTGraph_Horizontal_2000Zoom_Label_Text">
+    <loc>Horizontal Zoom</loc>
+  </entry>
+  <entry key="FFTGraph_Map_ComposableButton_BaseName">
+    <loc>Map</loc>
+  </entry>
+  <entry key="FFTGraph_Map_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/DataSource.png</loc>
+  </entry>
+  <entry key="FFTGraph_Map_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="FFTGraph_Map_Label_Text">
+    <loc>Map</loc>
+  </entry>
+  <entry key="FFTGraph_Pan_ComposableButton_BaseName">
+    <loc>Pan</loc>
+  </entry>
+  <entry key="FFTGraph_Pan_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomPan.png</loc>
+  </entry>
+  <entry key="FFTGraph_Pan_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="FFTGraph_Pan_Label_Text">
+    <loc>Pan</loc>
+  </entry>
+  <entry key="FFTGraph_Reset_ComposableButton_BaseName">
+    <loc>Reset</loc>
+  </entry>
+  <entry key="FFTGraph_Reset_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomExtents.png</loc>
+  </entry>
+  <entry key="FFTGraph_Reset_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="FFTGraph_Reset_Label_Text">
+    <loc>Reset</loc>
+  </entry>
+  <entry key="FFTGraph_Vertical_2000Zoom_ComposableButton_BaseName">
+    <loc>Vertical Zoom</loc>
+  </entry>
+  <entry key="FFTGraph_Vertical_2000Zoom_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomVertical.png</loc>
+  </entry>
+  <entry key="FFTGraph_Vertical_2000Zoom_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="FFTGraph_Vertical_2000Zoom_Label_Text">
+    <loc>Vertical Zoom</loc>
+  </entry>
+  <entry key="FuelGauge_Fuel_2000Gauge_ChannelFuelGauge_BaseName">
+    <loc>Fuel Gauge</loc>
+  </entry>
+  <entry key="Gauge_Gauge_ChannelGauge_BaseName">
+    <loc>Gauge</loc>
+  </entry>
+  <entry key="HighSpeedGraph_High_2000Speed_2000Graph_0_HighSpeedGraphAxis_Label">
+    <loc>X</loc>
+  </entry>
+  <entry key="HighSpeedGraph_High_2000Speed_2000Graph_0_HmiGraphPlot_Label">
+    <loc>Plot</loc>
+  </entry>
+  <entry key="HighSpeedGraph_High_2000Speed_2000Graph_1_HighSpeedGraphAxis_Label">
+    <loc>Amplitude</loc>
+  </entry>
+  <entry key="HighSpeedGraph_High_2000Speed_2000Graph_BaseName">
+    <loc>High Speed Graph</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Hold_ComposableButton_BaseName">
+    <loc>Hold</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Hold_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/GraphTools_Pause.png</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Hold_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Hold_Label_Text">
+    <loc>Hold</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Horizontal_2000Zoom_ComposableButton_BaseName">
+    <loc>Horizontal Zoom</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Horizontal_2000Zoom_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomHorizontal.png</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Horizontal_2000Zoom_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Horizontal_2000Zoom_Label_Text">
+    <loc>Horizontal Zoom</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Map_ComposableButton_BaseName">
+    <loc>Map</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Map_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/DataSource.png</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Map_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Map_Label_Text">
+    <loc>Map</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Pan_ComposableButton_BaseName">
+    <loc>Pan</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Pan_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomPan.png</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Pan_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Pan_Label_Text">
+    <loc>Pan</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Reset_ComposableButton_BaseName">
+    <loc>Reset</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Reset_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomExtents.png</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Reset_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Reset_Label_Text">
+    <loc>Reset</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Vertical_2000Zoom_ComposableButton_BaseName">
+    <loc>Vertical Zoom</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Vertical_2000Zoom_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomVertical.png</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Vertical_2000Zoom_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="HighSpeedGraph_Vertical_2000Zoom_Label_Text">
+    <loc>Vertical Zoom</loc>
+  </entry>
+  <entry key="HorizontalSlider_Slider_ChannelSlider_BaseName">
+    <loc>Slider</loc>
+  </entry>
+  <entry key="HorizontalSliderSwitch_Switch_ChannelSwitch_BaseName">
+    <loc>Switch</loc>
+  </entry>
+  <entry key="HorizontalSliderSwitch_Switch_ChannelSwitch_FalseContent">
+    <loc>Off</loc>
+  </entry>
+  <entry key="HorizontalSliderSwitch_Switch_ChannelSwitch_TrueContent">
+    <loc>On</loc>
+  </entry>
+  <entry key="HyperlinkCtrl_Hyperlink_2000Control_HmiHyperlinkControl_BaseName">
+    <loc>Hyperlink Control</loc>
+  </entry>
+  <entry key="HyperlinkCtrl_Hyperlink_2000Control_HmiHyperlinkControl_Content">
+    <loc>Hyperlink</loc>
+  </entry>
+  <entry key="ImageButton_Image_2000Button_ChannelButton_BaseName">
+    <loc>Image Button</loc>
+  </entry>
+  <entry key="ImageButton_Image_2000Button_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="ImageControl_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="Knob_Knob_ChannelKnob_BaseName">
+    <loc>Knob</loc>
+  </entry>
+  <entry key="Leaf_ActionControls_ActionImageButton_Display">
+    <loc>Image Action Button</loc>
+  </entry>
+  <entry key="Leaf_ActionControls_ActionImageButton_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_ActionControls_ActionImageButton_Synonyms">
+    <loc>Image Action Button</loc>
+  </entry>
+  <entry key="Leaf_ActionControls_ActionTextButton_Display">
+    <loc>Text Action Button</loc>
+  </entry>
+  <entry key="Leaf_ActionControls_ActionTextButton_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_ActionControls_ActionTextButton_Synonyms">
+    <loc>Text Action Button</loc>
+  </entry>
+  <entry key="Leaf_Automotive_FuelGauge_Display">
+    <loc>Fuel Gauge</loc>
+  </entry>
+  <entry key="Leaf_Automotive_FuelGauge_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Automotive_FuelGauge_Synonyms">
+    <loc>Fuel Gauge</loc>
+  </entry>
+  <entry key="Leaf_Automotive_Odometer_Display">
+    <loc>Odometer</loc>
+  </entry>
+  <entry key="Leaf_Automotive_Odometer_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Automotive_Odometer_Synonyms">
+    <loc>Odometer</loc>
+  </entry>
+  <entry key="Leaf_Automotive_Speedometer_Display">
+    <loc>Speedometer</loc>
+  </entry>
+  <entry key="Leaf_Automotive_Speedometer_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Automotive_Speedometer_Synonyms">
+    <loc>Speedometer</loc>
+  </entry>
+  <entry key="Leaf_Automotive_Tachometer_Display">
+    <loc>Tachometer</loc>
+  </entry>
+  <entry key="Leaf_Automotive_Tachometer_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Automotive_Tachometer_Synonyms">
+    <loc>Tachometer</loc>
+  </entry>
+  <entry key="Leaf_Boolean_BoolCtrl_Display">
+    <loc>Round LED</loc>
+  </entry>
+  <entry key="Leaf_Boolean_BoolCtrl_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_BoolCtrl_Synonyms">
+    <loc>Round LED</loc>
+  </entry>
+  <entry key="Leaf_Boolean_CheckBox_Display">
+    <loc>Checkbox</loc>
+  </entry>
+  <entry key="Leaf_Boolean_CheckBox_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_CheckBox_Synonyms">
+    <loc>Checkbox</loc>
+  </entry>
+  <entry key="Leaf_Boolean_HorizontalSliderSwitch_Display">
+    <loc>Horizontal Slider Switch</loc>
+  </entry>
+  <entry key="Leaf_Boolean_HorizontalSliderSwitch_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_HorizontalSliderSwitch_Synonyms">
+    <loc>Horizontal Slider Switch</loc>
+  </entry>
+  <entry key="Leaf_Boolean_ImageButton_Display">
+    <loc>Image Button</loc>
+  </entry>
+  <entry key="Leaf_Boolean_ImageButton_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_ImageButton_Synonyms">
+    <loc>Image Button</loc>
+  </entry>
+  <entry key="Leaf_Boolean_OKButton_Display">
+    <loc>Text Button</loc>
+  </entry>
+  <entry key="Leaf_Boolean_OKButton_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_OKButton_Synonyms">
+    <loc>Text Button</loc>
+  </entry>
+  <entry key="Leaf_Boolean_PowerButton_Display">
+    <loc>Power Button</loc>
+  </entry>
+  <entry key="Leaf_Boolean_PowerButton_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_PowerButton_Synonyms">
+    <loc>Power Button</loc>
+  </entry>
+  <entry key="Leaf_Boolean_RoundSwitch_Display">
+    <loc>Round Switch</loc>
+  </entry>
+  <entry key="Leaf_Boolean_RoundSwitch_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_RoundSwitch_Synonyms">
+    <loc>Round Switch</loc>
+  </entry>
+  <entry key="Leaf_Boolean_SliderSwitch_Display">
+    <loc>Slider Switch</loc>
+  </entry>
+  <entry key="Leaf_Boolean_SliderSwitch_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_SliderSwitch_Synonyms">
+    <loc>Slider Switch</loc>
+  </entry>
+  <entry key="Leaf_Boolean_SquareLED_Display">
+    <loc>Square LED</loc>
+  </entry>
+  <entry key="Leaf_Boolean_SquareLED_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_SquareLED_Synonyms">
+    <loc>Square LED</loc>
+  </entry>
+  <entry key="Leaf_Boolean_TwoStateImageButton_Display">
+    <loc>Toggle Images Button</loc>
+  </entry>
+  <entry key="Leaf_Boolean_TwoStateImageButton_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_TwoStateImageButton_Synonyms">
+    <loc>Toggle Images Button</loc>
+  </entry>
+  <entry key="Leaf_Boolean_TwoStateImageIndicator_Display">
+    <loc>Toggle Images Indicator</loc>
+  </entry>
+  <entry key="Leaf_Boolean_TwoStateImageIndicator_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Boolean_TwoStateImageIndicator_Synonyms">
+    <loc>Toggle Images Indicator</loc>
+  </entry>
+  <entry key="Leaf_Containers_Canvas_Display">
+    <loc>Canvas</loc>
+  </entry>
+  <entry key="Leaf_Containers_Canvas_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Containers_Canvas_Synonyms">
+    <loc>Canvas</loc>
+  </entry>
+  <entry key="Leaf_Containers_TabControl_Display">
+    <loc>Tab Control</loc>
+  </entry>
+  <entry key="Leaf_Containers_TabControl_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Containers_TabControl_Synonyms">
+    <loc>Tab Control</loc>
+  </entry>
+  <entry key="Leaf_Graphs_FFTGraph_Display">
+    <loc>Frequency Spectrum Graph</loc>
+  </entry>
+  <entry key="Leaf_Graphs_FFTGraph_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Graphs_FFTGraph_Synonyms">
+    <loc>Frequency Spectrum Graph</loc>
+  </entry>
+  <entry key="Leaf_Graphs_HighSpeedGraph_Display">
+    <loc>High Speed Graph</loc>
+  </entry>
+  <entry key="Leaf_Graphs_HighSpeedGraph_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Graphs_HighSpeedGraph_Synonyms">
+    <loc>High Speed Graph</loc>
+  </entry>
+  <entry key="Leaf_Graphs_LongHistoryGraph_Display">
+    <loc>Long History Graph</loc>
+  </entry>
+  <entry key="Leaf_Graphs_LongHistoryGraph_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Graphs_LongHistoryGraph_Synonyms">
+    <loc>Long History Graph</loc>
+  </entry>
+  <entry key="Leaf_Graphs_XYGraph_Display">
+    <loc>XY Graph</loc>
+  </entry>
+  <entry key="Leaf_Graphs_XYGraph_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Graphs_XYGraph_Synonyms">
+    <loc>XY Graph</loc>
+  </entry>
+  <entry key="Leaf_Numeric_Gauge_Display">
+    <loc>Gauge</loc>
+  </entry>
+  <entry key="Leaf_Numeric_Gauge_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_Gauge_Synonyms">
+    <loc>Gauge</loc>
+  </entry>
+  <entry key="Leaf_Numeric_HorizontalSlider_Display">
+    <loc>Horizontal Slider</loc>
+  </entry>
+  <entry key="Leaf_Numeric_HorizontalSlider_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_HorizontalSlider_Synonyms">
+    <loc>Horizontal Slider</loc>
+  </entry>
+  <entry key="Leaf_Numeric_Knob_Display">
+    <loc>Knob</loc>
+  </entry>
+  <entry key="Leaf_Numeric_Knob_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_Knob_Synonyms">
+    <loc>Knob</loc>
+  </entry>
+  <entry key="Leaf_Numeric_Meter_Display">
+    <loc>Meter</loc>
+  </entry>
+  <entry key="Leaf_Numeric_Meter_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_Meter_Synonyms">
+    <loc>Meter</loc>
+  </entry>
+  <entry key="Leaf_Numeric_NumericTextControl_Display">
+    <loc>Numeric Control</loc>
+  </entry>
+  <entry key="Leaf_Numeric_NumericTextControl_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_NumericTextControl_Synonyms">
+    <loc>Numeric Control</loc>
+  </entry>
+  <entry key="Leaf_Numeric_NumericTextIndicator_Display">
+    <loc>Numeric Indicator</loc>
+  </entry>
+  <entry key="Leaf_Numeric_NumericTextIndicator_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_NumericTextIndicator_Synonyms">
+    <loc>Numeric Indicator</loc>
+  </entry>
+  <entry key="Leaf_Numeric_ProgressBar_Display">
+    <loc>Progress Bar</loc>
+  </entry>
+  <entry key="Leaf_Numeric_ProgressBar_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_ProgressBar_Synonyms">
+    <loc>Progress Bar</loc>
+  </entry>
+  <entry key="Leaf_Numeric_RadialProgressBar_Display">
+    <loc>Radial Progress Bar</loc>
+  </entry>
+  <entry key="Leaf_Numeric_RadialProgressBar_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_RadialProgressBar_Synonyms">
+    <loc>Radial Progress Bar</loc>
+  </entry>
+  <entry key="Leaf_Numeric_Tank_Display">
+    <loc>Tank</loc>
+  </entry>
+  <entry key="Leaf_Numeric_Tank_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_Tank_Synonyms">
+    <loc>Tank</loc>
+  </entry>
+  <entry key="Leaf_Numeric_VerticalSlider_Display">
+    <loc>Vertical Slider</loc>
+  </entry>
+  <entry key="Leaf_Numeric_VerticalSlider_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Numeric_VerticalSlider_Synonyms">
+    <loc>Vertical Slider</loc>
+  </entry>
+  <entry key="Leaf_PullDowns_Ring_Display">
+    <loc>Ring</loc>
+  </entry>
+  <entry key="Leaf_PullDowns_Ring_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_PullDowns_Ring_Synonyms">
+    <loc>Ring</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Arc_Display">
+    <loc>Arc</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Arc_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Arc_Synonyms">
+    <loc>Arc</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Arrow_Display">
+    <loc>Arrow</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Arrow_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Arrow_Synonyms">
+    <loc>Arrow</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Callout_Display">
+    <loc>Callout</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Callout_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Callout_Synonyms">
+    <loc>Callout</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Circle_Display">
+    <loc>Circle</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Circle_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Circle_Synonyms">
+    <loc>Circle</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Ellipse_Display">
+    <loc>Ellipse</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Ellipse_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Ellipse_Synonyms">
+    <loc>Ellipse</loc>
+  </entry>
+  <entry key="Leaf_Shapes_fiveptstar_Display">
+    <loc>5 Pt Star</loc>
+  </entry>
+  <entry key="Leaf_Shapes_fiveptstar_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_fiveptstar_Synonyms">
+    <loc>5 Pt Star</loc>
+  </entry>
+  <entry key="Leaf_Shapes_hexagon_Display">
+    <loc>Hexagon</loc>
+  </entry>
+  <entry key="Leaf_Shapes_hexagon_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_hexagon_Synonyms">
+    <loc>Hexagon</loc>
+  </entry>
+  <entry key="Leaf_Shapes_ImageControl_Display">
+    <loc>Image</loc>
+  </entry>
+  <entry key="Leaf_Shapes_ImageControl_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_ImageControl_Synonyms">
+    <loc>Image</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Line_Display">
+    <loc>Line</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Line_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Line_Synonyms">
+    <loc>Line</loc>
+  </entry>
+  <entry key="Leaf_Shapes_LineArrow_Display">
+    <loc>Line with Arrows</loc>
+  </entry>
+  <entry key="Leaf_Shapes_LineArrow_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_LineArrow_Synonyms">
+    <loc>Line with Arrows</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Moon_Display">
+    <loc>Moon</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Moon_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Moon_Synonyms">
+    <loc>Moon</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Pen_Display">
+    <loc>Pen</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Pen_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Pen_Synonyms">
+    <loc>Pen</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Pencil_Display">
+    <loc>Pencil</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Pencil_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Pencil_Synonyms">
+    <loc>Pencil</loc>
+  </entry>
+  <entry key="Leaf_Shapes_pentagon_Display">
+    <loc>Pentagon</loc>
+  </entry>
+  <entry key="Leaf_Shapes_pentagon_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_pentagon_Synonyms">
+    <loc>Pentagon</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Plus_Display">
+    <loc>Plus</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Plus_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Plus_Synonyms">
+    <loc>Plus</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Rectangle_Display">
+    <loc>Rectangle</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Rectangle_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Rectangle_Synonyms">
+    <loc>Rectangle</loc>
+  </entry>
+  <entry key="Leaf_Shapes_RoundedRectangle_Display">
+    <loc>Rounded Rectangle</loc>
+  </entry>
+  <entry key="Leaf_Shapes_RoundedRectangle_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_RoundedRectangle_Synonyms">
+    <loc>Rounded Rectangle</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Triangle_Display">
+    <loc>Triangle</loc>
+  </entry>
+  <entry key="Leaf_Shapes_Triangle_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_Shapes_Triangle_Synonyms">
+    <loc>Triangle</loc>
+  </entry>
+  <entry key="Leaf_StringPath_HyperlinkCtrl_Display">
+    <loc>Hyperlink</loc>
+  </entry>
+  <entry key="Leaf_StringPath_HyperlinkCtrl_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_StringPath_HyperlinkCtrl_Synonyms">
+    <loc>Hyperlink</loc>
+  </entry>
+  <entry key="Leaf_StringPath_StringControl_Display">
+    <loc>Text Box</loc>
+  </entry>
+  <entry key="Leaf_StringPath_StringControl_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_StringPath_StringControl_Synonyms">
+    <loc>Text Box</loc>
+  </entry>
+  <entry key="Leaf_StringPath_Text_Display">
+    <loc>Text</loc>
+  </entry>
+  <entry key="Leaf_StringPath_Text_ShortName">
+    <loc></loc>
+  </entry>
+  <entry key="Leaf_StringPath_Text_Synonyms">
+    <loc>Text</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Hold_ComposableButton_BaseName">
+    <loc>Hold</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Hold_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/GraphTools_Pause.png</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Hold_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Hold_Label_Text">
+    <loc>Hold</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Horizontal_2000Zoom_ComposableButton_BaseName">
+    <loc>Horizontal Zoom</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Horizontal_2000Zoom_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomHorizontal.png</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Horizontal_2000Zoom_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Horizontal_2000Zoom_Label_Text">
+    <loc>Horizontal Zoom</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Long_2000History_2000Graph_0_HmiGraphPlot_Label">
+    <loc>Plot</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Long_2000History_2000Graph_0_LongHistoryLengthGraphAxis_Label">
+    <loc>X</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Long_2000History_2000Graph_1_LongHistoryLengthGraphAxis_Label">
+    <loc>Amplitude</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Long_2000History_2000Graph_BaseName">
+    <loc>Long History Graph</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Map_ComposableButton_BaseName">
+    <loc>Map</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Map_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/DataSource.png</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Map_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Map_Label_Text">
+    <loc>Map</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Pan_ComposableButton_BaseName">
+    <loc>Pan</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Pan_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomPan.png</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Pan_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Pan_Label_Text">
+    <loc>Pan</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Reset_ComposableButton_BaseName">
+    <loc>Reset</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Reset_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomExtents.png</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Reset_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Reset_Label_Text">
+    <loc>Reset</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Vertical_2000Zoom_ComposableButton_BaseName">
+    <loc>Vertical Zoom</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Vertical_2000Zoom_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomVertical.png</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Vertical_2000Zoom_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="LongHistoryGraph_Vertical_2000Zoom_Label_Text">
+    <loc>Vertical Zoom</loc>
+  </entry>
+  <entry key="Meter_Meter_ChannelMeter_BaseName">
+    <loc>Meter</loc>
+  </entry>
+  <entry key="Moon_Moon_Path_BaseName">
+    <loc>Moon</loc>
+  </entry>
+  <entry key="NumericTextControl_Numeric_ChannelNumericText_BaseName">
+    <loc>Numeric</loc>
+  </entry>
+  <entry key="NumericTextIndicator_Numeric_ChannelNumericText_BaseName">
+    <loc>Numeric</loc>
+  </entry>
+  <entry key="Odometer_Odometer_ChannelOdometer_BaseName">
+    <loc>Odometer</loc>
+  </entry>
+  <entry key="OKButton_Text_2000Button_ChannelButton_BaseName">
+    <loc>Text Button</loc>
+  </entry>
+  <entry key="OKButton_Text_2000Button_ChannelButton_Content">
+    <loc>Button</loc>
+  </entry>
+  <entry key="PowerButton_Power_2000Button_ChannelSwitch_BaseName">
+    <loc>Power Button</loc>
+  </entry>
+  <entry key="ProgressBar_Progress_2000Bar_ChannelLinearProgressBar_BaseName">
+    <loc>Progress Bar</loc>
+  </entry>
+  <entry key="RadialProgressBar_Radial_2000Progress_2000Bar_ChannelRadialProgressBar_BaseName">
+    <loc>Radial Progress Bar</loc>
+  </entry>
+  <entry key="Ring_Text_2000Ring_ChannelRingSelector_BaseName">
+    <loc>Text Ring</loc>
+  </entry>
+  <entry key="RoundSwitch_Round_2000Switch_ChannelSwitch_BaseName">
+    <loc>Round Switch</loc>
+  </entry>
+  <entry key="RoundSwitch_Round_2000Switch_ChannelSwitch_FalseContent">
+    <loc>Off</loc>
+  </entry>
+  <entry key="RoundSwitch_Round_2000Switch_ChannelSwitch_TrueContent">
+    <loc>On</loc>
+  </entry>
+  <entry key="SliderSwitch_Switch_ChannelSwitch_BaseName">
+    <loc>Switch</loc>
+  </entry>
+  <entry key="SliderSwitch_Switch_ChannelSwitch_FalseContent">
+    <loc>Off</loc>
+  </entry>
+  <entry key="SliderSwitch_Switch_ChannelSwitch_TrueContent">
+    <loc>On</loc>
+  </entry>
+  <entry key="Speedometer_Speedometer_ChannelSpeedometer_BaseName">
+    <loc>Speedometer</loc>
+  </entry>
+  <entry key="SquareLED_Square_2000LED_ChannelLED_BaseName">
+    <loc>Square LED</loc>
+  </entry>
+  <entry key="SquareLED_Square_2000LED_ChannelLED_FalseContent">
+    <loc>Off</loc>
+  </entry>
+  <entry key="SquareLED_Square_2000LED_ChannelLED_TrueContent">
+    <loc>On</loc>
+  </entry>
+  <entry key="StringControl_Text_2000Box_ComposableStringControl_BaseName">
+    <loc>Text Box</loc>
+  </entry>
+  <entry key="TabControl_Tab_0_TabItem_Header">
+    <loc>Tab 0</loc>
+  </entry>
+  <entry key="TabControl_Tab_1_TabItem_Header">
+    <loc>Tab 1</loc>
+  </entry>
+  <entry key="TabControl_Tab_BaseName">
+    <loc>Tab</loc>
+  </entry>
+  <entry key="Tachometer_Tachometer_ChannelTachometer_BaseName">
+    <loc>Tachometer</loc>
+  </entry>
+  <entry key="Tank_Tank_ChannelTank_BaseName">
+    <loc>Tank</loc>
+  </entry>
+  <entry key="Text_Text_Text">
+    <loc>Text</loc>
+  </entry>
+  <entry key="TwoStateImageButton_Toggle_2000Images_2000Button_ChannelImageButton_BaseName">
+    <loc>Toggle Images Button</loc>
+  </entry>
+  <entry key="TwoStateImageButton_Toggle_2000Images_2000Button_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="TwoStateImageIndicator_Toggle_2000Images_2000Indicator_ChannelImageButton_BaseName">
+    <loc>Toggle Images Indicator</loc>
+  </entry>
+  <entry key="TwoStateImageIndicator_Toggle_2000Images_2000Indicator_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="VerticalSlider_Slider_ChannelSlider_BaseName">
+    <loc>Slider</loc>
+  </entry>
+  <entry key="XYGraph_Hold_ComposableButton_BaseName">
+    <loc>Hold</loc>
+  </entry>
+  <entry key="XYGraph_Hold_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/GraphTools_Pause.png</loc>
+  </entry>
+  <entry key="XYGraph_Hold_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="XYGraph_Hold_Label_Text">
+    <loc>Hold</loc>
+  </entry>
+  <entry key="XYGraph_Horizontal_2000Zoom_ComposableButton_BaseName">
+    <loc>Horizontal Zoom</loc>
+  </entry>
+  <entry key="XYGraph_Horizontal_2000Zoom_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomHorizontal.png</loc>
+  </entry>
+  <entry key="XYGraph_Horizontal_2000Zoom_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="XYGraph_Horizontal_2000Zoom_Label_Text">
+    <loc>Horizontal Zoom</loc>
+  </entry>
+  <entry key="XYGraph_Map_2000X_ComposableButton_BaseName">
+    <loc>Map X</loc>
+  </entry>
+  <entry key="XYGraph_Map_2000X_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/XChannelSelector.png</loc>
+  </entry>
+  <entry key="XYGraph_Map_2000X_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="XYGraph_Map_2000X_Label_Text">
+    <loc>Map X</loc>
+  </entry>
+  <entry key="XYGraph_Map_2000Y_ComposableButton_BaseName">
+    <loc>Map Y</loc>
+  </entry>
+  <entry key="XYGraph_Map_2000Y_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/YChannelSelector.png</loc>
+  </entry>
+  <entry key="XYGraph_Map_2000Y_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="XYGraph_Map_2000Y_Label_Text">
+    <loc>Map Y</loc>
+  </entry>
+  <entry key="XYGraph_Pan_ComposableButton_BaseName">
+    <loc>Pan</loc>
+  </entry>
+  <entry key="XYGraph_Pan_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomPan.png</loc>
+  </entry>
+  <entry key="XYGraph_Pan_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="XYGraph_Pan_Label_Text">
+    <loc>Pan</loc>
+  </entry>
+  <entry key="XYGraph_Reset_ComposableButton_BaseName">
+    <loc>Reset</loc>
+  </entry>
+  <entry key="XYGraph_Reset_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomExtents.png</loc>
+  </entry>
+  <entry key="XYGraph_Reset_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="XYGraph_Reset_Label_Text">
+    <loc>Reset</loc>
+  </entry>
+  <entry key="XYGraph_Vertical_2000Zoom_ComposableButton_BaseName">
+    <loc>Vertical Zoom</loc>
+  </entry>
+  <entry key="XYGraph_Vertical_2000Zoom_ComposableButton_Content">
+    <loc>pack://application:,,,/NationalInstruments.Hmi.Core;component/Resources/ZoomVertical.png</loc>
+  </entry>
+  <entry key="XYGraph_Vertical_2000Zoom_Image_BaseName">
+    <loc>Image</loc>
+  </entry>
+  <entry key="XYGraph_Vertical_2000Zoom_Label_Text">
+    <loc>Vertical Zoom</loc>
+  </entry>
+  <entry key="XYGraph_XY_2000Graph_0_HmiGraphPlot_Label">
+    <loc>X</loc>
+  </entry>
+  <entry key="XYGraph_XY_2000Graph_0_XYGraphAxis_Label">
+    <loc>X</loc>
+  </entry>
+  <entry key="XYGraph_XY_2000Graph_1_XYGraphAxis_Label">
+    <loc>Y</loc>
+  </entry>
+  <entry key="XYGraph_XY_2000Graph_BaseName">
+    <loc>XY Graph</loc>
+  </entry>
+</LocalizedStringsDictionary>

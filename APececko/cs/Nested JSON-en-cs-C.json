@@ -1,0 +1,25 @@
+{
+  "boolean_key": "--- skutečný\n",
+  "empty_string_translation": "",
+  "key_with_description": "Koukni na to! Tento klíč má popis! (Alespoň v některých formátech)",
+  "key_with_line-break": "Tento překlad obsahuje\nzalomení řádku.",
+  "nested": {
+    "deeply": {
+      "key": "Páni, tento klíč je vnořen ještě hlouběji."
+    },
+    "key": "Tento klíč je vnořen do prostoru jmen."
+  },
+  "null_translation": null,
+  "pluralized_key": {
+    "one": "Byla nalezena pouze jedna pluralizace.",
+    "other": "Páni, máte %s pluralizace!",
+    "zero": "Nemáte žádné pluralizace."
+  },
+  "sample_collection": [
+    "první položka",
+    "druhá položka",
+    "třetí položka"
+  ],
+  "simple_key": "Prostě jednoduchý klíč s jednoduchou zprávou.",
+  "unverified_key": "Tento překlad ještě není úplně ověřen a čeká na něj. (V některých formátech tento stav také exportujeme)"
+}

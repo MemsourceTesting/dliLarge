@@ -1,0 +1,271 @@
+product: second update by Aleš in Revision step
+components:
+  -
+    type: update by Aleš in Revision step
+    classes: update by Aleš in Revision step
+    show_thumbnails: true
+    show_ratings: true
+    main_text: '<h1 itemprop="name" class="m-0">Pompe Elvie</h1>'
+    secondary_text: |
+        Le premier tire-lait portable silencieux au monde.  
+        Convient à votre soutien-gorge et à votre vie.  
+        Pas de tubes. Pas de fils. Pas de bruit.
+    tertiary_text: |
+        2 ans de garantie.  
+        Livraison gratuite.  
+        À partir de 62,25 £ / mois à 0% APR avec crédit PayPal.  
+        <a class="underline font-bold" href="#" data-target="#insurance" data-toggle="modal">Fonds FSA / HSA acceptés (États-Unis uniquement).</a>
+    text_position: droite
+    text_colour: sombre
+    product: second update by Aleš in Revision step
+    heights: '300 600'
+    content_classes: 'lg: w-4/5'
+    slides:
+      -
+        type: faire glisser
+        background_image:
+          - "/assets/hero_banners/pump-carousel-in-bra-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-in-bra.jpg"
+        custom_arrangement: 'lg, xl'
+      -
+        type: faire glisser
+        background_image:
+          - "/assets/hero_banners/pump-carousel-1-product-group-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-1-product-group.jpg"
+        custom_arrangement: 'lg, xl'
+      -
+        type: faire glisser
+        background_image:
+          - "/assets/hero_banners/pump-carousel-2-front-and-back-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-2-front-and-back.jpg"
+        custom_arrangement: 'lg, xl'
+      -
+        type: faire glisser
+        background_image:
+          - "/assets/hero_banners/pump-carousel-3-app-screens-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-3-app-screens.jpg"
+        custom_arrangement: 'lg, xl'
+      -
+        type: faire glisser
+        background_image:
+          - "/assets/hero_banners/pump-carousel-4-held-in-hand-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-4-held-in-hand.jpg"
+        custom_arrangement: 'lg, xl'
+    disable_ecommerce: false
+  -
+    type: brand_box
+    images:
+      - "/assets/pump-lifestyle.png"
+    main_text: 'Pomper n''importe quand, n''importe où'
+    secondary_text: 'Elvie Pump permet de pomper selon vos propres conditions - à la maison, au travail ou en déplacement. Oubliez les heures passées cachées dans des placards, attachées à un mur ou à nettoyer des tubes. Avec Elvie Pump, vous pouvez diriger la réunion, sortir ou simplement profiter d''un peu de paix et de tranquillité ... tout en pompant.'
+    box_colour: lumière
+  -
+    type: usp_block
+    heading: Portable
+    reveal_heading: Dimensions
+    reveal_content: |
+        ! [] (/ assets / pump-dimensions.png)
+        
+        (a) 128 mm x (b) 110 mm x (c) 68 mm  
+        (a) 5 pouces x (b) 4,3 pouces x (c) 2,7 pouces  
+        225g / 7,9 oz
+    main_text: 'Petit et léger, l''Elvie Pump se porte dans un soutien-gorge d''allaitement standard, ce qui le rend vraiment mains libres. Rien pour vous attacher - ou vous ralentir.'
+    image: "/assets/pump-usp-1-in-bra.jpg"
+    text_position: la gauche
+    layout: défaut
+  -
+    type: usp_block
+    heading: Silencieux
+    main_text: 'La technologie révolutionnaire élimine le bruit pour que vous puissiez pomper en toute tranquillité - n''importe quand n''importe où. C''est en mode furtif pour que vous n''ayez pas à l''être.'
+    image: "/assets/pump-usp-2-silent.jpg"
+    text_position: droite
+    layout: alterner
+    section_classes: "bg-chevauchement-t"
+  -
+    type: usp_block
+    heading: Sans tracas
+    main_text: 'De l''installation au nettoyage, l''utilisation d''Elvie Pump est simple - il n''a que 5 pièces à nettoyer et prend quelques secondes à assembler. Pas de cordons, pas de changement de garde-robe, pas de chichi.'
+    image: "/assets/pump-usp-3-simple-parts.jpg"
+    text_position: la gauche
+    layout: défaut
+  -
+    type: usp_block
+    image: "/assets/blog_images/elvie-pump-us2.png"
+    heading: Intelligent
+    reveal_heading: 'Fonctionnalités de l''application'
+    main_text: |
+        Connectez-vous à l'application gratuite Elvie Pump pour surveiller le volume de lait en temps réel, suivre l'historique de pompage pour chaque sein et contrôler la pompe à distance.  
+        <small>(Elvie Pump fonctionne avec ou sans l'application).</small>
+    reveal_content: |
+        - Jouez / mettez en pause la pompe depuis votre téléphone
+        - Changer de mode et d'intensité
+        - Afficher le volume de lait en temps réel
+        - Suivez l'historique de pompage pour chaque sein
+        - Régler la minuterie de pompage
+    text_position: droite
+    layout: défaut
+    section_classes: "bg-elvie-blanc"
+  -
+    type: usp_block
+    image: "/assets/mum-baby.jpg"
+    heading: Sensible
+    main_text: 'La pompe Elvie passe automatiquement du mode Stimulation au mode Expression lorsqu''elle détecte une baisse et se met en pause lorsque la bouteille est pleine. Une chose de moins à penser.'
+    text_position: la gauche
+    layout: défaut
+  -
+    type: nitty_gritty
+    features:
+      -
+        type: fonctionnalité
+        icon: "/assets/pump-nitty-gritty-icons_hands-free.svg"
+        details: |
+            **Mains libres**  
+            Conception tout-en-un sans cordons ni tubes externes
+      -
+        type: fonctionnalité
+        icon: "/assets/pump-nitty-gritty-icons_2-phase.svg"
+        details: |
+            ** 2 phases **  
+            Modes de stimulation et d'expression
+      -
+        type: fonctionnalité
+        icon: "/assets/pump-nitty-gritty-icons_variable-suction.svg"
+        details: |
+            ** Aspiration variable **  
+            7 réglages d'intensité
+      -
+        type: fonctionnalité
+        icon: "/assets/pump-nitty-gritty-icons_custom-fit.svg"
+        details: |
+            **Ajustement personnalisé**  
+            3 tailles de cache-poitrine (2 incluses dans la boîte)
+      -
+        type: fonctionnalité
+        icon: "/assets/pump-nitty-gritty-icons_rechargeable.svg"
+        details: |
+            ** Rechargeable **  
+            Se recharge en 2 heures via micro-USB
+      -
+        type: fonctionnalité
+        icon: "/assets/pump-nitty-gritty-icons_smart-features.svg"
+        details: |
+            ** Fonctionnalités intelligentes **  
+            Suivi et contrôle à distance dans l'application
+      -
+        type: fonctionnalité
+        icon: "/assets/pump-nitty-gritty-icons_reusable-bottle.svg"
+        details: |
+            ** Bouteilles réutilisables **  
+            Bouteilles durables de 5 oz / 150 ml
+      -
+        type: fonctionnalité
+        icon: "/assets/pump-nitty-gritty-icons_bpa-free.svg"
+        details: |
+            **Sans BPA**  
+            Fabriqué avec du plastique sans BPA, lavable au lave-vaisselle
+    section_classes: 'bg-elvie-blanc py-16'
+  -
+    type: médias
+    custom_arrangement: 'sm, md, lg, xl'
+    heights: '375 700'
+    video: "7570123b-8fc6-4082-9454-32cd53a8bdab"
+    background: false
+  -
+    type: témoignages
+    testimonials:
+      - "a07180e0-73c3-4e2d-83fc-ca267ffd69a5"
+      - "2e374983-e037-40e3-a5b8-f49458911381"
+      - "bc4db223-021e-483f-8b6c-b32d2dbc2ad9"
+      - "124e01db-65c1-4f3c-b2de-e4771cfd0bb0"
+      - "84e8aec5-da2a-48c7-adc3-51f8f25fcf51"
+  -
+    type: custom_partial
+    path: pompe / whats_in_the_box
+  -
+    type: FAQ
+    faqs:
+      - "88090c3c-6205-43d1-92cd-55d947c78c01"
+      - "c517b33e-7f15-4798-b42d-4f8ae5c8d614"
+      - "cd8d25de-9fe2-416a-8432-a033c0ab0be9"
+      - "3ec4e6ce-57a0-420c-b9cc-754d2dc054be"
+      - "8a495f13-1ccf-4d4f-80af-29a1d26669e3"
+    link_to: "7e6c5e5b-9d40-4b2e-9bb1-8886b709c3ac"
+    link_text: 'Plus de questions? <br> Consultez la FAQ sur les pompes Elvie'
+  -
+    type: ugcs
+    heading: 'Suivez la révolution'
+    ugcs:
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-momommorgan.jpg"
+        customer: '@momommorgan'
+        link_customer: 'https://www.instagram.com/p/BzA-KflF1Me/'
+        link_customer_modal: 'Voir sur Instagram'
+        text: 'L''inconvénient de laisser un enfant de 4 mois 🐄🤱👶🏼'
+        close_modal: blanc
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-rinart007.jpg"
+        customer: '@ rinart007'
+        link_customer: 'https://www.instagram.com/p/BwkvwpeHvJ8/'
+        link_customer_modal: 'Voir sur Instagram'
+        text: 'Nous avons fait notre premier voyage avec Lily au parc national de Zion. Grâce à @elvie, j''ai pu pomper en déplacement. Lily doit manger et sortir !! Mes Elvies s''intègrent, ils ressemblent à des œufs de dinosaures !!!'
+        close_modal: blanc
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-definately.jpg"
+        customer: '@definiment_definiment'
+        link_customer: 'https://www.instagram.com/p/Bt4TqRNgnD4/'
+        link_customer_modal: 'Voir sur Instagram'
+        text: 'Pompé comme un patron au gymnase aujourd''hui. Merci @elvie! #roboboobs #mumatron #happymummy #happybaby #gymtimebaby'
+        close_modal: blanc
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-butfirstkw.jpg"
+        customer: '@butfirstkw'
+        link_customer: 'https://www.instagram.com/p/BuZjH1EgWxY/'
+        link_customer_modal: 'Voir sur Instagram'
+        text: 'Pompage avant et après avoir dévalé les pistes ⛷ @elvie'
+        close_modal: blanc
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-carlyrowena.jpg"
+        customer: '@carlyrowena'
+        link_customer: 'https://www.instagram.com/p/BzC57EdJFo7/'
+        link_customer_modal: 'Voir sur Instagram'
+        text: 'Afin de réduire ma production de lait avec succès tout en la maintenant, je peux faire un repas de nuit pour Jax, je pompe et décharge avec mon @elvie pendant la journée! Ce gadget est devenu le meilleur ami de mes seins, je ne me sens plus comme une vache, il me donne liberté, indépendance'
+        close_modal: blanc
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-wideeyedmum.jpg"
+        customer: '@wide_eyed_mum'
+        link_customer: 'https://www.instagram.com/p/BynBbTOlsDW/'
+        link_customer_modal: 'Voir sur Instagram'
+        text: 'Après 2 nuits sans mon #baby boy, je peux certainement dire que @elvie a sauvé la vie. Je l''ai utilisé à l''aéroport, dans l''avion, dans un bar, dans un restaurant et en marchant dans les rues de Cracovie 🙌🏻'
+        close_modal: sombre
+      -
+        type: ugc
+        customer_content: "/assets/ugc/ugc-pump-vasavigail.jpg"
+        customer: '@vasavigail'
+        link_customer: 'https://www.instagram.com/p/ByYdz1BAEcH/'
+        link_customer_modal: 'Voir sur Instagram'
+        text: '«Je fais du lait. Quelle est votre superpuissance? 🍼'
+        close_modal: sombre
+    link_to: 'https://www.instagram.com/elvie/'
+    link_text: 'suivez @ hello.elvie'
+    section_classes: "bg-elvie-blanc"
+robots: "suivi d'index"
+navigation: secondaire
+product_id:
+  - PUMP_SINGLE
+hide_site_banner: false
+newsletter_modal: true
+seo:
+  title: 'Pompe Elvie | Tire-lait silencieux, portable et intelligent | Elvie'
+  description: 'Enfin, un tire-lait qui vous permet de pomper à tout moment, n''importe où. Elvie Pump est le premier tire-lait portable silencieux au monde. Obtenez-le maintenant avec une garantie de 2 ans et une livraison gratuite.'
+  priority: '1.0'
+  change_frequency: mensuel
+template: boutique / produit
+title: 'Pompe Elvie'
+fieldset: product_page
+id: "7ba328fd-e2f6-4bf8-9037-c2abdada7c24"

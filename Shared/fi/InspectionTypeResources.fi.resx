@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Fire.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Fire.Name" xml:space="preserve">
+    <value>Brandskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.BreakIn.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.BreakIn.Name" xml:space="preserve">
+    <value>Inbrott</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Glass.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Glass.Name" xml:space="preserve">
+    <value>Glas</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.PropertyDamage.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.PropertyDamage.Name" xml:space="preserve">
+    <value>Skadegörelse</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Other.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Other.Name" xml:space="preserve">
+    <value>Annat</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Nature.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Nature.Name" xml:space="preserve">
+    <value>Natur</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Water.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Water.Name" xml:space="preserve">
+    <value>Vattenskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Fire.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Fire.Name" xml:space="preserve">
+    <value>Brandskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.BreakIn.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.BreakIn.Name" xml:space="preserve">
+    <value>Inbrott</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Glass.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Glass.Name" xml:space="preserve">
+    <value>Glas</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.PropertyDamage.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.PropertyDamage.Name" xml:space="preserve">
+    <value>Skadegörelse</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Other.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Other.Name" xml:space="preserve">
+    <value>Annat</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Nature.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Nature.Name" xml:space="preserve">
+    <value>Natur</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Fire.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Fire.Name" xml:space="preserve">
+    <value>Brandskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.BreakIn.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.BreakIn.Name" xml:space="preserve">
+    <value>Inbrott</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Glass.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Glass.Name" xml:space="preserve">
+    <value>Glas</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.PropertyDamage.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.PropertyDamage.Name" xml:space="preserve">
+    <value>Skadegörelse</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Other.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Other.Name" xml:space="preserve">
+    <value>Annat</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Nature.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Nature.Name" xml:space="preserve">
+    <value>Natur</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Water.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Water.Name" xml:space="preserve">
+    <value>Vattenskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.GeneralInspection.After.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.GeneralInspection.After.Name" xml:space="preserve">
+    <value>Efterbesiktning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.GeneralInspection.During.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.GeneralInspection.During.Name" xml:space="preserve">
+    <value>Underhandsbesiktning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:InspectionState.Active" xml:space="preserve">
+    <value>Luonnos update</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:InspectionState.Done" xml:space="preserve">
+    <value>Valmis</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Inspection.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Inspection.Name" xml:space="preserve">
+    <value>Besiktning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.LF.Other.Name" xml:space="preserve">
+    <value>Annat</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.LF.Installation.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.LF.Installation.Name" xml:space="preserve">
+    <value>Installation</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.LF.Water.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.LF.Water.Name" xml:space="preserve">
+    <value>Vattenskada inkl VSR</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Folksam.StartMeeting.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Folksam.StartMeeting.Name" xml:space="preserve">
+    <value>Startmöte</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Folksam.EndMeeting.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Folksam.EndMeeting.Name" xml:space="preserve">
+    <value>Slutmöte</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Water.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Water.Name" xml:space="preserve">
+    <value>Vattenskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:InspectionState.SentForDecision" xml:space="preserve">
+    <value>Lähetetty luonnos</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:InspectionState.ActiveNotSentForDecision" xml:space="preserve">
+    <value>Lähettämätön luonnos</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Fire.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Fire.Name" xml:space="preserve">
+    <value>Brandskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Allrisk.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Allrisk.Name" xml:space="preserve">
+    <value>Allrisk</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.BreakIn.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.BreakIn.Name" xml:space="preserve">
+    <value>Inbrott</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Nature.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Nature.Name" xml:space="preserve">
+    <value>Naturolycka</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Water.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Water.Name" xml:space="preserve">
+    <value>Vattenskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.ExtentMeasurement.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.ExtentMeasurement.Name" xml:space="preserve">
+    <value>Omfattningsmätning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.ExtentMeasurement.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.ExtentMeasurement.Name" xml:space="preserve">
+    <value>Omfattningsmätning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.ExtentMeasurement.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.ExtentMeasurement.Name" xml:space="preserve">
+    <value>Omfattningsmätning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DecisionTree.OP.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DecisionTree.OP.Name" xml:space="preserve">
+    <value>Beslutsstig</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Pests.Name" xml:space="preserve">
+    <value>Skadedjur</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.Movables.Name" xml:space="preserve">
+    <value>Lösöre</value>
+    <comment>no: Innbo</comment>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.PropertyDamage.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.PropertyDamage.Name" xml:space="preserve">
+    <value>Skadegörelse</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Glass.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Glass.Name" xml:space="preserve">
+    <value>Glas</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Other.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Other.Name" xml:space="preserve">
+    <value>Annat</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.BreakIn.Name" xml:space="preserve">
+    <value>Inbrott</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.Fire.Name" xml:space="preserve">
+    <value>Brandskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.Glass.Name" xml:space="preserve">
+    <value>Glas</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.Nature.Name" xml:space="preserve">
+    <value>Naturolycka</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.Other.Name" xml:space="preserve">
+    <value>Annat</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.PropertyDamage.Name" xml:space="preserve">
+    <value>Skadegörelse</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.Water.Name" xml:space="preserve">
+    <value>Vattenskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Pohjola.ClaimsSettlement.Name" xml:space="preserve">
+    <value>Skaderegleringsprotokoll</value>
+    <comment>Vahingonselvityspöytäkirja</comment>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Pohjola.Transport.Name" xml:space="preserve">
+    <value>Transportskadebesiktning</value>
+    <comment>Kuljetusvahinkotarkastus</comment>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Folksam.Prio1.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Folksam.Prio1.Name" xml:space="preserve">
+    <value>Prio 1 Avfuktning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.UW.Poc.Example1.Name" xml:space="preserve">
+    <value>UW POC First example</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.GeneralInspection.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.GeneralInspection.Name" xml:space="preserve">
+    <value>Generell besiktning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Fire.Major.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Fire.Major.Name" xml:space="preserve">
+    <value>Brandskada omfattande</value>
+    <comment>Palovahinko.vaativa</comment>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Nature.Major.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Nature.Major.Name" xml:space="preserve">
+    <value>Naturskada omfattande</value>
+    <comment>Luonnnonilmiövahinko.vaativa</comment>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Water.Major.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.Water.Major.Name" xml:space="preserve">
+    <value>Vattenskada omfattande</value>
+    <comment>Vesivahinko.vaativa</comment>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.GeneralInspection.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Finland.Meps.DamageInspection.GeneralInspection.Name" xml:space="preserve">
+    <value>Generell besiktning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.GeneralInspection.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Iceland.Meps.DamageInspection.GeneralInspection.Name" xml:space="preserve">
+    <value>Generell besiktning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.GeneralInspection.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Norway.Meps.DamageInspection.GeneralInspection.Name" xml:space="preserve">
+    <value>Generell besiktning</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Water.Kitchen.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Water.Kitchen.Name" xml:space="preserve">
+    <value>Vattenskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.LF.Water.Kitchen.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.LF.Water.Kitchen.Name" xml:space="preserve">
+    <value>Vattenskada inkl VSR</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Water.Kitchen.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.TH.Water.Kitchen.Name" xml:space="preserve">
+    <value>Vattenskada</value>
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Folksam.Prio1.Kitchen.Description" xml:space="preserve">
+    <value />
+  </data>
+   <data name="meps.assignments.api:src:meps.assignments.api:controllers:assignments:inspections:shared:inspectiontyperesources.resx:Sweden.Meps.DamageInspection.Folksam.Prio1.Kitchen.Name" xml:space="preserve">
+    <value>Prio 1 Avfuktning</value>
+  </data>
+</root>

@@ -1,0 +1,549 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE book [
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
+%DOCBOOK_ENTS;
+]>
+<?asciidoc-toc maxdepth="3"?><?asciidoc-numbered?><book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<info>
+<title>JBoss EAP XP upgrade and migration guide</title><subtitle>Guidance for upgrading and migrating from JBoss EAP XP 2.0.x to JBoss EAP XP 3.0.0</subtitle>
+
+<date>2021-06-30</date>
+<productname>Red Hat JBoss Enterprise Application Platform</productname>
+<productnumber>7.4</productnumber>
+<abstract>
+  <para>This document provides information about upgrading JBoss EAP XP 2.0.x to JBoss EAP XP 3.0.0 and any necessary application migration.</para>
+</abstract>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Author_Group.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Common_Content/Legal_Notice.xml"/>
+</info>
+<preface xml:id="making-open-source-more-inclusive">
+<title>Making open source more inclusive</title>
+<simpara>Red Hat is committed to replacing problematic language in our code, documentation, and web properties. We are beginning with these four terms: master, slave, blacklist, and whitelist. Because of the enormity of this endeavor, these changes will be implemented gradually over several upcoming releases. For more details, see <link xlink:href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">our CTO Chris Wright’s message</link>.</simpara>
+</preface>
+<preface xml:id="proc_providing-feedback-on-red-hat-documentation_default">
+<title>Providing feedback on Red Hat documentation</title>
+<simpara>We appreciate your feedback on our documentation. To provide feedback, you can highlight the text in a document and add comments. Follow the steps in the procedure to learn about submitting feedback on Red Hat documentation.</simpara>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>Log in to the Red Hat Customer Portal.</simpara>
+</listitem>
+<listitem>
+<simpara>In the Red Hat Customer Portal, view the document in <emphasis role="strong">Multi-page HTML</emphasis> format.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Click <emphasis role="strong">Feedback</emphasis> to see existing reader comments.</simpara>
+<note>
+<simpara>The feedback feature is enabled only in the <emphasis role="strong">Multi-page HTML</emphasis> format.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Highlight the section of the document where you want to provide feedback.</simpara>
+</listitem>
+<listitem>
+<simpara>In the prompt menu that displays near the text you selected, click <emphasis role="strong">Add Feedback</emphasis>.</simpara>
+<simpara>A text box opens in the feedback section on the right side of the page.</simpara>
+</listitem>
+<listitem>
+<simpara>Enter your feedback in the text box and click <emphasis role="strong">Submit</emphasis>.</simpara>
+<simpara>You have created a documentation issue.</simpara>
+</listitem>
+<listitem>
+<simpara>To view the issue, click the issue tracker link in the feedback view.</simpara>
+</listitem>
+</orderedlist>
+</preface>
+<chapter xml:id="jboss_eap_xp_upgrades" remap="_jboss_eap_xp_upgrades">
+<title>JBoss EAP XP upgrades</title>
+<section xml:id="upgrades-and-migrations_default">
+<title>Upgrades and migrations</title>
+<simpara role="_abstract">Use the steps outlined in the JBoss EAP XP upgrade and migration guide to prepare, upgrade, and migrate your JBoss EAP XP 2.0.x product to the JBoss EAP XP 3.0.0 product. JBoss EAP XP 3.0.0 is compatible with only JBoss EAP 7.4. If you operate servers on JBoss EAP 7.3 and you want to apply the JBoss EAP XP 3.0.0 patch on it, you must first upgrade your JBoss EAP 7.3 instance to JBoss EAP 7.4.</simpara>
+<simpara>The guide references tools that you can use for the upgrading and migration process. These tools are as follows:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Migration Toolkit for Applications (MTA)</simpara>
+</listitem>
+<listitem>
+<simpara>JBoss Server Migration Tool</simpara>
+</listitem>
+</itemizedlist>
+<simpara>After you successfully upgrade and migrate JBoss EAP XP 2.0.x release to JBoss EAP XP 3.0.0, you can begin to implement any applications migrations for your   JBoss EAP 7.4 instance.</simpara>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For information about archiving applications that you plan to migrate to JBoss EAP XP 3.0.0, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/migration_guide/#migrate_back_up_important_data_and_review_server_state">Back Up Important Data and Review Server State</link> in the <emphasis>Migration Guide</emphasis>.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="preparation-for-upgrade-and-migration_default">
+<title>Preparation for upgrade and migration</title>
+<simpara role="_abstract">After you upgrade the JBoss EAP Expansion Pack, you might have to update application code.</simpara>
+<simpara>For JBoss EAP XP 3.0.0, some backward compatibility might exist for JBoss EAP XP 2.0.x applications. However, if your application uses features that were deprecated or functionality that was removed from JBoss EAP XP 2.0.x, you might need to make changes to your application code.</simpara>
+<simpara>Please review the following new items before you begin the migration process:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>JBoss EAP XP features added in the JBoss EAP XP 3.0.0 release.</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile capabilities added in the JBoss EAP XP 3.0.0.</simpara>
+</listitem>
+<listitem>
+<simpara>Enhancements to existing MicroProfile capabilities.</simpara>
+</listitem>
+<listitem>
+<simpara>Capabilities and features that are deprecated in the JBoss EAP XP 3.0.0.</simpara>
+</listitem>
+<listitem>
+<simpara>Capabilities and features that have been removed from JBoss EAP XP 3.0.0.</simpara>
+</listitem>
+<listitem>
+<simpara>Tools that you can use to migrate from one EAP XP release to another release.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>After you have reviewed the listed items, analyze your environment and plan for the upgrade process and migration process. Ensure you back up any applications that you plan to migrate to JBoss EAP XP 3.0.0.</simpara>
+<simpara>You can now upgrade your current JBoss EAP XP 2.0.x release to JBoss EAP XP 3.0.0. You can implement any applications migrations after the upgrade process</simpara>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For information about archiving applications that you plan to migrate to JBoss EAP XP 3.0.0, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/migration_guide/#migrate_back_up_important_data_and_review_server_state">Back Up Important Data and Review Server State</link> in the <emphasis>Migration Guide</emphasis>.</simpara>
+</listitem>
+</itemizedlist>
+<bridgehead xml:id="new-xp-capabilities_default" renderas="sect3">New JBoss EAP XP capabilities</bridgehead>
+<simpara role="_abstract">The JBoss EAP XP 3.0.0 includes new features that enhance the use of Red Hat implementation of the MicroProfile specification for JBoss EAP applications.</simpara>
+<note xml:id="amq-streams-technology-preview_default">
+<simpara>The MicroProfile Reactive Messaging subsystem supports Red Hat AMQ Streams. This feature implements the MicroProfile Reactive Messaging 1.0 API and Red Hat provides the feature as a technology preview for JBoss EAP XP 3.0.0.</simpara>
+<simpara>Red Hat tested Red Hat AMQ Streams 2021.Q2 on JBoss EAP. However, check the Red Hat JBoss Enterprise Application Platform supported configurations page for information about the latest Red Hat AMQ Streams version that has been tested on JBoss EAP XP 3.0.0.</simpara>
+</note>
+<simpara>JBoss EAP XP 3.0.0 includes the following new features in its release:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Run CLI scripts after you have started your application.</simpara>
+</listitem>
+<listitem>
+<simpara>Use the <literal>--cli-script=&lt;path to CLI script&gt;</literal> argument to update the server configuration of a bootable JAR file at runtime.</simpara>
+</listitem>
+<listitem>
+<simpara>Use the MicroProfile Reactive Messaging 1.0 API to send and receive messages between microservices.</simpara>
+</listitem>
+<listitem>
+<simpara>Use the MicroProfile Reactive Messaging 1.0 API  to write and configure a user application, so the application can send, receive, and process event streams efficiently and asynchronously.</simpara>
+</listitem>
+<listitem>
+<simpara>Enable MicroProfile Reactive Messaging functionality in your server configuration, as MicroProfile Reactive Messaging only comes pre-installed on your server.</simpara>
+</listitem>
+<listitem>
+<simpara>View the MicroProfile Reactive Messaging with MicroProfile Reactive Messaging with Kafka quickstart to learn how you can complete the following tasks on your server:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Enable the MicroProfile Reactive Messaging subsystem.</simpara>
+</listitem>
+<listitem>
+<simpara>Run and test applications by using MicroProfile Reactive Messaging to send data and receive data from Red Hat AMQ Streams.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For information about Red Hat AMQ Streams, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_amq//2021.Q2/html/using_amq_streams_on_openshift/overview-str">Overview of AMQ Streams</link> in the <emphasis>Using AMQ Streams on OpenShift</emphasis> guide.</simpara>
+</listitem>
+<listitem>
+<simpara>For information about Technology Preview features. see <link xlink:href="https://access.redhat.com/support/offerings/techpreview">Technology Preview Features Support Scope</link> on the Red Hat Customer Portal.</simpara>
+</listitem>
+<listitem>
+<simpara>For information on the Red Hat AMQ Streams versions, see <link xlink:href="https://access.redhat.com/documentation/en-us/2021.q2">Red Hat AMQ</link> on the Product Documentation page.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about the MicroProfile Reactive Messaging with Kafka quickstart, see <link xlink:href="https://github.com/jboss-developer/jboss-eap-quickstarts/tree/xp-3.0.x"><literal>jboss-eap-quickstarts</literal></link> and select the listed MicroProfile Reactive Messaging with Kafka quickstart.</simpara>
+</listitem>
+</itemizedlist>
+<bridgehead xml:id="enhancements-microprofile-capabilities_default" renderas="sect3">Enhancements to MicroProfile capabilities</bridgehead>
+<simpara role="_abstract">The JBoss EAP XP 3.0.0 release includes support for the following MicroProfile 4.0 components:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>MicroProfile Config</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Fault Tolerance</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Health</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile JWT</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Metrics</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile OpenAPI</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile OpenTracing</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile REST Client</simpara>
+</listitem>
+</itemizedlist>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about MicroProfile 4.0 and its specifications, see <link xlink:href="https://github.com/eclipse/microprofile/releases/tag/4.0">MicroProfile 4.0</link> on <emphasis>GitHub</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about MicroProfile 4.0 specification components, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_eclipse_microprofile_with_jboss_eap_xp_3.0.0/#about-jboss-eap-xp_default">About JBoss EAP XP</link> in the <emphasis>Using MicroProfile with JBoss EAP XP 3.0.0</emphasis> guide.</simpara>
+</listitem>
+</itemizedlist>
+<bridgehead xml:id="deprecated-unsupported-microprofile-capabilities_default" renderas="sect3">Deprecated and unsupported MicroProfile capabilities</bridgehead>
+<simpara role="_abstract">Before you migrate your application to JBoss EAP XP 3.0.0 be aware that some features that were available in JBoss EAP XP 2.0.x might be deprecated or no longer supported.</simpara>
+<simpara>Red Hat removed support for some technologies due to the high maintenance cost, low community interest, and much better alternative solutions.</simpara>
+<simpara>Ensure that you review the <emphasis>Red Hat JBoss EAP XP 3.0.0 Release Notes guide</emphasis> and the <emphasis>7.4.0 Release Notes guide</emphasis> for any unsupported and deprecated features.</simpara>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about any unsupported and deprecated features for JBoss EAP XP 3.0.0, see the <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_eclipse_microprofile_with_jboss_eap_xp_3.0.0/">Using MicroProfile with JBoss EAP XP 3.0.0</link> guide.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about any unsupported and deprecated features for JBoss EAP 7.4, see the <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/7.4.0_release_notes/">7.4.0 Release Notes</link> guide.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</chapter>
+<chapter xml:id="tools_for_migrating_from_jboss_eap_xp_2_0_x_servers_to_jboss_eap_xp_3_0_0_servers" remap="_tools_for_migrating_from_jboss_eap_xp_2_0_x_servers_to_jboss_eap_xp_3_0_0_servers">
+<title>Tools for migrating from JBoss EAP XP 2.0.x servers to JBoss EAP XP 3.0.0 servers</title>
+<simpara role="_abstract">You can choose one of the following tools to upgrade and migrate your JBoss EAP XP 2.0.x product to the JBoss EAP XP 3.0.0 product:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Migration Toolkit for Applications (MTA)</simpara>
+</listitem>
+<listitem>
+<simpara>JBoss Server Migration Tool</simpara>
+</listitem>
+</itemizedlist>
+<section xml:id="jboss-migration-tool-migrate-server-configurations_default">
+<title>Use the JBoss Server Migration Tool to migrate your server configurations</title>
+<simpara role="_abstract">Use the JBoss Server Migration Tool when updating your server configuration to include the new features and settings of JBoss EAP XP 3.0.0. You can keep your existing JBoss EAP XP 2.0.x server configuration, provided that JBoss EAP XP 3.0.0 supports the configurations.</simpara>
+<simpara>The JBoss Server Migration Tool reads your existing JBoss EAP XP 2.0.x server configuration files and adds any new required subsystems to these files. The tool also updates existing subsystem configurations with new features, and removes any obsolete subsystem configurations.</simpara>
+<simpara>You can use the JBoss Server Migration Tool to migrate standalone servers and servers in a managed domain for your JBoss EAP XP 3.0.0 configuration.</simpara>
+<simpara>JBoss EAP XP 3.0.0 includes the JBoss Server Migration Tool, so you do not need to download a file and install the tool.
+Issue the <literal>jboss-server-migration</literal> script, which is located in the <literal>EAP_HOME/bin</literal> directory, to start the tool.</simpara>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about how to configure and run the JBoss Server Migration Tool, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_the_jboss_server_migration_tool#running_the_server_migration_tool">Running the JBoss Server Migration Tool</link> in the <emphasis>Using the JBoss Server Migration Tool</emphasis> guide.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="use-red-hat-application-migration-toolkit-analyze-applications_default">
+<title>Use the Migration Toolkit for Applications to analyze applications for migration</title>
+<simpara role="_abstract">The Migration Toolkit for Applications (MTA) includes extensible and customizable rule-based tools that simplify migration of Jakarta applications. You can use the toolkit to analyze an application’s APIs, technologies, and architectures. The toolkit provides reports for the application you plan to migrate from JBoss EAP XP 2.0.x to JBoss EAP XP 3.0.0.</simpara>
+<simpara>You can use MTA to analyze standard JBoss EAP applications and bootable JAR applications.</simpara>
+<simpara>The MTA reports output the following information:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Detailed explanations of all required migration changes.</simpara>
+</listitem>
+<listitem>
+<simpara>Whether the change is mandatory or optional.</simpara>
+</listitem>
+<listitem>
+<simpara>Whether the change is complex or simple.</simpara>
+</listitem>
+<listitem>
+<simpara>Links to code that requires a migration update.</simpara>
+</listitem>
+<listitem>
+<simpara>Hints and links to information for helping you complete the required migration changes.</simpara>
+</listitem>
+<listitem>
+<simpara>An estimate of the level of effort for each migration issue found and the total estimated effort to migrate the application .</simpara>
+</listitem>
+</itemizedlist>
+<simpara>You can also use MTA to analyze the code and architecture of your JBoss EAP XP 2.0.x applications before you migrate them to JBoss EAP XP 3.0.0. The MTA rule set for migrating applications from JBoss EAP XP 2.0.x to JBoss EAP XP 3.0.0 reports on XML descriptors, specific application code, and parameters, that you need to replace with alternative configurations when migrating to JBoss EAP XP 3.0.0.</simpara>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For information about the bootable JAR, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_eclipse_microprofile_with_jboss_eap_xp_3.0.0/#about-bootable-jar_default">About the bootable JAR</link> in the <emphasis>Using MicroProfile with JBoss EAP XP</emphasis> guide.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about the Migration Toolkit for Applications to analyze your JBoss EAP XP 2.0.x  applications, see <link xlink:href="https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/5.1/html/getting_started_guide/about_rhamt">About Migration Toolkit for Applications</link> in the Migration Toolkit for Applications <emphasis>Getting Started Guide</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about using Migration Toolkit for Applications with the management CLI, see <link xlink:href="https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/5.1/html/cli_guide/getting_started#execute">Run the CLI</link> in the Migration Toolkit for Applications <emphasis>CLI Guide</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about using Migration Toolkit for Applications with the management console, see <link xlink:href="https://access.redhat.com/documentation/en-us/migration_toolkit_for_applications/5.1/html-single/web_console_guide/#using_web_console_analyze_apps">Using the Web Console to Analyze Applications</link> in the Migration Toolkit for Applications <emphasis>Web Console Guide</emphasis>.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="upgrades-older-versions_default">
+<title>Upgrades from JBoss EAP 7.3 and earlier</title>
+<simpara role="_abstract">JBoss EAP XP 3.0.0 is only supported on JBoss EAP 7.4.</simpara>
+<simpara>If you operate servers on JBoss EAP 7.3 or earlier and want to use JBoss EAP XP, upgrade the servers to JBoss EAP 7.4. Complete any necessary migration before attempting to install JBoss EAP XP.</simpara>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For information about migrating your server configuration, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/migration_guide/server_configuration_changes_default">Server Configuration Changes</link> in the <emphasis>Migration Guide</emphasis>.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="microprofile-application-migration_default">
+<title>MicroProfile application migration</title>
+<simpara role="_abstract">MicroProfile 4.0 is based on the Jakarta EE 8 platform. Although Jakarta EE 8 is API backward compatible with Java EE 8, Jakarta EE 8 dependencies replace Java EE 8 dependencies for all MicroProfile specifications.</simpara>
+<simpara>MicroProfile 4.0 includes updates to all the major MicroProfile specifications.</simpara>
+<simpara>The following specifications include API incompatible changes for MicroProfile 4.0:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>MicroProfile Config</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Fault Tolerance</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Health</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile Metrics</simpara>
+</listitem>
+<listitem>
+<simpara>MicroProfile OpenAPI</simpara>
+</listitem>
+</itemizedlist>
+<simpara>You must update your applications that use these specifications to the latest Jakarta EE 8 specifications.</simpara>
+<simpara>You can update your applications to MicroProfile 4.0 by choosing one of the following methods:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Adding the MicroProfile 4.0 dependency to your project’s <literal>pom.xml</literal> file.</simpara>
+</listitem>
+<listitem>
+<simpara>Using the JBoss EAP XP BOMs to import supported artifacts to the JBoss EAP XP dependency management of your project’s <literal>pom.xml</literal> file.</simpara>
+</listitem>
+</itemizedlist>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about MicroProfile 4.0 and options for updating your applications to use MicroProfile 4.0, see <link xlink:href="https://github.com/eclipse/microprofile/releases/tag/4.0">MicroProfile 4.0</link> on <emphasis>GitHub</emphasis>.</simpara>
+</listitem>
+</itemizedlist>
+<bridgehead xml:id="microprofile-application-migration-bootable-jar_default" renderas="sect3">Bootable JAR application migration</bridgehead>
+<simpara role="_abstract">Before you migrate a JBoss EAP XP 2.0.0 bootable JAR application to JBoss EAP XP 3.0.0, you might need to update your JBoss EAP XP bootable JAR Maven plug-in configuration.</simpara>
+<simpara>For JBoss EAP XP 3.0.0, the <literal>extraServerContentDirs</literal> configuration element replaces the <literal>extraServerContent</literal> configuration element. This element naming replacement aligns with the pre-existing <literal>extra-server-content-dirs</literal> element.</simpara>
+<simpara>If you used the <literal>extraServerContent</literal> element in your JBoss EAP Maven plug-in configuration, you must replace this element with the <literal>extraServerContentDirs</literal> element. If you used the <literal>extra-server-content-dirs</literal> element then you do not need to make any configuration changes.</simpara>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about the <literal>extra-server-content-dirs</literal> configuration element, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_eclipse_microprofile_with_jboss_eap_xp_3.0.0/#enabling-http-authentication-bootable-jar-cli-script_default">Enabling HTTP authentication for bootable JAR with a CLI script</link> in the <emphasis>Using MicroProfile with JBoss EAP XP</emphasis> guide.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</chapter>
+<chapter xml:id="thorntail-application-maven-project-migration_default">
+<title>Thorntail application Maven project migration</title>
+<simpara role="_abstract">The Red Hat build of Thorntail is approaching its end of life. If you have a Thorntail application, you can migrate your application’s Maven project into JBoss EAP XP. Thorntail applications are packaged in two ways:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Packaged with the Thorntail runtime as an as Uberjar, an executable JAR,</simpara>
+</listitem>
+<listitem>
+<simpara>Packaged in a standard WAR archive to be deployed and run in a Thorntail hollow JAR, a runtime-only executable JAR.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>When migrated to JBoss EAP XP, a Thorntail application can be packaged as a bootable JAR and trim down the JBoss EAP XP runtime to include the MicroProfile platform and other technologies that the application depends on.</simpara>
+<simpara>When migrating an application to JBoss EAP XP, you must remove any Thorntail fraction dependency, and add the artifacts of any required MicroProfile and Jakarta EE 8 specifications to the Maven Project dependencies.</simpara>
+<note>
+<simpara>You can use the JBoss CLI tool or JBoss EAP web console at runtime to make changes to the server configuration. However, unlike the configuration changes made during packaging, any changes made to the configuration at runtime are not persisted and are lost when you restart the bootable JAR.</simpara>
+</note>
+<section xml:id="migrating-a-thorntail-application-maven-project-into-eap-xp_default">
+<title>Migrating a Thorntail application Maven project into JBoss EAP XP</title>
+<simpara role="_abstract">If you have a Thorntail application that relies on technologies such as Jakarta Enterprise Beans, Jakarta Server Faces, Jakarta Connector API, SOAP web services, or CORBA, you can migrate your application’s Maven project into JBoss EAP XP.</simpara>
+<simpara>Galleon layers are used to configure the capabilities of the JBoss EAP XP runtime packaged in a bootable JAR. When you migrate a Thorntail application that uses Jakarta EE 8 specifications, you must add the relevant Galleon layers to the bootable JAR Maven plug-in configuration.</simpara>
+<simpara>When using Galleon layers, JBoss EAP XP generates a  server configuration and packages it inside the bootable JAR. If no Galleon layers are used, a configuration identical to the default <literal>standalone-microprofile.xml</literal> is packaged in the bootable JAR.</simpara>
+<simpara>If you are building a bootable JAR for cloud by using the <literal>&lt;cloud&gt;</literal> configuration element, an OpenShift configuration similar to the default <literal>standalone-microprofile-ha.xml</literal> is applied to your bootable JAR.</simpara>
+<simpara>The bootable JAR Maven plug-in executes JBoss CLI scripts while packaging the bootable JAR .</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Remove any Thorntail BOM import.</simpara>
+<formalpara>
+<title>Example of removing the <literal>io.thorntail</literal> Thorntail BOM import from the <literal>pom.xml</literal> file.</title>
+<para>
+<programlisting language="xml" linenumbering="unnumbered">&lt;dependencyManagement&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;io.thorntail&lt;/groupId&gt;
+      &lt;artifactId&gt;bom&lt;/artifactId&gt;
+      &lt;version&gt;${version.thorntail}&lt;/version&gt;
+      &lt;type&gt;pom&lt;/type&gt;
+      &lt;scope&gt;import&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;</programlisting>
+</para>
+</formalpara>
+</listitem>
+<listitem>
+<simpara>Use the JBoss EAP XP BOMs to import supported artifacts to JBoss EAP XP dependency management.</simpara>
+<formalpara>
+<title>Example of using the <literal>jboss-eap-jakartaee8-with-tools</literal> BOM to import supported artifacts to a project.</title>
+<para>
+<programlisting language="xml" linenumbering="unnumbered">&lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;!-- importing the jakartaee8-with-tools BOM adds specs and other useful artifacts as managed dependencies --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.jboss.bom&lt;/groupId&gt;
+                &lt;artifactId&gt;jboss-eap-jakartaee8-with-tools&lt;/artifactId&gt;
+                &lt;version&gt;${version.server.bom}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+            &lt;!-- importing the microprofile BOM adds MicroProfile specs --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.jboss.bom&lt;/groupId&gt;
+                &lt;artifactId&gt;jboss-eap-xp-microprofile&lt;/artifactId&gt;
+                &lt;version&gt;${version.microprofile.bom}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;</programlisting>
+</para>
+</formalpara>
+<note>
+<simpara>Import the <literal>jakartaee8-with-tools</literal> BOM only if your application depends on Jakarta EE 8 specifications that are not included in the MicroProfile platform.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Replace the Thorntail Maven plug-in with the JBoss EAP XP bootable JAR Maven plug-in.</simpara>
+<formalpara>
+<title>Example showing the replacement of the Thorntail Maven plug-in with the JBoss EAP XP bootable JAR Maven plug-in.</title>
+<para>
+<programlisting language="xml" linenumbering="unnumbered">&lt;plugin&gt;
+   &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
+   &lt;artifactId&gt;wildfly-jar-maven-plugin&lt;/artifactId&gt;
+   &lt;version&gt;${bootable.jar.maven.plugin.version}&lt;/version&gt;
+   &lt;configuration&gt;
+      &lt;feature-pack-location&gt;${org.jboss.eap:wildfly-galleon-pack:${jboss.xp.galleon.feature.pack.version}&lt;/feature-pack-location&gt;
+      &lt;layers&gt;
+         &lt;layer&gt;microprofile-platform&lt;/layer&gt;
+      &lt;/layers&gt;
+   &lt;/configuration&gt;
+   &lt;executions&gt;
+      &lt;execution&gt;
+         &lt;goals&gt;
+            &lt;goal&gt;package&lt;/goal&gt;
+         &lt;/goals&gt;
+      &lt;/execution&gt;
+   &lt;/executions&gt;
+&lt;/plugin&gt;</programlisting>
+</para>
+</formalpara>
+<note>
+<simpara>The previous example specifies the following property for the Maven plug-in version:</simpara>
+<screen>${bootable.jar.maven.plugin.version}</screen>
+<simpara>You must set your Maven plug-in version in place of this property in your project. For example:</simpara>
+<programlisting language="xml" linenumbering="unnumbered">&lt;properties&gt;
+    &lt;bootable.jar.maven.plugin.version&gt;4.0.3.Final-redhat-00001&lt;/bootable.jar.maven.plugin.version&gt;
+&lt;/properties&gt;</programlisting>
+<itemizedlist>
+<listitem>
+<simpara>The bootable JAR plug-in builds an UberJAR by default, which means it packages the JBoss EAP XP runtime with the application deployed. To build a hollow JAR, add <literal>&lt;hollow-jar&gt;true&lt;/hollow-jar&gt;</literal> to the configuration of the plug-in.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+</listitem>
+<listitem>
+<simpara>Make the following changes to the Thorntail fractions in the Maven project.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Remove the Thorntail fraction dependencies.</simpara>
+<formalpara>
+<title>Example showing the removal of the <literal>io.thorntail</literal>  Thorntail fractions from a Maven project.</title>
+<para>
+<programlisting language="xml" linenumbering="unnumbered">&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;io.thorntail&lt;/groupId&gt;
+    &lt;artifactId&gt;jaxrs&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;</programlisting>
+</para>
+</formalpara>
+</listitem>
+<listitem>
+<simpara>Configure Maven dependencies.</simpara>
+<formalpara>
+<title>Example of using an XML snippet to add dependencies to the artifacts of the Jakarta EE 8 JAX-RS and MicroProfile Config APIs.</title>
+<para>
+<programlisting language="xml" linenumbering="unnumbered">&lt;dependencies&gt;
+    &lt;!-- Import the MicroProfile Config API, we use provided scope as the API is included in the server --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.eclipse.microprofile.config&lt;/groupId&gt;
+      &lt;artifactId&gt;microprofile-config-api&lt;/artifactId&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;!-- Import the Jakarta REST API, we use provided scope as the API is included in the server --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.jboss.spec.javax.ws.rs&lt;/groupId&gt;
+      &lt;artifactId&gt;jboss-jaxrs-api_2.1_spec&lt;/artifactId&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;</programlisting>
+</para>
+</formalpara>
+</listitem>
+<listitem>
+<simpara>Remove Thorntail YAML files, system properties and environment properties.</simpara>
+</listitem>
+<listitem>
+<simpara>Configure Galleon layers.</simpara>
+<formalpara>
+<title>Example of configuring Galleon layers in the bootable JAR Maven plug-in for an application that requires JAX-RS.</title>
+<para>
+<programlisting language="xml" linenumbering="unnumbered">&lt;plugin&gt;
+  &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;               &lt;artifactId&gt;wildfly-jar-maven-plugin&lt;/artifactId&gt;                  &lt;configuration&gt;
+   ...
+      &lt;layers&gt;
+        &lt;layer&gt;jaxrs-server&lt;/layer&gt;
+        &lt;layer&gt;microprofile-platform&lt;/layer&gt;
+      &lt;/layers&gt;
+  &lt;/configuration&gt;
+   ...
+&lt;/plugin&gt;</programlisting>
+</para>
+</formalpara>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+<itemizedlist role="_additional-resources">
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about configuring Galleon layers, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_eclipse_microprofile_with_jboss_eap_xp_3.0.0/#specifying-galleon-layers-bootable-jar-server_default">Specifying Galleon layers for your bootable JAR server</link> in the <emphasis>Using MicroProfile with JBoss EAP XP</emphasis> book.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about using CLI scripts,see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_eclipse_microprofile_with_jboss_eap_xp_3.0.0/#cli-scripts_default">CLI scripts</link> in the <emphasis>Using MicroProfile with JBoss EAP XP</emphasis> book.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about the Red Hat build of Thorntail approaching its end of life, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_build_of_thorntail/2.7/html-single/release_notes_for_thorntail_2.7/index?lb_target=stage#red-hat-build-of-thorntail-end-of-life">Red Hat build of Thorntail 2.7 - End of Life</link> in the Thorntail documentation.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about building and running a JBoss EAP XP bootable JAR, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/using_eclipse_microprofile_with_jboss_eap_xp_2.0.0/#the-bootable-jar_default">The bootable JAR</link> in the <emphasis>Using MicroProfile with JBoss EAP XP</emphasis> book.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about Thorntail BOMs, see <link xlink:href="https://docs.thorntail.io/2.7.0.Final/#using-a-bom_thorntail">Using a BOM</link> in the Thorntail documentation.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about Thorntail compatible Maven artifacts and BOMs, see <link xlink:href="https://access.redhat.com/articles/5347621">Red Hat build of Thorntail 2.7.1 Component Details</link> on the Red Hat Customer Portal.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about the supported JBoss EAP Eclipse MicroProfile BOM, see <link xlink:href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/using_eclipse_microprofile_with_jboss_eap_xp_2.0.0/#supported-jboss-eap-eclipse-microprofile-bom_default">Supported JBoss EAP MicroProfile BOM</link> in the <emphasis>Using MicroProfile with JBoss EAP XP</emphasis> book.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</chapter>
+</book>

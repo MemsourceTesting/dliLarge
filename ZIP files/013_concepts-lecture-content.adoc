@@ -1,0 +1,215 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='introconcepts-lecture']
+= Section Content
+
+== Describing Enterprise Integration Patterns
+
+In 2003, as a solution to the integration problems that organizations deal with, Hohpe and Woolf published a book called _Enterprise Integration Patterns_.
+The book described 65 separate patterns that represent common approaches for designing integration solutions.
+Over the years, the _Enterprise Integration Patterns_ book became more and more popular, and frameworks came out as implementation solutions for integration problems.
+Apache Camel is one of the most popular of these implementations.
+
+Camel supports most of the Enterprise Integration Patterns (EIP).
+The following are some of the most important EIPs.
+
+
+Content Based Router::
+The Content Based Router pattern defines routing messages to an endpoint dynamically based on the content of the message's body or header.
++
+.Content based router
+image::images/intro/Content-based-router.svg[align="center",width="80%"]
+
+Splitter::
+The Splitter pattern defines separating a list or collection of items in a message payload into individual messages.
+This pattern is useful when you need to process smaller, rather than larger, bulk messages.
++
+.Splitter
+image::images/intro/Splitter.svg[align="center",width="80%"]
+
+Aggregator::
+The Aggregator pattern defines collapsing multiple messages into a single message.
+This is helpful to aggregate many business processes into a single event message to be delivered to another client or to rejoin a list of messages, which were previously split using the Split pattern.
++
+.Aggregator
+image::images/intro/Aggregator.svg[align="center",width="80%"]
+
+Content Enricher::
+The Content Enricher pattern defines enriching the data when sending messages from one system to the target system, which requires more information than the source system can provide.
++
+.Content enricher
+image::images/intro/Content-enricher.svg[align="center",width="80%"]
+
+Content Filter::
+The Content Filter pattern defines filtering the data when sending messages from one system to the target system, which requires refined information.
++
+.Content filter
+image::images/intro/Content-filter.svg[align="center",width="80%"]
+
+Messaging Gateway::
+The Messaging Gateway pattern defines delegating the responsibility of messaging to a dedicated messaging layer so that business applications do not need to contain additional logic specific to messaging.
+The dedicated messaging layer becomes the source or destination of messages from EIPs.
++
+.Messaging gateway
+image::images/intro/messaging-gateway.svg[align="center",width="80%"]
+
+You can implement an EIP in many ways with Camel.
+It depends on the EIP and the suitable components of Camel.
+
+You can examine the Camel architecture to have a better understanding of the Camel concepts and components.
+
+== Describing the Camel Architecture
+
+Camel consists of many concepts.
+The following image shows a 10,000 feet snapshot of the Camel architecture.
+
+.Camel architecture from 10,000 feet
+image::images/intro/camel-architecture.svg[align="center",width="80%"]
+
+=== Defining the Camel Concepts
+
+Camel has a variety of concepts.
+Each of them play a different role in the Camel architecture.
+The following list presents short descriptions of each concept.
+These concepts make up the overall Camel Architecture.
+
+Message::
+A _Message_ is the smallest entity in a Camel architecture.
+It helps with the communication of external systems and Camel by carrying information.
+A Message can contain headers, attachments and a body.
++
+.Message
+image::images/intro/message.svg[align="center",width="50%"]
++
+* _Headers_ are the name-value pairs that are related to the message.
+The values can be anything that is important for the message such as sender identifiers, content-encoding, and so on.
+* _Attachments_ are the optional fields, which Camel typically provides for web service and email components.
+* _Body_ is the body of the message, which is of `+java.lang.Object+` type.
+Thus, a message can be any kind of content and size.
+
+Exchange::
+An _Exchange_ is a container of the Message in Camel.
+The following image demonstrates the Exchange structure.
++
+.Exchange
+image::images/intro/exchange.svg[align="center",width="80%"]
++
+* _Exchange ID_: The unique identifier of the exchange.
+Camel automatically generates this.
+* _MEP_: Message Exchange Pattern.
+This is a pattern that describes various types of interactions between systems.
+You can use either the `+InOnly+` or `+InOut+` messaging style.
+`+InOnly+` is a one way message.
+A JMS (Java Message Service) message is an example of `+InOnly+` messaging.
+`+InOut+` is a request-response message.
+HTTP-based messaging is an example of `+InOut+` messaging.
+* _Exception_: If an error occurs at any time, Camel sets the exception in this field.
+* _Properties_: Properties are similar to message headers, but there are a few differences.
+Properties last for the duration of the entire exchange.
+Thus properties can contain global-level information.
+On the contrary, message headers are specific to a particular message.
+* _In message_: Input message.
+This is a mandatory part of an exchange.
+The In message contains the request message.
+* _Out message_: Output message.
+This is an optional part of an exchange and exists only if the MEP is InOut.
+The Out message contains the reply message.
+
+
+CamelContext::
+The _CamelContext_ is the Camel's runtime system.
+It is the context that keeps all the conceptual pieces together.
+
+Routing Engine::
+The _Routing Engine_ is the under-hood mechanism, which moves the messages.
+It ensures the messages are routed properly.
+
+Routes::
+A _Route_ is a chain of processors that delegates the message routing to the Routing Engine.
+You must create at least one Route to create an integration system with Camel.
+Routes have inputs and outputs.
+To define a Route, you must use a Domain-specific Language (DSL) in Camel.
+
+Processor::
+A _Processor_ is the unit of execution in Camel.
+It is capable of creating or modifying an incoming exchange.
+During a routing process, Camel passes the exchanges from one processor to another.
+Thus, the output of a processor is the input of another.
++
+.Processor in action
+image::images/intro/processor.svg[align="center",width="80%"]
+
+Component and Endpoint::
+_Components_ are the main adapter points in Camel.
+To use a Camel component, you must define an _Endpoint_ in a Camel route DSL.
+An Endpoint is an abstraction that constructs the end of a channel.
+A system can send or receive messages through this endpoint's channel.
+
+Producer and Consumer::
+_Producers_ and _Consumers_ in Camel, work in an untypical way.
+A consumer is the service that receives messages from external systems.
+So in Camel, a flow starts with a consumer, not a producer, because an external system produces the messages.
++
+A producer, which is totally a different concept than an external system producer, is the entity that sends messages to an endpoint.
+When the endpoint receives the message, the producer sends the message to the real system.
+As an example, `+FileProducer+` writes the message body to a file.
++
+.Producers and consumers
+image::images/intro/producer-consumer.svg[align="center",width="80%"]
+
+=== Defining the Camel Domain-specific Language (DSL)
+
+Apache Camel has a domain-specific language, which makes integration development easier.
+The Camel DSL allows developers to focus on the integration problem rather than the programming language.
+Camel has two main official types of DSLs: XML DSL and Java DSL.
+
+XML DSL::
+This DSL is in the form of XML.
+In Camel, developers can create XML DSLs in more than one form depending on the framework.
++
+You can create an `+OSGI Blueprint+` XML that has the Camel DSL.
+Also, you can create a Spring XML if you are using Spring Framework or Spring Boot Framework with Camel.
+This makes the routes usable as Spring beans in the context of Spring.
+It depends on the framework you prefer to use for Camel development.
++
+The following code is a small example of an XML DSL.
++
+[subs=+quotes]
+----
+<route>
+  <from uri="file:path/orderInbox"/>
+  <to uri="kafka:orders"/>
+</route>
+----
++
+[NOTE]
+====
+In this course, even if we use Spring Boot Framework for most of our examples, we do not cover the XML DSL.
+We use the Java DSL in our examples and exercises.
+====
+
+Java DSL::
+The Java DSL is a fluent styled DSL, which uses chained method calls to define routes and components in Camel.
++
+A route in a Java DSL contains no procedural code.
+If you need to embed complex conditional or transformation logic inside a route, then you can invoke a Java Bean or create a custom Camel processor.
++
+The following code is a small example of a Java DSL.
++
+[subs=+quotes]
+----
+from("file:path/orderInbox")
+    .to("kafka:orders");
+----
+
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+https://www.enterpriseintegrationpatterns.com/[Enterprise Integration Patterns, by Gregor Hohpe and Bobby Woolf]
+
+https://camel.apache.org/[Apache Camel Official Website]
+
+_Camel in Action, Second Edition_ (2018) by Claus Ibsen and Jonathan Anstey; Manning. ISBN 978-1-617-29293-4.
+====

@@ -1,0 +1,207 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='patternfilter-practice']
+= Transforming and Filtering Messages
+
+In this exercise, you are working for an e-commerce company.
+You are required to transform orders to XML and to JSON because these formats are required for further processing by other systems.
+You are receiving orders from a Red{nbsp}Hat AMQ messaging broker.
+The orders are then picked up for transformation by your Fuse route.
+
+== Outcomes
+
+In this exercise you should be able to:
+
+[compact]
+* Read the incoming Order objects from an ActiveMQ queue.
+* Marshal the Order objects into XML.
+* Convert that XML to JSON.
+* Filter out orders that have already been delivered using the filter pattern and JSON path.
+* Use a wire tap to send all undelivered orders to a mock logging system.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+pattern-filter/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start pattern-filter*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/pattern-filter/apps+` directory, into the `+~/AD221/pattern-filter+` directory.
+The `+Lab+` command also creates a Red{nbsp}Hat AMQ instance.
+
+[NOTE]
+====
+You can inspect the logs for the AMQ instance at any time with the following command:
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *podman logs artemis*
+----
+====
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/pattern-filter+` directory and open the project with an editor, such as VSCodium.
+
+2) Open the project POM file and add the dependencies that are required.
+
+.Dependencies to Add
+[cols="1h,2l"]
+|===
+|*This row is skipped by the current build*
+| 2nd column in the skipped row
+
+|XML to JSON Transformations
+|<dependency>
+  <groupId>org.apache.camel</groupId>
+  <artifactId>camel-xmljson</artifactId>
+  </dependency>
+<dependency>
+  <groupId>xom</groupId>
+  <artifactId>xom</artifactId>
+	<version>1.3.7</version>
+</dependency>
+
+|JSON Paths
+|<dependency>
+  <groupId>org.apache.camel</groupId>
+  <artifactId>camel-jsonpath</artifactId>
+</dependency>
+
+|XML Transformation
+|<dependency>
+  <groupId>org.apache.camel</groupId>
+  <artifactId>camel-jaxb</artifactId>
+</dependency>
+|===
+
+
+3) Open the `+TransformRouteBuilder+` class and inspect the route definition:
+
+The `+jms+` consumer retrieves `+Order+` objects from the `+orderInput+` queue in the Red{nbsp}Hat AMQ broker.
+The `+routeId+` adds a label to the route making it easier to trace in the log files.
+JAXB is then used to marshal the `+Order+` object into XML, which can be viewed in the console.
+
+
+4) Build and run the application to verify that the route works.
+Note that the route processes the XML for the five sample Order objects.
+
+[subs=+quotes]
+----
+[student@workstation pattern-filter]$ *./mvnw clean spring-boot:run*
+----
+
+5) Update the route to convert XML messages to the JSON format.
+
+Create the XmlJsonDataFormat instance.
+
+[subs=+quotes]
+----
+// TODO: add the XmlJsonDataFormat
+`+XmlJsonDataFormat xmlJson = new XmlJsonDataFormat();+`
+----
+
+This class is used by the marshal method of the Java DSL to convert the XML data into JSON data.
+
+6) Marshal the XML data into JSON.
+
+In the route definition, add the code to convert the XML to JSON and log the result to the console:
+
+[subs=+quotes]
+----
+from("jms:queue:orderInput")
+  .routeId("Transforming Orders")
+  .marshal().jaxb()
+  .log("XML Body: ${body}")
+  `.marshal(xmlJson)
+  .log("JSON Body: ${body}")`
+.to("mock:fufillmentSystem");
+----
+
+7) Using the `+delivered+` field on the Order object, filter out any orders that were already delivered.
+
+Add the following method to filter out `+Order+` objects that have a property of `+delivered+` set to `+true+`.
+
+[subs=+quotes]
+----
+from("jms:queue:orderInput")
+  .routeId("Transforming Orders")
+  .marshal().jaxb()
+  .log("XML Body: ${body}")
+  .marshal(xmlJson)
+  .log("JSON Body: ${body}")
+  `+.filter().jsonpath("$[?(@.delivered !='true')]")+`
+.to("mock:fufillmentSystem");
+----
+
+Since the data is now in JSON format, you can use a predicate that uses the `+jsonpath+` method to only allow messages where the value of the `+delivered+` field is not equal to `+true+`.
+
+8) Send all undelivered orders to a mock endpoint representing an order logging system.
+
+Add the `+wireTap+` DSL method to the route definition to send a copy of all undelivered orders to a separate direct endpoint:
+
+[subs=+quotes]
+----
+from("jms:queue:orderInput")
+  .routeId("Transforming Orders")
+  .marshal().jaxb()
+  .log("XML Body: ${body}")
+  .marshal(xmlJson)
+  .log("JSON Body: ${body}")
+  .filter().jsonpath("$[?(@.delivered !='true')]")
+  `+.wireTap("direct:jsonOrderLog")+`
+.to("mock:fufillmentSystem");
+----
+
+9) Create a new `+direct+` route to a mock order logging system.
+
+Open the `+OrderLogRouteBuilder+` class and add a route that logs the orders:
+
+[subs=+quotes]
+----
+// TODO: add direct route to mock order log end point
+`from("direct:jsonOrderLog")
+  .routeId("Log Orders")
+  .log("Order received: ${body}")
+.to("mock:orderLog");`
+----
+
+
+10) Build and run the application with the `+./mvnw clean spring-boot:run+` command.
+
+11) Examine the console log.
+
+For each Order with a `+delivered+` value of `+false+`, there is a log entry similar to the following.
+
+[subs=+quotes]
+----
+WireTap] Log Orders : Order received: {"orderItems":[{"extPrice":" ...
+----
+
+In the sample, two of the five orders have the `+delivered+` field set to `+false+`.
+Thus you should find two of these `+Log Orders+` resulting from the wiretap.
+
+12) Use the `+./mvnw clean test+` command to run the unit tests, and verify that the two tests pass.
+
+[subs=+quotes]
+----
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+----
+
+== Finish
+
+Return to your workspace directory, and use the lab command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish pattern-filter*
+----

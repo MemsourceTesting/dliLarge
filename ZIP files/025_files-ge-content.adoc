@@ -1,0 +1,184 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='routefiles-practice']
+= Sample Title
+
+In this exercise, you will route the files of a telecommunications company customer support system, from an FTP server to the local file system.
+
+The company stores customer support requests as text files in an FTP server.
+Their data science team uses these files to train a natural language processing model.
+The team must download the files every time they retrain the model, to make sure that they use the latest available data in the training process.
+This is a repetitive, network-intensive, time-consuming task.
+
+You must create a Camel route to make the latest data continuously available to the data science team.
+This route must copy the files from the FTP server to the local file system.
+
+== Outcomes
+
+You should be able to create a Camel route that reads files from an FTP server and writes the files to the local file system.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+route-files/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start route-files*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/route-files/apps+` directory, into the `+~/AD221/route-files+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/route-files+` directory and open the project with an editor, such as VSCodium.
+
+
+2) Add the Camel FTP component dependency in the project's POM file.
+
+
+3) Edit the `+FtpToFileRouteBuilder+` class.
+Extend the `+RouteBuilder+` class and override the `+configure+` method.
+
+[subs=+quotes]
+----
+@Component
+public class FtpToFileRouteBuilder `+extends RouteBuilder+` {
+----
+
+4) To define the route, implement a method called `+configure()+`, which consumes files from an FTP endpoint.
+Specify the FTP endpoint URI by using the following parameters:
+
+|===
+| Parameter | Value
+
+| Host
+| `+localhost+`
+
+| Port
+| `+21721+`
+
+| Username
+| `+datauser+`
+
+| Password
+| `+fuse+`
+
+| Filter
+| File names matching the `+ticket.*txt+` pattern
+
+| FTP mode
+| Passive
+|===
+
+The method implementation must look like the following:
+
+[subs=+quotes]
+----
+// TODO: Implement the configure method
+@Override
+`public void configure() throws Exception {
+    from(
+        "ftp://localhost:21721/?" +
+        "username=datauser&password=fuse&" +
+        "include=ticket.*txt&" +
+        "passiveMode=true"
+    )
+}`
+----
+
+5) Set the ID of the route to `+ftpRoute+`.
+The unit tests expect your route to use this ID.
+Any other ID would make unit tests fail.
+
+[subs=+quotes]
+----
+// TODO: Implement the configure method
+@Override
+public void configure() throws Exception {
+    from(
+        "ftp://localhost:21721/?" +
+        "username=datauser&password=fuse&" +
+        "include=ticket.*txt&" +
+        "passiveMode=true"
+    )
+    `+.routeId("ftpRoute")+`
+}
+----
+
+6) Log the processed file names.
+To log the file name, use the `+header.CamelFileName+` header.
+
+[subs=+quotes]
+----
+// TODO: Implement the configure method
+@Override
+public void configure() throws Exception {
+    from(
+        "ftp://localhost:21721/?" +
+        "username=datauser&password=fuse&" +
+        "include=ticket.*txt&" +
+        "passiveMode=true"
+    )
+    .routeId("ftpRoute")
+    `+.log("File: ${header.CamelFileName}")+`
+}
+----
+
+7) Write the files to the local file system.
+You must write the files to the `+customer_requests/+` directory, within the project root.
+
+[subs=+quotes]
+----
+// TODO: Implement the configure method
+@Override
+public void configure() throws Exception {
+    from(
+        "ftp://localhost:21721/?" +
+        "username=datauser&password=fuse&" +
+        "include=ticket.*txt&" +
+        "passiveMode=true"
+    )
+    .routeId("ftpRoute")
+    .log("File: ${header.CamelFileName}")
+    `+.to("file:customer_requests/");+`
+}
+----
+
+8) Open a new terminal window and run the FTP server by using the following command:
+
+[subs=+quotes]
+----
+[student@workstation route-files]$ *python3 ftp/run.py*
+_...output omitted..._
+
+FTP server running...
+----
+
+The FTP server serves the files contained in the `+ftp/data+` directory of the project root.
+Note that this folder contains a `+README.txt+` file.
+Your route must ignore this file.
+
+
+9) Run the Spring Boot application by using `+./mvnw clean spring-boot:run+`.
+Verify that the application writes all the ticket files but not the `+README.txt+` file in the `+customer_requests+` directory.
+
+
+10) Run `+./mvnw clean test+` to execute the unit tests.
+Verify that one unit test passes.
+
+
+11) Stop the Spring Boot application and the FTP server.
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish route-files*
+----

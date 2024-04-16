@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % common_entities SYSTEM "../../../common.ent">
+%common_entities;
+]>
+<section id="async-messaging-multchoice">
+
+  <title>Integrating Services Using Asynchronous Messaging</title>
+
+  <task role="MultChoice" id="async-messaging-multchoice-task">
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="messaging-mc-content.xml" xpointer="xpointer(/section/task/*)">
+      <!--<xi:fallback>
+        <title>Integrating Services Using Asynchronous Messaging</title>
+        <procedure>
+          <step>
+            <note>
+              <para>
+                This section is under development.
+              </para>
+            </note>
+          </step>
+        </procedure>
+      </xi:fallback>-->
+    </xi:include>
+  </task>
+</section>

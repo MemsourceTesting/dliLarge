@@ -1,0 +1,203 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='cloudcamelk-lecture']
+= Section Content
+
+== Describing Apache Camel K
+
+_Apache Camel K_ is a lightweight integration framework built from Apache Camel.
+With this framework, developers can build serverless, and microservice architectures.
+It runs natively in the cloud on Red{nbsp}Hat OpenShift, and uses the Kubernetes Operator SDK to automate the deployment process of your integrations.
+
+The Camel K runtime is a Java application based on Camel Quarkus.
+The main goal of the runtime is to run a Camel Quarkus application, and configure the routes defined by the developer.
+
+With Camel K, you write your integration code in a single file, and use the Camel K CLI to run the code immediately in the cloud.
+As a developer, you concentrate on developing only the integration source code; minimizing the costs of maintaining a complete application, and reducing the deployment complexity.
+
+
+=== Describing Kamelets
+
+_Kamelets_ are an alternative approach to application integration.
+They are reusable route components, implemented as Kubernetes resources, you can use to connect to external systems.
+
+There are three types of Kamelets.
+
+Source::
+Consumes data from an external system.
+
+Sink::
+Sends data to an external system.
+
+Action::
+Executes a specific action to manipulate data while it passes from a source to a sink Kamelet.
+
+== Developing Camel K Applications
+
+Camel K supports multiple languages for writing your integrations, such as Java, XML, and YAML.
+Writing an integration in Java is the same as defining your routing rules in Camel.
+You can use any Camel component directly in your integration routes.
+
+Camel K automatically handles the dependency management, and imports the required libraries by using code inspection.
+With Camel K, you do not need to build, and package your integration.
+
+[IMPORTANT]
+====
+The automatic resolution of dependencies only works with dependencies from the Camel catalog (`+camel-*+` artifacts), and with routes that do not specify dynamic URIs.
+====
+
+=== Defining Camel Routes
+
+The most common way of defining Camel routes is by coding your integration in a single file.
+In this file, you must create a class that extends from the `+org.apache.camel.builder.RouteBuilder+` class.
+
+----
+import org.apache.camel.builder.RouteBuilder;
+
+public class CamelKRoute extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+        from("schema:origin")
+            .log("Hello World");
+    }
+}
+----
+
+== Running Integrations on Red{nbsp}Hat OpenShift
+
+The Camel K CLI (`+kamel+`) is the main entry point for running Camel K integrations on OpenShift.
+
+The following table is a non-comprehensive list of commands supported by the Camel K CLI.
+
+.Camel K CLI Commands
+[cols="1,2"]
+|===
+| Command | Description
+
+| `+run+`
+| Runs an integration in OpenShift
+
+| `+delete+`
+| Deletes an integration deployed to OpenShift
+
+| `+describe+`
+| Gets detailed information about a Camel K resource
+
+| `+get+`
+| Gets the status of the integrations deployed to OpenShift
+|===
+
+You can run a Camel K integration in developer mode by adding the `+--dev+` parameter to the `+run+` command.
+
+[subs=+quotes]
+----
+[user@host project]$ *kamel run MyIntegration.java --dev*
+----
+
+The preceding example runs the integration defined in the `+MyIntegration.java+` file in developer mode.
+The developer mode watches the file for changes, and automatically refreshes the integration deployed in the cloud.
+That means that you can make live updates to the integration code, and view the results instantly.
+
+=== Integration Configuration
+
+There are two configuration phases in a Camel K integration life cycle: build time, and runtime.
+You can provide configuration values to the `+kamel run+` command to customize the different phases.
+
+Build time::
+Use the `+--build-property+` option to provide the property values required in the build process.
+
+Runtime::
+Use the `+--property+`, `+--config+`, or `+--resource+` options to provide the property values required when the integration is running.
+
+Traits are high-level features of Camel K that you can configure to customize the behaviour of your integration.
+You can define traits by using the `+--trait+` option on the `+kamel run+` command.
+
+=== Camel K Modeline
+
+_Camel K modeline_ is a feature that processes integration options defined in code comments.
+The following table is a non-comprehensive list of modeline options.
+
+.Camel K Modeline Options
+[cols="1,2"]
+|===
+| Option | Description
+
+| `+config+`
+| Adds runtime configuration from a ConfigMap, a Secret, or a file
+
+| `+dependency+`
+| Includes an explicit external library
+
+| `+env+`
+| Sets an environment variable in the integration container
+
+| `+resource+`
+| Adds a runtime resource from a ConfigMap, a Secret, or a file
+|===
+
+The following example uses modeline hooks to customize a Java integration.
+
+[subs=+quotes]
+----
+// camel-k: dependency=camel-quarkus-jacksonxml <1>
+// camel-k: resource=file:./path/to/file.txt <2>
+
+import org.apache.camel.builder.RouteBuilder;
+
+public class CamelKRoute extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+        _...code omitted..._
+    }
+}
+----
+
+<1> Includes the `+camel-quarkus-jacksonxml+` library
+<2> Adds the `+file.txt+` file to the integration
+
+In an initial phase, the `+kamel run+` command inspects the integration file to detect modeline options.
+Then, it transforms the modeline options into arguments that are later executed by the `+run+` command.
+
+== Differences with Apache Camel
+
+Although Apache Camel K is built from Apache Camel and runs Camel integrations, Camel K presents significant differences with Camel:
+
+.Apache Camel compared to Apache Camel K
+[cols="1,1", options="header"]
+|===
+| Apache Camel                                                                              | Apache Camel K
+| Runs on popular Java frameworks                                                           | Runs natively on the cloud
+| Requires a Java application, and preferably, a framework such as Spring Boot or Quarkus   | Requires an integration definition file
+| You must write integrations in Java                                                       | You can write the integration file in multiple languages, such as Java, Groovy, or JavaScript
+| Traditional Java development workflow                                                     | Cloud-native development workflow, tailored to serverless integration
+| Reusability based on Camel components                                                     | Reusability based on Camel components and Kamelets
+|===
+
+Based on the context, scope, and constraints of your project, you might want to use either Camel or Camel K.
+The following is a non-comprehensive list of use cases and recommendations about when to use one or the other.
+
+* You might want to use Apache Camel when working with traditional Java development workflows.
+This includes non-cloud-native projects and Java projects with a strong dependency on a specific runtime, such as Spring Boot.
+
+* If you do not want to deal with a Java runtime, the details of a specific Java framework, or if you want to define integrations in a different language than Java, then use Camel K.
+
+* Similarly, if you want to add Camel integration capabilities to other technology stacks, then use Camel K.
+An example of this is the https://github.com/project-codeflare/rayvens[Rayvens Python project].
+
+* Camel is specifically designed for serverless applications.
+If you are comfortable with serverless and KNative, then you might want to consider Camel K.
+KNative allows you to optimize how Camel K integrations use cluster resources and other capabilities, such as eventing.
+
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _Kamelets Reference_ chapter in the _Red{nbsp}Hat Integration Guide_ at https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q4/html-single/kamelets_reference/index
+
+For more information, refer to the _Configuring Camel K Integrations_ chapter in the _Developing and Managing Integrations Using Camel K Guide_ at https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q4/html-single/developing_and_managing_integrations_using_camel_k/index#configuring-camel-k
+
+For more information, refer to the _Camel K trait configuration reference_ chapter in the _Developing and Managing Integrations Using Camel K Guide_ at https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q4/html-single/developing_and_managing_integrations_using_camel_k/index#camel-k-traits-reference
+====

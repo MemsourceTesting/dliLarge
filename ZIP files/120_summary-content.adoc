@@ -1,0 +1,10 @@
+[id='cloud-summary']
+= Summary
+
+In this chapter, you learned:
+
+* You can deploy Spring Boot Camel applications to Red{nbsp}Hat OpenShift Container Platform (RHOCP) with the JKube `+openshift-maven-plugin+` plug-in.
+* Developing Camel integrations in Quarkus is similar to developing Camel integrations in Spring Boot.
+* You can deploy Camel Quarkus applications to RHOCP with the `+quarkus-openshift+` Maven extension.
+* You can monitor the health of Camel routes and contexts both in Quarkus and Spring Boot applications.
+* Camel K is a light, cloud-native integration platform, based on Camel.

@@ -1,0 +1,20 @@
+{
+   "root":[
+      {
+         "title":"text pro překlad",
+         "note":"poznámka k textu 1",
+         "length":13
+      },
+      {
+         "description":"text k překladu 2",
+         "note":"poznámka k textu 2",
+         "length":16
+      },
+      {
+         "description":"text pro překlad 3",
+         "note":"poznámka k textu 3",
+         "note":"poznámka k textu 3",
+         "length":17
+      }
+   ]
+}

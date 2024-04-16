@@ -1,0 +1,128 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='testerror-practice']
+= Sample Title
+
+In this exercise, you will improve an application created for the payroll department of your company.
+
+The company wants to integrate the internal financial system with an external service that generates employee payslips.
+To validate the generated payslips, you will add error handling to the application, and flag the payslips that contain errors.
+
+== Outcomes
+
+You should be able to provide exception management capabilities by using Camel's `+doTry/doCatch+` blocks, error handlers, and `+onException+` mechanisms.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+test-error/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start test-error*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/test-error/apps+` directory, into the `+~/AD221/test-error+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/test-error+` directory, open the project with your editor of choice, and examine the code.
+
+2) Execute the `+./mvnw -DskipTests clean package spring-boot:run+` command to start the Spring Boot application.
+
+Wait for the application to process the messages stored in the `+data/payslips+` directory, and evaluate the output log.
+
+Stop the route execution after verifying that the application log displays exceptions and warnings for the files: `+payslip-1.xml+`, `+payslip-2.xml+`, and `+payslip-6.xml+`.
+
+[subs=+quotes]
+----
+java.lang.NumberFormatException: For input string: "NA"
+    _...output omitted..._
+    at java.base/java.util.concurrent...
+    at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+
+2022-03-01 10:21:18.287  WARN 27036 --- [//data/payslips] o.a.c.c.file.GenericFileOnCompletion: Rollback file strategy: org.apache.camel.component.file.strategy.GenericFileRenameProcessStrategy@101f3b6 for file: GenericFile[`+payslip-1.xml+`]
+
+_...output omitted..._
+
+2022-03-01 10:21:17.783  WARN 27036 --- [//data/payslips] o.a.c.c.file.GenericFileOnCompletion: Rollback file strategy: org.apache.camel.component.file.strategy.GenericFileRenameProcessStrategy@101f3b6 for file: GenericFile[`+payslip-2.xml+`]
+
+_...output omitted..._
+
+2022-03-01 10:21:18.294  WARN 27036 --- [//data/payslips] o.a.c.c.file.GenericFileOnCompletion: Rollback file strategy: org.apache.camel.component.file.strategy.GenericFileRenameProcessStrategy@101f3b6 for file: GenericFile[`+payslip-6.xml+`]
+----
+
+
+// -----------------------------------------------------------------------------
+
+3) Open the `+PayslipValidationRouteBuilder+` class.
+Add a `+doTry/doCatch+` block to the route with ID `+amount-process+`.
+Capture the `+NumberFormatException+` exception, and send the messages with invalid values to the `+file://data/validation/error-amount+` endpoint.
+
+[subs=+quotes]
+----
+// TODO: Add doTry/Catch block
+from("file://data/payslips?noop=true")
+    .routeId("amount-process")
+    `+.doTry()+`
+        .process(new AmountProcessor())
+        .to("direct:process")
+    `.doCatch(NumberFormatException.class)
+        .to("file://data/validation/error-amount")
+    .endDoTry();`
+----
+
+4) Verify the correctness of the changes made to the route by executing the unit tests.
+Run the `+./mvnw clean -Dtest=AmountProcessRouteTest test+` command, and verify that two unit tests pass.
+
+// -----------------------------------------------------------------------------
+
+5) Handle the `+NumberFormatException+` exception raised from the `+PriceProcessor+` processor by using the `+onException+` clause.
+Capture the exception, and send the messages with invalid values to the `+file://data/validation/error-price+` endpoint.
+
+[subs=+quotes]
+----
+// TODO: Handle errors with the onException clause
+`onException(NumberFormatException.class)
+    .to("file://data/validation/error-price")
+    .handled(true);`
+----
+
+6) Implement an error handler that uses the Dead Letter EIP.
+Capture any exception raised, and send the messages to the `+file://data/validation/error-dead-letter+` endpoint.
+You must disable the redelivery policy.
+
+[subs=+quotes]
+----
+// TODO: Handle errors with the dead letter channel EIP
+`errorHandler(deadLetterChannel("file://data/validation/error-dead-letter")
+    .disableRedelivery());`
+----
+
+7) Verify the correctness of the changes made to the route by executing the unit tests.
+Run the `+./mvnw clean test+` command, and verify that five unit tests pass.
+
+// -----------------------------------------------------------------------------
+
+8) Execute the `+./mvnw clean package spring-boot:run+` command to start the Spring Boot application.
+
+9) Wait for the application to process the payslips stored in the `+file://data/payslips+` endpoint, and manually verify the correctness of the application logic:
+
+* The `+data/validation/correct+` directory contains the files: `+payslip-3.xml+`, `+payslip-4.xml+`, and `+payslip-5.xml+`.
+* The `+data/validation/error-amount+` directory contains the file `+payslip-1.xml+`.
+* The `+data/validation/error-dead-letter+` directory contains the file `+payslip-6.xml+`.
+* The `+data/validation/error-price+` directory contains the file `+payslip-2.xml+`.
+
+
+== Finish
+
+Stop the Spring Boot application, return to your workspace directory, and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish test-error*
+----

@@ -1,0 +1,32 @@
+{
+  "platform": "SIMILIAR",
+  "version": "SIMILIAR",
+  "files": [
+    {
+      "location": "SIMILIAR",
+      "extractLocation": "SIMILIAR",
+      "hash": "34CEBAD0FF41B9506E036FC27CD09431",
+      "size": 68577287,
+      "status": "NEW",
+      "excludes": [
+        "configuration/resources/update"
+      ],
+      "executableFiles": []
+    },
+    {
+      "location": "contents.tar.gz",
+      "extractLocation": "",
+      "hash": "072B05C97642308B29ADCAFE780C6036",
+      "size": 237813939,
+      "status": "NEW",
+      "excludes": [
+        "configuration/resources",
+        "jre",
+        "config/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi",
+        "config/recent_project",
+        "config/.metadata/.plugins/org.eclipse.core.runtime"
+      ],
+      "executableFiles": []
+    }
+  ]
+}

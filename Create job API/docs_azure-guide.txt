@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE book [
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
+%DOCBOOK_ENTS;
+]>
+<?asciidoc-toc maxdepth="4"?><?asciidoc-numbered?><book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<info>
+<title>Using JBoss EAP in Microsoft Azure</title><subtitle>Instructions for using Red Hat JBoss Enterprise Application Platform on Microsoft Azure, including configuring high availability.</subtitle>
+
+<date>2021-06-29</date>
+<productname>Red Hat JBoss Enterprise Application Platform</productname>
+<productnumber>7.4</productnumber>
+<!-- This guide is NOT published for the JBoss EAP CD release -->
+<abstract>
+   <!-- This guide is NOT published for the JBoss EAP CD release -->
+    <para>This book is a guide for using Red Hat JBoss Enterprise Application Platform in Microsoft Azure, including high-availability configuration.</para>
+</abstract>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Author_Group.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Common_Content/Legal_Notice.xml"/>
+</info>
+<preface xml:id="proc_providing-feedback-on-red-hat-documentation_default">
+<title>Providing feedback on Red Hat documentation</title>
+<simpara>We appreciate your feedback on our documentation. To provide feedback, you can highlight the text in a document and add comments. Follow the steps in the procedure to learn about submitting feedback on Red Hat documentation.</simpara>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>Log in to the Red Hat Customer Portal.</simpara>
+</listitem>
+<listitem>
+<simpara>In the Red Hat Customer Portal, view the document in <emphasis role="strong">Multi-page HTML</emphasis> format.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Click <emphasis role="strong">Feedback</emphasis> to see existing reader comments.</simpara>
+<note>
+<simpara>The feedback feature is enabled only in the <emphasis role="strong">Multi-page HTML</emphasis> format.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Highlight the section of the document where you want to provide feedback.</simpara>
+</listitem>
+<listitem>
+<simpara>In the prompt menu that displays near the text you selected, click <emphasis role="strong">Add Feedback</emphasis>.</simpara>
+<simpara>A text box opens in the feedback section on the right side of the page.</simpara>
+</listitem>
+<listitem>
+<simpara>Enter your feedback in the text box and click <emphasis role="strong">Submit</emphasis>.</simpara>
+<simpara>You have created a documentation issue.</simpara>
+</listitem>
+<listitem>
+<simpara>To view the issue, click the issue tracker link in the feedback view.</simpara>
+</listitem>
+</orderedlist>
+</preface>
+</book>

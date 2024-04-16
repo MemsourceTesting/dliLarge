@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "",
+    "index": 0,
+    "guid": "",
+    "isActive": true,
+    "balance": "$3,513.50",
+    "picture": "",
+    "age": 28,
+    "eyeColor": "",
+    "name": {
+      "first": "",
+      "last": ""
+    },
+    "company": "",
+    "email": "",
+    "phone": "+1 (970) 482-2988",
+    "address": "",
+    "about": "   ",
+    "registered": "",
+    "latitude": "-28.846641",
+    "longitude": "42.211162",
+    "tags": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": ""
+      },
+      {
+        "id": 1,
+        "name": ""
+      },
+      {
+        "id": 2,
+        "name": ""
+      }
+    ],
+    "greeting": " ",
+    "favoriteFruit": ""
+  }
+]

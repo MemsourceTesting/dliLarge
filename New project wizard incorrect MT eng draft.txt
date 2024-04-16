@@ -1,0 +1,25 @@
+New project wizard: incorrect MT engine info displayed
+
+InVision (ORG ID) and reported that their continuous project was still pulling from MT to populate target segments in pre-translation despite the fact that:
+* according to the new project wizard, no MT engine was enabled for the project
+* the pre-translation settings excluded MT and NT
+
+Yet, when investigating, I found the old UI states that there is a manually managed engine tied to the project and the project page itself states so as well.
+
+The project is old enough that the clients are not sure whether the engine was initially part of the template and now it longer is, or if the engine was added to the project manually after.
+
+Steps to reproduce
+1. Create a template with an MT engine attached to it
+2. Create an APC and make it continuous with it
+3. After project creation, unattach the engine from the project (new wizard) and the template
+4. Check out the project page and old project settings' MT info
+
+Current behavior
+New project wizard displays incorrect MT engine information, making it impossible to disable all MT engines for the project without using the old project creation
+
+Expected behavior
+New project wizard displays the correct MT engine information
+
+MSupport reproduction 
+
+Slack thread

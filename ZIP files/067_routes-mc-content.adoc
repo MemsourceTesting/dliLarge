@@ -1,0 +1,80 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+// Sections should have an id that is a short version of the title.
+[id='testroutes-multchoice']
+= Multiple Choice Sample Title
+
+[role='MultChoice']
+== Instructions
+
+Consider a Camel route that retrieves weather forecasts from an API and sends the data to ActiveMQ.
+The route parses the API response by converting this raw response into a format supported by your application.
+Finally, the route sends the processed forecast to ActiveMQ, which delivers the forecast to other parts of your application.
+
+Choose the correct answers to the following questions:
+
+
+1) You must develop your first test case for the Camel route in Spring Boot.
+Which two of the following annotations are required for the test class? (Choose two.)
+
+** `+@Autowired+`
+** [role='solution'] `+@RunWith( CamelSpringBootRunner.class )+`
+** `+@Test+`
+** `+@BeforeEach+`
+** [role='solution'] `+@SpringBootTest( classes = Application.class )+`
+
+2) Assuming that the route code is as follows, what statement should you use in your test to trigger the execution of the route?
+
+----
+from("direct:start")
+  .to("http://api.example.com/weather/forecast")
+  .process(new WeatherApiResponseProcessor())
+  .to("activemq:weatherForecasts");
+----
+
+** Use the Java File API to send test data to the `+direct:start+` endpoint.
+** Inject a `+ProducerTemplate+` instance in the test class, and send a message body to the `+activemq:weatherForecasts+` endpoint.
+** [role='solution'] Inject a `+ProducerTemplate+` instance in the test class, and send a message body to the `+direct:start+` endpoint.
+** Inject a `+ProducerTemplate+` instance in the test class, and send a message body to the `+file:direct:start+` endpoint.
+
+// Question with an exhibit and more than one answer.
+
+3) Consider you have replaced the `+activemq:weatherForecasts+` with the `+mock:activemq:weatherForecasts+` endpoint in your test class.
+You have also replaced the `+http://api.example.com/weather/forecast+` endpoint with the `+mock:http:api.example.com/weather/forecast+` endpoint.
+Which two expectations and behaviors do you need to set in these mocks to validate that messages received from the http endpoint are received in the ActiveMQ endpoint? (Choose two.)
+
+[subs=+quotes]
+----
+class YourTest {
+
+    @EndpointInject(uri = "mock:http:api.example.com/weather/forecast")
+    MockEndpoint mockHttp;
+
+    @EndpointInject(uri = "mock:activemq:weatherForecasts")
+    MockEndpoint mockActiveMQ;
+
+    @Test
+    public void test...() {
+        `+// Expectations/Behaviours definition+`
+
+        template.sendBody("direct:start", null);
+
+        mockActiveMQ.assertIsSatisfied();
+    }
+}
+----
+
+** [role='solution'] Use the `+mockHttp.whenAnyExchangeReceived+` method to simulate a response from the HTTP mock endpoint.
+** [role='solution'] Use the `+mockActiveMQ.expectedBodiesReceived+` method to verify that the route sends the processed HTTP response to the ActiveMQ mock endpoint.
+** Use the `+mockActiveMQ.whenAnyExchangeReceived+` method to simulate a response from the ActiveMQ mock endpoint.
+** Use the `+mockHttp.expectedBodiesReceived+` method to verify that the route sends the processed HTTP response to the HTTP mock endpoint.
+
+
+4) The HTTP endpoint sometimes returns invalid message bodies.
+You observe that these messages generate `+InvalidResponseException+` errors in your route.
+You want to handle these exceptions and send invalid messages to a file for subsequent processing.
+How should you handle this?
+
+** Use `+onException(InvalidResponseException.class).to("file:invalid-responses")+`
+** [role='solution'] Use `+onException(InvalidResponseException.class).to("file:invalid-responses").handled(true)+`
+** Use `+errorHandler(loggingErrorHandler())+`
+** Use `+errorHandler(defaultErrorHandler())+`

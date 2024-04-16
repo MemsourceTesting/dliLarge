@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" srcLang="en" trgLang="cs" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="showroom">
+    <unit id="VEHICLE_SEARCH_UNABLE_TO_FIND_VEHICLES_TITLE">
+      <segment>
+        <source>Apologies, ma frend. We couldn't find any vehicles that match your search.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_UNABLE_TO_FIND_VEHICLES_SUBTITLE">
+      <segment>
+        <source>Based on the details you gave us, we couldn't find any vehicles so please search again using the filters.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY">
+      <segment>
+        <source>View by</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_RELEVANCE">
+      <segment>
+        <source>Relevance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_DISTANCE">
+      <segment>
+        <source>Distance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_TOTAL_PRICE_LOW_TO_HIGH">
+      <segment>
+        <source>Total price (low to high)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_TOTAL_PRICE_HIGH_TO_LOW">
+      <segment>
+        <source>Total price (high to low)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MONTHLY_RENTAL">
+      <segment>
+        <source>Monthly rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MONTHLY_PAYMENT">
+      <segment>
+        <source>Monthly payment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_LOW_TO_HIGH">
+      <segment>
+        <source>(low to high)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_HIGH_TO_LOW">
+      <segment>
+        <source>(high to low)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_LAST_UPDATED_DESCENDING">
+      <segment>
+        <source>Updated date (newest to oldest)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_LAST_UPDATED_ASCENDING">
+      <segment>
+        <source>Updated date (oldest to newest)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MOST_RECENTLY_UPDATED">
+      <segment>
+        <source>Most Recently Updated</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MILEAGE_LOW_TO_HIGH">
+      <segment>
+        <source>Mileage (low to high)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MILEAGE_HIGH_TO_LOW">
+      <segment>
+        <source>Mileage (high to low)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORTING">
+      <segment>
+        <source>Sorting</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SEARCH">
+      <segment>
+        <source>Anything else you'd like to search for?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_EDIT_BUDGET">
+      <segment>
+        <source>Monthly Price</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_FULL_PRICE">
+      <segment>
+        <source>Full Price</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_RESULTS">
+      <segment>
+        <source>Results</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_MANUFACTURERS">
+      <segment>
+        <source>Manufacturers</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_MODELS">
+      <segment>
+        <source>Models</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_BODY_STYLE">
+      <segment>
+        <source>Body style</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_AGE">
+      <segment>
+        <source>Age</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_MILEAGE">
+      <segment>
+        <source>Mileage</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_TRANSMISSION">
+      <segment>
+        <source>Transmission</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_FUEL">
+      <segment>
+        <source>Fuel</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_ENGINE_SIZE">
+      <segment>
+        <source>Engine size</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_DOORS">
+      <segment>
+        <source>Doors</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_COLOURS">
+      <segment>
+        <source>Colours</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_ACCELERATION">
+      <segment>
+        <source>Acceleration (0-60)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_INSURANCE_GROUP">
+      <segment>
+        <source>Insurance group</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_DRIVETRAINS">
+      <segment>
+        <source>Drivetrain</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_SEATS">
+      <segment>
+        <source>Seats</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_STATES">
+      <segment>
+        <source>States</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_LAST_UPDATED">
+      <segment>
+        <source>Last updated</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_OPTIONS">
+      <segment>
+        <source>Interior and Exterior Options</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_SEARCH_BY_POSTCODE">
+      <segment>
+        <source>Search by postcode</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_POSTCODE">
+      <segment>
+        <source>Postcode</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_DISTANCE">
+      <segment>
+        <source>Distance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_NATIONWIDE">
+      <segment>
+        <source>Nationwide</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_FILTER_BY_FEATURES">
+      <segment>
+        <source>Filter by features:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_RESET">
+      <segment>
+        <source>Reset</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_VIEW_ALL">
+      <segment>
+        <source>View all</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_PLEASE_SELECT">
+      <segment>
+        <source>Please select</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_FROM">
+      <segment>
+        <source>From</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_TO">
+      <segment>
+        <source>To</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_UP_TO">
+      <segment>
+        <source>Up to</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_BELOW">
+      <segment>
+        <source>Below</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_UP_TO_GROUP">
+      <segment>
+        <source>Up to group</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_SHOW_RESULTS">
+      <segment>
+        <source>Show results</source>
+        <target />
+      </segment>
+    </unit>
+  </file>
+</xliff>

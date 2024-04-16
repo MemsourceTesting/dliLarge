@@ -1,0 +1,304 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='resthttp-practice']
+= Consuming HTTP services with the HTTP component
+
+In this exercise, assume you work for Acme Inc, which is testing new ways to reduce their carbon footprint.
+
+The company has a SOAP service that calculates the carbon footprint of the customers, based on their previous orders.
+The company requires you to enrich the received orders with an additional header, which includes the carbon footprint value.
+
+== Outcomes
+
+In this exercise you should be able to:
+
+[compact]
+* Consume HTTP content by using the HTTP4 component
+* Consume a SOAP service by using the CXF component
+* Use the Enrich EIP to augment a message with additional content
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start rest-http*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/rest-http/apps+` directory, into the `+~/AD221/rest-http+` directory.
+The `+Lab+` command also creates a Red{nbsp}Hat AMQ instance, and a SOAP service.
+
+[NOTE]
+====
+You can inspect the logs for the AMQ instance at any time with the following command:
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *podman logs artemis*
+----
+
+You can inspect the logs for the SOAP server instance at any time with the following command:
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *podman logs soap_server*
+----
+====
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/rest-http+` directory, open the project with your editor of choice, and examine the code.
+
+// -----------------------------------------------------------------------------
+
+2) View the WSDL file for the SOAP service located at `+src/main/resources/wsdl/Footprint.wsdl+`.
+Subsequent steps use this file to generate source code for the project.
+The SOAP service provides this file at `+http://localhost:8080/footprints.php?wsdl+`.
+
+// -----------------------------------------------------------------------------
+
+3) Open the project's POM file to add the required CXF dependencies and plug-ins.
+
+3.1) Add the `+camel-cxf+` dependency from the `+org.apache.camel+` group.
+
+The dependency block must look like the following:
+
+[subs=+quotes]
+----
+<!-- TODO: Add the camel-cxf dependency -->
+`<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-cxf</artifactId>
+</dependency>`
+----
+
+3.2) Add the `+cxf-codegen-plugin+` plug-in.
+
+The plugin block must look like the following:
+
+[subs=+quotes]
+----
+<!-- TODO: Add the cxf-codegen-plugin -->
+`<plugin>
+    <groupId>org.apache.cxf</groupId>
+    <artifactId>cxf-codegen-plugin</artifactId>
+    <version>3.4.4</version>
+    <dependencies>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.ws</groupId>
+            <artifactId>jaxws-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.jws</groupId>
+            <artifactId>javax.jws-api</artifactId>
+            <version>1.1</version>
+        </dependency>
+    </dependencies>
+    <executions>
+        <execution>
+            <id>generate-sources</id>
+            <phase>generate-sources</phase>
+            <configuration>
+                <wsdlOptions>
+                    <wsdlOption>
+                        <wsdl>src/main/resources/wsdl/Footprint.wsdl</wsdl>
+                    </wsdlOption>
+                </wsdlOptions>
+            </configuration>
+            <goals>
+                <goal>wsdl2java</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>`
+----
+
+// -----------------------------------------------------------------------------
+
+4) Execute the `+./mvnw generate-sources+` command to generate client classes from the WSDL.
+
+Open the `+target/generated-sources/cxf/com/redhat/training/carbonfootprintservice/+` folder to view the generated files.
+
+// -----------------------------------------------------------------------------
+
+5) Create a Java bean called `+GetFootprintBuilder+` to create the SOAP request object.
+
+[subs=+quotes]
+----
+package com.redhat.training.messaging;
+
+import com.redhat.training.carbonfootprintservice.CarbonFootprintRequest;
+
+public class GetFootprintBuilder {
+
+     public CarbonFootprintRequest getFootprint(String id) {
+         CarbonFootprintRequest request = new CarbonFootprintRequest();
+         request.setID(id);
+
+         return request;
+     }
+}
+----
+
+// -----------------------------------------------------------------------------
+
+6) Create a route that uses the CXF component to query the SOAP service.
+
+Open the `+SoapRouteBuilder+` class, and edit the class based on the following requirements:
+
+.SoapRouteBuilder requirements
+[cols="1,3", options="header"]
+|===
+| Description
+| Value
+
+| Java Bean to build the SOAP request
+| `+GetFootprintBuilder.class+`
+
+| SOAP Operation Name
+| `+CarbonFootprint+`
+
+| SOAP Operation Namespace
+| `+http://training.redhat.com/CarbonFootprintService/+`
+
+| URI for SOAP service
+| `+http://localhost:8080/footprints.php+`
+
+| SOAP service interface
+| `+com.redhat.training.carbonfootprintservice.+`
+`+CarbonFootprintEndpoint+`
+|===
+
+You must import the `+org.apache.camel.component.cxf.common.message.CxfConstants+` class.
+
+The resulting route must look like the following:
+
+[subs=+quotes]
+----
+from("direct:soap")
+    .routeId(ROUTE_NAME)
+    .setBody(jsonpath("$.Name"))
+    .log("New body value: ${body}")
+    `.bean(GetFootprintBuilder.class)
+    .setHeader(CxfConstants.OPERATION_NAME, constant("CarbonFootprint"))
+    .setHeader(CxfConstants.OPERATION_NAMESPACE,
+        constant("http://training.redhat.com/CarbonFootprintService/"))
+    .to("cxf://http://localhost:8080/footprints.php" + "?serviceClass=com.redhat.training.carbonfootprintservice.CarbonFootprintEndpoint")`
+    .log("From SoapRouteBuilder: ${body[0].carbonFootprint}")
+    .to("direct:log_orders");
+----
+
+// -----------------------------------------------------------------------------
+
+7) Verify the correctness of the route by executing the unit tests.
+
+Run the `+./mvnw clean -Dtest=SoapRouteBuilderTest test+` command, and verify that one unit test passes.
+
+// -----------------------------------------------------------------------------
+
+8) Implement an aggregation strategy to merge the content of two exchanges.
+The implementation must add a header to an exchange based on the content of another exchange.
+
+Create the `+HttpAggregationStrategy+` class with the following contents:
+
+[subs=+quotes]
+----
+package com.redhat.training.messaging;
+
+import org.apache.camel.processor.aggregate.AggregationStrategy;
+import org.apache.camel.Exchange;
+import com.redhat.training.carbonfootprintservice.CarbonFootprintResponse;
+
+public class HttpAggregationStrategy implements AggregationStrategy {
+
+    public static final String FOOTPRINT_HEADER = "FOOT_PRINT";
+
+    public Exchange aggregate(Exchange original, Exchange resource) {
+        CarbonFootprintResponse carbonFootprintResponse
+            = resource.getIn().getBody(CarbonFootprintResponse.class);
+        original.getIn().setHeader(FOOTPRINT_HEADER,
+            carbonFootprintResponse.getCarbonFootprint());
+
+        return original;
+    }
+}
+----
+
+// -----------------------------------------------------------------------------
+
+9) Create a route to receive messages with orders, and enrich the message with data from the SOAP service.
+
+Open the `+EnrichRouteBuilder+` class, and use the `+enrich+` method to pull data from the `+direct:soap+` endpoint.
+Use the `+HttpAggregationStrategy+` class to enrich the original message with a new header value.
+
+The route must look like the following:
+
+[subs=+quotes]
+----
+from("direct:enrich")
+    .routeId(ROUTE_NAME)
+    `+.enrich("direct:soap", new HttpAggregationStrategy())+`
+    .log("Order sent to fulfillment: ${body}")
+    .log("New Header value: ${in.header.FOOT_PRINT}")
+    .to("mock:fulfillmentSystem");
+----
+
+// -----------------------------------------------------------------------------
+
+10) Verify the correctness of the route by executing the unit tests.
+
+Run the `+./mvnw clean -Dtest=EnrichRouteBuilderTest test+` command, and verify that one unit test passes.
+
+// -----------------------------------------------------------------------------
+
+11) Build and run the application with the `+./mvnw clean spring-boot:run+` command.
+
+Verify in the console output that the `+enrich-route+` route did not process any messages, and stop the application.
+
+// -----------------------------------------------------------------------------
+
+12) Open the `+JmsRouteBuilder+` class, and edit the route to send messages to the `+direct:enrich+` endpoint instead of the `+direct:soap+` endpoint.
+
+The end of the modified route must look like the following:
+
+[subs=+quotes]
+----
+_...output omitted..._
+    choice()
+        .when(jsonpath("$[?(@.Delivered == false)]"))
+            .to("direct:log_orders")
+        .when(jsonpath("$[?(@.Delivered == true)]"))
+            `+.to("direct:enrich");+`
+----
+
+// -----------------------------------------------------------------------------
+
+13) Build and run the application with the `+./mvnw clean spring-boot:run+` command.
+
+Verify in the console output that the `+enrich-route+` route processed messages.
+
+[subs=+quotes]
+----
+_...output omitted..._
+... enrich-route : Order sent to fulfillment: {"ID":2 ... "customer-b"}
+... enrich-route : New Header value: 16428.22
+----
+
+== Finish
+
+Stop the Spring Boot application, return to your workspace directory, and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish rest-http*
+----

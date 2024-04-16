@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HelpUsImprove" xml:space="preserve">
+    <value>Pomozte nám zlepšit se_revised 2</value>
+    <comment>CHANGED: 2020-10-23 - Message on survey pop up</comment>
+  </data>
+  <data name="Survey_Option_AddEmail" xml:space="preserve">
+    <value>Pokud ano, přidejte e-mail</value>
+    <comment>CHANGED: 2020-10-23 - answer option for the question Survey_Question_MostImportantForYou</comment>
+  </data>
+  <data name="Survey_Option_DealerWorkshop" xml:space="preserve">
+    <value>Prodejce / dílna</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_WhereDoYouBelongTo</comment>
+  </data>
+  <data name="Survey_Option_Distributor" xml:space="preserve">
+    <value>Distributor</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_WhereDoYouBelongTo</comment>
+  </data>
+  <data name="Survey_Option_Factory" xml:space="preserve">
+    <value>Továrna</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_WhereDoYouBelongTo</comment>
+  </data>
+  <data name="Survey_Option_MultipleTimesADay" xml:space="preserve">
+    <value>Vícekrát za den</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_HowOftenUseApplication</comment>
+  </data>
+  <data name="Survey_Option_OnceADay" xml:space="preserve">
+    <value>Jednou denně</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_HowOftenUseApplication</comment>
+  </data>
+  <data name="Survey_Option_OnceAMonth" xml:space="preserve">
+    <value>Jednou měsíčně</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_HowOftenUseApplication</comment>
+  </data>
+  <data name="Survey_Option_OnceAWeek" xml:space="preserve">
+    <value>Jednou za sakra týden</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_HowOftenUseApplication</comment>
+  </data>
+  <data name="Survey_Option_Other" xml:space="preserve">
+    <value>jiný</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_HowOftenUseApplication</comment>
+  </data>
+  <data name="Survey_Option_PoorlySuited" xml:space="preserve">
+    <value>Velmi špatně se hodí</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_WellSuited</comment>
+  </data>
+  <data name="Survey_Option_WellSuited" xml:space="preserve">
+    <value>Velmi dobře se hodí</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for question Survey_Question_WellSuited</comment>
+  </data>
+  <data name="Survey_Option_WillingToHelp" xml:space="preserve">
+    <value>V případě potřeby bych byl ochoten dále pomoci.</value>
+    <comment>CHANGED: 2020-10-23 - survey answer option for the question Survey_Question_SPIIAndConversionCombined</comment>
+  </data>
+  <data name="Survey_Question_CommonTasks" xml:space="preserve">
+    <value>Pokud v } děláte více než jeden úkol, které úkoly se obvykle dělají těsně vedle sebe?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_Question_CurrentPurpose" xml:space="preserve">
+    <value>Jaký je váš současný účel návštěvy }?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_Question_HowOftenUseApplication" xml:space="preserve">
+    <value>Jak často navštěvujete }?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_Question_MostImportantForYou" xml:space="preserve">
+    <value>Co je pro vás u } nejdůležitější?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_Question_OtherPurposes" xml:space="preserve">
+    <value>Jaké další účely máte k návštěvě }?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_Question_WantToMotivate" xml:space="preserve">
+    <value>Chcete motivovat proč?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_Question_WellSuited" xml:space="preserve">
+    <value>Jak dobře se hodíte k provádění úkolů?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_Question_WhatRoleDoYouHave" xml:space="preserve">
+    <value>jakou máš roli?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_Question_WhereDoYouBelongTo" xml:space="preserve">
+    <value>Patříte k továrně, distributorovi nebo prodejci?</value>
+    <comment>CHANGED: 2020-10-23 - survey question</comment>
+  </data>
+  <data name="Survey_SectionOne" xml:space="preserve">
+    <value>Sekce 1</value>
+    <comment>CHANGED: 2020-10-23 - survey section divider</comment>
+  </data>
+  <data name="Survey_SectionThree" xml:space="preserve">
+    <value>Sekce 3</value>
+    <comment>CHANGED: 2020-10-23 - survey section divider</comment>
+  </data>
+  <data name="Survey_SectionTwo" xml:space="preserve">
+    <value>Sekce 2</value>
+    <comment>CHANGED: 2020-10-23 - survey section two divider</comment>
+  </data>
+  <data name="Survey_ThirdParagraph" xml:space="preserve">
+    <value>Máte-li jakékoli dotazy, zašlete e-mail na farangis.hakimi@scania.com</value>
+    <comment>CHANGED: 2020-10-23 - third paragraph of survey page</comment>
+  </data>
+  <data name="Survey_Title" xml:space="preserve">
+    <value>Průzkum pro sloučení aplikací SPII a Conversion</value>
+    <comment>CHANGED: 2020-10-23 - title on survey page</comment>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Poslat</value>
+    <comment>CHANGED: 2020-10-23 - CHANGED: 2020-10-23 - word send will be used in the survey</comment>
+  </data>
+  <data name="Survey_FirstParagraph" xml:space="preserve">
+    <value>Uvažujeme o spojení webových aplikací SPII (https://spii.scania.com/) a Conversion (http://conversion.scania.com) do jedné společné webové aplikace.
+Abychom pochopili, jak to lze udělat co nejlepším způsobem, opravdu si vaší pomoci vážíme.</value>
+    <comment>CHANGED: 2020-10-27 - First paragraph in the survey page</comment>
+  </data>
+  <data name="Survey_Question_CountryOrMarketYouBelongTo" xml:space="preserve">
+    <value>Do které země nebo trhu patříte?</value>
+    <comment>CHANGED: 2020-10-27 - survey question</comment>
+  </data>
+  <data name="Survey_Question_SPIIAndConversionCombined" xml:space="preserve">
+    <value>Potřebujete k provedení úkolu použít současně SPII a konverzi?</value>
+    <comment>CHANGED: 2020-10-27 - survey question</comment>
+  </data>
+  <data name="Survey_Acknowledgment_Message" xml:space="preserve">
+    <value>Děkujeme za zodpovězení průzkumu!</value>
+    <comment>CHANGED: 2020-10-27 - Acknowledgment message for when a user answer the survey</comment>
+  </data>
+  <data name="RoleDescription_FilteredSearch" xml:space="preserve">
+    <value>Může vyhledávat podle převodovky, zadní nápravy, motoru a FPC/RPC.</value>
+    <comment>CHANGED: 2020-10-28 - page: Request user access</comment>
+  </data>
+  <data name="Survey_Option_InWhatWay" xml:space="preserve">
+    <value>Pokud zkombinujete SPII a konverzi, jakým způsobem to uděláte? Prosím popište.</value>
+    <comment>CHANGED: 2020-10-29 - survey answer option for question Survey_Question_SPIIAndConversionCombined</comment>
+  </data>
+  <data name="Survey_SecondParagraph" xml:space="preserve">
+    <value>Odpovědí na krátký průzkum (11 otázek) nám můžete pomoci lépe porozumět tomu, proč a jak používáte webovou aplikaci }.</value>
+    <comment>CHANGED: 2020-10-29 - Second paragraph in the survey page</comment>
+  </data>
+
+</root>

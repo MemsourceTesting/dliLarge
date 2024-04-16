@@ -1,0 +1,873 @@
+:imagesdir: ../images/
+:experimental:
+:icons: font
+[id="yaskawa-interface-commands"]
+
+= YASKAWA
+
+YASKAWA hatlamatla
+
+* 程序的参数列表中，各个参数之间以分号分割。
+
+* 调用程序时的参数：在后台对应相应的全局变量。
+
+[NOTE]
+====
+* 对于 {product-center} 1.6.1 之前的版本，每个接口程序指令都包含通信连接和通信断开语句。
+
+* 对于 {product-center} 1.6.1 及以上的版本，有以下更新说明：
+** 仅有初始化通信指令包含通信连接和通信断开语句，以方便测试。初始化通信指令仅需机器人执行一次即可，设置的 IP 地址将全局有效。
+
+** 通信连接和通信断开语句成为两个独立指令（建立 TCP 连接指令和断开 TCP 连接指令），从而避免频繁连接和断开机器人与视觉系统之间的通信。
+
+====
+
+以下为接口程序指令介绍。
+
+== 初始化通信指令
+
+该指令用于设置 TCP/IP 通信的主机 IP 地址、端口号，以及通信超时等待时间。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_INIT_SOCKET("IP_Address;Server_Port;Time_Out")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| IP_Address| 主机的 IP 地址。
+| Server_Port| TCP/IP 通信端口号；端口号默认为 50000 。
+| Time_Out| 超时等待时间；单位为 min 。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_INIT_SOCKET("192.168.1.1;50000;5")
+----
+
+执行该示例程序将需要连接的主机 IP 地址设为 192.168.1.1，端口号为 50000 ，超时时间为 5 分钟。
+
+== 建立 TCP 连接
+
+该指令用于建立 TCP 连接。在执行该指令之前，请先使用初始化通信指令正确配置通信的 IP 地址和端口号。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_OPEN_SOCKET
+----
+
+=== 参数说明
+
+无参数。
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_OPEN_SOCKET
+----
+
+== 断开 TCP 连接
+
+该指令用于断开 TCP 连接。在机器人与视觉系统通讯任务完成后，用户可调用该指令，以断开通信连接。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_CLOSE_SOCKET
+----
+
+=== 参数说明
+
+无参数。
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_CLOSE_SOCKET
+----
+
+== 启动 {product-vis} 工程
+
+该指令用于触发 {product-vis} 工程的运行，执行相机拍照和视觉处理。用于只使用 {product-vis} 而不使用 {product-viz} 的场景。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_START_VIS("job;pos_num_need;sendpos_type;prNum")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| job| {product-vis} 工程编号，可在 {product-vis} 工程列表窗口中查看，工程名称前的数字表示工程编号。
+| pos_num_need| 预期视觉点数量，即期望从 {product-vis} 得到的视觉点数量。可设置范围 [1~20]，0 表示获取所有。
+| sendpos_type
+a|机器人位姿类型，该参数指定真实机器人的位姿将以何种形式传入 {product-vis}。参数范围：[0~3]。
+
+* `0`：该指令不需向视觉系统传入机器人位姿。若工程为 Eye To Hand 模式，则拍照与机器人位姿无关，{product-vis} 不需要机器人的位姿。
+
+* `1`：该指令以“机器人当前关节角+当前法兰”形式向视觉系统传入机器人位姿。若工程为 Eye In Hand 模式，则推荐使用该参数。在使用时，{product-vis} 工程中存在的“路径规划”步骤将使用机器人发送关节角。如果法兰位姿为全零，则忽略法兰数据。
+
+* `2`：该指令以当前法兰位姿形式向视觉系统传入机器人位姿，适用于工程为 Eye In Hand 模式，且机器人无关节角数据，仅有法兰位姿数据（如桁架机器人）的场景中。
+
+* `3`：该指令以预定义关节角（读取用户设置的关节角变量）形式向视觉系统传入机器人位姿。若工程为 Eye To Hand 模式，则推荐使用该参数。在使用时，{product-vis} 工程中存在的“路径规划”步骤将使用机器人发送的关节角作为初始位姿。
+
+| prNum| P 变量编号，用于保存机器人预定义的关节角数据，仅当 sendpos_type=3 时才会使用此关节角数据。P 变量需要选择脉冲形式（最终会通过后台转换成关节角形式数据发出，选择未设定脉冲形式的 P 变量会报错误 “MM:PVAR_SET_ERROR”）。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_START_VIS("1;1;1")
+----
+
+该示例触发 {product-vis} 工程 1 的运行，希望 {product-vis} 工程 1 返回 1 个视觉结果，机器人将当前关节角和法兰数据传入 {product-vis}。
+
+== 获取视觉目标点
+
+该指令用于只用到 {product-vis} 软件，无需用到 {product-viz} 软件的场景，用于运行 {product-vis} 工程之后，获取视觉识别结果。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_VISDATA("Job;Last_Data;Pose_Num;MM_Status")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| Job| {product-vis} 工程编号，可在 {product-vis} 工程列表窗口中查看，工程名称前的数字表示工程编号。
+2+| 输出参数
+| Last_Data
+a|I 变量，点位是否发送完毕。
+
+** `0`：视觉点未全部发送；
+
+** `1`：视觉点已全部发送。
+| Pose_Num| I 变量，用于保存返回的位姿数量。
+| MM_Status| I 变量，用于保存指令状态码。可参考《{company-en} 标准接口开发者手册》 。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_VISDATA("1;50;51;52")
+----
+
+该示例用于获取 {product-vis} 工程 1 的视觉结果。是否发送完毕保存在 I50 里，返回的视觉点数量保存在变量 I51 里，指令执行的状态码保存在变量 I52 里。
+
+== 启动 {product-viz} 工程
+
+该指令用于既用到 {product-vis} 工程又用到 {product-viz} 工程的场景，用于启动 {product-viz} 工程，调用相应的 {product-vis} 工程，并设置 {product-viz} 中仿真机器人的初始位姿。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_START_VIZ("sendpos_type;prNum")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| sendpos_type
+a|机器人的位姿类型。参数范围：[0~2]。
+
+** `0`：无需向 {product-viz} 传入机器人位姿，{product-viz} 软件中仿真机器人将会从关节角 [0,0,0,0,0,0] 位置开始，运动到第一个路径点。
+
+** `1`：将机器人的当前关节角和法兰位姿传入 {product-viz}，{product-viz} 软件中仿真机器人将会从当前机器人关节角位置开始，运动到第一个路径点。
+
+** `2`：将机器人的一个预定义关节角传入 {product-viz}，{product-viz} 软件中仿真机器人将会从当前机器人预定义关节角的位置开始，运动到第一个路径点。
+
+| prNum| P 变量编号，用于保存机器人预定义的关节角数据，仅当 SendPos_Type=2 时才会使用此关节角数据。P 变量需要选择脉冲形式（最终会通过后台转换成关节角形式数据发出，选择未设定脉冲形式的 P 变量会报错误 “MM:PVAR_SET_ERROR”）。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_START_VIZ("1")
+----
+
+示例触发 {product-viz} 工程运行，将当前机器人的关节角和法兰位姿传入 {product-viz}。
+
+== 获取 {product-viz} 数据
+
+该指令用于获取 {product-viz} 工程规划的抓取路径。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_VIZDATA("GetPos_Type;Last_Data;Pos_Num;VisPos_Num;MM_Status")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| GetPos_Type| 要获取的路径上点的位姿类型。
+2+| 输出参数
+| Last_Data| I 变量，点位是否发送完毕。
+0：视觉点未全部发送；
+1：视觉点已全部发送。
+| Pose_Num| I 变量，用于保存返回的位姿数量。
+| VisPos_Num| I 变量，用于保存第一个视觉移动在路径中的位置编号。例如路径是：移动-1，移动-2，视觉移动-1，移动-3，则视觉移动的位置是3。若路径中无视觉移动，则返回值为零。
+| MM_Status| I 变量，用于保存指令状态码，具体可参考《xref:standard-interface-development-manual:status-codes-error-troubleshooting.adoc[]》。
+|===
+
+[NOTE]
+====
+** {product-viz} 返回的位姿类型为机器人关节角。
+
+** {product-viz} 返回的位姿类型为机器人工具中心点位姿。
+
+====
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_VIZDATA("2;50;51;52;53")
+----
+
+该示例用于接收 {product-viz} 软件返回的机器人移动路径，移动点数据类型为工具中心点位姿，是否发送完毕保存在 I50 中，位姿的数量保存在I51中，视觉移动点在路径中的编号保存在变量 I52中，指令执行的状态码保存在变量 I53中。
+
+== 获取视觉点坐标值
+
+该指令用于将 {product-vis} 软件返回的视觉结果或 {product-viz} 软件返回的移动路径里的某个工具中心点位姿数据转存到指定位姿变量中。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_POSE("Index;Robtarget;Label;Pose_Speed")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| 参数| 描述
+2+| 输入参数
+| Index| 指定要转存的是第几个位姿。
+2+| 输出参数
+| Robtarget| P 变量，用于保存指定的位姿数据。
+| Label| I 变量，用于保存和指定位姿数据相对应的标签数据。
+| Pose_Speed| I 变量，用于保存和指定位姿数据相对应的移动速度。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_POSE("1;60;61;62")
+----
+
+该示例用于将收到的第一个位姿保存到位姿变量 P60 中，将标签保存到变量 I61 中，将移动速度保存到变量 I62 中。
+
+== 获取视觉点关节角（使用 {product-viz} 软件规划时有效）
+
+该指令用于将 {product-viz} 软件返回的移动路径里的某个关节角数据转存到指定位置变量中。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_JPS("Index;Jointtarget;Label;Pose_Speed")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| Index| 指定要转存的是第几个位姿。
+2+| 输出参数
+| Jointtarget| P 变量，用于保存指定的关节角数据。
+| Label| I 变量，用于保存和指定位姿数据相对应的标签数据。
+| Pose_Speed| I 变量，用于保存和指定位姿数据相对应的移动速度。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_JPS("1;60;61;62")
+----
+
+该示例用于将收到的第一个位姿保存到位置变量 P60 中，将标签保存到变量 I61 中，将移动速度保存到变量 I62 中。
+
+== 切换 {product-vis} 配方
+
+配置参数配方 ，需要在 {product-vis} 中已配置并保存了参数配方。该指令需要在 MM_START_VIS 程序之前使用。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_SET_MODEL("Job;Model_number")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+|输入参数
+| Job| {product-vis} 工程编号，可在 {product-vis} 工程列表窗口中查看，工程名称前的数字表示工程编号。
+| Model_number| {product-vis} 工程中配方模板的编号。编号范围 [1-99] 。
+|===
+
+image::yaskawa/interface-commands/parameters_of_the_formula.png[align="center",width=500]
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_SET_MODEL("1;1")
+----
+
+该示例会将 {product-vis} 工程 1 的配方切换成配方 1 。
+
+== 选择 {product-viz} 分支
+
+该指令用于 {product-viz} 工程中有“消息分支”步骤时，控制 {product-viz} 工程中的“消息分支”步骤走指定的出口。
+在调用该指令之前，需要先调用 MM_START_VIZ。{product-viz} 软件运行到“消息分支”步骤时会等待 203 指令发送“消息分支”步骤的分支出口。
+
+image::yaskawa/interface-commands/choose_branch.png[align="center",width=500]
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_SET_BRANCH("Branch_Num;Exit_Num")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| Branch_Num| 分支步骤编号，该参数应为正整数，即消息分支的步骤编号。步骤编号可在步骤参数中读取。
+| Exit_Num| 给定分支的出口号，{product-viz} 工程将沿该出口继续执行。参数范围[1-99] 。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_SET_BRANCH("1;3")
+----
+
+该示例是用来设置当 {product-viz} 工程执行到名字是 1 的分支（根据服务消息）步骤时走步骤的第 3 出口。
+
+== 设置移动索引
+
+对于属性中带有索引的移动类步骤，比如按序列移动、按阵列移动、自定义垛型、预设垛型等，可以调用该指令设置属性中的当前索引。
+在调用该指令之前，需要先执行 MM_START_VIZ 程序。
+
+image::yaskawa/interface-commands/set_index.png[align="center",width=500]
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_SET_INDEX("Skill_Num;Index_Num")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| Skill_Num| 移动索引步骤编号，该参数应为正整数。步骤编号可在步骤参数中读取。
+| Index_Num
+a|下次执行此步骤时应设置的索引值。
+
+发送该指令时，{product-viz} 中的当前索引值将变为该参数值减 1。
+
+当 {product-viz} 工程运行到该指令指定的步骤时，{product-viz} 中的**当前索引值**将增加 1，成为该参数的值。
+
+|===
+
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_SET_INDEX("2;10")
+----
+
+该示例设置 {product-viz} 工程中的步骤名称 “2” 的当前索引值为 9。
+
+== 获取软件状态
+
+该指令用于获取 {product-vis}，{product-viz}，{product-center} 的软件运行状态，目前只支持检测 {product-vis} 软件是否就绪。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_STATUS("Status")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输出参数
+| Status| I 变量，用于保存指令状态码，具体可参考《xref:standard-interface-development-manual:status-codes-error-troubleshooting.adoc[]》。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_STATUS("70")
+----
+
+该示例将检查系统状态的状态码保存到变量 I70 中。
+
+== 向 {product-vis} 传入物体尺寸
+
+该指令用于在 {product-vis} 工程中动态传入物体尺寸。需要在执行 MM_START_VIS 之前调用。
+
+image::yaskawa/interface-commands/set_size_of_box.png[align="center",width=500]
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_SET_BOXSIZE("Job;Length;Width;Height")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| Job| {product-vis} 工程编号，可在 {product-vis} 工程列表窗口中查看，工程名称前的数字表示工程编号。
+| Length| 箱子长度，单位 mm 。
+| Width| 箱子宽度，单位 mm 。
+| Height| 箱子高度，单位 mm 。
+|===
+
+=== 示例
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_SET_BOXSIZE("1;500;300;200")
+----
+
+该示例将设置 {product-vis} 工程中的读取物体尺寸步骤的物体尺寸为 500*300*200 mm 。
+
+== 获取 DO 信号列表
+
+当需要使用 {product-viz} 软件中的吸盘分区/多抓功能时，可通过该指令来获取规划的分区 DO 信号列表。调用该指令之前需要先执行 MM_GET_VIZDATA 。
+
+[NOTE]
+====
+请参考 `XXXX/{product-center}-xxx/tool/viz_project/suction_zone` 目录下的 {product-viz} 模板工程使用，并在运行之前在工程中设置对应的吸盘配置文件，
+并在 {product-viz} 软件中设置接受者名称为当前机器人型号。
+
+====
+
+image::yaskawa/interface-commands/get_do_lists.png[align="center",width=500]
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_DOLIST
+----
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_DOLIST
+----
+
+执行该程序会将 {product-viz} 软件计算的 DO 列表保存到 setdo[] 数组内。有效数据从 setdo[0] 开始，到 setdo[io_index-1] 。
+
+== 设置 DO
+
+该指令用于将 {product-viz} 软件返回的 DoList 设置到通用输出信号中，最多支持 4 组 GO 信号，一组 GO 信号为 16 位，如需设置多组 GO 信号，请使用多次该指令。
+该指令需在 MM_GET_DOLIST 之后使用。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_SET_DOLIST
+----
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_SET_DOLIST
+----
+
+执行该程序会将 {product-viz} 计算的 DO 列表 0-15 的值写入到通用输出信号 0T1-OT16 里。
+
+== 设置外部位姿
+
+该指令用于向 {product-viz} 工程动态传入位姿点数据，配合 {product-viz} 软件中的 *外部移动* 使用。
+该功能需要配合 `XXXX/{product-center}-xxx/tool/viz_project/outer_move` 路径下的工程使用，并在运行之前把其中的 *外部移动* 放到合适的位置。 该指令需要在调用 MM_GET_VIZDATA 程序之前调用。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_SET_POSE("Pos")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| Pos| P 变量，保存需要发送给 {product-viz} 的工具中心点位姿数据。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_SET_POSE("10")
+----
+
+该示例将位姿变量 P10 代表的位姿数据发送为 {product-viz} 软件的外部移动步骤。
+
+== 标定
+
+该指令用于相机外参的自动标定。该指令如需使用请在 MM_Calibration() 程序中修改运行即可，该程序需配合 {product-vis} 软件的相机标定工具，可以实现全自动标定，具体可以参见 xref:yaskawa-calibration-program.adoc[] 。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_CALIB("Move_Type;Pos_Jps;Wait_Time;Rnum;Ext;Pos")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| Move_Type| 移动方式。
+| Pos_Jps| 使用工具坐标中心点位或关节角数据。
+| Wait_Time| 机器人移动到标定点后的等待时间（防止机器人发生抖动）；默认为 2 秒；单位为 s（秒）
+| Rnum| 机器人轴数量。
+| Ext| 可选变量，外部轴数据（当有 7 轴导轨时使用），单位为 mm 。
+| Pos| 默认占用 P 变量 99 。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_CALIB("2;1;2;6;0;99")
+----
+
+该示例设置机器人使用使用工具坐标中心点按照 MoveJ 方式来移动，机器人移动到标定点后的等待时间为 2 秒;机器人轴数为 6 ，不含外部轴，默认将标定起始位置放在 P99 里。
+
+[id="yaskawa-get-by-data"]
+
+== 获取 {product-vis} 自定义数据
+
+该指令用于从 {product-vis} 中的“输出”步骤接收自定义数据，即除 poses 和 labels 之外其他端口的数据（“输出”步骤参数“端口类型”设置为“自定义”）。
+
+该指令调用一次便可将全部数据获取到机器人内存中。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_DYDATA("job;regPosNum;regStatus")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| job| {product-vis} 工程编号，可在 {product-vis} 工程列表窗口中查看，工程名称前的数字表示工程编号。
+2+| 输出参数
+| regPosNum| I 变量号，用于保存返回的视觉点个数。
+| regStatus| I 变量号，用于保存该指令返回的状态码。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_DYDATA("2;60;61")
+----
+
+该示例表示在 {product-vis} 工程 2 运行后，将所有输出数据存放到机器人内存中，视觉点的数量保存在变量 I60 中，指令执行的状态码保存在变量 I61 中。
+
+[id="yaskawa-get-dypose"]
+
+== 将获取的 {product-vis} 自定义输出数据保存至各变量
+
+该指令用于将 {product-vis} 返回的自定义输出数据结果转存到机器人指定的变量中，在触发 xref:yaskawa-get-by-data[获取 {product-vis} 自定义数据] 指令之后使用。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_DYPOSE("serial;prNum;regLabel;rrNum")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| serial| 指定获取第几个视觉点中的自定义数据。
+2+| 输出参数
+| prNum| P 变量号，用于保存指定视觉点的位姿数据（使用前需要将该 P 变量的类型选择为“机器人”）。
+| regLabel| I 变量号，用于保存指定视觉点的标签数据。
+| rrNum| R 变量起始号，用于保存指定视觉点的用户自定义数据，设定时要注意用户自定义数据数量，保证 R 变量有足够空间。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_DYPOSE("2;60;60;60")
+----
+
+该示例表示在 MM_GET_DYDATA 运行后，将接收到的第二个视觉点的位姿数据保存到变量 P60 中（输出时已将四元数形式转化成欧拉角形式），将相应标签数据保存到变量 I60 中，将相应的自定义输出数据保存到 R60-RN 中。
+
+[id="yaskawa-get-plandata"]
+
+== 从 {product-viz} 获取路径点
+
+该指令用于从 {product-viz} 获取路径规划结果。其中，路径点可以是一般移动路径点，也可以是视觉移动路径点。路径点可能包含位姿、速度、工具信息、工件信息等。
+
+该指令调用一次便可将全部数据获取到机器人内存中。
+
+执行该指令得到的路径点可以是以下三种之一。
+
+. 除了“视觉移动”之外的一般移动路径点，其信息包括运动类型（关节运动或直线运动）、工具编号、速度。
+
+. 视觉移动路径点，其信息包括标签、已抓取的工件总数、本次抓取的工件数量、吸盘边角号、TCP 偏移量、工件朝向、工件组尺寸。
+
+. 包含自定义数据的视觉移动路径点，此时 {product-vis} 工程“输出”步骤的端口类型需设置为“自定义”。
+
+//
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_PLANDATA("jpsPos;regPosNum;visPosNum;regStatus")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| jpsPos| 预期的返回数据格式，取值范围为 1~4，详情参见下表。
+2+| 输出参数
+| regPosNum| I 变量号，用于保存接收到的路径点个数。
+| visPosNum| I 变量号，用于保存第一个视觉移动在规划路径中的位置编号。
+| regStatus| I 变量号，用于保存该指令返回的状态码。
+|===
+
+以下是四种预期的返回数据格式说明。
+
+[cols="1,3",options="header"]
+|===
+| *预期的返回数据格式* 参数值| *预期的返回数据* 说明（每个字段的具体解释参见下文）
+| 1| 位姿（JPs 形式）, 运动类型, 工具编号, 速度, 自定义数据项个数, 自定义数据项 1, …, 自定义数据项 N
+| 2| 位姿（TCP 形式）, 运动类型, 工具编号, 速度, 自定义数据项个数, 自定义数据项 1, …, 自定义数据项 N
+| 3| 位姿（JPs 形式）, 运动类型, 工具编号, 速度, 视觉规划结果, 自定义数据项个数, 自定义数据项 1, …, 自定义数据项 N
+| 4| 位姿（TCP 形式）, 运动类型, 工具编号, 速度, 视觉规划结果, 自定义数据项个数, 自定义数据项 1, …, 自定义数据项 N
+|===
+
+*位姿*
+
+路径点的位姿可以是机器人关节角（JPs，单位为度）或工具位姿（TCP，其中三维坐标单位为毫米，欧拉角单位为度），其形式取决于发送的指令参数。
+
+*运动类型*
+
+** `1`：关节运动，MOVEJ
+
+** `2`：直线运动，MOVEL
+
+*工具编号*
+
+路径点的工具编号。 -1 表示不使用工具。
+
+*速度*
+
+路径点的速度百分比值，其值为 {product-viz} 工程中该路径点对应移动类步骤的参数中设置的速度乘以 {product-viz} 中设置的全局速度，单位为 %。
+
+*视觉规划结果*
+
+路径中的规划结果信息（如果路径点对应移动步骤为视觉移动），通常用于纸箱多拣、卸垛等。信息包括：
+
+** 标签：由 10 个正整数组成，默认为 10 个 0。
+
+** 已抓取的工件总数。
+
+** 本次抓取的工件数量。
+
+** 吸盘边角号：用于指定工件靠近吸盘的哪个边角。在 {product-viz} 的“工程资源”中双击对应的末端工具名称，然后单击 btn:[控制逻辑配置窗口] ，便可查看吸盘边角号。
+
+** 工具位姿（TCP）偏移量：从对应工件中心的 TCP 到 实际 TCP 的偏移量。
+
+** 工件朝向：工件坐标系 X 轴相对于 TCP X 轴的方向。
+
+** 工件组尺寸。
+
+*自定义数据项个数*
+
+当 {product-vis} 工程中“输出”步骤的端口类型为“自定义”时，除 poses 和 labels 之外其他端口的数量。
+
+*自定义数据项*
+
+当 {product-vis} 工程中“输出”步骤的端口类型为“自定义”时，除 poses 和 labels 之外其他端口的数据。
+各自定义数据按照端口名称的字母顺序（A—Z）排列。
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_PLANDATA("4;60;61;62")
+----
+
+该示例表示在 {product-viz} 工程运行后，将所有输出数据存放到机器人内存中，路径点个数保存在变量 I60 中，视觉移动路径点在路径中的位置编号保存在变量 I61 中,该指令执行的状态码保存在变量 I62 中。
+
+[id="yaskawa-get-plan-pose-or-jps"]
+
+== 将从 {product-viz} 获取的路径点数据保存至各变量
+
+该指令用在 xref:yaskawa-get-plandata[从 {product-viz} 获取路径点] 后，用于将从 {product-viz} 获取的路径点数据转存到指定的变量中。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_PLANPOSE("serial;prNum;brNum;rrNum")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| serial| 指定要转存第几个路径点。
+2+| 输出参数
+| prNum
+a|P 变量号，用于保存指定的位姿数据。
+
+** 如果 MM_GET_PLANDATA 中 jpsPos 参数值为 1 或 3，则使用前需要将该 P 变量类型选择为“脉冲”（烧录程序会将关节角转化成机器人脉冲）。
+
+** 如果 MM_GET_PLANDATA 中 jpsPos 参数值为 2 或 4，则使用前需要将该 P 变量类型选择为“机器人”。
+
+| brNum| B 变量起始号，用于保存“运动类型”、“工具编号”、“速度”，设定时保证起始编号开始的连续三个变量不受其他因素影响。
+| rrNum| R 变量起始号，用于保存视觉规划结果、自定义输出数据。当不是视觉移动路径点时，无需设定该参数。
+在设定该参数时，注意变量总数量（视觉规划结果固定占用 20 个变量，自定义输出数据需根据具体情况计算），保证 R 变量有足够空间。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_PLANPOSE("2;60;60;60")
+----
+
+该示例表示在 MM_GET_PLANDATA 运行后，将收到的第二个路径点的位姿数据保存到变量 P60 中，将“运动类型”、“工具编号”、“速度”分别保存到变量 B60、B61、B62 中。如果该路径点位不是视觉移动路径点，则无后续信息。如果该路径点位是视觉移动路径点，则按照 MM_GET_PLANDATA 介绍中的接收数据格式将剩余数据有序排放在 R60-RN 中。
+
+== 获取 {product-vis} “路径规划”步骤的结果
+
+在启动 {product-vis} 工程后，该指令用于获取 {product-vis} 中“路径规划”步骤输出的免碰撞抓取路径。
+
+在使用该指令时，{product-vis} “输出”步骤的 *端口类型* 参数需要设置为“预定义（机器人路径）”。
+
+=== 程序
+
+[source,default,sub="attributes"]
+----
+MM_GET_VISPATH("job;GetPos_Type;Last_Data;Pos_Num;VisPos_Num;MM_Status")
+----
+
+=== 参数说明
+
+[cols="1,3",options="header"]
+|===
+| *参数*| *描述*
+2+| 输入参数
+| job| {product-vis} 工程编号，可在 {product-vis} 工程列表窗口中查看，工程名称前的数字表示工程编号。
+| GetPos_Type| 指定“路径规划”步骤返回的路径点的位姿类型。
+
+`1`：路径点的位姿将以机器人关节角（JPs）的形式返回。
+`2`：路径点的位姿将以机器人工具位姿（TCP）的形式返回。
+
+2+| 输出参数
+| Last_Data
+a|I 变量，用于表示路径点是否发送完成。
+
+** `0`：未发送完路径中的全部路径点。
+** `1`：已发送完路径中全部路径点。
+| Pos_Num| I 变量，用于保存该指令返回的路径点个数。
+| VisPos_Num| I 变量，用于保存路径规划工具中设置的“视觉移动”路径点在整个路径中的位置。
+例如，如果规划路径由以下组成：“定点移动_1”，“定点移动_2”，“视觉移动”，“定点移动_3”，则“视觉移动”位置为 3。
+如果路径中无“视觉移动”，则该参数值为 0。
+| MM_Status| I 变量，用于保存该指令返回的状态码。
+|===
+
+=== 示例
+
+[source,default,sub="attributes"]
+----
+CALL JOB:MM_GET_VISPATH("1;2;50;51;52;53")
+----
+
+该示例表示接收 {product-vis} 工程 1 返回的机器人规划路径，路径点位姿类型为 TCP 形式，路径点是否发送完成保存在变量 I50 中，路径点个数保存在变量 I51 中，视觉移动路径点在路径中的位置编号保存在变量 I52 中，该指令执行的状态码保存在变量 I53 中。
+

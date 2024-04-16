@@ -1,0 +1,10 @@
+[id='rest-summary']
+= Summary
+
+In this chapter, you learned:
+
+* REST DSL is a wrapper layer that provides REST DSL methods such as `+get+`, `+post+`, `+put+`, and `+delete+`.
+* You can define and configure the REST implementation to use with the `+restConfiguration+` method.
+* The content enricher pattern enhances your message exchange with additional data.
+* The HTTP4 component provides HTTP based endpoints for calling external HTTP resources.
+* You can use the CXF component to communicate with a SOAP service.

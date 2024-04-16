@@ -1,0 +1,21 @@
+{
+  "boolean_key": "--- truè\n",
+  "empty_string_translation": "",
+  "key_with_description": "Chèçk it out! This kèy hàs à dèsçription! (At lèàst in somè formàts)",
+  "key_with_line-break": "This trànslàtions çontàins à linè-brèàk.",
+  "nested.deeply.key": "Wow, this kèy is nèstèd èvèn dèèpèr.",
+  "nested.key": "This kèy is nèstèd insidè à nàmèspàçè.",
+  "null_translation": null,
+  "pluralized_key": {
+    "one": "Only onè pluràlizàtion found.",
+    "other": "Wow, you hàvè %s pluràlizàtions!",
+    "zero": "You hàvè no pluràlizàtion."
+  },
+  "sample_collection": [
+    "first itèm",
+    "sèçond itèm",
+    "third itèm"
+  ],
+  "simple_key": "Just à simplè kèy with à simplè mèssàgè.",
+  "unverified_key": "This trànslàtion is not yèt vèrifièd ànd wàits for it. (In somè formàts wè àlso èxport this stàtus)"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Activity Strings-->
+    <string name="app_name" translatable="false">&#160;Caper Core Testing</string>
+    <string name="main_start_shopping_skip_tutorial_btn_text">Start Shopping!</string>
+    <string name="main_start_shopping_btn_text">Start Shopping</string>
+    <string name="main_primary_message_default">Skip the line</string>
+    <string name="main_secondary_message_default">when you shop with the Smart Cart!</string>
+
+</resources>

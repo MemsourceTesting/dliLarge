@@ -1,0 +1,116 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='introsetup-practice']
+= Sample Title
+
+In this exercise you will configure the lab environment required for the course exercises.
+
+== Outcomes
+
+You should be able to configure the classroom environment and clone the sample code.
+
+== Prerequisites
+
+To perform this exercise, ensure you have access to the Red{nbsp}Hat Online Learning Environment (ROL).
+
+[role='Checklist']
+== Instructions
+
+The following procedure describes how to provision and configure a new classroom from the Red Hat Online Learning platform.
+You must complete the following procedure before attempting any of the course activities.
+
+1) Provision a new lab environment.
+
+Click the btn:[Lab Environment] tab on the ROL course page.
+Next, click btn:[CREATE] to start provisioning the lab environment
+
+2) Open the workstation console.
+
+After the lab environment is ready, click btn:[OPEN CONSOLE] in the `+workstation+` virtual machine, and log in as the `+student+` user with the password `+student+`.
+
+3) Configure the workspace.
+
+3.1) Open a new terminal window, and use the `+lab+` command to initialize the workspace and user-specific configuration.
+
+[subs=+quotes]
+----
+[student@workstation ~]$ *lab start intro-setup*
+
+This script configures the lab environment, and the connection parameters to access the OpenShift cluster.
+
+Enter your workspace directory: [/home/student/AD221]:
+_...output omitted..._
+----
+
+When running the `+lab+` command, enter the OpenShift details provided in the btn:[Lab Environment] tab.
+Do not change the workspace directory.
+
+3.1) Navigate to the `+~/AD221+` directory.
+
+4) Clone the `+AD221-apps+` repository to your `+AD221+` workspace.
+
+4.1) From the `+AD221+` workspace directory, clone the `+AD221-apps+` repository to your workstation:
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *git clone https://github.com/RedHatTraining/AD221-apps.git*
+Cloning into 'AD221-apps'...
+_...output omitted..._
+----
+
+4.1) Verify that the cloned repository contains the repository content and return to the workspace directory.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *cd AD221-apps*
+[student@workstation AD221-apps]$ *head README.md*
+# AD221 Application Repository
+_...output omitted..._
+[student@workstation AD221-apps]$ *cd ..*
+----
+
+// -----------------------------------------------------------------------------
+
+5) Install the Camel K command line interface (CLI).
+
+5.1) Download the CLI application through the OpenShift web console.
+
+Find the btn:[Lab Environment] tab on your ROL course page.
+This table should be visible after you provision your online lab environment.
+
+image::images/intro/ocp-web-console-url.png[width="100%",align="center"]
+
+The btn:[Console Web Application] link in the `+OpenShift Details+` table opens the web console for your dedicated Red{nbsp}Hat OpenShift Container Platform instance.
+Take note of your `+Username+` and `+Password+`, which you will be using in the next step.
+
+5.1) From the `+workstation+` virtual machine, open a web browser and log in to the OpenShift web console using your `+Username+` and `+Password+`.
+
+5.1) After logging in, click btn:[?] in the upper-right corner, and then click btn:[Command Line Tools].
+
+5.1) On the `+Command Line Tools+` page, download the Camel K CLI compressed binary file for Linux from the list btn:[kamel - Red{nbsp}Hat Integration - Camel K - Command Line Interface]
+
+5.1) Unpack the compressed archive file, and then copy the `+kamel+` binary to `+/usr/local/bin+`.
+
+[subs=+quotes]
+----
+[student@workstation ~]$ *sudo cp kamel /usr/local/bin/*
+[student@workstation ~]$ *sudo chmod +x /usr/local/bin/kamel*
+----
+
+5.1) Verify that the `+kamel+` binary works.
+Open a new command line terminal and run the following:
+
+[subs=+quotes]
+----
+[student@workstation ~]$ *kamel version*
+Camel K Client Red Hat 1.6.0
+----
+
+[NOTE]
+====
+Your output might be slightly different based on the version of the Camel K client that you downloaded.
+====
+
+
+== Finish
+
+This exercise has no command to finish it.

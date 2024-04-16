@@ -1,0 +1,147 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='asyncjms-lecture']
+
+= Integrating Services by using JMS
+
+== Java Messaging Service (JMS) on Red{nbsp}Hat Fuse
+
+Java Message Service (JMS) is an API that allows JVM-based application components to create, send, receive, and read messages.
+
+JMS acts as a generic wrapper layer that is used to access many different kinds of messaging systems, and supports the JMS API.
+For example, ActiveMQ, MQSeries, Tibco, Sonic, and more all implement JMS.
+Red{nbsp}Hat Fuse uses a JMS component to send and receive messages to any of these messaging systems.
+
+JMS uses queues or topics for message channels.
+The syntax of the endpoint URI, for the JMS component, uses the following format:
+
+[subs=+quotes]
+----
+jms:[queue:|topic:]destinationName[?options]
+----
+
+For example, the following Java DSL receives order objects from a queue called `+jms_order_input+`, transforms the message body to JSON, and sends the JSON formatted order to a queue called `+json_order_input+`.
+
+[subs=+quotes]
+----
+from("jms:queue:jms_order_input")
+  .routeId("ROUTE_NAME")
+  .marshal().json(JsonLibrary.Jackson)
+  .to("jms:queue:json_order_input");
+----
+
+The `+camel-jms+` library provides the JMS component.
+Spring Boot users use the `+camel-jms-starter+` and can configure options by specifying `+camel.component.jms.*+` properties in the `+application.properties+` file.
+
+For example, to consume messages concurrently in multiple threads, add an entry like the following:
+
+[subs=+quotes]
+----
+camel.component.jms.concurrent-consumers = 20
+----
+
+There are more than 80 configuration options for the JMS component.
+See the component documentation for a complete list of component options.
+
+=== JMS Connection Factories
+
+The JMS component requires a connection factory object to make a client connection to a given messaging system.
+The following example shows how to provide a connection factory to a Red{nbsp}Hat AMQ instance.
+
+[subs=+quotes]
+----
+_...imports omitted..._
+
+`+@Configuration+` <1>
+public class MessagingConnectionFactory {
+
+	@Bean
+	public JmsComponent `+jmsComponent()+` throws JMSException { <2>
+	 	// Creates the connectionfactory that connects to Artemis
+	 	`+ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();+` <3>
+	 	connectionFactory.setBrokerURL("tcp://localhost:61616");
+	 	connectionFactory.setUser("admin");
+	 	connectionFactory.setPassword("admin");
+
+	 	// Creates the Camel JMS component and wires it to the Artemis connectionfactory
+	 	`+JmsComponent jms = new JmsComponent();+` <4>
+	 	jms.setConnectionFactory(connectionFactory);
+
+	 	return jms;
+	}
+}
+----
+<1> The `+Configuration+` annotation for defining Spring framework beans.
+This class can contain one or more bean methods that you must annotate by using `+@Bean+`.
+<2> Spring framework takes the name of the method as the bean ID.
+In this case the bean's name is `+jmsComponent+`.
+<3> The connection factory `+ActiveMQConnectionFactory+`, defined for the JMS component.
+<4> Initialization of the `+JmsComponent+`.
+The method makes the `+JmsComponent+` available as a bean.
+
+//ZG: The previous two sentences aren't very clear to me. You mean "the method" to create the connection factory? is jmsComponent the bean ID? Please clarify
+//AB: Put the extra info about the code in the upper callout to make it more clear.
+//Also changed the below sentence for a cleaner understanding (hopefully).
+To use a defined JMS component with a connection factory configured, you must add the `+jmsComponent+` bean in the route endpoint as follows:
+
+[subs=+quotes]
+----
+from("*jmsComponent*:queue:jms_order_input")
+  .routeId("ROUTE_NAME")
+  .marshal().json(JsonLibrary.Jackson)
+  .to("*jmsComponent*:queue:json_order_input");
+----
+
+To integrate multiple brokers with Camel, you must define multiple JMS component beans.
+For example, if you want to use two different brokers in a Camel context, you must define two JMS component beans.
+This is because you must configure different connection factories for each broker.
+//ZG: Can we be more specific than multiple? is it just 1 per broker?
+//AB: I reworded the paragraph a bit.
+
+For the `+org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory+` class, the application must have the following Maven dependency:
+
+[subs=+quotes]
+----
+<dependency>
+    <groupId>org.apache.activemq</groupId>
+    <artifactId>artemis-jms-client</artifactId>
+</dependency>
+----
+
+== Advanced Message Queuing Protocol (AMQP) on Red{nbsp}Hat Fuse
+
+AMQP is an open standard application layer protocol for delivering messages.
+The main difference between JMS and AMQP is that JMS is a Jakarta EE compliant API, whereas AMQP is a wire-level messaging protocol that is platform independent.
+
+Camel implements the AMQP component by inheriting the JMS component.
+The AMQP component provides access to messaging providers that require the AMQP protocol.
+The component supports the AMQP 1.0 protocol by using the JMS Client API of the Qpid project.
+
+//ZG: Can we briefly explain the difference in actual terms between AMQP and JMS? How are these protocols different?
+//AB: Reworded. Please checkout the first paragraph here and the first two paragraphs under the `+Java Messaging Service (JMS) on Red{nbsp}Hat Fuse+` title
+//I hope this works better.
+
+The `+camel-amqp+` library provides the AMQP component.
+The URI syntax for the AMQP component is identical to the syntax for the JMS component and supports all of the options of the JMS component.
+
+[subs=+quotes]
+----
+amqp:[queue:|topic:]destinationName[?options]
+----
+
+To configure options in the `+application.properties+` configuration file, `+amqp+` properties use the `+camel.component.amqp.\*+` prefix instead of `+camel.component.jms.*+`.
+
+See the component documentation for details on configuration options for the AMQP component.
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+// Template for a reference that does not link to Red Hat Documentation.
+https://camel.apache.org/components/2.x/index.html[Apache Camel Component Documentation]
+
+// Template for a reference that does link to Red Hat Documentation.
+For more information, refer to the _JMS Component_ chapter in the _Apache Camel Component Reference_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#jms-component
+
+For more information, refer to the _AMQP Component_ chapter in the _Apache Camel Component Reference_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#amqp-component
+====

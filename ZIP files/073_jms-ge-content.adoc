@@ -1,0 +1,168 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='asyncjms-practice']
+= Integrating Services  by using JMS
+
+In this exercise, you work for Acme Inc, and you need to integrate with two messaging systems to process orders.
+An upstream fast fulfillment system processes and delivers orders for our most popular products.
+You must send these orders, in JSON format to the order logging route for audit purposes.
+Otherwise, you will pass non-delivered orders to a fulfillment system that only receives JSON formatted messages via AMQP.
+
+The first system allows integration via the JMS protocol, while the other system uses the AMQP specification.
+In both cases you will use Red{nbsp}Hat Fuse to simplify the integration via the messaging components.
+
+== Outcomes
+
+In this exercise you should be able to:
+
+[compact]
+* Receive and send messages by using the JMS component
+* Configure the required JMS connection factory
+* Receive and send messages by using an AMQP component
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+async-jms/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start async-jms*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/async-jms/apps+` directory, into the `+~/AD221/async-jms+` directory.
+The `+Lab+` command also creates a Red{nbsp}Hat AMQ instance.
+
+You can inspect the logs for the AMQ instance at any time with the following command:
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *podman logs artemis*
+----
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/async-jms+` directory and open the project with an editor, such as VSCodium.
+
+2) Open the project's POM file, and add the required dependencies.
+
+.Dependencies to Add
+[cols="1,1,1", options="header"]
+|===
+| Purpose | Group ID | Artifact ID
+|JMS dependency      | org.apache.activemq     | artemis-jms-client
+|JMS dependency      | org.apache.camel        | camel-jms-starter
+|AMQP dependency     | org.apache.camel        | camel-amqp
+|===
+
+3) Open the `+JmsRouteBuilder+` class, and add a route to receive orders from the `+jms:queue:jms_order_input+` endpoint.
+Marshall the message body into a JSON format.
+
+Send the message to the `+direct:log_orders+` endpoint if the delivered field is set to true.
+Otherwise, forward the order to the `+amqp:queue:amqp_order_input+` endpoint.
+Set the ID of the route to `+jms-order-input+` and use the log method to track the progress of messages through the route.
+
+[NOTE]
+====
+You can use the following JSON path expression to filter orders by the delivered field: `+$[?(@.Delivered == false)]+`
+====
+
+You can implement the route as follows:
+
+[subs=+quotes]
+----
+// TODO: Process Orders
+`from("jms:queue:jms_order_input")
+    .routeId(ROUTE_NAME)
+    .marshal().json(JsonLibrary.Jackson)
+    .log("JSON Body from JMSRouteBuilder: ${body}")
+    .choice()
+        .when(jsonpath("$[?(@.Delivered == false)]"))
+            .to("amqp:queue:amqp_order_input")
+        .when(jsonpath("$[?(@.Delivered == true)]"))
+            .to("direct:log_orders");`
+----
+
+4) The `+jms+` component requires a connection factory to acquire a connection to the messaging broker instance.
+Add the connection factory to the `+MessagingConnectionFactory+` class.
+The connection factory type is `+ActiveMQConnectionFactory+`.
+Set the following additional properties on the connection factory object to connect to the AMQ Broker instance:
+
+.Connection Factory Properties
+[cols="1,1,1", options="header"]
+|===
+| BrokerURL | User  | Password
+| tcp://localhost:61616       | admin        | admin
+|===
+
+The implementation of the connection factory should be as follows:
+
+[subs=+quotes]
+----
+// TODO: Add the connectionFactory Bean
+`@Bean
+public JmsComponent jmsComponent() throws JMSException {`
+    // Creates the connectionfactory which will be used to connect to Artemis
+    `ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
+    connectionFactory.setBrokerURL("tcp://localhost:61616");
+    connectionFactory.setUser("admin");
+    connectionFactory.setPassword("admin");`
+
+    // Creates the Camel JMS component
+    // and wires it to our Artemis connectionfactory
+    `JmsComponent jms = new JmsComponent();
+    jms.setConnectionFactory(connectionFactory);
+
+    return jms;
+}`
+----
+
+5) Open the `+AMQPRouteBuilder+` class, and add a route to receive orders from the `+amqp:queue:amqp_order_input+` endpoint.
+Send the messages to the `+direct:log_orders+` endpoint.
+You can use the log method to track the progress of the route, and set `+amqp-order-input+` as the ID of the route.
+
+[subs=+quotes]
+----
+// TODO: receive messages from AMQP queue and send  to the log-orders route
+`from("amqp:queue:amqp_order_input")
+    .routeId(ROUTE_NAME)
+    .log("AMQPRouteBuilder: Processing Non-delivered Orders")
+    .to("direct:log_orders");`
+----
+
+Red{nbsp}Hat AMQ supports the AMQP 1.0 specification.
+The AMQ broker, used in this lab, accepts AMQP connections on port 61616.
+Thus, the `+amqp+` component can use the connection factory provided in the previous step.
+
+6) Open the `+OrderLogRouteBuilder+` class and observe the steps of this route.
+
+7) Use the `+./mvnw clean test+` command to run the unit tests.
+The application has a unit test for each route.
+
+[subs=+quotes]
+----
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+----
+
+8) Build and run the application.
+Inspect the logs, and verify that the logs display received orders.
+
+[subs=+quotes]
+----
+[student@workstation async-jms]$ *./mvnw clean spring-boot:run*
+----
+
+== Finish
+
+Stop the Spring Boot application, return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish async-jms*
+----

@@ -1,0 +1,200 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='testmock-practice']
+= Sample Title
+
+In this exercise, you will use mocks to test a Camel route in isolation.
+
+Assume you have developed a route that reads data from an HTTP endpoint and writes the result to a file.
+You must test this route in isolation from the external HTTP service and the file system.
+
+== Outcomes
+
+You should be able to use mocks to test routes in isolation and decoupled from external systems.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+test-mock/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to prepare your system for this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start test-mock*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/test-mock/apps+` directory, into the `+~/AD221/test-mock+` directory.
+
+[role='Checklist']
+== Instructions
+
+// Let's start by making students write a failing test.
+// This is not exactly TDD, but it might help them to experience how progressively write code to make a test pass.
+
+
+1) Navigate to the `+~/AD221/test-mock+` directory and open the project with an editor, such as VSCodium.
+
+2) Open the `+HttpRouteBuilder+` class and inspect the route code.
+
+----
+from("direct:start") <1>
+    .to("http4://my-external-service/greeting") <2>
+    .to("file:out?fileName=response.txt"); <3>
+}
+----
+
+<1> The `+direct+` component invokes the route.
+<2> The `+http4+` component calls the `+http://my-external-service/greeting+` endpoint and reads the response.
+<3> The `+file+` component writes the response body to the `+out/response.txt+` endpoint.
+
+3) Open the `+HttpRouteBuilderTest+` class and configure the test to have access to the mock endpoint instances required for testing the route.
+
+Use the `+@EndpointInject+` annotation to inject the mock endpoints.
+You must inject a mock for the HTTP endpoint and a mock for the file endpoint.
+The mock URIs should be as follows:
+
+[compact]
+* HTTP endpoint: `+mock:http4:my-external-service/greeting+`.
+* File endpoint: `+mock:file:out+`.
+
+
+The mock variables must look like the following:
+
+[subs=+quotes]
+----
+// TODO: add @EndpointInject annotation
+`+@EndpointInject(uri = "http://my-external-service/greeting")+`
+MockEndpoint httpMockEndpoint;
+
+// TODO: add @EndpointInject annotation
+`+@EndpointInject(uri = "mock:file:out")+`
+MockEndpoint fileMockEndpoint;
+----
+
+4) In the same class, complete the `+testFileRecievesContentFromHttpClient+` test case by setting the behavior and expectations of the mocks.
+
+
+4.1) Configure the HTTP mock endpoint to return the `+Hello test!+` response body.
+
+[subs=+quotes]
+----
+// TODO: add httpMockEndpoint behaviour
+`httpMockEndpoint.whenAnyExchangeReceived(e -> {
+    e.getOut().setBody("Hello test!");
+});`
+----
+
+4.1) Configure the `+fileMockEndpoint+` mock to expect one message.
+
+[subs=+quotes]
+----
+// TODO: add fileMockEndpoint expectations
+`+fileMockEndpoint.expectedMessageCount(1);+`
+----
+
+4.1) Configure the `+fileMockEndpoint+` mock to expect the `+Hello test!+` message body.
+
+[subs=+quotes]
+----
+// TODO: add fileMockEndpoint expectations
+fileMockEndpoint.expectedMessageCount(1);
+`+fileMockEndpoint.expectedBodiesReceived("Hello test!");+`
+----
+
+
+4.1) Assert that `+fileMockEndpoint+` satisfies the expectations.
+
+[subs=+quotes]
+----
+// TODO: assert fileMockEndpoint
+`+fileMockEndpoint.assertIsSatisfied();+`
+----
+
+// -----------------------------------------------------------------------------------------------------------------
+
+
+5) Run `+./mvnw test+`.
+The test fails with an `+UnknownHostException+` error because the route is still using the `+http4://my-external-service/greeting+` endpoint instead of `+mock:http4:my-external-service/greeting+`.
+
+
+// -----------------------------------------------------------------------------------------------------------------
+
+
+6) Enable the automock feature to automatically advise the route endpoints and replace them with mock endpoints.
+
+6.1) Annotate the `+HttpRouteBuilderTest+` class with `++@MockEndpointsAndSkip("http.*|file:out.*")++`.
+
+[subs=+quotes]
+----
+// TODO: add @MockEndpointsAndSkip annotation
+`+@MockEndpointsAndSkip("http.\*|file:out.*")+`
+public class HttpRouteBuilderTest {
+----
+
+6.1) Run tests and verify that tests pass.
+
+6.1) Review the test logs.
+Verify that the logs show that the original endpoints have been advised with mock endpoints.
+
+----
+Adviced endpoint [http4://my-external-service/greeting] with mock endpoint [mock:http4:my-external-service/greeting]
+Adviced endpoint [file://out?fileName=response.txt] with mock endpoint [mock:file:out]
+----
+
+
+
+// -----------------------------------------------------------------------------------------------------------------
+
+
+
+7) Use property placeholders to decouple the route from specific URIs and components.
+
+7.1) In the `+HttpRouteBuilder+` class, replace the `+from+` and HTTP endpoint URIs with property placeholders.
+
+[subs=+quotes]
+----
+from(`+"{{http_route.start}}"+`)
+    .to(`+"{{http_route.server}}/greeting")+`
+    .to("file:out?fileName=response.txt");
+----
+
+7.1) Open the `+HttpRouteBuilderTest+` class and assign the property values specific to the test.
+
+[subs=+quotes]
+----
+@SpringBootTest(properties = {
+    // TODO: add properties
+    `"http_route.start=direct:start",
+    "http_route.server=http4://test-fake"`
+})
+----
+
+7.1) In the same class, update the URI of the injected HTTP mock to use the correct URI.
+Remember that `+@MockEndpointsAndSkip+` replaces `+http4://test-fake/greeting+` with `+mock:http4:test-fake/greeting+`.
+
+[subs=+quotes]
+----
+// TODO: add @EndpointInject annotation
+@EndpointInject(uri = `+"mock:http4:test-fake/greeting"+`)
+MockEndpoint httpMockEndpoint;
+----
+
+7.1) Run tests to verify that they pass.
+
+
+
+== Finish
+
+Return to your workspace directory, and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish test-mock*
+----
+
+// References for the lecture:
+// https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#mock-component
+// https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html/apache_camel_development_guide/basicprinciples#BasicPrinciples-PropPlaceholders
+// Interesting: https://tomd.xyz/camel-testing/#camel-testing-best-practices

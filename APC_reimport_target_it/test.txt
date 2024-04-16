@@ -1,0 +1,3 @@
+Ciao
+Esempio di file txt
+Esporterò la versione italiana e controllerò se è importata come nuovo lavoro

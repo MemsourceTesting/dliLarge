@@ -1,0 +1,146 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='introdemo-practice']
+= Sample Title
+
+In this exercise, you will observe how a health analytics company, called HealthGateway LLC., processes the public Covid-19 data of European countries and exposes that data via its UI and REST API.
+
+HealthGateway LLC. must provide the latest Covid-19 cases and vaccination data to external developers and its customers.
+The developers of HealthGateway LLC. plan to consume data from external resources and expose them via a REST API.
+They decided to work with two official data sets provided by the European Union.
+One data set is a CSV file that has daily Covid-19 case data of the European countries.
+The second data set is an XML file that has the weekly Covid-19 vaccination data of the European countries.
+
+Because of the different source formats and potential data conversion, transformation and integration scenarios, developers of HealthGateway LLC. decide to use a powerful integration technology; Red{nbsp}Hat Fuse.
+
+With Red{nbsp}Hat Fuse, they can;
+
+[compact]
+* Fetch the Covid-19 data from the files that reside in an SFTP server.
+* Perform the suitable transformations of the data, thus handling the data as lists and objects.
+* Filter the data, store it in a database and expose it via REST endpoints.
+* Aggregate the Covid-19 cases and vaccination data and publish it to an Apache Kafka topic.
+* Consume the aggregated data, and enrich it by using an external REST service, which provides the general data of European countries.
+* Expose the final enriched Covid-19 data to be used by the front-end application and by the end-users.
+
+
+== Outcomes
+
+In this exercise you should be able to examine a series of Red{nbsp}Hat Fuse capabilities such as:
+
+[compact]
+* Reading messages from an SFTP server by using the `+sftp+` component.
+* Data transformation from CSV, XML or JSON to custom Java object types.
+* Implementing the Splitter enterprise integration pattern (EIP) by using the `+split+` component.
+* Processing messages by using `+parallelProcessing+`.
+* Persisting data to a relational database and reading the data from it by using the `+jpa+` component.
+* Persisting data to a NoSQL database and reading the data from it by using the `+mongodb+` component.
+* Using in-memory queues by using the `+seda+` component.
+* Implementing the Content Based Router EIP.
+* Implementing the Content Enricher EIP and aggregating different sets of the data by using the `+pollEnrich+` or `+enrich+` components.
+* Using custom aggregation strategies.
+* Implementing the Content Filter EIP and filtering data by using the `+filter+` component and custom filters.
+* Sending and receiving messages from Apache Kafka by using the `+kafka+` component.
+* Performing an HTTP call to another REST endpoint for fetching data by using the `+http+` component.
+* Exposing the data in JSON format by using the `+rest+` component.
+
+
+The code is available in the `+~/AD221/AD221-apps/intro-demo/apps+` directory for further examination.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start intro-demo*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/intro-demo/apps+` directory, into the `+~/AD221/intro-demo+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Examine the high-level architecture diagram.
+
+.HealthGateway LLC. high-level architecture
+image::images/intro/overall-arch.svg[align="center",width="90%"]
+
+//Maybe we can consider to put a video walkthrough here instead of the high level diagram
+//Video explanation: https://drive.google.com/file/d/1swybJMXIuci9E5ImYBmdFNVoqg6PC87y/view?usp=sharing
+
+
+2) Navigate to the `+~/AD221/intro-demo+` directory and open the project with an editor, such as VSCodium.
+
+3) Compile and run the `+health-gateway+` application by using the `+./mvnw package spring-boot:run+` command.
+
+The application exposes two REST endpoints.
+
+[cols="1,2,2"]
+|===
+| Method | REST Endpoint | Description
+
+| `+GET+`
+| `+http://localhost:8080/camel/cases+`
+| Provides the European Covid-19 case data for the last day of each week in 2021
+
+| `+GET+`
+| `+http://localhost:8080/camel/vaccinations+`
+| Provides the European Covid-19 weekly vaccination data for 2021
+
+|===
+
+4) Explore how the `+health-gateway+` application works.
+The following image shows how the routes work in the application.
+
+.Health-gateway routes
+image::images/intro/health-gateway.svg[align="center",width="90%"]
+
+5) Compile and run the `+health-backend+` application by using the `+./mvnw package quarkus:dev+` command.
+
+The application exposes two REST URL endpoints.
+
+[cols="1,2,2"]
+|===
+| Method | REST Endpoint | Description
+
+| `+GET+`
+| `+http://localhost:8081/covid-data+`
+| Provides the aggregated Covid-19 case and vaccination data
+
+| `+GET+`
+| `+http://localhost:8081/covid-data-enriched+`
+| Provides the aggregated Covid-19 case and vaccination data, which is enriched with the general country data
+
+|===
+
+6) Explore how the `+health-backend+` application works.
+The following image shows how the routes work in the application.
+
+.Health-backend routes
+image::images/intro/health-backend.svg[align="center",width="90%"]
+
+7) Run the `+health-front+` application by using the `+python ~/AD221/intro-demo/scripts/serve-frontend.py+` command from the exercise directory.
+
+Open a browser window and navigate to pass:[<uri>http://localhost:8082</uri>] address.
+
+8) Observe the Covid-19 data that the `+health-front+` application consumes and exposes in the web UI.
+
+9) Stop the running applications.
+
+[NOTE]
+====
+The SIGINT signal might not work in the `+health-gateway+` application because of pending inflight exchanges.
+In this case, send a SIGTERM or SIGKILL signal to stop the application.
+====
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish intro-demo*
+----

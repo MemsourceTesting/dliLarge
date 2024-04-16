@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="topic">
+  <title>Environment Page (Options Dialog Box)</title>
+  <abstract id="abstract">
+    <p>Select <b>Tools&#0187;Options</b> to display the <xref href="../preferencedialog-options.dita">Options</xref> dialog box and select <b>Environment</b> from the <b>Category</b> list to display this page.</p>
+    <p>Use this page to set miscellaneous options for the LabVIEW environment.</p>
+  </abstract>
+  <prolog>
+    <metadata>
+      <category>dialog</category>
+    </metadata>
+    <resourceid appid="lvcore_lvdialog_miscellaneous_options"/>
+  </prolog>
+  <refbody>
+    <section>
+    <p conkeyref="common/page-components"/>
+    <table>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry conkeyref="common/table-entry-option"/>
+            <entry conkeyref="common/table-entry-desc"/>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><b>General</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-general"/>
+              <ul>
+                <li><b>Automatically close VISA sessions</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-automatically-close-visa-sessions"/></li>
+                <li><b>End text entry with Enter key</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-end-text-entry-with-enter-key"/></li>
+                <li><b>Lock automatic tool selection</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-lock-automatic-tool-selection-on"/> Remove the checkmark from this checkbox to configure LabVIEW to disable automatic tool selection when you press the &lt;Tab&gt; key and to toggle automatic tool selection when you press the &lt;Shift-Tab&gt; keys.</li>
+                <li><b>Skip Getting Started window on launch</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-skip-navigation-dialog-on-launch"/></li>
+                <li><b>Disable ni.com updates in Getting Started window</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-disable-ni-com-updates-in-getting-started-window"/></li>
+                <li><b>Separate compiled code from new files</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-separate-compiled-code-from-source-file-for-new-vis"/></li>
+                <li><b>Maximum undo steps per VI</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-maximum-undo-steps-per-vi-max-99"/></li>
+                <li><b>Maximum entries in recent project templates list</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-maximum-entries-in-recent-project-templates-list"/></li>
+                <li><b>Maximum entries in recent files lists</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-maximum-entries-in-recent-files-lists"/></li>
+                <li><b>Clear Password Cache</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-clear-password-cache"/></li>
+        </ul></entry>
+          </row>
+          <row>
+            <entry><b>Tip Strips and Labeling</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-tip-strips-and-labeling"/>
+              <ul>
+                <li><b>Show tip strips</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-show-tip-strips"/></li>
+                <li><b>Show created constant labels</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-show-created-constant-labels"/></li>
+        </ul></entry>
+          </row>
+          <row>
+            <entry><b>Saving VIs</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-saving-vis"/>
+              <ul>
+                <li><b>Treat read-only VIs as locked</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-treat-read-only-vis-as-locked"/>
+              <ul>
+                <li><b>Do not save automatic changes</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-do-not-save-automatic-changes"/></li>
+        </ul></li>
+                <li><b>Enable automatic saving for recovery</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-autosave-enable"/> In the event of an irregular shutdown or system failure, the <xref href="../../../plugins/autorecover/niasr-ui.dita">Select Files to Recover</xref> window displays recoverable files the next time you launch LabVIEW.
+              <ul>
+                <li><b>Save before a VI runs</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-save-for-autorecover-as-infrequently-as-possible"/></li>
+                <li><b>Save before a VI runs and periodically</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-additionally-save-at-periodic-intervals-minutes"/>
+              <ul>
+                <li><b>minutes</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-autosave-timer-minutes"/> You must select <b>Save before a VI runs and periodically</b> to enable this field.</li>
+        </ul></li>
+        </ul></li>
+        </ul></entry>
+          </row>
+          <row>
+            <entry><b>Fonts</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-fonts"/>
+              <ul>
+                <li><b>Font Chooser</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-font-chooser"/>
+              <ul>
+                <li><b>Application Font</b>&#8212;Determines the font used for text in the <xref href="../../../../environment/controlspalette.dita">Controls</xref> and <xref href="../../../../environment/functions_palette.dita">Functions</xref> palettes, the context help, and tip strips.</li>
+                <li><b>Dialog Font</b>&#8212;Determines the font used for text in dialog boxes and system controls.</li>
+                <li><b>System Font</b>&#8212;Determines the font used for text in the menu bar and shortcut menus</li>
+        </ul></li>
+                <li><b>Use default font</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-use-default-font"/></li>
+                <li><b>Font Style</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-font-style"/></li>
+                <li><b>Font Sample</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-font-sample"/></li>
+        </ul></entry>
+          </row>
+          <row>
+            <entry><b>Colors</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-colors"/>
+              <ul>
+                <li><b>Use default colors</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-use-default-colors"/>
+              <ul>
+                <li><b>Front Panel</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-front-panel"/></li>
+                <li><b>Block Diagram</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-block-diagram"/></li>
+                <li><b>Coercion Dots</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-coercion-dots"/></li>
+                <li><b>Scrollbar</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-scrollbar"/></li>
+                <li><b>Blink Foreground</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-blink-foreground"/></li>
+                <li><b>Blink Background</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-blink-background"/></li>
+                <li><b>Menu Text</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-menu-text"/></li>
+                <li><b>Menu Background</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-menu-background"/></li>
+        </ul></li>
+                <li><b>Custom Colors</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-user-defined-colors"/></li>
+        </ul></entry>
+          </row>
+          <row>
+            <entry><b>Debugging</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-debugging"/>
+              <ul>
+                <li><b>Show warnings in Error List dialog by default</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-show-warnings-in-error-box-by-default"/></li>
+        </ul></entry>
+          </row>
+          <row>
+            <entry><b>NI Error Reporting</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-ni-error-reporting"/>
+              <note>This section is unavailable if NI Error Reporting is disabled.</note>
+              <ul>
+                <li><b>Do not notify of internal warnings on exit</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-do-not-prompt-to-send-internal-warnings-on-exit"/>
+                <ul>
+                  <li><b>Automatically send internal warning reports to National Instruments</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-always-send-internal-warning-reports-to-national-instruments"/></li>
+                </ul>
+                </li>
+                <li><b>Relaunch LabVIEW on crash</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-relaunch-labview-on-crash"/>
+                  <note>LabVIEW cannot relaunch if the total string length of the command-line argument exceeds 255 characters.</note>
+                  <p>Remove the checkmark from this checkbox if you do not want LabVIEW to restart after an internal LabVIEW error occurs.</p>
+                </li>
+                <li><b>Close Report Sender dialog when finish sending</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-close-send-dialog-when-done"/></li>
+              </ul>
+            </entry>
+          </row>
+          <row>
+            <entry><b>Internal Warnings and Errors</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-internal-warnings-and-errors"/>
+              <note>(Windows) This section is available if NI Error Reporting is disabled.</note>
+              <ul>
+                <li><b>Prompt to investigate internal warnings and errors on startup</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-prompt-to-investigate-internal-errors-on-startup"/> Remove the checkmark from this checkbox if you do not want LabVIEW to display the <b>Investigate Previous Internal Error or Warning</b> window when you start LabVIEW after an internal LabVIEW error occurs.</li>
+        </ul></entry>
+          </row>
+          <row>
+            <entry><b>Compiler</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-compiler"/>
+              <ul>
+                <li><b>Compiler optimizations</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-compiler-optimizations-slider"/>
+                <p>To determine the complexity of a specific VI, refer to the <b>Compiled Code Complexity</b> value on the <xref href="../../../../dialog-boxes/memory-usage-page-vi-properties-dialog-box.dita">Memory Usage</xref> page of the <xref href="../../../../dialog-boxes/vi-properties-dialog-box.dita">VI Properties</xref> dialog box. Use this complexity value in conjunction with the optimizations slider to <xref scope="peer" format="html"><data name="facets" value="context=lvcore_lvhowto_compiler_limiting_optimizations"/>choose between editor responsiveness and VI execution speed</xref>.</p>
+                <p>The following caveats and recommendations apply to this slider:</p>
+                <ul>
+                  <li>The value of the <b>Compiler optimizations</b> slider applies to all VIs. LabVIEW determines whether to apply compiler optimizations to every VI based on the single threshold indicated by the slider.</li>
+                  <li>The compiler ignores the threshold indicated by the <b>Compiler optimizations</b> slider when building an application for targets running on PowerPC or ARM architecture (VxWorks and NI Linux Real-Time targets, respectively).</li>
+                  <li>Changing the value of this slider does not automatically recompile any VIs.</li>
+                  <li>National Instruments recommends that you reset the <b>Compiler optimizations</b> slider to 5 after you temporarily change the value to edit or compile complex VIs. A threshold of 5 correctly prioritizes editor responsiveness or execution speed for the vast majority of VIs.</li>
+                </ul>
+                </li>
+              </ul>
+            </entry>
+          </row>
+          <row>
+            <entry><b>Linux</b></entry>
+            <entry><div conref="prefpage-misc-vi.dita#topic/compdesc-section-linux"/>
+              <ul>
+                <li><b>Use native appearance</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-use-native-appearance"/></li>
+                <li><b>Use Control as menu/meta key</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-use-control-key-as-menu-meta-key"/></li>
+                <li><b>Use pixel-based font sizes</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-use-pixel-based-font-sizes"/></li>
+                <li><b>Show/hide floating windows on focus change</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-show-hide-floating-windows-on-focus-change"/>
+                <note>This option works well only if you have to click a window to give it focus. If the focus policy of the window manager is configured to have focus follow the mouse, you should remove the checkmark from this checkbox.</note></li>
+                <li><b>Keep floating windows on top</b>&#8212;<div conref="prefpage-misc-vi.dita#topic/compdesc-keep-floating-windows-on-top"/></li></ul></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+</section>
+</refbody>
+</reference>

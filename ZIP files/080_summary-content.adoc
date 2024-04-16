@@ -1,0 +1,12 @@
+[id='async-summary']
+= Summary
+
+In this chapter, you learned:
+
+* You can send and receive messages by using the Camel JMS component.
+* You can configure the Camel JMS component for the connection factory.
+* You can send and receive messages by using the Camel AMQP component, and configure it in a Spring Boot application.
+* You can create a producer for writing messages to Kafka and a consumer for reading messages from Kafka, by using the Camel Kafka component.
+* You can configure the Camel Kafka component for almost any client option.
+* Kafka is durable, and its messages are re-playable.
+This provides a resilient system for the Camel applications.

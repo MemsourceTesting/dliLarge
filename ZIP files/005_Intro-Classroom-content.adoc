@@ -1,0 +1,71 @@
+[id='classroom_orientation']
+= Orientation to the Classroom Environment
+
+== Creating a Lab Environment
+
+The Red{nbsp}Hat Online Learning (ROL) platform provides a RHEL{nbsp}8 workstation environment in the cloud, which you can connect to remotely from your browser.
+To use this, click the btn:[CREATE] button in the btn:[Lab Environment] tab in the ROL interface.
+
+For all classrooms provisioned for this course, ROL also provisions an account for you on a shared Red{nbsp}Hat OpenShift Container Platform (RHOCP) 4 cluster.
+When you provision your environment in the ROL interface, the system provides the cluster information.
+The interface gives you the OpenShift web console URL, your user name, and your password.
+
+image::images/classroom/openshift-details-rol.png[align="center", width="80%"]
+
+The required tools are preinstalled in the `+Cloud Workstation+` classroom environment, which also includes VSCodium, a text editor that includes useful development features.
+
+== Cloud Workstation Classroom Overview
+
+.Cloud workstation classroom overview
+image::images/classroom/Classroom-Architecture-1.svg[align="center", width="80%"]
+
+In this environment, the main computer system used for hands-on learning activities is `+workstation+`.
+All virtual machines in the classroom environment are in the `+lab.example.com+` DNS domain.
+
+All student computer systems have a standard user account, `+student+`, which has the password `+student+`.
+The root password on all student systems is `+redhat+`.
+
+.Classroom Machines
+[cols="2,1,2", options="header"]
+|===
+| Machine name                | IP addresses   | Role
+| workstation.lab.example.com | 172.25.250.9   | Graphical workstation used by students
+| bastion.lab.example.com     | 172.25.250.254 | Router linking student's VMs to classroom servers
+| classroom.lab.example.com   | 172.25.252.254 | Server hosting the classroom materials required by the course
+|===
+
+The `+bastion+` system acts as a router between the network that connects the student machines and the classroom network.
+If `+bastion+` is down, then other student machines may not function properly or may even hang during boot.
+
+== Lab Directory Structure Considerations
+
+The AD221 course uses a Python-based `+lab+` script that configures the directory structure for each guided exercise and lab activity.
+The ((workspace)) directory for this course is `+/home/student/AD221+`.
+
+The workspace directory must contain the `+AD221-apps+` repository.
+This is the code repository that contains the necessary files for each activity in this course.
+The first guided exercise of the course guides you to clone this repository in `+/home/student/AD221/AD221-apps+`.
+The `+lab+` script uses the locally cloned `+AD221-apps+` repository to create a directory structure relevant to a particular guided exercise or lab activity.
+
+For example, the `+lab start route-messages+` command does the following:
+
+* Pulls the most recent code from the `+AD221-apps+` remote repository.
+* Creates a `+route-messages+` directory in the workspace: `+/home/student/AD221/route-messages+`.
+* Copies the `+/home/student/AD221/AD221-apps/route-messages/apps/+` source code subdirectories to the `+/home/student/AD221/route-messages+` directory.
+
+You can find the solution for each activity in the `+/home/student/AD221/AD221-apps+` repository.
+For example, for the `+route-messages+` guided exercise, see the `+/home/student/AD221/AD221-apps/route-messages/solutions+` directory.
+
+== Troubleshooting Lab Scripts
+
+If an error occurs while running the `+lab+` command, then you might want to check the following files:
+
+* `+/tmp/log/labs+`: This directory contains log files.
+The `+lab+` script creates a unique log file for each activity.
+For example, the log file for the `+lab start intro-setup+` command is `+/tmp/log/labs/intro_setup+`
+* `+/home/student/.grading/config.yaml+`: This file contains the course-specific configuration.
+Do not modify this file.
+* `+/home/student/.grading/ad221-workspace.json+`: This file contains the user-specific lab configuration.
+The `+ocp_*+` properties must match the values provided in ROL.
+Do not manually modify this file.
+The file is created by the `+lab start intro-setup+` script.

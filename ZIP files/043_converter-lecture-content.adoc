@@ -1,0 +1,199 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='patternconverter-lecture']
+= Section Content
+
+== Camel Type Converters
+Camel provides a data transformation mechanism to transform particular data formats.
+Camel data transformation covers two types of transformation:
+
+Data format transformation::
+The data format of the message body transforms.
+`+XML+` to `+JSON+` transformation is an example of this.
+In <<pattern-filter-lecture>> you read about how to apply data format transformation in Camel.
+
+Data type transformation::
+The data type of the message body transforms.
+`+java.lang.String+` to `+javax.jms.TextMessage+` transformation is an example of this.
+
+For the data type transformation, Camel has a built-in type-converter system that automatically converts between well-known types.
+This system allows Camel components to work together without having type mismatches.
+
+When routing messages from one endpoint to another, it is often necessary for Camel to convert the body payload from one Java type to another.
+Conversions frequently occur between the following types:
+
+* `+File+`
+* `+String+`
+* `+byte[]+` and `+ByteBuffer+`
+* `+InputStream+` and `+OutputStream+`
+* `+Reader+` and `+Writer+`
+* XML payloads such as `+Document+` and `+Source+`
+
+The `+Message+` interface defines the `+getBody+` helper method to allow such automatic conversion.
+For example:
+
+[subs=+quotes]
+----
+Message message = exchange.getIn();
+byte[] image = message.getBody(byte[]);
+----
+
+In this example, Camel converts the body payload during the routing execution from a data format such as `+File+` to a Java `+byte[]+` array.
+
+If you needed to route files to a JMS queue using `+javax.jmx.TextMessage+` objects then
+you must convert each file to a `+String+`, which forces the JMS component to use the `+TextMessage+` class.
+Use the `+convertBodyTo+` method to convert to `+String+`:
+
+[subs=+quotes]
+----
+from("file://orders/inbox")
+  .convertBodyTo(String.class)
+  .to("activemq:queue:inbox");
+----
+
+=== Examining the Camel Type Conversion
+Camel implements the type conversion strategy with the `+TypeConverter+` interface.
+The `+TypeConverter+` interface has a method called `+convertTo+` that enables Camel to convert one type to another.
+
+[subs=+quotes]
+----
+<T> T convertTo(Class<T> type, Exchange exchange, Object value)
+                throws TypeConversionException;
+----
+
+[NOTE]
+====
+Camel implements more than 350 out-of-the-box type converters, which are capable of applying type conversion for the most commonly used types.
+====
+
+A Camel context can have more than one converter active.
+Camel keeps track of these converters in a registry called `+TypeConverterRegistry+` where all the type converters are registered when Camel is started.
+This allows Camel to pick up type converters not only from camel-core, but also from any of the Camel components, including the custom converters in your Camel applications.
+
+.Type converter registry
+image::images/pattern/type-converter-registry.svg[align="center",width="80%"]
+
+Camel scans and loads the type converters by using the `+org.apache.camel.impl.converter.AnnotationTypeConverterLoader+` class and registers them in the `+TypeConverterRegistry+`.
+
+== Creating a Custom Type Converter
+In some use cases, you might need to use a particular data format that is not supported by Camel by default.
+For example, you might work with a vendor that uses proprietary encryption technology, which requires a custom API to encrypt/decrypt.
+This custom transformation is possible using a custom type converter.
+
+To develop a type converter, use the Camel annotation `+@Converter+` in any class that implements custom conversion logic.
+A custom converter must have a static method whose signature must meet the following requirements:
+
+* The return value must be a type that is compatible with the target object type you are converting to.
+* The first parameter must be a type that is compatible with the format you wish to convert.
+* Optionally, an Exchange object can be used as a second parameter.
+
+You must annotate both the converter class and the static method by using the `+@Converter+` annotation.
+
+The following code is an example of a custom type converter class that converts an `+Order+` object to an encrypted `+InputStream+`.
+
+[subs=+quotes]
+----
+package com.redhat.training.ad221.converters;
+
+// imports omitted
+
+@Converter <1>
+public class OrderConverter {
+
+    private CustomEncryptor encryptor = EncryptorAPI.createEncryptor(); <2>
+
+    @Converter <3>
+    public static InputStream toInputStream(Order order) { <4>
+        String encryptedOrderInfo = encryptor.encrypt(order.toString());
+        return new ByteArrayInputStream(encryptedOrderInfo.getBytes()); <5>
+    }
+}
+----
+
+<1> Class level `+@Converter+` annotation.
+<2> A custom encryptor instance that comes from a vendor API.
+<3> Method level `+@Converter+` annotation.
+<4> The `+toInputStream+` method takes an `+Order+` object instance as a source and returns an `+InputStream+` as the target of the conversion.
+<5> Returns a `+ByteArrayInputStream+` that has the encrypted order information.
+
+[NOTE]
+====
+In this example, the `+Order+` class has a `+toString+` method that returns the details of an order in `+String+` format.
+The `+OrderConverter+` class uses this method to get the order information as `+String+` and encrypt it.
+
+The following code is an example of an `+Order+` class.
+
+[subs=+quotes]
+----
+// imports omitted
+
+public class Order implements Serializable{
+
+    private int id;
+    private String description;
+    private double price;
+    private double tax;
+
+// constructor(s) omitted
+
+  `@Override
+  public String toString() {
+      return "Order [description=" + description + ", id=" + id + ", price=" + price + ", tax=" + tax + "]";
+  }`
+
+// getters and setters omitted
+}
+----
+====
+
+Additionally, to allow Camel to register your custom type converter classes in the `+TypeConverterRegistry+`, you must include your custom converter package name in the `+META-INF/services/org/apache/camel/TypeConverter+` file.
+
+`+TypeConverter+` is a service discovery file that has a list of fully qualified class names or packages that contain Camel type converters.
+Each record in this file must be on a new line.
+
+The following code snippet is an example of `+TypeConverter+` file content:
+
+[subs=+quotes]
+----
+com.redhat.training.ad221.MyConverter <1>
+com.redhat.training.ad221.MyOtherConverter
+
+com.redhat.training.ad221.converters <2>
+----
+
+<1> A fully qualified custom converter class definition.
+<2> A converters package definition that might have custom converters in it.
+This enables the `+OrderConverter+` in the preceding example to be discovered.
+
+After setting up the type converter registry for your converters, you can create a route that uses the `+OrderConverter+` implicitly as follows:
+
+[subs=+quotes]
+----
+// imports omitted
+
+public class OrderRouteBuilder extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+        from("kafka:orders") <1>
+        .unmarshal(new JacksonDataFormat(Order.class)) <2>
+            .to("http4://localhost:8081/orders"); <3>
+    }
+----
+
+<1> The route consumes messages from the `+orders+` Kafka topic in JSON format.
+<2> Unmarshals the JSON data to the `+Order+` data.
+<3> The `+http4+` component requires `+InputStream+` as the input data format.
+In the previous step, you unmarshaled the JSON data to `+Order+` data, so a conversion must happen before this step.
++
+Camel searches for a converter that converts from an `+Order+` type to an `+InputStream+` type.
+Camel finds your custom converter `+OrderConverter+` in the type converter registry and runs the conversion implicitly.
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _Type Converters_ chapter in the _Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#TypeConv
+
+_Camel in Action, Second Edition_ (2018) by Claus Ibsen and Jonathan Anstey; Manning. ISBN 978-1-617-29293-4.
+====

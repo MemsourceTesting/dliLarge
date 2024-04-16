@@ -1,0 +1,13 @@
+---
+title: A
+text: translate A
+categories:
+  title: B
+  text: translate B
+categories:
+  title: C
+  text: translate C
+categories:
+  content:
+      title: D
+      text: translate D

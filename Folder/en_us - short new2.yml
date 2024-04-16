@@ -1,0 +1,124 @@
+en_us:
+  accepted_after_legal_action: "UPDATED FOR CONTINUOUS JOB"
+  accepted_by_airhelp: "UPDATED FOR CONTI JOB"
+  accepted_by_airline: "UPDATED FOR CONTI JOB"
+  accepted_late_by_airline: "Awaiting compensation from airline"
+  activerecord:
+    attributes:
+      cheque_details:
+        cheque_details_documents: "Check details documents"
+      user:
+        email: email
+        password: password
+    models:
+      user: user
+  add_a_file: "Add a file"
+  add_documents: "Add documents"
+  add_flights: "Add flights"
+  add_new_claim: "New claim"
+  additional_documentation_needed: "Additional documentation needed"
+  additional_documents: "Required documents"
+  additional_information: "Additional information"
+  agreement: Agreement
+  ahplus:
+    benefits:
+      claim_up_to_for_delayed_damaged_lost_luggage: "<b>Claim up to %{currency}%{amount}</b> for delayed, damaged or lost luggage."
+      claim_up_to_for_flight_delays_cancellations: "<b>Claim up to %{currency}%{amount}</b> for delays, cancellations and overbookings."
+      complete_peace_of_mind: "Cost Free Claiming"
+      free_flight_compensation: "Flight compensation"
+      free_luggage_compensation: "Luggage Protection"
+      subtitle: "Why <strong>AirHelp<i>+</i></strong>"
+      up_to_for_delayed_damaged_lost_luggage: "<b>Claim up to €1445</b> for delayed, damaged or lost luggage."
+      up_to_for_flight_delays_cancellations: "<b>Claim up to €600</b> for delays, cancellations and overbookings."
+      we_personally_make_your_journey: "Zero fees when you claim. Just the money you deserve."
+    checkout:
+      get_airhelp_plus: "Get <strong>AirHelp<i>+</i></strong>"
+      type_your_email: "To start, enter your email address"
+    customer_recommendations:
+      recommendation:
+        body: "My suitcase went missing on my flight to Paris and I had no suit for my meeting a few hours later. The AirHelp+ team told me my rights, I bought a brand new suit – that the airline later paid for – and still got to my meeting on time. Excellent service."
+        title: "AirHelp+ saved the day!"
+      subtitle: "What our customers say"
+    get_airhelp_plus: "Get <strong>AirHelp<i>+</i></strong>"
+    get_covered:
+      get_expert_advice: "Protect your trip with <b>AirHelp+</b> and get expert advice, personal assistance and cash compensation if anything goes wrong."
+      how_many_people: "How many people do you want to get covered?"
+      now_only: "Now only <del class=\"regular-price\">€20</del> €%{price} per traveler!"
+      now_only_per_traveler: "Now only <del class=\"regular-price\">%{currency}%{regular_price}</del> %{currency}%{price} per traveler!"
+      price: "Get AirHelp+"
+      your_upcoming_flight: "Safeguard your upcoming flight"
+    give_a_try:
+      subtitle: "Try Before You Fly"
+    how_does_it_work:
+      it_is_part_and_parcel: "We send you the info you need, like weather reports, flight status and gate changes."
+      only_per_passenger_per_flight: "Only %{currency}%{price} per passenger per flight"
+      subtitle: "How it works"
+      travel_trouble_happens: "Stay updated"
+      we_help_you_out: "Get the money you deserve"
+      why_you_buy_airhelp: "Only €%{price} per passenger per flight"
+      you_get_your_flight_covered: "Get covered"
+      you_will_be_eligible: "Claim compensation for flight disruptions and luggage issues. No unnecessary paperwork. Zero fees."
+    itinerary_details:
+      title: "Enter your booking details"
+    membership:
+      checkout:
+        membership_billed_as: "Membership billed as quarterly payments. Cancel anytime."
+        payment_details: "AirHelp+ Membership for <strong>12</strong> months - unlimited access to all Membership benefits and features for <strong>12</strong> months, billed €%{quarter_amount} every 3 months."
+        payment_number: "Payment no. %{payment_number} - <strong>€%{quarter_amount}</strong>"
+        title: "Activate <strong>AirHelp<i>+</i></strong>"
+        total: Total
+        you_will_get: "You will get"
+      credit-card-form:
+        cvc: "CVC code"
+        month: "Expiry date"
+        name: "Card Holder"
+        number: "Card number"
+      email:
+        enter_your_email: "Please enter your email on which we’re going to send confirmation"
+        header: "Get <strong>AirHelp<i>+</i></strong>"
+        input_label: "Type your email"
+      get_covered:
+        button_label: "Get AirHelp+ for %{price} yearly"
+        get_cash_compensation: "Our experts can get you up to €600 compensation for a flight disruption. Protect your future travels with an AirHelp+ membership."
+        get_full_compensation: "Never deal with flight disruptions on your own. Get <strong>AirHelp<i>+</i></strong>"
+      get_covered_right_now:
+        button_label: "Get AirHelp+"
+        subtitle: "Get expert flight assistance"
+        title: "Give AirHelp+ a try"
+      how_does_it_work:
+        claim_and_let_the_experts_do: "Claim and let the experts do the rest"
+        even_if_your_air_travel_issues: "Even if your air travel issues aren't covered by law, we'll work on your behalf to have the airlines make it up to you. "
+        if_flight_doesnt_go_to_plan: "If a flight doesn't go to plan, we'll be here to advise you. We'll tell you what compensation you're entitled to, and get you 100% of what you're owed."
+        sign_up_and_get_complete_peace_of_mind: "Sign up and get complete peace of mind"
+        we_go_the_extra_mile: "We go the extra mile"
+        when_you_buy: "When you buy AirHelp+ you're purchasing a year-round membership to our air travel legal expertise."
+        why_you_buy_airhelp: "When you buy AirHelp+, we waive the 25% fee we normally charge for winning your claim."
+        you_get_your_flight_covered: "You get your flight covered"
+      summary:
+        on_your_card_statement_will_appear: "On your card statement it will appear as \"AirHelp\"."
+        thanks_for_joining_airhelp_plus: "Thanks for joining <strong>AirHelp<i>+</i></strong>"
+        you_are_covered: "You’re covered. The confirmation email is on the way!"
+      upsell:
+        expert_claim_handling: "Expert claim handling"
+        full_compensation: "Full compensation"
+        get_covered: "Get AirHelp+"
+        protect_every_trip: "Protect every trip you take and get:"
+        safeguard_upcoming_flights: "Safeguard your upcoming flights. Get <strong>AirHelp<i>+</i></strong>"
+        top_rated: "Top rated legal services"
+      why_ahplus:
+        compensation_flight_disruptions: "Compensation for flight disruptions"
+        for_just_price_yearly: "For just €19.99 yearly, we'll get you up to €600 for any eligible flight delay, cancellation, and overbooking. No added fees."
+        full_support_for_a_year: "Full support for a year"
+        get_expert_advice: "Get expert advice on your air passenger rights, when you need it most, from the world's leading flight rights organization."
+        get_luggage_compensation: "Get luggage compensation"
+        luggage_late: "Luggage late? Bags beaten and bruised? We'll help you claim up to €1445 for delayed, damaged or lost luggage."
+    order_summary:
+      airline: Airline
+      final_cost: Cost
+      flight_date: Date
+      flight_from_to: "%{departure_airport} to %{arrival_airport}"
+      flight_route: Route
+      people_covered: Travelers
+      your_order_summary: "Your order summary"
+      your_upcoming_flight: "Congrats! Your flight is covered."
+    

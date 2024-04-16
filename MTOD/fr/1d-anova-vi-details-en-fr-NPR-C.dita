@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="details">
+<title/>
+<refbody>
+ <refbodydiv conaction="pushreplace" conref="1d-anova-vi.dita#topic/addendum">
+  <section>
+<p>Dans l'analyse de variance à une voie, le VI teste si le niveau du facteur a un effet sur le critère de jugement.</p>
+
+</section><section>
+<title>1D ANOVA Facteurs et niveaux</title>
+<p>Un facteur est une base de catégorisation des données. Par exemple, si l'on compte le nombre de redressements assis qu'une personne peut faire, l'une des bases de catégorisation est l'âge. Pour l'âge, vous pouvez avoir les niveaux suivants.</p>
+<table><tgroup cols="0"><tbody><row><entry>Niveau 0</entry><entry>6 ans à 10 ans</entry></row>
+<row><entry>Niveau 1</entry><entry>11 ans à 15 ans</entry></row>
+<row><entry>Niveau 2</entry><entry>16 ans à 20 ans</entry></row></tbody></tgroup></table>
+<p>Supposons maintenant que vous fassiez une série d'observations pour voir combien de redressements assis les gens peuvent faire. Si vous prenez un échantillon aléatoire de cinq personnes, vous obtiendrez les résultats suivants.</p>
+<table><tgroup cols="0"><tbody><row><entry>Personne 1</entry>
+<entry>8 ans (niveau 0)</entry>
+<entry>10 redressements assis</entry></row>
+<row><entry>Personne 2</entry>
+<entry>12 ans (niveau 1)</entry>
+<entry>15 redressements assis</entry></row>
+<row><entry>Personne 3</entry>
+<entry>16 ans (niveau 2)</entry>
+<entry>20 redressements assis</entry></row>
+<row><entry>Personne 4</entry>
+<entry>20 ans (niveau 2)</entry>
+<entry>25 redressements assis</entry></row>
+<row><entry>Personne 5</entry>
+<entry>13 ans (niveau 1)</entry>
+<entry>17 redressements assis</entry></row></tbody></tgroup></table>
+<p>Remarquez que vous avez fait au moins une observation par niveau. Pour effectuer une analyse de variance, vous devez faire au moins une observation par niveau.</p>
+<p>Pour effectuer l'analyse de la variance, vous spécifiez un tableau <b>X</b> d'observations, avec les valeurs 10, 15, 20, 25 et 17. Le tableau <b>Index</b> précise le niveau (ou la catégorie) auquel s'applique chaque observation. Dans ce cas, Index a les valeurs 0, 1, 2, 2 et 1. Enfin, comme il y a trois niveaux possibles, la valeur du paramètre <b># of levels</b> est de 3.</p>
+
+</section><section>
+<title>Modèle statistique ANOVA 1D</title>
+<p>En effectuant l'analyse de la variance, vous exprimez chaque critère de jugement comme la somme de trois parties. Soit <i><sub>xim</sub></i> la <sup>mème</sup> observation du <sup>ième</sup> niveau. Ensuite, chaque observation est écrite</p>
+<equation-inline><i>x<sub>im</sub></i> = µ + α<sub><i>i</i></sub> + ε<sub><i>im</i></sub></equation-inline>
+<p>où µ est un effet standard, appelé moyenne globale.</p>
+<p><sub>αi</sub> est l'effet du <sup>ième</sup> niveau du facteur, qui est la différence de moyennes du <sup>ième</sup> niveau α<sub><i>i</i></sub> et la moyenne générale</p>
+<equation-inline>µ(µ<sub><i>i</i></sub>) = µ + α<sub><i>i</i></sub></equation-inline>
+<p>et ε<sub><i>im</i></sub> est une fluctuation aléatoire.</p>
+
+</section><section>
+<title>1D ANOVA Hypothèse</title>
+<p>Cette VI teste l'hypothèse selon laquelle α<sub><i>i</i></sub> = 0 pour <i>i</i> = 0, 1, ..., <i>k</i> - 1, où <i>k</i> est le <b> nombre de niveaux</b>. En d'autres termes, cette hypothèse, appelée hypothèse nulle, affirme qu'aucun niveau n'affecte le critère de jugement expérimental et recherche ensuite les données probantes du contraire.</p>
+
+</section><section>
+<title>Hypothèses de l'ANOVA 1D</title>
+<p>Supposons que les populations d'études à chaque niveau soient normalement distribuées avec une moyenne µ<sub><i>i</i></sub> et une variance <sub>σA²</sub>, et supposons que α<sub><i>i</i></sub> est égale à zéro. Enfin, supposons que pour chaque <i>i</i> et <i>m</i>, ε<sub><i>im</i></sub> est normalement distribué avec une moyenne de 0 et une variance de <sub>σA²</sub>.</p>
+
+</section><section>
+<title>1D ANOVA Méthode générale</title>
+<p>Ce VI calcule la somme totale des carrés, <b>tss</b>, qui est une mesure de la variation totale des données par rapport à la moyenne globale de la population.</p>
+<p>Le <b>tss</b> se compose de deux parties : <b>ssa</b>, une mesure de la variation attribuée au facteur, et <b>sse</b>, une mesure de la variation attribuée à la fluctuation aléatoire. En d'autres termes,</p>
+<equation-inline><b>tss</b> = <b>ssa</b> + <b>sse</b>.</equation-inline>
+<p>Le VI calcule les deux quantités moyennes carrées <b>msa</b> et <b>mse</b> à partir de <b>ssa</b> et <b>sse</b> en divisant <b>ssa</b> et <b>sse</b> par leurs propres degrés de liberté. Plus la <b>msa</b> est importante par rapport à la <b>mse</b>, plus l'effet du facteur sur le jugement expérimental est significatif.</p>
+<p>En particulier, si l'hypothèse nulle est vraie, le rapport <b>f</b>, f = msa/mse, est tiré d'une distribution F avec <i>k</i> - 1 et <i>n</i> - <i>k</i> degrés de liberté, à partir de laquelle vous pouvez calculer des probabilités. Étant donné un <b>f</b> particulier, <b>sigA</b> est la probabilité d'obtenir une valeur supérieure à <b>f</b> lors de l'échantillonnage à partir de cette distribution.</p>
+
+</section><section>
+<title>Test de l'hypothèse de l'ANOVA 1D</title>
+<p>Déterminez quand rejeter l'hypothèse nulle en déterminant la probabilité que vous rejetiez par erreur l'hypothèse nulle. Il s'agit du niveau de signification, un choix courant étant 0,05. Le résultat <b>sigA</b> est comparé au niveau de signification choisi pour déterminer s'il faut accepter ou rejeter l'hypothèse nulle. Si <b>sigA</b> est inférieur au seuil de signification choisi, rejeter l'hypothèse nulle. Si vous rejetez l'hypothèse nulle, vous devez reconnaître qu'au moins un niveau a un certain effet sur le critère de jugement.</p>
+
+</section><section>
+<title>Formules d'ANOVA 1D</title>
+<p>Soit <i><sub>xim</sub></i> = la <sup>mème</sup> observation faite au <sup>ième</sup> niveau pour <i>m</i> = 0, 1, ..., <i><sub>ni</sub></i> - 1 et <i>i</i> = 0, 1, ..., <i>k</i> - 1, où <i><sub>ni</sub></i> est le nombre d'observations au <sup>ième</sup> niveau et <i>k</i> = <b># de niveaux</b>.</p>
+<p><equation-inline><image href="noloc_eq_1dan1.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan2.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan3.gif"/></equation-inline></p>
+<p>puis</p>
+<p><equation-inline><image href="noloc_eq_1dan4.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan5.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan6.gif"/></equation-inline></p>
+<p><equation-inline><image href="loc_eq_1dan7.gif"/></equation-inline></p>
+<p><equation-inline><image href="noloc_eq_1dan8.gif"/></equation-inline></p>
+<p><equation-inline><image href="loc_eq_1dan9.gif"/></equation-inline></p>
+<p><equation-inline>SigA =<sub><i>Prob{Fk</i></sub><sub>- 1, <i>n</i> - <i>k</i></sub> > f}</equation-inline></p>
+<p><equation-inline>F<sub><i>k</i> – 1, <i>n</i> – <i>k</i></sub></equation-inline></p>
+<p>est la distribution F avec <i>k</i> - 1 et <i>n</i> - <i>k</i> degrés de liberté.</p>
+</section>
+</refbodydiv></refbody>
+</reference>

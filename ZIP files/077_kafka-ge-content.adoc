@@ -1,0 +1,156 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='asynckafka-practice']
+= Sample Title
+
+In this exercise, you will help a search and rescue association, FriendWilson Inc. association.
+The association has an integration service that reads rescue location data from a telecommunication operator's file system, and saves the data into their database.
+
+The association requires the integration service to be asynchronous and resilient.
+They hired you to refactor the integration service, which is based on Apache Camel, to use Apache Kafka as a message backbone.
+In this guided exercise you are expected to make the relevant changes in the integration service.
+
+== Outcomes
+
+You should be able to configure the Camel application for Kafka broker access, create a Camel route that uses the Kafka component and set it up for sending messages to a particular Kafka topic.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+async-kafka/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory use the `+lab+` command to start this exercise.
+This will make a Kafka cluster and a MySQL instance available for the exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start async-kafka*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/async-kafka/apps+` directory, into the `+~/AD221/async-kafka+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/async-kafka/emergency-location-service+` project directory and examine the `+EmergencyLocationRouteBuilder+` class.
+
+2) Run the following command to execute the test for the `+emergency-location-route+` route.
+
+[subs=+quotes]
+----
+[student@workstation emergency-location-service]$ *./mvnw \
+-Dtest=EmergencyLocationRouteBuilderTest#testEmergencyLocationRoute \
+clean test*
+----
+
+The test must run successfully.
+The `+emergency-location-route+` route gets the location data from the vendor file system and saves the data in the MySQL database.
+
+3) Run the `+podman stop async-kafka_mysql_1+` command to stop the MySQL database that you started with the startup lab script.
+This simulates a database service down situation.
+
+4) Run the following test command again.
+
+[subs=+quotes]
+----
+[student@workstation emergency-location-service]$ *./mvnw \
+-Dtest=EmergencyLocationRouteBuilderTest#testEmergencyLocationRoute \
+clean test*
+----
+
+The test must fail this time.
+
+5) Open the `+pom.xml+` file and add the `+camel-kafka-starter+` dependency.
+
+[subs=+quotes]
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-kafka-starter</artifactId>
+</dependency>
+----
+
+6) Open the `+src/main/resources/application.properties+` file, and add the following `+camel.component.kafka.configuration.*+` properties.
+
+[cols="1,1"]
+|===
+| Property | Value
+
+| `+brokers+`
+| `+localhost:9092+`
+
+| `+auto-offset-reset+`
+| `+earliest+`
+
+| `+value-deserializer+`
+| `+com.redhat.training.emergency+`
+`+.serde.LocationDeserializer+`
+
+|===
+
+7) In the `+emergency-location-route+` route, add a `+to+` method with a suitable endpoint to produce messages into the `+locations+` Kafka topic.
+
+Delete the JDBC statement and the relevant line that has the insert statement.
+
+The end of the modified route must look like the following:
+
+[subs=+quotes]
+----
+_...output omitted..._
+    .split(body())
+    .to("kafka:locations")
+    .to("direct:logger");
+----
+
+8) Run the following test command again.
+
+[subs=+quotes]
+----
+[student@workstation emergency-location-service]$ *./mvnw \
+-Dtest=EmergencyLocationRouteBuilderTest#testEmergencyLocationRoute \
+clean test*
+----
+
+The test must run successfully.
+
+9) Add a Kafka consumer route with the route id `+kafka-consumer-route+`.
+
+This route must consume the location data from the `+locations+` Kafka topic and save it into the database.
+
+The route must look like the following:
+
+[subs=+quotes]
+----
+from("kafka:locations")
+    .routeId("kafka-consumer-route")
+    .setBody(simple("insert into locations values('${body.latitude}','${body.longitude}')"))
+    .to("jdbc:dataSource")
+    .to("direct:logger");
+----
+
+10) Run the `+podman start async-kafka_mysql_1+` command to start the database.
+
+11) Run the following command to execute the test for the `+kafka-consumer-route+` route.
+
+[subs=+quotes]
+----
+[student@workstation emergency-location-service]$ *./mvnw \
+-Dtest=EmergencyLocationRouteBuilderTest#testKafkaConsumerRoute \
+clean test*
+----
+
+The test must run successfully.
+
+The test verifies if there are records created in the database and creates a console output for it such as "The locations table has n records".
+This means that, the consumer route safely persisted the queued data in the Kafka cluster when the database is back online.
+Using Kafka prevented data loss and provided resilience.
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish async-kafka*
+----

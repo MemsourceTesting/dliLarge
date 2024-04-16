@@ -1,0 +1,11 @@
+[id='test-summary']
+= Summary
+
+In this chapter, you learned:
+
+* Apache Camel provides a collection of modules and JUnit extension classes known as the Camel Test Kit.
+With this kit, you can implement unit and integration tests of Camel routes.
+
+* When implementing route tests, you should replace endpoints with mocks or other test doubles to decouple tests from route dependencies.
+
+* Apache Camel implements error handling mechanisms such as `+errorHandler+`, `+onException+`, and `+doTry/doCatch+` to capture and handle errors.

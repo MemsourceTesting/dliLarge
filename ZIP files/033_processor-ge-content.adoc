@@ -1,0 +1,150 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='routeprocessor-practice']
+= Developing a Camel Processor
+
+In this exercise, you will process incoming files and add a line number at the beginning of each line.
+
+Your department produces text files that contain the details of processed orders.
+In these files, each line corresponds to an order.
+Recently, the business intelligence team of your company has required the lines of these files to be numbered.
+Therefore, you must process the input files to add a line number to each line.
+
+== Outcomes
+
+You should be able to modify the message content to meet the requirements of the next component in the Route.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+route-processor/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start route-processor*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/route-processor/apps+` directory, into the `+~/AD221/route-processor+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/route-processor+` directory, open the project with your editor of choice, and examine the code.
+
+2) Review format of the input data.
+
+[subs=+quotes]
+----
+[student@workstation route-processor]$ *cat orders/incoming/orders1.csv*
+DPR,DPR,100,AD-982-708-895-F-6C894FB,52039657,1312378,83290718932496,04/12/2018,2,200.0,-200.0,0.0,...
+RJF,Product P,28 / A / MTM,83-490-E49-8C8-8-3B100BC,56914686,3715657,36253792848113,01/04/2019,2,...
+CLH,Product B,32 / B / FtO,68-ECA-BC7-3B2-A-E73DE1B,24064862,9533448,73094559597229,05/11/2018,0,...
+_...output omitted..._
+----
+
+3) Update the route `+configure+` method of the `+FileRouteBuilder+` class to add the Processor code.
+
+3.1) Add the processor step to the route pipeline and create a new `+org.apache.camel.Processor+` instance as the parameter:
+
+[subs=+quotes]
+----
+.process( new Processor() {
+    public void process( Exchange exchange ) {
+    }
+} )
+----
+
+3.2) Inside the `+process+` method get the input message:
+
+[subs=+quotes]
+----
+String inputMessage = exchange.getIn().getBody( String.class );
+----
+
+3.3) Create an external thread safe counter to use in the lambda function:
+
+[subs=+quotes]
+----
+AtomicReference<Long> counter = new AtomicReference<>(1L);
+----
+
+3.4) Using the counter, process the lines to add the counter value at the beginning:
+
+[subs=+quotes]
+----
+String processedLines = Stream.of(inputMessage.split(separator))
+    .map( l -> counter.getAndUpdate( p -> p + 1 ).toString() + "," + l )
+    .collect(Collectors.joining(separator));
+----
+
+3.5) Set the modified lines as the content of the output message.
+
+[subs=+quotes]
+----
+exchange.getIn().setBody( processedLines );
+----
+
+The whole section of the `+process+` function should look like the following lines:
+
+[subs=+quotes]
+----
+.process( new Processor() {
+    public void process( Exchange exchange ) {
+        String inputMessage = exchange.getIn().getBody( String.class );
+
+        AtomicReference<Long> counter = new AtomicReference<>(1L);
+
+        String processedLines = Stream.of(inputMessage.split(separator))
+            .map( l -> counter.getAndUpdate( p -> p + 1 ).toString() + "," + l )
+            .collect(Collectors.joining(separator));
+
+        exchange.getIn().setBody( processedLines );
+    }
+} )
+----
+
+4) Test the route that processes the data.
+
+4.1) Run the route by using the `+./mvnw clean spring-boot:run+` Maven goal.
+
+[subs=+quotes]
+----
+[student@workstation route-processor]$ *./mvnw spring-boot:run*
+_...output omitted..._
+... Route: route1 started and consuming from: file://orders/incoming?noop=true
+... Total 1 routes, of which 1 are started
+_...output omitted..._
+----
+
+4.2) Give the route a few moments to process the incoming files, and then terminate it by using Ctrl+C.
+
+4.3) Inspect the output folder to verify that the output files contain line numbers at the beginning of each line. Expected output is:
+
+[subs=+quotes]
+----
+[student@workstation route-processor]$ *cat orders/outgoing/orders2.csv*
+1,DPR,DPR,100,AD-982-708-895-F-6C894FB,52039657,1312378,83290718932496,04/12/2018,2,200.0,-200.0 ...
+2,RJF,Product P,28 / A / MTM,83-490-E49-8C8-8-3B100BC,56914686,3715657,36253792848113,01/04/2019,2,190.0,-190.0 ...
+3,CLH,Product B,32 / B / FtO,68-ECA-BC7-3B2-A-E73DE1B,24064862,9533448,73094559597229,05/11/2018,0,164.8,-156.56,-8.24 ...
+_...output omitted..._
+----
+
+Notice the line number at the beginning of each line of the processed output.
+
+
+[NOTE]
+====
+If you need to start over to test something or in case of a retry due to a mistake, then run the following `+lab finish+` command and begin again with the `+lab start+`.
+====
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish route-processor*
+----

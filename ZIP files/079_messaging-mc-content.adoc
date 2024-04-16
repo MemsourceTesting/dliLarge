@@ -1,0 +1,65 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+// Sections should have an id that is a short version of the title.
+[id='asyncmessaging-multchoice']
+= Integrating Services using Asynchronous Messaging
+
+[role='MultChoice']
+== Instructions
+
+Consider you are working on a development team for a startup company called The Q LLC.
+This company provides queues as a service, and publish-subscribe APIs for commercial companies.
+
+The development team has to implement some important parts of the application before the deadline.
+You must choose the correct answers to the following questions to complete the project:
+
+1) The `+registration microservice+` has a Camel route that consumes the registration data of customers from a Kafka topic called `+registrations+`.
+Another service called `+accountancy microservice+`, which can only use the JMS protocol, must access this data but Kafka does not support the JMS protocol.
+You must send the consumed Kafka messages to the ActiveMQ broker's `+registrations+` queue by using the JMS protocol.
+Regarding this information, which two of the following options are true? (Choose two.)
+
+** [role='solution'] You must create the outgoing endpoint of the route as `+to("jms:queue:registrations")+`.
+** You must create the outgoing endpoint of the route as `+to("jms:topic:registrations")+`.
+** The incoming endpoint of the route must be `+from("kafka:topic:queue:registrations")+`.
+** [role='solution'] The incoming endpoint of the route must be `+from("kafka:topic:registrations")+`.
+** You must configure a serializer for the `+jms+` component as `+camel.component.jms.configuration.value-serializer=com.theq.serde.RegistrationSerializer+` in the application.properties file.
+
+2) Your team has recently converted one of the microservices to a Spring Boot application, but they have not changed the Camel route code or applied the configuration in the `+application.properties+` file.
+You must refactor the following Camel route and apply the required configuration.
+Regarding this information, which of the following options is *FALSE*? (Choose one.)
+
+[subs="+quotes,+macros"]
+----
+from("kafka:announcements?brokers=broker1:9092
+&valueDeserializer=com.theq.services.kafka.serde.AnnouncementDeserializer
+&heartbeatIntervalMs=1500")
+.to("mongodb:camelMongoClient");
+----
+
+** You must set the broker configuration as `+camel.component.kafka.configuration.brokers=broker1:9092+`.
+** [role='solution'] You must set the topic configuration as `+camel.component.kafka.configuration.topic=announcements+`.
+** You must set the value deserializer configuration as `+camel.component.kafka.configuration.value-deserializer=com.theq.services.kafka.serde.AnnouncementDeserializer+`.
+** After applying all the configurations in the `+application.properties+` file, you can refactor the route start to `+from("kafka:announcements")+`.
+
+3) You must complete a Camel route code that uses the Camel AMQP component.
+Which of the following options is true for the AMQP component?  (Choose one.)
+
+** You can use the `+camel-amqp-runner+` dependency to configure the Camel AMQP component in a Spring Boot microservice.
+** The AMQP component uses the Kafka client API to provide messaging topics.
+** [role='solution'] `+camel.component.amqp.concurrent-consumers=2+` is a valid Spring Boot autoconfiguration for the route that uses the AMQP component.
+This configuration sets the concurrent consumers count to two.
+** `+amqp:application-topic+` is a valid URI for the AMQP component.
+** You can consume from more than one topic such as `+from("amqp:topic:applicants-topic,registration-topic,accounts-topic")+`.
+
+4) The team realized that the monitoring system shows a failure in one of the Camel microservices occasionally.
+The Camel route gets the applied patient data from the government system and saves it in a relational database by sorting it by the case urgency.
+The database occasionally becomes unresponsive and there is no time to fix or replace it.
+Regarding this information, which two of the following options are true? (Choose two.)
+
+** You can solve this issue by using an in-memory queue mechanism.
+The SEDA component makes the system resilient.
+** [role='solution'] You use the Kafka component to queue and sort the messages in a Kafka system before saving them to the database.
+Kafka's durability makes the system resilient.
+** [role='solution'] You can use the AMQP component to queue the messages in an ActiveMQ Broker system and sort them before saving to the database.
+You can use the Dead Letter Channel implementation to provide resiliency.
+** You can use the AMQP component to queue and sort the messages in an ActiveMQ Broker system before saving to the database.
+ActiveMQ's durability makes the system resilient.

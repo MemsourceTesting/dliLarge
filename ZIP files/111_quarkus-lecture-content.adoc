@@ -1,0 +1,107 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='cloudquarkus-lecture']
+= Section Content
+
+== Describing Apache Camel Quarkus
+
+Apache Camel Quarkus adds the integration capabilities and component library of Apache Camel to the Quarkus runtime.
+
+The benefits of using Camel Quarkus include the following:
+
+* Takes advantage of the performance benefits, developer joy, and the container first ethos provided by Quarkus.
+* Takes advantage of the performance improvements made in Camel 3, which results in a lower memory footprint, less reliance on reflection, and faster startup times.
+
+== Developing Camel Quarkus Applications
+
+The process of developing Camel Quarkus applications is similar to the process you follow when you use the Spring Boot framework.
+
+=== Create the Skeleton
+
+You can use the Quarkus online project generator located at https://code.quarkus.redhat.com to generate a Quarkus Maven project.
+In this project generator, all the Camel Quarkus extensions are under the *Integration* category.
+Another option to generate the skeleton project is to use the Quarkus Maven plug-in.
+
+=== Define Camel Routes
+
+The most common way of defining Camel routes is by extending the `+org.apache.camel.builder.RouteBuilder+` class.
+
+----
+import org.apache.camel.builder.RouteBuilder;
+
+public class QuarkusRoute extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+        from("schema:origin")
+            .log("Hello World");
+    }
+}
+----
+
+The `+camel-quarkus-core+` artifact contains builder methods for all Camel components.
+You still need to add the component's extension as a dependency for the route to work properly.
+You can tune Camel Quarkus extensions by using `+quarkus.camel.*+` properties.
+
+Camel Quarkus automatically configures and deploys a Camel Context bean.
+By default, the lifecycle of this bean is tied to the Quarkus application lifecycle.
+
+[NOTE]
+====
+To test routes in the context of Quarkus, the recommendation is to write integration tests.
+====
+
+== Deploying to Red{nbsp}Hat OpenShift Container Platform
+
+You can deploy your application to Red{nbsp}Hat OpenShift Container Platform (RHOCP) by using any of the following build strategies:
+
+[compact]
+* Docker build
+* Source to Image (S2I)
+* S2I Binary
+
+=== Adding Health and Liveness Checks
+
+Health checks are methods to determine the state of an application from another machine.
+In cloud environments, health checks determine when a computing node requires intervention.
+For example, replacing a computing node with a new healthy instance.
+
+The `+camel-quarkus-microprofile-health+` extension provides support for health and liveness checks.
+
+You can create custom heath check implementations.
+Any checks provided by your application are automatically discovered, and bound to the Camel registry.
+They are available in the `+/q/health/live+`, and `+/q/health/ready+` Quarkus health endpoints.
+
+The following checks are automatically registered for your application.
+
+Camel Context Health::
+Inspects the Camel Context status.
+If the context status is anything other than `+Started+`, then it sets the health check status to `+DOWN+`.
+
+Camel Route Health::
+Inspects the status of each route.
+If any route status is not `+Started+`, then it sets the health check status to `+DOWN+`.
+
+=== Deploying to RHOCP
+
+As a developer, you can deploy your Quarkus applications to RHOCP by using a Maven command.
+This functionality is provided by the `+quarkus-openshift+` extension, which supports multiple deployment options.
+The default deployment option is S2I, but you can configure the deployment strategy by using the `+quarkus.openshift.build-strategy+` property.
+
+Prior to the deployment, you are required to use the OpenShift CLI to log in, and select the project in which you want to deploy your application.
+
+The following example packages and deploys your Quarkus application to the current RHOCP project:
+
+[subs=+quotes]
+----
+[user@host project]$ *./mvnw clean package -Dquarkus.kubernetes.deploy=true*
+----
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+https://code.quarkus.redhat.com/[Red{nbsp}Hat Build of Quarkus Online Project Generator]
+
+For more information, refer to the _Extensions Overview_ chapter in the _Camel Extensions for Quarkus Reference_ at https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q4/html-single/camel_extensions_for_quarkus_reference/index#camel-quarkus-extensions-overview
+====

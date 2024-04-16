@@ -1,0 +1,164 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='testerror-lecture']
+= Section Content
+
+== Understanding Errors in Camel
+
+Many different errors can occur when messages flow through a Camel route, such as network outages or incorrect file system permissions.
+Thankfully, Camel implements error handling mechanisms to help you to capture and handle these errors.
+
+There are two categories of errors in a Camel route:
+
+Recoverable errors::
+Errors caused by transient problems that can be solved by retrying the delivery, such as a connection timeout.
+Normally, these errors generate a Java exception, which Camel attaches to the `+Exchange+` object transmitted by a route.
+
+Irrecoverable errors::
+Failures without an immediate solution, such as file system failure.
+These errors set a fault message in the `+Exchange+` object of a route.
+By default, Camel does not handle these errors.
+
+A channel is a Camel piece that routes messages from one route step to the next one.
+If an error occurs in a step, then the channel that precedes the step captures the error and passes the error to the error handler.
+
+== Customizing Camel Error Handling
+
+If you do not explicitly set an error handler, then Camel applies a default error handler strategy.
+To change the default behavior, you can use the `+errorHandler+` method at the context and route levels, as shown in the following example:
+
+[subs=+quotes]
+----
+public class MyRoute extends RouteBuilder{
+  public void configure() throws Exception{
+    `+errorHandler(loggingErrorHandler());+` <1>
+
+    from("file:inputDir") <2>
+      .routeId("first")
+      .to(...)
+
+    from("file:anotherDir")
+      .routeId("second")
+      `+.errorHandler(defaultErrorHandler())+` <3>
+      .to(...)
+  }
+}
+----
+
+<1> The Camel context uses the `+LoggingErrorHandler+` class as the error handler.
+<2> The first route inherits `+LoggingErrorHandler+` from the context as the error handler.
+<3> The second route uses the `+DefaultErrorHandler+` class as the error handler.
+
+
+=== Camel Error Handlers
+When configuring error handlers, you can use any of the four error handlers available in Camel:
+
+DefaultErrorHandler::
+The default error handling strategy if none is explicitly set.
+This handler does not redeliver exchanges and notifies the caller about the failure.
+
+LoggingErrorHandler::
+Logs the exception to the default output.
+
+NoErrorHandler::
+Disables the error handler mechanism.
+
+DeadLetterChannel::
+Implements the dead letter channel enterprise integration pattern (EIP).
+
+
+=== Trapping Exceptions by Exception Type
+
+Camel error handlers represent a standard approach to handle every error thrown in Camel routes.
+Unfortunately, this approach does not allow custom error handling based on specific exception types.
+For example, you might want to redeliver a message in the event of a network error, but not when a business rule error occurs.
+
+Camel implements a type-specific exception trapping policy with the `+onException+` method.
+With this method, you can trap exceptions by type, and customize the exchange, routing, and redelivery policies.
+The following example illustrates the use of the `+onException+` method.
+
+[subs=+quotes]
+----
+public class JavaRouteBuilder extends RouteBuilder {
+
+  @Override
+  public void configure() throws Exception {
+    `+onException(LogException.class)+` <1>
+      `+.to("file:log")+` <2>
+      `+.handled(true)+` <3>
+      `+.maximumRedeliveries(3);+` <4>
+
+    from("file:in")
+    ...
+  }
+
+}
+----
+
+<1> Traps all `+LogException+` errors raised in this context.
+<2> Sends the message to another endpoint.
+<3> Sets the exception as handled.
+Keep in mind that, by default, the `+onException+` clause does not mark exceptions as handled.
+<4> Attempts message redelivery three times at most.
+
+The `+onException+` call returns an instance of the `+OnExceptionDefinitionClass+` class.
+This class implements a rich API to trap and handle errors, apart from the methods shown in the preceding example.
+For more details about the available methods, refer to the `+onException+` documentation.
+
+[NOTE]
+====
+Notice the difference between *trapping* an exception and *catching* an exception.
+
+* Catching implies handling errors raised by a specific code fragment, as you would do with a regular Java try/catch block.
+* Trapping implies handling errors raised at any point of the context or the route.
+With the `+onException+` method, you trap exceptions.
+====
+
+=== Catching Exceptions with the Try/Catch DSL
+
+If you need to control errors in specific parts of a route, such as a processor step, then trapping exceptions is not suitable.
+In this case, you must use the Camel Try/Catch DSL.
+
+In Camel routes, you cannot use the ordinary try/catch/finally Java mechanism.
+This is because Camel executes the `+configure+` method of your route builder only once, when registering the route definition in the context.
+Instead, you must use the Camel `+doTry/doCatch/doFinally+` syntax, as follows:
+
+[subs=+quotes]
+----
+public class JavaRouteBuilder extends RouteBuilder {
+
+@Override
+  public void configure() throws Exception {
+
+    from("file:in?noop=true")
+      `.doTry()
+        .process(new LogProcessor())
+      .doCatch(LogException.class)
+        .process(new FileProcessor())
+      .doFinally()
+        .to("mock:finally")
+      .end();`
+      ...
+  }
+}
+----
+
+As the preceding example shows, you can use the `+doTry/doCatch/doFinally+` Camel mechanism in a similar way to regular Java try/catch/finally blocks.
+This syntax presents a few differences, when compared to `+onException+`:
+
+* The `+doTry/doCatch/doFinally+` syntax handles exceptions.
+The `+onException+` clause does not mark exceptions as handled by default.
+
+* The `+doTry/doCatch/doFinally+` syntax is restricted to the route where you use it.
+In contrast, the `+onException+` clause, applies to the context and route levels.
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+https://camel.apache.org/manual/exception-clause.html[Apache Camel Manual - Exception Clause]
+
+https://camel.apache.org/manual/try-catch-finally.html[Apache Camel Manual - Try...Catch...Finally]
+
+For more information, refer to the _Exception Handling_ section in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#BasicPrinciples-ExceptionHandling
+====

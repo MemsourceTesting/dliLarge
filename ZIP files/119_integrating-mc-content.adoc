@@ -1,0 +1,51 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+// Sections should have an id that is a short version of the title.
+[id='cloudintegrating-multchoice']
+= Multiple Choice Sample Title
+
+Consider that you have developed a Spring Boot Camel application to route weather condition measurements from garden sensors to a REST API.
+The application is ready to be deployed to production.
+
+[role='MultChoice']
+== Instructions
+Choose the correct answers to the following questions:
+
+1) Which two of the following are valid strategies to deploy the application to the Red{nbsp}Hat OpenShift Container Platform (RHOCP)? (Choose two.)
+
+** [role='solution'] Run a Source-to-Image (S2I) build to deploy the application from the source code.
+** Run an S2I build to deploy the application from the source code.
+Next, build the container image, and push the image to a registry.
+** [role='solution'] Generate a JAR file.
+Next, run an S2I build to deploy the application from the JAR file.
+** Run an S2I build to deploy the application from the source code.
+Next, build the container image, push the image to a registry, and create the deployment.
+
+
+2) You are developing an additional integration in Camel K to route garden sensor data to a relational database.
+While you develop the integration in the `+GardenToSql.java+` file, you would like to run the route, show logs, and watch for changes to automatically refresh the integration as you add more code.
+Which command of the following should you use?
+
+** `+kamel dev GardenToSql.java+`
+** `+kamel start GardenToSql.java+`
+** `+kamel start GardenToSql.java --dev+`
+** [role='solution'] `+kamel run GardenToSql.java --dev+`
+
+
+3) The garden sensors lose network connection occasionally.
+When the sensors are unreachable, the Camel route becomes unavailable and throws connection errors.
+How can you configure the deployment so that, under these conditions, RHOCP marks the application as not `+Ready+`, without killing the application container?
+
+** Configure a startup probe.
+** [role='solution'] Configure a readiness probe.
+** Configure a liveness probe.
+** Configure a container execution probe.
+
+
+4) Your team is considering a switch to Camel Quarkus for the next version of the application.
+Which two of the following statements are true regarding Camel Quarkus? (Choose two.)
+
+** You do not need to add component dependencies to Quarkus.
+Quarkus handles all dependencies for you.
+** [role='solution'] You can tune Camel Quarkus extensions by using `+quarkus.camel.*+` properties.
+** [role='solution'] You must add the `+camel-quarkus-core+` artifact as a dependency of your Quarkus project.
+** Quarkus provides support for liveness probes only.

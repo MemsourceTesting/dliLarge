@@ -1,0 +1,3570 @@
+{
+  "agencies": {
+    "title": {
+      "id": "agencies.title",
+      "value": "My companies"
+    }
+  },
+  "agency": {
+    "create_sub_agency": {
+      "id": "agency.create_sub_agency",
+      "value": "Create a sub-company"
+    },
+    "create_sub_agency_in": {
+      "id": "agency.create_sub_agency_in",
+      "value": "Create a sub-company for {agencyName}"
+    },
+    "delete_member": {
+      "id": "agency.delete_member",
+      "value": "Remove a user"
+    },
+    "edit": {
+      "success": {
+        "id": "agency.edit.success",
+        "value": "Your company was successfully updated"
+      },
+      "title": {
+        "id": "agency.edit.title",
+        "value": "Modify my company"
+      }
+    },
+    "edit_member": {
+      "success": {
+        "id": "agency.edit_member.success",
+        "value": "User successfully updated!"
+      },
+      "title": {
+        "id": "agency.edit_member.title",
+        "value": "Edit a user"
+      }
+    },
+    "filter": {
+      "id": "agency.filter",
+      "value": "Company"
+    },
+    "information": {
+      "title": {
+        "id": "agency.information.title",
+        "value": "Company Information"
+      }
+    },
+    "invoiced_on_parent": {
+      "id": "agency.invoiced_on_parent",
+      "value": "Charge the parent company"
+    },
+    "invoiced_on_this": {
+      "id": "agency.invoiced_on_this",
+      "value": "Charge this company"
+    },
+    "member": {
+      "add": {
+        "success": {
+          "id": "agency.member.add.success",
+          "value": "New user added!"
+        }
+      },
+      "edit": {
+        "success": {
+          "id": "agency.member.edit.success",
+          "value": "User successfully updated!"
+        }
+      },
+      "form": {
+        "add": {
+          "rights": {
+            "id": "agency.member.form.add.rights",
+            "value": "Attribution of rights"
+          }
+        }
+      }
+    },
+    "members": {
+      "search": {
+        "placeholder": {
+          "id": "agency.members.search.placeholder",
+          "value": "Search by name, email, phone number"
+        }
+      }
+    },
+    "numberOfMember": {
+      "id": "agency.numberOfMember",
+      "value": "No user | {n} user | {n} users"
+    },
+    "numberOfSubAgency": {
+      "id": "agency.numberOfSubAgency",
+      "value": "No company | {n} company | {n} companies"
+    },
+    "pack": {
+      "expiration": {
+        "id": "agency.pack.expiration",
+        "value": "Expire on"
+      },
+      "expired": {
+        "id": "agency.pack.expired",
+        "value": "Expired on"
+      },
+      "status": {
+        "consumed": {
+          "id": "agency.pack.status.consumed",
+          "value": "Package consumed"
+        },
+        "expired": {
+          "id": "agency.pack.status.expired",
+          "value": "Date exceeded"
+        },
+        "stopped": {
+          "id": "agency.pack.status.stopped",
+          "value": "Package stopped"
+        }
+      },
+      "subscription": {
+        "intercom_message": {
+          "id": "agency.pack.subscription.intercom_message",
+          "value": "Hello, I would be interested in subscribing to a package."
+        },
+        "modal": {
+          "title": {
+            "id": "agency.pack.subscription.modal.title",
+            "value": "Subscribe to a pack"
+          }
+        }
+      },
+      "wish_to_subscribe": {
+        "id": "agency.pack.wish_to_subscribe",
+        "value": "Would you like to subscribe to a package?"
+      }
+    },
+    "packs": {
+      "current": {
+        "id": "agency.packs.current",
+        "value": "Active package(s)"
+      },
+      "empty": {
+        "current": {
+          "id": "agency.packs.empty.current",
+          "value": "You have no active package!"
+        },
+        "expired": {
+          "id": "agency.packs.empty.expired",
+          "value": "You have no expired package!"
+        }
+      },
+      "expired": {
+        "id": "agency.packs.expired",
+        "value": "Package(s) expired"
+      },
+      "remaining": {
+        "shootings": {
+          "id": "agency.packs.remaining.shootings",
+          "value": "{remaining} shoots of {total} total"
+        }
+      }
+    },
+    "parent": {
+      "id": "agency.parent",
+      "value": "Parent company"
+    },
+    "search": {
+      "placeholder": {
+        "id": "agency.search.placeholder",
+        "value": "Search by name, email, phone number"
+      }
+    },
+    "team": {
+      "add_member": {
+        "id": "agency.team.add_member",
+        "value": "Add a user"
+      },
+      "member": {
+        "id": "agency.team.member",
+        "value": "Company member(s)"
+      }
+    },
+    "unsubscribe_member": {
+      "confirm": {
+        "id": "agency.unsubscribe_member.confirm",
+        "value": "Are you sure you want to remove {name}?"
+      },
+      "success": {
+        "id": "agency.unsubscribe_member.success",
+        "value": "User successfully deleted!"
+      }
+    }
+  },
+  "album": {
+    "additional": {
+      "id": "album.additional",
+      "value": "{n} additional | {n} additional"
+    },
+    "blocked": {
+      "debt_recovery": {
+        "id": "album.blocked.debt_recovery",
+        "value": "To unlock the download, the company {agencyName} needs to complete cost recovery."
+      },
+      "processing": {
+        "id": "album.blocked.processing",
+        "value": "Your download is being prepared"
+      },
+      "validate_medias": {
+        "id": "album.blocked.validate_medias",
+        "value": "Confirm visuals"
+      },
+      "validation_needed": {
+        "id": "album.blocked.validation_needed",
+        "value": "Confirm visuals to download"
+      }
+    },
+    "checkout_quotation": {
+      "billed_items": {
+        "id": "album.checkout_quotation.billed_items",
+        "value": "Billed items"
+      }
+    },
+    "debt_alert": {
+      "id": "album.debt_alert",
+      "value": "Warning: you have unpaid invoices"
+    },
+    "deselect_all": {
+      "id": "album.deselect_all",
+      "value": "Unselect all"
+    },
+    "download": {
+      "id": "album.download",
+      "value": "Download without watermark"
+    },
+    "downloadAll": {
+      "id": "album.downloadAll",
+      "value": "Download both"
+    },
+    "downloadWatermark": {
+      "id": "album.downloadWatermark",
+      "value": "Download with watermark"
+    },
+    "download_album": {
+      "id": "album.download_album",
+      "value": "Download the album"
+    },
+    "in_preparation": {
+      "id": "album.in_preparation",
+      "value": "File being prepared..."
+    },
+    "media": {
+      "select": {
+        "id": "album.media.select",
+        "value": "Select"
+      },
+      "selected": {
+        "id": "album.media.selected",
+        "value": "Selected"
+      }
+    },
+    "media_limit": {
+      "id": "album.media_limit",
+      "value": "You have reached the limit of selected media on this album"
+    },
+    "selected": {
+      "id": "album.selected",
+      "value": "{n} | {n}"
+    },
+    "select_all": {
+      "id": "album.select_all",
+      "value": "Select all"
+    },
+    "shoot_detail": {
+      "id": "album.shoot_detail",
+      "value": "View shoot detail"
+    },
+    "status": {
+      "downloadable": {
+        "id": "album.status.downloadable",
+        "value": "Ready for download"
+      },
+      "in_preparation": {
+        "id": "album.status.in_preparation",
+        "value": "Being prepared"
+      }
+    },
+    "tab": {
+      "all": {
+        "id": "album.tab.all",
+        "value": "All"
+      },
+      "downloadable": {
+        "id": "album.tab.downloadable",
+        "value": "Ready for download"
+      },
+      "selectable": {
+        "id": "album.tab.selectable",
+        "value": "To select"
+      }
+    }
+  },
+  "albums": {
+    "no_album_from_search": {
+      "id": "albums.no_album_from_search",
+      "value": "There are no albums matching your criteria."
+    },
+    "search": {
+      "placeholder": {
+        "id": "albums.search.placeholder",
+        "value": "Search by ID, reference.."
+      }
+    },
+    "vr_tooltip": {
+      "id": "albums.vr_tooltip",
+      "value": "All your {type} media are available in one place"
+    }
+  },
+  "archives": {
+    "pending": {
+      "id": "archives.pending",
+      "value": "Your archive is being prepared. It may take time."
+    },
+    "stale": {
+      "id": "archives.stale",
+      "value": "It's been a while! Regenerate the archive to get your album."
+    },
+    "stale_cta": {
+      "id": "archives.stale_cta",
+      "value": "Regenerate my archive"
+    }
+  },
+  "cart": {
+    "additional_price": {
+      "id": "cart.additional_price",
+      "value": "Additional price / supplements"
+    },
+    "amount_to_pay": {
+      "id": "cart.amount_to_pay",
+      "value": "Total payment amount"
+    },
+    "amount_to_pay_at": {
+      "id": "cart.amount_to_pay_at",
+      "value": "Total payment amount (incl. VAT)"
+    },
+    "amount_to_pay_bt": {
+      "id": "cart.amount_to_pay_bt",
+      "value": "Total payment amount (excl. VAT)"
+    },
+    "confirm_pay": {
+      "id": "cart.confirm_pay",
+      "value": "Confirm and pay"
+    },
+    "deselect_all": {
+      "id": "cart.deselect_all",
+      "value": "Deselect all"
+    },
+    "shooting_price": {
+      "id": "cart.shooting_price",
+      "value": "Shoot price"
+    },
+    "validate_selection": {
+      "id": "cart.validate_selection",
+      "value": "Confirm my selection"
+    },
+    "vat": {
+      "id": "cart.vat",
+      "value": "VAT"
+    }
+  },
+  "checkout": {
+    "delivery": {
+      "action": {
+        "id": "checkout.delivery.action",
+        "value": "Back to my albums"
+      },
+      "baseline": {
+        "id": "checkout.delivery.baseline",
+        "value": "The download will be available in the album as soon as the archive is ready"
+      },
+      "title": {
+        "id": "checkout.delivery.title",
+        "value": "Continue browsing, your images will soon be accessible"
+      }
+    },
+    "notation": {
+      "baseline": {
+        "id": "checkout.notation.baseline",
+        "value": "Rate the photographer to access your downloads"
+      },
+      "title": {
+        "id": "checkout.notation.title",
+        "value": "How was your shoot experience with {firstname}?"
+      }
+    }
+  },
+  "checkout_quotation": {
+    "bill_info": {
+      "id": "checkout_quotation.bill_info",
+      "value": "This amount takes into account the items already billed for this shoot as well as any overpayments that apply. For more information see billing."
+    },
+    "designation": {
+      "id": "checkout_quotation.designation",
+      "value": "Designation"
+    },
+    "monthly_notice": {
+      "id": "checkout_quotation.monthly_notice",
+      "value": "This amount will be added to your monthly payment"
+    },
+    "monthly_payment_info": {
+      "id": "checkout_quotation.monthly_payment_info",
+      "value": "By confirming, the selected media will be validated and added to your monthly billing."
+    },
+    "no_additional_fee": {
+      "id": "checkout_quotation.no_additional_fee",
+      "value": "No additional fees will be applied for this selection"
+    },
+    "quantity": {
+      "id": "checkout_quotation.quantity",
+      "value": "Quantity"
+    },
+    "totalprice": {
+      "id": "checkout_quotation.totalprice",
+      "value": "Total Price (Without taxes)"
+    },
+    "total_amount": {
+      "id": "checkout_quotation.total_amount",
+      "value": "Invoiced amount (Including taxes)"
+    },
+    "unitprice": {
+      "id": "checkout_quotation.unitprice",
+      "value": "Unit price (Without taxes)"
+    }
+  },
+  "compatibility": {
+    "text": {
+      "id": "compatibility.text",
+      "value": "To access Meero, please switch browsers or download your browser's latest version. If you encounter a problem, please contact us."
+    },
+    "title": {
+      "id": "compatibility.title",
+      "value": "Oops! Your browser is not supported."
+    }
+  },
+  "contact_us": {
+    "id": "contact_us",
+    "value": "Contact us"
+  },
+  "customer_qualification": {
+    "easylike": {
+      "id": "customer_qualification.easylike",
+      "value": "(as easy as taking a picture!)"
+    },
+    "helpus": {
+      "id": "customer_qualification.helpus",
+      "value": "Can you help us customize our service?"
+    },
+    "order_shoot_now": {
+      "id": "customer_qualification.order_shoot_now",
+      "value": "Order a shoot now"
+    },
+    "ready_to_shoot": {
+      "id": "customer_qualification.ready_to_shoot",
+      "value": "Ready for your first shoot?"
+    },
+    "sector": {
+      "id": "customer_qualification.sector",
+      "value": "What is your business sector?"
+    }
+  },
+  "funnel": {
+    "address": {
+      "address_not_found": {
+        "id": "funnel.address.address_not_found",
+        "value": "We don't recognize your address..."
+      },
+      "address_proximity": {
+        "id": "funnel.address.address_proximity",
+        "value": "To help us find your address, please give us more information"
+      },
+      "agency": {
+        "blocked": {
+          "id": "funnel.address.agency.blocked",
+          "value": "It seems that there are some issues with payments of company {name}. Please check with the company manager or Meero Support teams to help us fix this."
+        },
+        "choose": {
+          "id": "funnel.address.agency.choose",
+          "value": "For which company are you ordering?"
+        }
+      },
+      "carry_address": {
+        "id": "funnel.address.carry_address",
+        "value": "If the address {address} is correct, continue."
+      },
+      "carry_with_address": {
+        "id": "funnel.address.carry_with_address",
+        "value": "Continue with this address"
+      },
+      "change_address": {
+        "id": "funnel.address.change_address",
+        "value": "Change address"
+      },
+      "change_or_contact": {
+        "id": "funnel.address.change_or_contact",
+        "value": "You can change categories or contact us to make a personalized request."
+      },
+      "city_error": {
+        "id": "funnel.address.city_error",
+        "value": "City not recognised"
+      },
+      "confirm": {
+        "id": "funnel.address.confirm",
+        "value": "I confirm this location"
+      },
+      "continue_address": {
+        "id": "funnel.address.continue_address",
+        "value": "Continue with this address"
+      },
+      "current_marker_address": {
+        "id": "funnel.address.current_marker_address",
+        "value": "Currently pinned address:"
+      },
+      "custom_request": {
+        "id": "funnel.address.custom_request",
+        "value": "Ask for a personalized request"
+      },
+      "digicode_label": {
+        "id": "funnel.address.digicode_label",
+        "value": "Access to the building, entrance code, intercom, floor, etc. "
+      },
+      "digicode_label_food": {
+        "id": "funnel.address.digicode_label_food",
+        "value": "Tell the photographer who to contact on-site"
+      },
+      "helper": {
+        "id": "funnel.address.helper",
+        "value": "Please indicate a complete and valid address (street, city, postal code)."
+      },
+      "marker_proximity": {
+        "id": "funnel.address.marker_proximity",
+        "value": "Move the map to find the actual shoot location"
+      },
+      "me": {
+        "id": "funnel.address.me",
+        "value": "Me"
+      },
+      "no_product_yet": {
+        "id": "funnel.address.no_product_yet",
+        "value": "Unfortunately, there is no offer available at {address}"
+      },
+      "order_other_product": {
+        "id": "funnel.address.order_other_product",
+        "value": "Order another product"
+      },
+      "placeholder": {
+        "id": "funnel.address.placeholder",
+        "value": "Enter the address of the shoot"
+      },
+      "placename_label": {
+        "food": {
+          "id": "funnel.address.placename_label.food",
+          "value": "Restaurant name"
+        }
+      },
+      "product_unavailable": {
+        "id": "funnel.address.product_unavailable",
+        "value": "This product is not available for this address"
+      },
+      "search_city": {
+        "id": "funnel.address.search_city",
+        "value": "Search for a town"
+      },
+      "select_valid_address": {
+        "id": "funnel.address.select_valid_address",
+        "value": "Please select a complete and valid address (street, city, postal code)."
+      },
+      "shooting_address_label": {
+        "id": "funnel.address.shooting_address_label",
+        "value": "Indicate a complete address"
+      },
+      "shooting_address_placeholder": {
+        "id": "funnel.address.shooting_address_placeholder",
+        "value": "Indicate a complete address (street, city, postal code)"
+      },
+      "someone_else": {
+        "id": "funnel.address.someone_else",
+        "value": "Someone else"
+      },
+      "title": {
+        "id": "funnel.address.title",
+        "value": "Where will the shoot take place?"
+      },
+      "unrecognized": {
+        "id": "funnel.address.unrecognized",
+        "value": "Your address is incomplete or we didn't recognize it.{space} Please move the pin to specify the location of your shoot."
+      },
+      "where": {
+        "id": "funnel.address.where",
+        "value": "Where should we meet?"
+      },
+      "who": {
+        "id": "funnel.address.who",
+        "value": "Who will be on-site?"
+      },
+      "who_helper": {
+        "id": "funnel.address.who_helper",
+        "value": "We will make sure this person will be reminded of the date and time of the shoot."
+      }
+    },
+    "agency": {
+      "helper": {
+        "id": "funnel.agency.helper",
+        "value": "For which company do you want to make you order?"
+      },
+      "text": {
+        "id": "funnel.agency.text",
+        "value": "Please select the company from which you want to order."
+      },
+      "title": {
+        "id": "funnel.agency.title",
+        "value": "Choose a company"
+      }
+    },
+    "blocked": {
+      "text": {
+        "id": "funnel.blocked.text",
+        "value": "You cannot order for {name} because <span>the company is blocked.</span> Please contact a company accountant to unblock the situation."
+      },
+      "title": {
+        "id": "funnel.blocked.title",
+        "value": "Oh no! You have been blocked"
+      }
+    },
+    "category": {
+      "none_cta": {
+        "id": "funnel.category.none_cta",
+        "value": "Choose another company"
+      },
+      "none_message": {
+        "id": "funnel.category.none_message",
+        "value": "Unfortunately, there are no products available for {agency}"
+      },
+      "title": {
+        "id": "funnel.category.title",
+        "value": "Choose a category"
+      }
+    },
+    "confirm": {
+      "card": {
+        "address": {
+          "id": "funnel.confirm.card.address",
+          "value": "Address"
+        },
+        "date": {
+          "id": "funnel.confirm.card.date",
+          "value": "Date and time"
+        },
+        "info": {
+          "id": "funnel.confirm.card.info",
+          "value": "Additional information"
+        },
+        "product": {
+          "id": "funnel.confirm.card.product",
+          "value": "Product"
+        }
+      },
+      "close": {
+        "id": "funnel.confirm.close",
+        "value": "Hide details"
+      },
+      "open": {
+        "id": "funnel.confirm.open",
+        "value": "Show details"
+      },
+      "promocode": {
+        "id": "funnel.confirm.promocode",
+        "value": "Product code: {promocode}"
+      },
+      "quote_credit": {
+        "id": "funnel.confirm.quote_credit",
+        "value": "Deduction of overpayment"
+      },
+      "quote_price": {
+        "id": "funnel.confirm.quote_price",
+        "value": "Amount (excl. tax)"
+      },
+      "quote_totalVat": {
+        "id": "funnel.confirm.quote_totalVat",
+        "value": "Total amount to be paid (incl. tax)"
+      },
+      "quote_vat": {
+        "id": "funnel.confirm.quote_vat",
+        "value": "VAT ({vat}%)"
+      },
+      "reference": {
+        "id": "funnel.confirm.reference",
+        "value": "Client reference"
+      },
+      "term": {
+        "id": "funnel.confirm.term",
+        "value": "By clicking, you accept the {link}"
+      },
+      "term_link": {
+        "id": "funnel.confirm.term_link",
+        "value": "terms and conditions of use"
+      },
+      "term_url": {
+        "id": "funnel.confirm.term_url",
+        "value": "https://www.meero.com/en/terms-and-conditions"
+      },
+      "title": {
+        "id": "funnel.confirm.title",
+        "value": "Summary of your shoot"
+      }
+    },
+    "contact": {
+      "area": {
+        "id": "funnel.contact.area",
+        "value": "Please describe your request and Meero will contact you"
+      },
+      "title": {
+        "id": "funnel.contact.title",
+        "value": "Custom request"
+      },
+      "valid": {
+        "id": "funnel.contact.valid",
+        "value": "Your message has been sent."
+      }
+    },
+    "create": {
+      "text": {
+        "id": "funnel.create.text",
+        "value": "Your payment is being processed, please do not refresh the page."
+      },
+      "title": {
+        "id": "funnel.create.title",
+        "value": "Payment being processed"
+      }
+    },
+    "date": {
+      "title": {
+        "id": "funnel.date.title",
+        "value": "When will the shoot take place?"
+      },
+      "wrongtime": {
+        "id": "funnel.date.wrongtime",
+        "value": "The time selected is invalid"
+      }
+    },
+    "day": {
+      "title": {
+        "id": "funnel.day.title",
+        "value": "Choose a date"
+      }
+    },
+    "done": {
+      "back_home": {
+        "id": "funnel.done.back_home",
+        "value": "Back to homepage"
+      },
+      "modal_title": {
+        "id": "funnel.done.modal_title",
+        "value": "New order"
+      },
+      "new_product": {
+        "id": "funnel.done.new_product",
+        "value": "New order"
+      },
+      "reference_link": {
+        "id": "funnel.done.reference_link",
+        "value": "Click here to copy the link with the company information"
+      },
+      "same_product": {
+        "id": "funnel.done.same_product",
+        "value": "Order the same product"
+      },
+      "text": {
+        "id": "funnel.done.text",
+        "value": "A confirmation email has been sent to you. We will inform you as soon as we have found a photographer."
+      },
+      "title": {
+        "id": "funnel.done.title",
+        "value": "Your order has been validated!"
+      }
+    },
+    "error": {
+      "checkProduct": {
+        "id": "funnel.error.checkProduct",
+        "value": "We failed to load the products. Please try again"
+      },
+      "createOrder": {
+        "id": "funnel.error.createOrder",
+        "value": "We were not able to create the shoot. Please try again."
+      },
+      "loadAgency": {
+        "id": "funnel.error.loadAgency",
+        "value": "We failed to load the company. Please try again."
+      },
+      "loadCategories": {
+        "id": "funnel.error.loadCategories",
+        "value": "We failed to load the category. Please try again."
+      },
+      "loadCollections": {
+        "id": "funnel.error.loadCollections",
+        "value": "We failed to load the products. Please try again"
+      },
+      "loadQuotation": {
+        "id": "funnel.error.loadQuotation",
+        "value": "An error has occurred. Please try again."
+      },
+      "loadSartData": {
+        "id": "funnel.error.loadSartData",
+        "value": "An error has occurredd. Please try again."
+      },
+      "loadTypes": {
+        "id": "funnel.error.loadTypes",
+        "value": "We failed to load the media. Please try again."
+      },
+      "platform": {
+        "checkProduct": {
+          "id": "funnel.error.platform.checkProduct",
+          "value": "We were unable to load the products. Please try again."
+        },
+        "createOrder": {
+          "id": "funnel.error.platform.createOrder",
+          "value": "We were unable to create the shoot. Please try again."
+        },
+        "generic": {
+          "id": "funnel.error.platform.generic",
+          "value": "An error has occurred. Please try again."
+        },
+        "loadAgency": {
+          "id": "funnel.error.platform.loadAgency",
+          "value": "We were unable to charge the company. Please try again."
+        },
+        "loadCategories": {
+          "id": "funnel.error.platform.loadCategories",
+          "value": "We were unable to load the category. Please try again."
+        },
+        "loadCollections": {
+          "id": "funnel.error.platform.loadCollections",
+          "value": "We were unable to load the products. Please try again."
+        },
+        "loadQuotation": {
+          "id": "funnel.error.platform.loadQuotation",
+          "value": "An error has occurred. Please try again."
+        },
+        "loadStartData": {
+          "id": "funnel.error.platform.loadStartData",
+          "value": "An error has occurred. Please try again."
+        },
+        "loadTypes": {
+          "id": "funnel.error.platform.loadTypes",
+          "value": "We were unable to load the media. Please try again."
+        }
+      }
+    },
+    "error_validation": {
+      "date_must_be_in_future": {
+        "id": "funnel.error_validation.date_must_be_in_future",
+        "value": "The shoot date cannot be in the past. Please try again."
+      },
+      "missing_shooting_host": {
+        "id": "funnel.error_validation.missing_shooting_host",
+        "value": "The details of the person on-site are required. Please try again."
+      },
+      "shooting_date": {
+        "date_error": {
+          "id": "funnel.error_validation.shooting_date.date_error",
+          "value": "We had a problem with the date of the shoot. Please try again."
+        },
+        "date_error_format": {
+          "id": "funnel.error_validation.shooting_date.date_error_format",
+          "value": "We had a problem with the date of the shoot. Please try again."
+        }
+      },
+      "shooting_date_invalid_time": {
+        "id": "funnel.error_validation.shooting_date_invalid_time",
+        "value": "An error occurred with the shoot time. Please try again."
+      },
+      "shooting_date_out_of_range": {
+        "id": "funnel.error_validation.shooting_date_out_of_range",
+        "value": "The date of the shoot is outside the permitted hours. Please try again."
+      },
+      "shooting_product_unavailable_for_address": {
+        "id": "funnel.error_validation.shooting_product_unavailable_for_address",
+        "value": "Unfortunately, the selected product is not available for this address. Please try again."
+      },
+      "shooting_reference_must_match_agency_pattern": {
+        "id": "funnel.error_validation.shooting_reference_must_match_agency_pattern",
+        "value": "The reference does not match the required format. Please try again"
+      },
+      "shooting_reference_required": {
+        "id": "funnel.error_validation.shooting_reference_required",
+        "value": "A reference is necessary to create the shoot. Please try again."
+      },
+      "unavailable_shooting_product": {
+        "id": "funnel.error_validation.unavailable_shooting_product",
+        "value": "Unfortunately, the selected product is not available. Please try again."
+      }
+    },
+    "general_title": {
+      "id": "funnel.general_title",
+      "value": "General information"
+    },
+    "global": {
+      "leave_message": {
+        "id": "funnel.global.leave_message",
+        "value": "Are you sure you want to leave this page? The information you have entered will not be saved."
+      },
+      "leave_title": {
+        "id": "funnel.global.leave_title",
+        "value": "Exit the order"
+      },
+      "particular_need": {
+        "id": "funnel.global.particular_need",
+        "value": "A special need?"
+      },
+      "range_why": {
+        "id": "funnel.global.range_why",
+        "value": "Why choose {range}?"
+      }
+    },
+    "gtc": {
+      "id": "funnel.gtc",
+      "value": "By ticking this box, I accept the Terms and Conditions."
+    },
+    "more": {
+      "comment_helper": {
+        "id": "funnel.more.comment_helper",
+        "value": "Please provide any special details. We will pass it along."
+      },
+      "date": {
+        "id": "funnel.more.date",
+        "value": "Shoot scheduled for {dateTime}"
+      },
+      "duration": {
+        "id": "funnel.more.duration",
+        "value": "Duration of the shoot: {duration}"
+      },
+      "email_helper": {
+        "id": "funnel.more.email_helper",
+        "value": "This person will receive an email with the final media."
+      },
+      "label_comment": {
+        "id": "funnel.more.label_comment",
+        "value": "Details about the shoot"
+      },
+      "label_email": {
+        "id": "funnel.more.label_email",
+        "value": "Receive visuals on this email"
+      },
+      "label_reference": {
+        "id": "funnel.more.label_reference",
+        "value": "Client reference"
+      },
+      "reference_helper": {
+        "id": "funnel.more.reference_helper",
+        "value": "If you have one internal reference code/numbers, you can add it here."
+      },
+      "title": {
+        "id": "funnel.more.title",
+        "value": "Additional information"
+      }
+    },
+    "need_more": {
+      "id": "funnel.need_more",
+      "value": "Would you like another type of media? A different quantity? Contact us!"
+    },
+    "order": {
+      "confirmation_title": {
+        "id": "funnel.order.confirmation_title",
+        "value": "Your order #{id} is validated!"
+      }
+    },
+    "payment": {
+      "title": {
+        "id": "funnel.payment.title",
+        "value": "Choose a payment method"
+      }
+    },
+    "product": {
+      "comparison": {
+        "choose": {
+          "id": "funnel.product.comparison.choose",
+          "value": "Choose this product"
+        },
+        "duration": {
+          "id": "funnel.product.comparison.duration",
+          "value": "Shoot duration"
+        },
+        "media_number": {
+          "id": "funnel.product.comparison.media_number",
+          "value": "Number of visuals:"
+        },
+        "price": {
+          "id": "funnel.product.comparison.price",
+          "value": "Price"
+        },
+        "title": {
+          "id": "funnel.product.comparison.title",
+          "value": "Have you considered this product ?"
+        }
+      },
+      "custom_request": {
+        "cta": {
+          "id": "funnel.product.custom_request.cta",
+          "value": "Personalized request"
+        },
+        "message": {
+          "id": "funnel.product.custom_request.message",
+          "value": "Explain your needs and our team will contact you!"
+        },
+        "title": {
+          "id": "funnel.product.custom_request.title",
+          "value": "Cannot find what you are looking for ?"
+        }
+      },
+      "filters": {
+        "id": "funnel.product.filters",
+        "value": "Filters"
+      },
+      "none_message": {
+        "id": "funnel.product.none_message",
+        "value": "Contact us via our website or reach out to your Meero sales representative to learn more about our services in this area."
+      },
+      "no_product_found": {
+        "id": "funnel.product.no_product_found",
+        "value": "No product found, you can reset the filters for better results."
+      },
+      "pack_shootings_left": {
+        "id": "funnel.product.pack_shootings_left",
+        "value": "{n} remaining | {n} remaining | {n} remaining"
+      },
+      "reset_filters": {
+        "id": "funnel.product.reset_filters",
+        "value": "Reset filters"
+      },
+      "title": {
+        "id": "funnel.product.title",
+        "value": "Choose a product"
+      }
+    },
+    "rangenotice": {
+      "custom": {
+        "id": "funnel.rangenotice.custom",
+        "value": "Our Custom products include features that are fully customized to your needs."
+      },
+      "premium": {
+        "id": "funnel.rangenotice.premium",
+        "value": "Our Premium products offer a wider range of technical skills and more advanced gear."
+      },
+      "professional": {
+        "id": "funnel.rangenotice.professional",
+        "value": "Our Professional products are tailored for clients who aim at quality but have a limited budget."
+      }
+    },
+    "specific_title": {
+      "id": "funnel.specific_title",
+      "value": "Special info"
+    },
+    "time": {
+      "title": {
+        "id": "funnel.time.title",
+        "value": "Choose a time"
+      }
+    },
+    "title": {
+      "address": {
+        "id": "funnel.title.address",
+        "value": "Address"
+      },
+      "complete": {
+        "id": "funnel.title.complete",
+        "value": "Order completed"
+      },
+      "date": {
+        "id": "funnel.title.date",
+        "value": "Date"
+      },
+      "failed": {
+        "id": "funnel.title.failed",
+        "value": "Error"
+      },
+      "informations": {
+        "id": "funnel.title.informations",
+        "value": "Information"
+      },
+      "product": {
+        "id": "funnel.title.product",
+        "value": "Product"
+      },
+      "validation": {
+        "id": "funnel.title.validation",
+        "value": "Validation"
+      }
+    },
+    "types": {
+      "helper": {
+        "id": "funnel.types.helper",
+        "value": "Please select which media you would like to order and we will get it going."
+      },
+      "title": {
+        "id": "funnel.types.title",
+        "value": "Select one or more types of visuals"
+      }
+    },
+    "unavailable": {
+      "show_products": {
+        "id": "funnel.unavailable.show_products",
+        "value": "See the available products"
+      }
+    },
+    "copy_information": {
+      "id": "funnel.copy_information",
+      "value": "Copy booking information"
+    },
+    "gtcInfo": {
+      "id": "funnel.gtcInfo",
+      "value": "By ticking this box, you accept the {gtcLink}, where applicable, and you agree to comply with the {bestPractices} and be bound by the {covidCovenants}."
+    },
+    "gtcLink": {
+      "id": "funnel.gtcLink",
+      "value": "Terms and Conditions"
+    },
+    "gtcBest_practices": {
+      "id": "funnel.gtcBest_practices",
+      "value": "Meero Best Practices"
+    },
+    "gtcCovid_covenants": {
+      "id": "funnel.gtcCovid_covenants",
+      "value": "Additional Covid-19 Covenants"
+    },
+    "prospect_appearance": {
+      "id": "funnel.prospect_appearance",
+      "value": "Your booking will appear in a couple of minutes in your list."
+    },
+    "prospect_back": {
+      "id": "funnel.prospect_back",
+      "value": "Back to bookings"
+    },
+    "prospect_created": {
+      "id": "funnel.prospect_created",
+      "value": "Booking successfully created."
+    },
+    "prospect_info": {
+      "id": "funnel.prospect_info",
+      "value": "Thanks for the info, we'll get right on it."
+    }
+  },
+  "global": {
+    "account_activated": {
+      "id": "global.account_activated",
+      "value": "Your account {email} has been activated!"
+    },
+    "add": {
+      "id": "global.add",
+      "value": "Add"
+    },
+    "address": {
+      "id": "global.address",
+      "value": "Address"
+    },
+    "agency": {
+      "label": {
+        "id": "global.agency.label",
+        "value": "Company"
+      },
+      "no_member": {
+        "id": "global.agency.no_member",
+        "value": "No member in this company"
+      }
+    },
+    "agency_type": {
+      "id": "global.agency_type",
+      "value": "Company Type"
+    },
+    "albums": {
+      "id": "global.albums",
+      "value": "Album | Albums"
+    },
+    "albumsTitle": {
+      "id": "global.albumsTitle",
+      "value": "Albums"
+    },
+    "all": {
+      "id": "global.all",
+      "value": "All"
+    },
+    "all_reasons": {
+      "id": "global.all_reasons",
+      "value": "All reasons"
+    },
+    "approve": {
+      "id": "global.approve",
+      "value": "Approve"
+    },
+    "authenticate": {
+      "id": "global.authenticate",
+      "value": "Log in"
+    },
+    "back": {
+      "id": "global.back",
+      "value": "Back"
+    },
+    "browse": {
+      "id": "global.browse",
+      "value": "Browse"
+    },
+    "browser_outdated_video": {
+      "id": "global.browser_outdated_video",
+      "value": "Your browser is out of date and can not display this video"
+    },
+    "btn_authenticate": {
+      "id": "global.btn_authenticate",
+      "value": "Login"
+    },
+    "btn_back": {
+      "id": "global.btn_back",
+      "value": "Back"
+    },
+    "btn_back_to_home": {
+      "id": "global.btn_back_to_home",
+      "value": "Back to homepage"
+    },
+    "btn_login": {
+      "id": "global.btn_login",
+      "value": "Log in"
+    },
+    "btn_new_payment_methods": {
+      "id": "global.btn_new_payment_methods",
+      "value": "Add a payment method"
+    },
+    "btn_order": {
+      "id": "global.btn_order",
+      "value": "Order"
+    },
+    "btn_pay": {
+      "id": "global.btn_pay",
+      "value": "Pay"
+    },
+    "btn_reload": {
+      "id": "global.btn_reload",
+      "value": "Refresh"
+    },
+    "btn_seefaq": {
+      "id": "global.btn_seefaq",
+      "value": "FAQ's"
+    },
+    "btn_understood": {
+      "id": "global.btn_understood",
+      "value": "I got it!"
+    },
+    "cancel": {
+      "id": "global.cancel",
+      "value": "Cancel"
+    },
+    "cancel_reason": {
+      "id": "global.cancel_reason",
+      "value": "Reason for Cancellation/Modification"
+    },
+    "cancel_responsible": {
+      "id": "global.cancel_responsible",
+      "value": "Person responsible for Cancellation / Modification"
+    },
+    "category": {
+      "id": "global.category",
+      "value": "Category | Categories"
+    },
+    "choose": {
+      "id": "global.choose",
+      "value": "Choose"
+    },
+    "city": {
+      "id": "global.city",
+      "value": "City"
+    },
+    "close": {
+      "id": "global.close",
+      "value": "Close"
+    },
+    "comment": {
+      "add": {
+        "id": "global.comment.add",
+        "value": "Add a comment"
+      }
+    },
+    "confirm": {
+      "id": "global.confirm",
+      "value": "Confirm"
+    },
+    "contact": {
+      "call_or_by_form": {
+        "id": "global.contact.call_or_by_form",
+        "value": "Contact us using the contact form."
+      }
+    },
+    "contact_us": {
+      "id": "global.contact_us",
+      "value": "Contact us"
+    },
+    "copied": {
+      "id": {
+        "id": "global.copied.id",
+        "value": "Username copied!"
+      },
+      "reference": {
+        "id": "global.copied.reference",
+        "value": "Reference copied!"
+      }
+    },
+    "copyDone": {
+      "id": "global.copyDone",
+      "value": "Copied!"
+    },
+    "country": {
+      "id": "global.country",
+      "value": "Country"
+    },
+    "create": {
+      "id": "global.create",
+      "value": "Create"
+    },
+    "createdFrom": {
+      "id": "global.createdFrom",
+      "value": "Creation date (from)"
+    },
+    "createdTo": {
+      "id": "global.createdTo",
+      "value": "Date added (to)"
+    },
+    "credit_card": {
+      "id": "global.credit_card",
+      "value": "Credit card"
+    },
+    "date": {
+      "id": "global.date",
+      "value": "Date"
+    },
+    "dateend": {
+      "id": "global.dateend",
+      "value": "End date"
+    },
+    "dateFrom": {
+      "id": "global.dateFrom",
+      "value": "Date (from)"
+    },
+    "datestart": {
+      "id": "global.datestart",
+      "value": "Start date"
+    },
+    "dateTo": {
+      "id": "global.dateTo",
+      "value": "Date (to)"
+    },
+    "delivered": {
+      "id": "global.delivered",
+      "value": "Downloaded"
+    },
+    "demo": {
+      "id": "global.demo",
+      "value": "Demo"
+    },
+    "denomination": {
+      "id": "global.denomination",
+      "value": "Company name"
+    },
+    "disabled": {
+      "id": "global.disabled",
+      "value": "Disabled status"
+    },
+    "done": {
+      "id": "global.done",
+      "value": "Done"
+    },
+    "dontsave": {
+      "id": "global.dontsave",
+      "value": "Do not save"
+    },
+    "download": {
+      "id": "global.download",
+      "value": "Download"
+    },
+    "downloadable": {
+      "id": "global.downloadable",
+      "value": "Ready for download"
+    },
+    "downloaded": {
+      "id": "global.downloaded",
+      "value": "Downloaded"
+    },
+    "duration": {
+      "id": "global.duration",
+      "value": "{hours}h{minutes}"
+    },
+    "edit": {
+      "id": "global.edit",
+      "value": "Edit"
+    },
+    "email": {
+      "id": "global.email",
+      "value": "Email"
+    },
+    "en": {
+      "id": "global.en",
+      "value": "English"
+    },
+    "enabled": {
+      "id": "global.enabled",
+      "value": "Enabled"
+    },
+    "error": {
+      "400": {
+        "subtitle": {
+          "id": "global.error.400.subtitle",
+          "value": "Unauthorized, wrong or incomplete request."
+        }
+      },
+      "401": {
+        "subtitle": {
+          "id": "global.error.401.subtitle",
+          "value": "You are no longer connected!"
+        },
+        "title": {
+          "id": "global.error.401.title",
+          "value": "Session timed out"
+        }
+      },
+      "403": {
+        "subtitle": {
+          "id": "global.error.403.subtitle",
+          "value": "You're not allowed to browse this page."
+        }
+      },
+      "404": {
+        "subtitle": {
+          "id": "global.error.404.subtitle",
+          "value": "We are sorry, the requested page does not exist."
+        },
+        "tip": {
+          "id": "global.error.404.tip",
+          "value": "Verify the address you entered"
+        }
+      },
+      "408": {
+        "subtitle": {
+          "id": "global.error.408.subtitle",
+          "value": "The server took too long to respond."
+        }
+      },
+      "500": {
+        "subtitle": {
+          "id": "global.error.500.subtitle",
+          "value": "Meero is temporarily unavailable... We are doing our best to restore access."
+        }
+      },
+      "504": {
+        "subtitle": {
+          "id": "global.error.504.subtitle",
+          "value": "The server took too long to respond."
+        }
+      }
+    },
+    "error_code": {
+      "id": "global.error_code",
+      "value": "Error {errorCode}"
+    },
+    "es": {
+      "id": "global.es",
+      "value": "Spanish"
+    },
+    "exit": {
+      "id": "global.exit",
+      "value": "Exit"
+    },
+    "export": {
+      "id": "global.export",
+      "value": "Export"
+    },
+    "export_error": {
+      "id": "global.export_error",
+      "value": "Oops, an error occurred, please try again"
+    },
+    "export_gotit": {
+      "id": "global.export_gotit",
+      "value": "Got it"
+    },
+    "export_message": {
+      "id": "global.export_message",
+      "value": "The export is being created, you will receive it by email when it is completed."
+    },
+    "firstname": {
+      "id": "global.firstname",
+      "value": "First name"
+    },
+    "form": {
+      "error": {
+        "address": {
+          "invalid": {
+            "id": "global.form.error.address.invalid",
+            "value": "Your address is not valid"
+          }
+        },
+        "email": {
+          "id": "global.form.error.email",
+          "value": "This field must contain a valid email"
+        },
+        "max_length": {
+          "id": "global.form.error.max_length",
+          "value": "{count} characters maximum"
+        },
+        "new_password": {
+          "identical": {
+            "id": "global.form.error.new_password.identical",
+            "value": "The password entered is identical"
+          }
+        },
+        "password": {
+          "confirmed": {
+            "id": "global.form.error.password.confirmed",
+            "value": "The passwords do not match"
+          },
+          "regex": {
+            "id": "global.form.error.password.regex",
+            "value": "Your password must contain at least 8 characters with a lowercase letter, an uppercase letter and one number"
+          }
+        },
+        "required": {
+          "id": "global.form.error.required",
+          "value": "This field is mandatory"
+        },
+        "value_already_used": {
+          "email": {
+            "id": "global.form.error.value_already_used.email",
+            "value": "This email is already being used"
+          }
+        }
+      },
+      "validation": {
+        "error": {
+          "id": "global.form.validation.error",
+          "value": "An error has occurred, please try again."
+        },
+        "success": {
+          "id": "global.form.validation.success",
+          "value": "Your details have been updated"
+        },
+        "unsave": {
+          "id": "global.form.validation.unsave",
+          "value": "Your changes have not been saved"
+        },
+        "wrong": {
+          "id": "global.form.validation.wrong",
+          "value": "Your information is not correct, please check again."
+        }
+      }
+    },
+    "fr": {
+      "id": "global.fr",
+      "value": "French"
+    },
+    "help": {
+      "id": "global.help",
+      "value": "Help center"
+    },
+    "hi": {
+      "id": "global.hi",
+      "value": "Hindi"
+    },
+    "ht": {
+      "id": "global.ht",
+      "value": "Before tax"
+    },
+    "iban": {
+      "id": "global.iban",
+      "value": "IBAN"
+    },
+    "impossibleAction": {
+      "id": "global.impossibleAction",
+      "value": "Action impossible"
+    },
+    "input_address": {
+      "id": "global.input_address",
+      "value": "Enter an address"
+    },
+    "invoicing": {
+      "id": "global.invoicing",
+      "value": "Invoicing"
+    },
+    "in_preparation": {
+      "id": "global.in_preparation",
+      "value": "To select"
+    },
+    "ja": {
+      "id": "global.ja",
+      "value": "Japanese"
+    },
+    "language": {
+      "id": "global.language",
+      "value": "Language"
+    },
+    "lastname": {
+      "id": "global.lastname",
+      "value": "Last name"
+    },
+    "loading": {
+      "id": "global.loading",
+      "value": "Loading..."
+    },
+    "logout": {
+      "id": "global.logout",
+      "value": "Sign out"
+    },
+    "manager": {
+      "id": "global.manager",
+      "value": "Responsible"
+    },
+    "media": {
+      "id": "global.media",
+      "value": "visuals"
+    },
+    "media_type": {
+      "id": "global.media_type",
+      "value": "Type"
+    },
+    "menu": {
+      "about": {
+        "id": "global.menu.about",
+        "value": "About"
+      },
+      "agencies": {
+        "id": "global.menu.agencies",
+        "value": "My companies"
+      },
+      "agency": {
+        "id": "global.menu.agency",
+        "value": "My company"
+      },
+      "albums": {
+        "id": "global.menu.albums",
+        "value": "Albums"
+      },
+      "general": {
+        "id": "global.menu.general",
+        "value": "General"
+      },
+      "home": {
+        "id": "global.menu.home",
+        "value": "Home"
+      },
+      "invoice": {
+        "id": "global.menu.invoice",
+        "value": "My invoices"
+      },
+      "invoicing": {
+        "id": "global.menu.invoicing",
+        "value": "Invoicing"
+      },
+      "monitoring": {
+        "id": "global.menu.monitoring",
+        "value": "Reporting"
+      },
+      "my_sub_agencies": {
+        "id": "global.menu.my_sub_agencies",
+        "value": "Sub-companies"
+      },
+      "packs": {
+        "id": "global.menu.packs",
+        "value": "My packages"
+      },
+      "products": {
+        "id": "global.menu.products",
+        "value": "My products"
+      },
+      "profile": {
+        "id": "global.menu.profile",
+        "value": "My profile"
+      },
+      "prospects": {
+        "id": "global.menu.prospects",
+        "value": "Bookings"
+      },
+      "see_profile": {
+        "id": "global.menu.see_profile",
+        "value": "View my profile"
+      },
+      "shootings": {
+        "id": "global.menu.shootings",
+        "value": "Shoots"
+      }
+    },
+    "message": {
+      "id": "global.message",
+      "value": "Message"
+    },
+    "modify": {
+      "id": "global.modify",
+      "value": "Edit"
+    },
+    "myAlbumsTitle": {
+      "id": "global.myAlbumsTitle",
+      "value": "My albums"
+    },
+    "newPassword": {
+      "id": "global.newPassword",
+      "value": "New password"
+    },
+    "next": {
+      "id": "global.next",
+      "value": "Next"
+    },
+    "not_provided": {
+      "id": "global.not_provided",
+      "value": "Not disclosed"
+    },
+    "numberOfMedia": {
+      "id": "global.numberOfMedia",
+      "value": "{n} visual|{n} visual|{n} visuals"
+    },
+    "n_shootings": {
+      "id": "global.n_shootings",
+      "value": "{n} shoot|{n} shoot|{n} shoots"
+    },
+    "ok": {
+      "id": "global.ok",
+      "value": "OK"
+    },
+    "on_going": {
+      "id": "global.on_going",
+      "value": "current"
+    },
+    "orderedby": {
+      "id": "global.orderedby",
+      "value": "Ordered by"
+    },
+    "password": {
+      "id": "global.password",
+      "value": "Password"
+    },
+    "phone": {
+      "id": "global.phone",
+      "value": "Phone"
+    },
+    "photographer": {
+      "id": "global.photographer",
+      "value": "Photographer"
+    },
+    "placeholder_email": {
+      "id": "global.placeholder_email",
+      "value": "Email"
+    },
+    "placeholder_firstname": {
+      "id": "global.placeholder_firstname",
+      "value": "First Name"
+    },
+    "placeholder_lastname": {
+      "id": "global.placeholder_lastname",
+      "value": "Name"
+    },
+    "placename": {
+      "id": "global.placename",
+      "value": "Place name"
+    },
+    "previous": {
+      "id": "global.previous",
+      "value": "Previous"
+    },
+    "product": {
+      "id": "global.product",
+      "value": "Product"
+    },
+    "prospects": {
+      "id": "global.prospects",
+      "value": "Booking | Bookings"
+    },
+    "prospects_title": {
+      "id": "global.prospects_title",
+      "value": "Bookings"
+    },
+    "pt": {
+      "id": "global.pt",
+      "value": "Portuguese"
+    },
+    "quick_order": {
+      "id": "global.quick_order",
+      "value": "Select a product"
+    },
+    "range": {
+      "custom": {
+        "id": "global.range.custom",
+        "value": "Custom"
+      },
+      "premium": {
+        "id": "global.range.premium",
+        "value": "Premium"
+      },
+      "professional": {
+        "id": "global.range.professional",
+        "value": "Pro"
+      }
+    },
+    "reason": {
+      "id": "global.reason",
+      "value": "Reason"
+    },
+    "record": {
+      "id": "global.record",
+      "value": "Save"
+    },
+    "reference": {
+      "id": "global.reference",
+      "value": "Reference"
+    },
+    "reject": {
+      "id": "global.reject",
+      "value": "Rejected"
+    },
+    "remove": {
+      "id": "global.remove",
+      "value": "Delete"
+    },
+    "repeatNewPassword": {
+      "id": "global.repeatNewPassword",
+      "value": "Confirm the new password"
+    },
+    "reset": {
+      "id": "global.reset",
+      "value": "Reset"
+    },
+    "restart": {
+      "id": "global.restart",
+      "value": "Restart"
+    },
+    "results": {
+      "id": "global.results",
+      "value": "{n} result|{n} result|{n} results"
+    },
+    "right": {
+      "agency": {
+        "id": "global.right.agency",
+        "value": "Company"
+      },
+      "agency_message": {
+        "id": "global.right.agency_message",
+        "value": "Allow the user to add member and create sub-companies"
+      },
+      "invoice": {
+        "id": "global.right.invoice",
+        "value": "Invoice"
+      },
+      "invoice_message": {
+        "id": "global.right.invoice_message",
+        "value": "Allow the user to see and pay invoices"
+      },
+      "shooting": {
+        "id": "global.right.shooting",
+        "value": "Shoot"
+      },
+      "shooting_message": {
+        "id": "global.right.shooting_message",
+        "value": "Allow the user to order and edit shoots"
+      }
+    },
+    "save": {
+      "id": "global.save",
+      "value": "Save"
+    },
+    "save_edit": {
+      "id": "global.save_edit",
+      "value": "Save edits"
+    },
+    "search": {
+      "id": "global.search",
+      "value": "Search"
+    },
+    "searching": {
+      "id": "global.searching",
+      "value": "Search"
+    },
+    "search_results_empty": {
+      "id": "global.search_results_empty",
+      "value": "Sorry, no results found for your search"
+    },
+    "see_less": {
+      "id": "global.see_less",
+      "value": "Show less"
+    },
+    "see_more": {
+      "id": "global.see_more",
+      "value": "Show more"
+    },
+    "send": {
+      "id": "global.send",
+      "value": "Send"
+    },
+    "sepa": {
+      "id": "global.sepa",
+      "value": "SEPA Mandate"
+    },
+    "shooting": {
+      "id": "global.shooting",
+      "value": "Shoot"
+    },
+    "shootingTitle": {
+      "id": "global.shootingTitle",
+      "value": "Shoot | Shoots"
+    },
+    "show_album": {
+      "id": "global.show_album",
+      "value": "View the album"
+    },
+    "show_all": {
+      "id": "global.show_all",
+      "value": "View all"
+    },
+    "show_details": {
+      "id": "global.show_details",
+      "value": "Show details"
+    },
+    "siret": {
+      "id": "global.siret",
+      "value": "Company Registration Number"
+    },
+    "something_wrong": {
+      "id": "global.something_wrong",
+      "value": "Oops... an error occurred! Please try again later."
+    },
+    "statuses": {
+      "id": "global.statuses",
+      "value": "Status"
+    },
+    "stop_schizophrenia": {
+      "id": "global.stop_schizophrenia",
+      "value": "Stop ghosting mode!"
+    },
+    "subscribe": {
+      "id": "global.subscribe",
+      "value": "Contact us"
+    },
+    "text_copied": {
+      "id": "global.text_copied",
+      "value": "Text copied"
+    },
+    "thankyou_username": {
+      "id": "global.thankyou_username",
+      "value": "Thank you {name}!"
+    },
+    "today": {
+      "id": "global.today",
+      "value": "Today"
+    },
+    "tomorrow": {
+      "id": "global.tomorrow",
+      "value": "Tomorrow"
+    },
+    "ttc": {
+      "id": "global.ttc",
+      "value": "Taxes Included"
+    },
+    "type-sepa": {
+      "id": "global.type-sepa",
+      "value": "SEPA Credit Transfer (SCT)"
+    },
+    "unsubscribe": {
+      "id": "global.unsubscribe",
+      "value": "Unsubscribe"
+    },
+    "update": {
+      "id": "global.update",
+      "value": "Update"
+    },
+    "username": {
+      "id": "global.username",
+      "value": "Username"
+    },
+    "validate": {
+      "id": "global.validate",
+      "value": "Validate"
+    },
+    "validated": {
+      "id": "global.validated",
+      "value": "Validated"
+    },
+    "vat": {
+      "id": "global.vat",
+      "value": "VAT"
+    },
+    "vat_number": {
+      "id": "global.vat_number",
+      "value": "VAT number"
+    },
+    "welcome_username": {
+      "id": "global.welcome_username",
+      "value": "Hello {name}"
+    },
+    "yesterday": {
+      "id": "global.yesterday",
+      "value": "Yesterday"
+    },
+    "zh": {
+      "id": "global.zh",
+      "value": "Chinese"
+    },
+    "zip_code": {
+      "id": "global.zip_code",
+      "value": "Zip code"
+    }
+  },
+  "home": {
+    "all_agencies": {
+      "id": "home.all_agencies",
+      "value": "All companies"
+    },
+    "emptystate": {
+      "shooting_place": {
+        "id": "home.emptystate.shooting_place",
+        "value": "Define the shoot location"
+      }
+    },
+    "last_albums": {
+      "id": "home.last_albums",
+      "value": "Latest albums"
+    },
+    "shootings": {
+      "tocome": {
+        "id": "home.shootings.tocome",
+        "value": "Shoots to come"
+      },
+      "todeliver": {
+        "id": "home.shootings.todeliver",
+        "value": "Waiting for delivery"
+      },
+      "toplan": {
+        "id": "home.shootings.toplan",
+        "value": "Date to be defined"
+      }
+    }
+  },
+  "home_empty": {
+    "choose_product": {
+      "id": "home_empty.choose_product",
+      "value": "What do you want to shoot?"
+    },
+    "order_first_shoot": {
+      "id": "home_empty.order_first_shoot",
+      "value": "Order my first shoot"
+    },
+    "create_first_booking": {
+      "id": "home_empty.create_first_booking",
+      "value": "Create my first booking"
+    },
+    "receive_visuals": {
+      "id": "home_empty.receive_visuals",
+      "value": "Just answer these three questions and we'll take it from there! You'll receive your fully-edited photo 24 hours after the photo or video shoot."
+    },
+    "organize_shoot": {
+      "id": "home_empty.organize_shoot",
+      "value": "Just answer these questions and we’ll take it from there! We’ll organize the shoot for you at a time and date that works for the person on site, and you’ll receive your fully-edited photos few hours later."
+    },
+    "select_date_hour": {
+      "id": "home_empty.select_date_hour",
+      "value": "When do you need to shoot?"
+    },
+    "else_to_know": {
+      "id": "home_empty.else_to_know",
+      "value": "What else would you like us to know before we book your shoot?"
+    },
+    "shooting_place": {
+      "id": "home_empty.shooting_place",
+      "value": "Where do you plan to shoot ?"
+    },
+    "subtitle": {
+      "id": "home_empty.subtitle",
+      "value": "Ready to order your first shoot? Let's get to it!"
+    }
+  },
+  "invoice": {
+    "card": {
+      "default": {
+        "id": "invoice.card.default",
+        "value": "Set as the default payment method (required for monthly payments)"
+      },
+      "save": {
+        "id": "invoice.card.save",
+        "value": "Save my card"
+      }
+    },
+    "monthlyPaymentOff": {
+      "id": "invoice.monthlyPaymentOff",
+      "value": "Monthly payment disabled"
+    },
+    "monthlyPaymentOn": {
+      "id": "invoice.monthlyPaymentOn",
+      "value": "Monthly payment activated"
+    }
+  },
+  "invoices": {
+    "additionalPhotoCount": {
+      "id": "invoices.additionalPhotoCount",
+      "value": "no visual | {count} visual | {count} visuals"
+    },
+    "billing_mails": {
+      "id": "invoices.billing_mails",
+      "value": "Invoice emails"
+    },
+    "charge_to": {
+      "id": "invoices.charge_to",
+      "value": "Invoiced to"
+    },
+    "creditcard": {
+      "cvc": {
+        "id": "invoices.creditcard.cvc",
+        "value": "CVC"
+      },
+      "expirationDate": {
+        "id": "invoices.creditcard.expirationDate",
+        "value": "Expiration Date"
+      },
+      "number": {
+        "id": "invoices.creditcard.number",
+        "value": "Card Number"
+      },
+      "owner": {
+        "id": "invoices.creditcard.owner",
+        "value": "Holder"
+      }
+    },
+    "debt_alert": {
+      "id": "invoices.debt_alert",
+      "value": "Attention, you owe {amount}"
+    },
+    "debt_alert_agency": {
+      "id": "invoices.debt_alert_agency",
+      "value": "Caution, the company {agency} is debtor of the sum of {amount}"
+    },
+    "deduct_on": {
+      "id": "invoices.deduct_on",
+      "value": "Deducted on {ref}"
+    },
+    "deduct_on_ongoing": {
+      "id": "invoices.deduct_on_ongoing",
+      "value": "Deducted from on-going invoices"
+    },
+    "form": {
+      "edit": {
+        "email": {
+          "id": "invoices.form.edit.email",
+          "value": "Invoice email (email@example.com;email@example.com…)"
+        }
+      }
+    },
+    "go_invoicing": {
+      "id": "invoices.go_invoicing",
+      "value": "See the invoicing"
+    },
+    "informations": {
+      "p1": {
+        "id": "invoices.informations.p1",
+        "value": "All your shoots - ordered and delivered - appear on a monthly summary available on your profile named as \"On going\"."
+      },
+      "p2": {
+        "id": "invoices.informations.p2",
+        "value": "On the third day of each month you will be invoiced for the previous month (example: On February 3rd, you will be invoiced for the month of January)."
+      },
+      "p3": {
+        "id": "invoices.informations.p3",
+        "value": "For any questions look at our FAQ's"
+      },
+      "title": {
+        "id": "invoices.informations.title",
+        "value": "Meero invoicing information"
+      }
+    },
+    "invoiceinformations": {
+      "id": "invoices.invoiceinformations",
+      "value": "My invoicing information"
+    },
+    "invoicing": {
+      "id": "invoices.invoicing",
+      "value": "Invoicing"
+    },
+    "invoicing_address": {
+      "id": "invoices.invoicing_address",
+      "value": "Billing address"
+    },
+    "left_to_pay": {
+      "id": "invoices.left_to_pay",
+      "value": "Outstanding amount:"
+    },
+    "monthlyPayment": {
+      "id": "invoices.monthlyPayment",
+      "value": "Monthly payment"
+    },
+    "myongoinginvoice": {
+      "id": "invoices.myongoinginvoice",
+      "value": "My ongoing invoice"
+    },
+    "noPaymentMethods": {
+      "id": "invoices.noPaymentMethods",
+      "value": "You have no payment method registered."
+    },
+    "ongoing": {
+      "additional": {
+        "id": "invoices.ongoing.additional",
+        "value": "additional"
+      },
+      "shootings": {
+        "id": "invoices.ongoing.shootings",
+        "value": "shoots"
+      }
+    },
+    "ongoingAmount": {
+      "id": "invoices.ongoingAmount",
+      "value": "Amount in progress:"
+    },
+    "ongoinginvoice": {
+      "id": "invoices.ongoinginvoice",
+      "value": "Ongoing"
+    },
+    "paid_amount": {
+      "id": "invoices.paid_amount",
+      "value": "Amount paid:"
+    },
+    "payment": {
+      "p1": {
+        "id": "invoices.payment.p1",
+        "value": "You can choose to pay by monthly direct debit."
+      },
+      "p2": {
+        "id": "invoices.payment.p2",
+        "value": "By choosing this option, your account will be charged at the end of the month for all your ordered shoots."
+      },
+      "p3": {
+        "id": "invoices.payment.p3",
+        "value": "To do so, please add an automatic payment method* (Bank card or SEPA)."
+      }
+    },
+    "paymentlistways": {
+      "id": "invoices.paymentlistways",
+      "value": "My payment methods"
+    },
+    "paymentMethods": {
+      "id": "invoices.paymentMethods",
+      "value": "Payment method(s)"
+    },
+    "search": {
+      "placeholder": {
+        "id": "invoices.search.placeholder",
+        "value": "Reference, ID..."
+      }
+    },
+    "shootingCount": {
+      "id": "invoices.shootingCount",
+      "value": "no shoot | {count} shoot | {count} shoots"
+    },
+    "siret": {
+      "id": "invoices.siret",
+      "value": "Company Registration Number"
+    },
+    "status": {
+      "paid": {
+        "id": "invoices.status.paid",
+        "value": "Paid"
+      },
+      "pending": {
+        "id": "invoices.status.pending",
+        "value": "Pending"
+      }
+    },
+    "tabs": {
+      "credit": {
+        "id": "invoices.tabs.credit",
+        "value": "Credit notes"
+      },
+      "deposit": {
+        "id": "invoices.tabs.deposit",
+        "value": "Advance payment"
+      },
+      "invoice": {
+        "id": "invoices.tabs.invoice",
+        "value": "Invoices"
+      }
+    },
+    "title": {
+      "id": "invoices.title",
+      "value": "Invoicing"
+    },
+    "total_amount": {
+      "id": "invoices.total_amount",
+      "value": "Total amount:"
+    },
+    "vat": {
+      "id": "invoices.vat",
+      "value": "VAT"
+    }
+  },
+  "monitoring": {
+    "agency_select": {
+      "id": "monitoring.agency_select",
+      "value": "Please select a company"
+    },
+    "your_agency": {
+      "id": "monitoring.your_agency",
+      "value": "Your Company "
+    },
+    "last_data_update": {
+      "id": "monitoring.last_data_update",
+      "value": "Last data update"
+    },
+    "hours_ago": {
+      "id": "monitoring.hours_ago",
+      "value": "{hours} hours ago"
+    }
+  },
+  "notation": {
+    "punctuality": {
+      "id": "notation.punctuality",
+      "value": "Punctuality of the photographer"
+    },
+    "quality": {
+      "id": "notation.quality",
+      "value": "Quality of the photographs"
+    }
+  },
+  "nps": {
+    "finalstep": {
+      "detractors": {
+        "p1": {
+          "id": "nps.finalstep.detractors.p1",
+          "value": "We're sorry to hear that Meero is not meeting your expectation, and we’d love an opportunity to learn more about what we could improve."
+        },
+        "p2": {
+          "id": "nps.finalstep.detractors.p2",
+          "value": "Please don't hesitate to share your thoughts at :"
+        },
+        "title": {
+          "id": "nps.finalstep.detractors.title",
+          "value": "Thank you for responding to our survey"
+        }
+      },
+      "passives": {
+        "p1": {
+          "id": "nps.finalstep.passives.p1",
+          "value": "We sincerely appreciate your time and will use your answer to make improvements to our services and partnership with you. "
+        },
+        "p2": {
+          "id": "nps.finalstep.passives.p2",
+          "value": "If there’s anything we can do to help, please don’t hesitate to get in touch."
+        },
+        "title": {
+          "id": "nps.finalstep.passives.title",
+          "value": "Thank you for your feedback"
+        }
+      },
+      "promoters": {
+        "p1": {
+          "id": "nps.finalstep.promoters.p1",
+          "value": "We sincerely appreciate your time and will use your answer to make improvements to our services and partnership with you. "
+        },
+        "p2": {
+          "id": "nps.finalstep.promoters.p2",
+          "value": "If there’s anything we can do to help, please don’t hesitate to get in touch."
+        },
+        "title": {
+          "id": "nps.finalstep.promoters.title",
+          "value": "We are so happy to see that you'd recommend Meero"
+        }
+      }
+    },
+    "firststep": {
+      "likely": {
+        "id": "nps.firststep.likely",
+        "value": "Extremely likely"
+      },
+      "notlikely": {
+        "id": "nps.firststep.notlikely",
+        "value": "Not likely at all"
+      },
+      "question": {
+        "id": "nps.firststep.question",
+        "value": "How likely are you to recommend Meero on a scale from 0 to 10 ?"
+      },
+      "title": {
+        "id": "nps.firststep.title",
+        "value": "Your feedback is important for us"
+      }
+    },
+    "secondstep": {
+      "give_details": {
+        "id": "nps.secondstep.give_details",
+        "value": "Please give us some details"
+      },
+      "interface_usability": {
+        "id": "nps.secondstep.interface_usability",
+        "value": "Interface usability"
+      },
+      "other": {
+        "id": "nps.secondstep.other",
+        "value": "Other"
+      },
+      "prices": {
+        "id": "nps.secondstep.prices",
+        "value": "Prices"
+      },
+      "quality_of_media": {
+        "id": "nps.secondstep.quality_of_media",
+        "value": "Quality of media"
+      },
+      "send": {
+        "id": "nps.secondstep.send",
+        "value": "Send the answer"
+      },
+      "speed_of_delivery": {
+        "id": "nps.secondstep.speed_of_delivery",
+        "value": "Speed of delivery"
+      },
+      "support_team_reactivity": {
+        "id": "nps.secondstep.support_team_reactivity",
+        "value": "Support team reactivity"
+      },
+      "title": {
+        "id": "nps.secondstep.title",
+        "value": "What is the main reason for this score ?"
+      }
+    },
+    "giveusfeedback": {
+      "id": "nps.giveusfeedback",
+      "value": "Give us your feedback"
+    },
+    "onlytakeminute": {
+      "id": "nps.onlytakeminute",
+      "value": "It only takes a minute and will help us greatly."
+    },
+    "notnow": {
+      "id": "nps.notnow",
+      "value": "not now"
+    },
+    "letsgo": {
+      "id": "nps.letsgo",
+      "value": "let's go"
+    }
+  },
+  "payment": {
+    "debt": {
+      "titleWithAgency": {
+        "id": "payment.debt.titleWithAgency",
+        "value": "Pay the full amount due by {agencyName}"
+      },
+      "titleWithoutAgency": {
+        "id": "payment.debt.titleWithoutAgency",
+        "value": "Pay the total amount due"
+      }
+    },
+    "error_message": {
+      "id": "payment.error_message",
+      "value": "Payment error"
+    },
+    "noRightToPay": {
+      "id": "payment.noRightToPay",
+      "value": "You do not have the necessary rights to make a payment"
+    },
+    "payYouBill": {
+      "id": "payment.payYouBill",
+      "value": "Pay your invoice"
+    },
+    "payYouDeposit": {
+      "id": "payment.payYouDeposit",
+      "value": "Make your advance payment"
+    },
+    "success_message": {
+      "id": "payment.success_message",
+      "value": "Your payment has been successfully processed!"
+    },
+    "totalAmountToPayNoVat": {
+      "id": "payment.totalAmountToPayNoVat",
+      "value": "Total amount to pay"
+    },
+    "totalAmountToPayWithVat": {
+      "id": "payment.totalAmountToPayWithVat",
+      "value": "Total amount to pay (tax included - {vat}%)"
+    }
+  },
+  "paymentway": {
+    "noregister": {
+      "id": "paymentway.noregister",
+      "value": "No registered method of payment"
+    }
+  },
+  "paymentways": {
+    "active-payment": {
+      "id": "paymentways.active-payment",
+      "value": "Activate the automatic payment method"
+    },
+    "agency_paymentways": {
+      "id": "paymentways.agency_paymentways",
+      "value": "Means of payment of {agency}"
+    },
+    "auto": {
+      "id": "paymentways.auto",
+      "value": "Automatic"
+    },
+    "automatic": {
+      "id": "paymentways.automatic",
+      "value": "Automatic"
+    },
+    "automatic_b2b": {
+      "id": "paymentways.automatic_b2b",
+      "value": "Set as automatic payment (required for monthly payments)"
+    },
+    "automatic_b2c": {
+      "id": "paymentways.automatic_b2c",
+      "value": "Set as automatic payment"
+    },
+    "card": {
+      "id": "paymentways.card",
+      "value": "Credit card"
+    },
+    "ConfirmDeletePaymentway": {
+      "id": "paymentways.ConfirmDeletePaymentway",
+      "value": "Are you sure you want to delete this payment method?"
+    },
+    "creditcard": {
+      "helper": {
+        "id": "paymentways.creditcard.helper",
+        "value": "This symbol indicates that your transaction is secure: all data will be encrypted."
+      }
+    },
+    "deletePaymentWay": {
+      "id": "paymentways.deletePaymentWay",
+      "value": "Deleting a payment method"
+    },
+    "expirydate": {
+      "id": "paymentways.expirydate",
+      "value": "Expires on {date}"
+    },
+    "Invalidpaymentmethod": {
+      "id": "paymentways.Invalidpaymentmethod",
+      "value": "Invalid payment method"
+    },
+    "monthlyPaymentLocked": {
+      "id": "paymentways.monthlyPaymentLocked",
+      "value": "Monthly payments cannot be modified"
+    },
+    "monthlyPayment_info": {
+      "id": "paymentways.monthlyPayment_info",
+      "value": "To continue please fill in an automatic payment method * (CB or SEPA)."
+    },
+    "monthly_message": {
+      "id": "paymentways.monthly_message",
+      "value": "Be aware that if you opt for automatic monthly payments, you will be charged for all shoots at the end of the month."
+    },
+    "my_paymentways": {
+      "id": "paymentways.my_paymentways",
+      "value": "My means of payment"
+    },
+    "noDeleteActivePaymentway": {
+      "id": "paymentways.noDeleteActivePaymentway",
+      "value": "You can not withdraw your automatic payment method"
+    },
+    "noDeleteLastPaymentway": {
+      "id": "paymentways.noDeleteLastPaymentway",
+      "value": "You can not withdraw the last payment method"
+    },
+    "owner": {
+      "id": "paymentways.owner",
+      "value": "Holder"
+    },
+    "paymentwayDeleted": {
+      "id": "paymentways.paymentwayDeleted",
+      "value": "Method of payment deleted"
+    },
+    "payment_ways": {
+      "id": "paymentways.payment_ways",
+      "value": "Means of payment"
+    },
+    "saveError": {
+      "id": "paymentways.saveError",
+      "value": "An error occurred while saving your payment method. Please try again later."
+    },
+    "sepa": {
+      "id": "paymentways.sepa",
+      "value": "SEPA Mandate"
+    },
+    "sepa_info": {
+      "id": "paymentways.sepa_info",
+      "value": "This SEPA mandate will be recorded and associated with your account"
+    },
+    "sepa_message": {
+      "id": "paymentways.sepa_message",
+      "value": "By providing your IBAN and confirming this payment, you are authorizing : Meero and Stripe, our payment service provider, to send instructions to your bank to debit your account in accordance with the instructions of Meero. You are entitled to a refund from your bank under the terms and conditions of your agreement with your bank. A refund must be claimed within 8 weeks starting from the date on which your account was debited."
+    },
+    "your-mandate": {
+      "id": "paymentways.your-mandate",
+      "value": "Your mandate"
+    },
+    "yourautomaticpaymentway": {
+      "id": "paymentways.yourautomaticpaymentway",
+      "value": "your automatic payment method"
+    }
+  },
+  "product": {
+    "default_name": {
+      "id": "product.default_name",
+      "value": "Composition"
+    },
+    "pack": {
+      "id": "product.pack",
+      "value": "Package"
+    },
+    "products_count": {
+      "id": "product.products_count",
+      "value": "{n} product| {n} product| {n} products"
+    },
+    "promocode": {
+      "id": "product.promocode",
+      "value": "Use a promo code"
+    },
+    "promocodeError": {
+      "id": "product.promocodeError",
+      "value": "Promo code invalid or expired!"
+    },
+    "promocode_helper": {
+      "id": "product.promocode_helper",
+      "value": "If you have a promo code, please enter it here. "
+    }
+  },
+  "products": {
+    "categories": {
+      "id": "products.categories",
+      "value": "Categories"
+    }
+  },
+  "profile": {
+    "agency_title": {
+      "id": "profile.agency_title",
+      "value": "Business information"
+    },
+    "avatar": {
+      "error": {
+        "id": "profile.avatar.error",
+        "value": "An error has occurred while updating your profile picture"
+      },
+      "success": {
+        "id": "profile.avatar.success",
+        "value": "Your profile picture has been updated"
+      }
+    },
+    "delete_confirm": {
+      "id": "profile.delete_confirm",
+      "value": "Delete account"
+    },
+    "general_title": {
+      "id": "profile.general_title",
+      "value": "General information"
+    },
+    "password": {
+      "success": {
+        "id": "profile.password.success",
+        "value": "Your password has been updated"
+      }
+    },
+    "put_photo_here": {
+      "id": "profile.put_photo_here",
+      "value": "Drop your photo here or import it from your computer."
+    },
+    "requestedEmailModification": {
+      "id": "profile.requestedEmailModification",
+      "value": "You have asked to change your current email address to: {newEmail}. To confirm this change, please validate your request by clicking on the link that was sent to your new email address."
+    },
+    "unsubscribe": {
+      "id": "profile.unsubscribe",
+      "value": "Cancel subscription"
+    },
+    "unsubscribe_content": {
+      "id": "profile.unsubscribe_content",
+      "value": "By validating the deletion of your account, you will not be able to go back."
+    },
+    "unsubscribe_resume": {
+      "id": "profile.unsubscribe_resume",
+      "value": "Warning! You're about to delete your account on Meero."
+    },
+    "unsubscribe_warning": {
+      "id": "profile.unsubscribe_warning",
+      "value": "If you wish to unsubscribe, please update your invoices and ensure that you don't have any shoot in progress."
+    },
+    "upload_avatar": {
+      "id": "profile.upload_avatar",
+      "value": "Upload my profile picture"
+    }
+  },
+  "prospect": {
+    "button": {
+      "show_shooting": {
+        "id": "prospect.button.show_shooting",
+        "value": "Shoot information"
+      }
+    },
+    "export_all": {
+      "id": "prospect.export_all",
+      "value": "All bookings"
+    },
+    "export_filtered": {
+      "id": "prospect.export_filtered",
+      "value": "Filtered bookings"
+    },
+    "label": {
+      "add_date": {
+        "id": "prospect.label.add_date",
+        "value": "Date added"
+      },
+      "call_fails": {
+        "id": "prospect.label.call_fails",
+        "value": "{n} unanswered call | {n} unanswered calls"
+      },
+      "comment": {
+        "id": "prospect.label.comment",
+        "value": "Comments"
+      },
+      "first_call": {
+        "id": "prospect.label.first_call",
+        "value": "Date of first call"
+      },
+      "host": {
+        "id": "prospect.label.host",
+        "value": "Person on-site"
+      },
+      "next_call": {
+        "id": "prospect.label.next_call",
+        "value": "Call back date"
+      },
+      "product": {
+        "id": "prospect.label.product",
+        "value": "Product"
+      },
+      "reason": {
+        "id": "prospect.label.reason",
+        "value": "Details given at time of refusal"
+      }
+    },
+    "no_prospect": {
+      "id": "prospect.no_prospect",
+      "value": "No booking available"
+    },
+    "no_prospect_from_search": {
+      "id": "prospect.no_prospect_from_search",
+      "value": "No booking match your criteria."
+    },
+    "search": {
+      "placeholder": {
+        "id": "prospect.search.placeholder",
+        "value": "Search by ID, reference, name of place, address etc."
+      }
+    },
+    "status": {
+      "duplicate": {
+        "id": "prospect.status.duplicate",
+        "value": "Duplicate"
+      },
+      "need_to_call": {
+        "id": "prospect.status.need_to_call",
+        "value": "To call"
+      },
+      "not_interested": {
+        "id": "prospect.status.not_interested",
+        "value": "Not interested"
+      },
+      "not_reachable": {
+        "id": "prospect.status.not_reachable",
+        "value": "Unreacheable"
+      },
+      "shooting_created": {
+        "id": "prospect.status.shooting_created",
+        "value": "Shoot planned"
+      },
+      "to_call_back": {
+        "id": "prospect.status.to_call_back",
+        "value": "To call back"
+      },
+      "wrong_number": {
+        "id": "prospect.status.wrong_number",
+        "value": "Wrong phone number"
+      }
+    },
+    "tab": {
+      "all": {
+        "id": "prospect.tab.all",
+        "value": "All"
+      },
+      "duplicate": {
+        "id": "prospect.tab.duplicate",
+        "value": "Duplicate"
+      },
+      "need_to_call": {
+        "id": "prospect.tab.need_to_call",
+        "value": "To call"
+      },
+      "not_interested": {
+        "id": "prospect.tab.not_interested",
+        "value": "Not interested"
+      },
+      "not_reachable": {
+        "id": "prospect.tab.not_reachable",
+        "value": "Unreachable"
+      },
+      "shooting_created": {
+        "id": "prospect.tab.shooting_created",
+        "value": "Shoot planned"
+      },
+      "to_call_back": {
+        "id": "prospect.tab.to_call_back",
+        "value": "To call back"
+      }
+    },
+    "text": {
+      "call_fails": {
+        "id": "prospect.text.call_fails",
+        "value": "unanswered call | unanswered calls"
+      }
+    },
+    "edit": {
+      "title": {
+        "id": "prospect.edit.title",
+        "value": "Edit : {placeName}"
+      },
+      "form": {
+        "place_details": {
+          "id": "prospect.edit.form.place_details",
+          "value": "Place Details"
+        },
+        "host": {
+          "id": "prospect.edit.form.host",
+          "value": "Person on site"
+        },
+        "additional_infos": {
+          "id": "prospect.edit.form.additional_infos",
+          "value": "Additional information"
+        },
+        "delete_shoot": {
+          "id": "prospect.edit.form.delete_shoot",
+          "value": "Delete shoot"
+        }
+      },
+      "modal": {
+        "save": {
+          "title": {
+            "id": "prospect.edit.modal.save.title",
+            "value": "Save modifications"
+          },
+          "reminder_changes": {
+            "id": "prospect.edit.modal.save.reminder_changes",
+            "value": "You have changed the following information :"
+          },
+          "reminder_leave": {
+            "id": "prospect.edit.modal.save.reminder_leave",
+            "value": "Your changes will be lost if you do not save them."
+          }
+        },
+        "delete": {
+          "title": {
+            "id": "prospect.edit.modal.delete.title",
+            "value": "Shoot canceled"
+          },
+          "content": {
+            "id": "prospect.edit.modal.delete.content",
+            "value": "Do you confirm you want to delete this shoot ?"
+          }
+        },
+        "address": {
+          "title": {
+            "id": "prospect.edit.modal.address.title",
+            "value": "Wrong address?"
+          },
+          "content": {
+            "id": "prospect.edit.modal.address.content",
+            "value": "If the address of the booking is wrong, please delete it and create a new one."
+          },
+          "button": {
+            "id": "prospect.edit.modal.address.button",
+            "value": "Delete and create new shoot"
+          }
+        }
+      }
+    },
+    "create_prospect_shoot": {
+      "id": "prospect.create_prospect_shoot",
+      "value": "Create a booking"
+    }
+  },
+  "shooting": {
+    "action": {
+      "cancelled": {
+        "id": "shooting.action.cancelled",
+        "value": "Shoot cancelled!"
+      },
+      "reported": {
+        "id": "shooting.action.reported",
+        "value": "The shoot has been successfully postponed!"
+      },
+      "waiting": {
+        "id": "shooting.action.waiting",
+        "value": "Shoot put on hold!"
+      }
+    },
+    "additional": {
+      "id": "shooting.additional",
+      "value": "Additional"
+    },
+    "album-explain": {
+      "id": "shooting.album-explain",
+      "value": "These are the visuals you purchased in addition to the base amount."
+    },
+    "album": {
+      "recovery-message": {
+        "id": "shooting.album.recovery-message",
+        "value": "To select and access visuals, please double check that all payments of company {agencyName} are okay. If not, please contact the company manager or Meero support teams to help us fix this."
+      }
+    },
+    "albumId": {
+      "id": "shooting.albumId",
+      "value": "Album #{shootingId}"
+    },
+    "available": {
+      "id": "shooting.available",
+      "value": "Available"
+    },
+    "button": {
+      "withAndWithoutWatermark": {
+        "id": "shooting.button.withAndWithoutWatermark",
+        "value": "both"
+      },
+      "withoutWatermark": {
+        "id": "shooting.button.withoutWatermark",
+        "value": "without watermark"
+      },
+      "withWatermark": {
+        "id": "shooting.button.withWatermark",
+        "value": "with watermark"
+      },
+      "try_again": {
+        "id": "shooting.button.withWatermark",
+        "value": "Try again",
+        "note": "Button try again in shooting list when shooting is paymentFailed",
+        "length": "13"
+      }
+    },
+    "clientcomment": {
+      "id": "shooting.clientcomment",
+      "value": "Shoot details"
+    },
+    "copy-to-Clipboard": {
+      "id": "shooting.copy-to-Clipboard",
+      "value": "Copy to the clipboard"
+    },
+    "display": {
+      "id": "shooting.display",
+      "value": "Show"
+    },
+    "download-msg-1": {
+      "id": "shooting.download-msg-1",
+      "value": "<strong>To select and access to the visual,</strong> the company <em>{agencyName}</em> balance must be settled"
+    },
+    "download-msg-10": {
+      "id": "shooting.download-msg-10",
+      "value": "<strong>Now download your visual.</strong> | <strong>Download your {nbMedia} visual now.</strong>"
+    },
+    "download-msg-2": {
+      "id": "shooting.download-msg-2",
+      "value": "<strong>You cannot choose visual</strong>"
+    },
+    "download-msg-3": {
+      "id": "shooting.download-msg-3",
+      "value": "<strong>Choose the visuals you want to download.</strong> | <strong>Choose the visuals you want to download.</strong>"
+    },
+    "download-msg-4": {
+      "id": "shooting.download-msg-4",
+      "value": "<strong>Choose the visuals you want to download.</strong> | <strong>Choose the visuals you want to download.</strong> "
+    },
+    "download-msg-5": {
+      "id": "shooting.download-msg-5",
+      "value": "<strong>Download your visual now.</strong> | <strong>Download your {nbMedia} visuals now.</strong>"
+    },
+    "download-msg-6": {
+      "id": "shooting.download-msg-6",
+      "value": "<strong>Download your visual now.</strong> | <strong>Download now your visual.</strong>"
+    },
+    "download-msg-7": {
+      "id": "shooting.download-msg-7",
+      "value": "<strong>Choose your visual to download.</strong>"
+    },
+    "download-msg-8": {
+      "id": "shooting.download-msg-8",
+      "value": "<strong>Download your visual now.</strong> | <strong>Download your {nbMedia} visuals now.</strong> "
+    },
+    "download-msg-9": {
+      "id": "shooting.download-msg-9",
+      "value": "<strong>Download your visual now.</strong> | <strong>Download your {nbMedia} visual now.</strong> "
+    },
+    "download-msg-vr": {
+      "id": "shooting.download-msg-vr",
+      "value": "Follow the link below to your VR media."
+    },
+    "edit": {
+      "access": {
+        "palceholder": {
+          "id": "shooting.edit.access.palceholder",
+          "value": "Access to the restaurant, entrance code, intercom..."
+        }
+      },
+      "address": {
+        "id": "shooting.edit.address",
+        "value": "Shoot address"
+      },
+      "date": {
+        "toplan": {
+          "id": "shooting.edit.date.toplan",
+          "value": "Set date"
+        }
+      },
+      "details": {
+        "id": "shooting.edit.details",
+        "value": "Details"
+      },
+      "form": {
+        "valid": {
+          "id": "shooting.edit.form.valid",
+          "value": "Information has been successfully updated"
+        }
+      },
+      "global_infos": {
+        "id": "shooting.edit.global_infos",
+        "value": "General information"
+      },
+      "guidelines": {
+        "id": "shooting.edit.guidelines",
+        "value": "View the guidelines"
+      },
+      "host_absence": {
+        "id": "shooting.edit.host_absence",
+        "value": "Someone else will be on-site"
+      },
+      "host_present": {
+        "id": "shooting.edit.host_present",
+        "value": "I will be on-site"
+      },
+      "info": {
+        "alert": {
+          "id": "shooting.edit.info.alert",
+          "value": "Your changes will be lost if you do not save them."
+        },
+        "edited": {
+          "id": "shooting.edit.info.edited",
+          "value": "You have changed the following information"
+        },
+        "unsaved": {
+          "id": "shooting.edit.info.unsaved",
+          "value": "No changes saved"
+        }
+      },
+      "label": {
+        "adddate": {
+          "id": "shooting.edit.label.adddate",
+          "value": "I want to add a date"
+        },
+        "changedate": {
+          "id": "shooting.edit.label.changedate",
+          "value": "I want to change the date"
+        },
+        "duration": {
+          "id": "shooting.edit.label.duration",
+          "value": "Duration of the shoot"
+        },
+        "missing": {
+          "comment": {
+            "id": "shooting.edit.label.missing.comment",
+            "value": "Photographer's indications"
+          },
+          "date": {
+            "id": "shooting.edit.label.missing.date",
+            "value": "Date"
+          },
+          "digicode": {
+            "id": "shooting.edit.label.missing.digicode",
+            "value": "Access"
+          },
+          "host": {
+            "id": "shooting.edit.label.missing.host",
+            "value": "Person on-site"
+          },
+          "hours": {
+            "id": "shooting.edit.label.missing.hours",
+            "value": "Shoot time"
+          },
+          "placename": {
+            "id": "shooting.edit.label.missing.placename",
+            "value": "Place name"
+          },
+          "reference": {
+            "id": "shooting.edit.label.missing.reference",
+            "value": "Shoot guidelines"
+          },
+          "waiting": {
+            "id": "shooting.edit.label.missing.waiting",
+            "value": "Put the shoot on hold"
+          }
+        },
+        "removedate": {
+          "id": "shooting.edit.label.removedate",
+          "value": "I want to put the shoot on hold"
+        },
+        "removeshooting": {
+          "id": "shooting.edit.label.removeshooting",
+          "value": "Cancel shoot"
+        },
+        "rescheduleshooting": {
+          "id": "shooting.edit.label.rescheduleshooting",
+          "value": "Postpone the shoot"
+        },
+        "waitshooting": {
+          "id": "shooting.edit.label.waitshooting",
+          "value": "Put the shoot on hold"
+        }
+      },
+      "placename": {
+        "id": "shooting.edit.placename",
+        "value": "Place name"
+      },
+      "precisions": {
+        "id": "shooting.edit.precisions",
+        "value": "Shoot details"
+      },
+      "reference": {
+        "id": "shooting.edit.reference",
+        "value": "Reference"
+      },
+      "title": {
+        "id": "shooting.edit.title",
+        "value": "Edit"
+      }
+    },
+    "error": {
+      "format": {
+        "reference": {
+          "id": "shooting.error.format.reference",
+          "value": "The reference must follow the format defined by your company"
+        }
+      }
+    },
+    "export_all": {
+      "id": "shooting.export_all",
+      "value": "All shoots"
+    },
+    "export_filtered": {
+      "id": "shooting.export_filtered",
+      "value": "Filtered shoots"
+    },
+    "guideline": {
+      "id": "shooting.guideline",
+      "value": "View the guidelines"
+    },
+    "host": {
+      "id": "shooting.host",
+      "value": "Person on-site"
+    },
+    "media-recovery": {
+      "id": "shooting.media-recovery",
+      "value": "To access the visual, the company balance must be settled"
+    },
+    "mobile": {
+      "shooting-date": {
+        "id": "shooting.mobile.shooting-date",
+        "value": "Date"
+      },
+      "shooting-more": {
+        "id": "shooting.mobile.shooting-more",
+        "value": "Info"
+      },
+      "shooting-place": {
+        "id": "shooting.mobile.shooting-place",
+        "value": "Shoot location"
+      }
+    },
+    "modal": {
+      "cancel": {
+        "billHT": {
+          "id": "shooting.modal.cancel.billHT",
+          "value": "Your next invoice will have a fee of {billAmountHT} (tax excluded)."
+        },
+        "billTTC": {
+          "id": "shooting.modal.cancel.billTTC",
+          "value": "Your next invoice will therefore have a fee of {billAmountHT} (tax excluded) and {billAmountTTC} (tax included)."
+        },
+        "header": {
+          "id": "shooting.modal.cancel.header",
+          "value": "Are you sure you want to cancel the shoot at {shootingPlace} on {shootingDate}?"
+        },
+        "reason": {
+          "label": {
+            "id": "shooting.modal.cancel.reason.label",
+            "value": "Select a reason"
+          }
+        },
+        "reminder24": {
+          "id": "shooting.modal.cancel.reminder24",
+          "value": "As a reminder, you will be charged for cancellations made within 24 hours of the shoot except when cancelling within 2 hours of ordering. The cancellation fee is {penaltyRatio24}% of the price of the shoot.\n"
+        },
+        "reminder48": {
+          "id": "shooting.modal.cancel.reminder48",
+          "value": "As a reminder, you will be charged for cancellations made within 48 hours of the shoot except when cancelling within 2 hours of ordering. You will be charged a cancellation fee of {penaltyRatio48}% of the price of the shoot for cancellations between 48 hours and 24 hours before the shoot. Within 24 hours of the shoot you will be charged {penaltyRatio24}% of the price of the shoot\n"
+        },
+        "reminderCovid": {
+          "id": "shooting.modal.cancel.reminderCovid",
+          "value": "If you have chosen 'Covid 19' as your reason for cancellation, your submission will be reviewed. Following internal validation, the fee will not be invoiced. By choosing 'Covid 19' as your reason for cancellation, you certify that the information you provide is true and accurate."
+        }
+      },
+      "report": {
+        "header": {
+          "id": "shooting.modal.report.header",
+          "value": "Are you sure you want to reschedule the shoot at {shootingPlace} on {shootingDate}?"
+        },
+        "reminderCovid": {
+          "id": "shooting.modal.report.reminderCovid",
+          "value": "If you have chosen 'Covid 19' as your reason for reschedulement, your submission will be reviewed. Following internal validation, the fee will not be invoiced. By choosing 'Covid 19' as your reason for reschedulement, you certify that the information you provide is true and accurate."
+        }
+      },
+      "waiting": {
+        "header": {
+          "id": "shooting.modal.waiting.header",
+          "value": "Are you sure you want to put the shoot scheduled for {shootingPlace} {shootingDate} on hold?"
+        },
+        "reminder24": {
+          "id": "shooting.modal.waiting.reminder24",
+          "value": "As a reminder, when you postpone the shoot within 24 hours of the shoot time, you will be charged a deferral fee of {penaltyRatio24}% of the shoot price, except if you postpone within 2 hours from the order time."
+        },
+        "reminder48": {
+          "id": "shooting.modal.waiting.reminder48",
+          "value": "As a reminder, postponements within 48 hours will be charged a deferral fee unless they are within 2 hours of ordering. Between 48-24 hours the deferral fee shall be {penaltyRatio48}% of the shoot’s price. Within 24 hours the deferral fee shall be {penaltyRatio24}% of the shoot’s price."
+        }
+      }
+    },
+    "needapproval": {
+      "id": "shooting.needapproval",
+      "value": "An approval request has been sent to the company manager(s)."
+    },
+    "new_shooting": {
+      "id": "shooting.new_shooting",
+      "value": "New shoot"
+    },
+    "payment_status": {
+      "payment_failed": {
+        "id": "shooting.payment_status.payment_failed",
+        "value": "Payment failed"
+      },
+      "payment_pending": {
+        "id": "shooting.payment_status.payment_pending",
+        "value": "Payment pending"
+      }
+    },
+    "place": {
+      "label": {
+        "id": "shooting.place.label",
+        "value": "Access to the building"
+      }
+    },
+    "previous_date": {
+      "id": "shooting.previous_date",
+      "value": "Date before reschedule"
+    },
+    "ref": {
+      "label": {
+        "id": "shooting.ref.label",
+        "value": "Ref."
+      }
+    },
+    "responsible": {
+      "api": {
+        "id": "shooting.responsible.api",
+        "value": "Not specified"
+      },
+      "client": {
+        "id": "shooting.responsible.client",
+        "value": "Client"
+      },
+      "host": {
+        "id": "shooting.responsible.host",
+        "value": "Host"
+      },
+      "meero": {
+        "id": "shooting.responsible.meero",
+        "value": "Meero"
+      },
+      "photographer": {
+        "id": "shooting.responsible.photographer",
+        "value": "Photographer"
+      },
+      "photographerBooking": {
+        "id": "shooting.responsible.photographerBooking",
+        "value": "Booker"
+      },
+      "unknown": {
+        "id": "shooting.responsible.unknown",
+        "value": "Unknown"
+      }
+    },
+    "search": {
+      "placeholder": {
+        "id": "shooting.search.placeholder",
+        "value": "Search by ID, reference.."
+      }
+    },
+    "see_new_shooting": {
+      "id": "shooting.see_new_shooting",
+      "value": "View new shoot"
+    },
+    "select": {
+      "id": "shooting.select",
+      "value": "Select"
+    },
+    "selected": {
+      "id": "shooting.selected",
+      "value": "Selected"
+    },
+    "shooting-date": {
+      "id": "shooting.shooting-date",
+      "value": "New date of the shoot"
+    },
+    "shooting-more": {
+      "id": "shooting.shooting-more",
+      "value": "Information"
+    },
+    "shooting-place": {
+      "id": "shooting.shooting-place",
+      "value": "Location"
+    },
+    "shooting-time": {
+      "id": "shooting.shooting-time",
+      "value": "Time"
+    },
+    "showmap": {
+      "id": "shooting.showmap",
+      "value": "View the map"
+    },
+    "status": {
+      "canceled": {
+        "id": "shooting.status.canceled",
+        "value": "Cancelled"
+      },
+      "confirmed": {
+        "id": "shooting.status.confirmed",
+        "value": "Photographer confirmed"
+      },
+      "doagain": {
+        "id": "shooting.status.doagain",
+        "value": "Reshoot"
+      },
+      "ready": {
+        "id": "shooting.status.ready",
+        "value": "Visuals to select"
+      },
+      "reported": {
+        "id": "shooting.status.reported",
+        "value": "To be rescheduled"
+      },
+      "searching": {
+        "id": "shooting.status.searching",
+        "value": "Searching for a photographer"
+      },
+      "toapprove": {
+        "id": "shooting.status.toapprove",
+        "value": "Client approval required"
+      },
+      "todeliver": {
+        "id": "shooting.status.todeliver",
+        "value": "Visuals being processed"
+      },
+      "todownload": {
+        "id": "shooting.status.todownload",
+        "value": "Visuals to download"
+      },
+      "waiting": {
+        "id": "shooting.status.waiting",
+        "value": "Photographer needs to confirm"
+      },
+      "waiting_for_payment": {
+        "id": "shooting.status.waiting_for_payment",
+        "value": "Waiting for payment"
+      }
+    },
+    "validate": {
+      "id": "shooting.validate",
+      "value": "Validate"
+    },
+    "what-is-an-album": {
+      "id": "shooting.what-is-an-album",
+      "value": "What is an album?"
+    }
+  },
+  "shootings": {
+    "list": {
+      "tab": {
+        "all": {
+          "id": "shootings.list.tab.all",
+          "value": "All"
+        },
+        "available": {
+          "id": "shootings.list.tab.available",
+          "value": "Available"
+        },
+        "canceled": {
+          "id": "shootings.list.tab.canceled",
+          "value": "Cancelled / reshoot"
+        },
+        "sevendays": {
+          "id": "shootings.list.tab.sevendays",
+          "value": "next 7 days"
+        },
+        "tocome": {
+          "id": "shootings.list.tab.tocome",
+          "value": "Scheduled"
+        },
+        "todeliver": {
+          "id": "shootings.list.tab.todeliver",
+          "value": "Visuals being processed"
+        },
+        "toplan": {
+          "id": "shootings.list.tab.toplan",
+          "value": "To be rescheduled"
+        },
+        "toselect": {
+          "id": "shootings.list.tab.toselect",
+          "value": "to download"
+        }
+      }
+    },
+    "no_shooting_available": {
+      "id": "shootings.no_shooting_available",
+      "value": "No shoot available!"
+    },
+    "no_shooting_canceled": {
+      "id": "shootings.no_shooting_canceled",
+      "value": "No shoot cancelled"
+    },
+    "no_shooting_order": {
+      "id": "shootings.no_shooting_order",
+      "value": "To order a shoot, click on \"Order\""
+    },
+    "no_shooting_this_week": {
+      "id": "shootings.no_shooting_this_week",
+      "value": "No shoot in the next 7 days"
+    },
+    "no_shooting_to_come": {
+      "id": "shootings.no_shooting_to_come",
+      "value": "No upcoming shoot!"
+    },
+    "no_shooting_to_deliver": {
+      "id": "shootings.no_shooting_to_deliver",
+      "value": "No delivery in progress!"
+    },
+    "no_shooting_to_plan": {
+      "id": "shootings.no_shooting_to_plan",
+      "value": "No shoot to reschedule"
+    },
+    "no_shooting_to_select": {
+      "id": "shootings.no_shooting_to_select",
+      "value": "No shoot to select"
+    },
+    "search": {
+      "placeholder": {
+        "id": "shootings.search.placeholder",
+        "value": "Search by ID, reference.."
+      }
+    }
+  },
+  "shopping": {
+    "iframeLink": {
+      "id": "shopping.iframeLink",
+      "value": "iFrame for your {productItemType}"
+    }
+  },
+  "footer": {
+    "legal_notices": {
+      "id": "footer.legal_notices",
+      "value": "Legal notices"
+    },
+    "links": {
+      "about": {
+        "id": "footer.links.about",
+        "value": "About"
+      },
+      "cgv": {
+        "id": "footer.links.cgv",
+        "value": "Terms &amp; conditions"
+      },
+      "contact": {
+        "id": "footer.links.contact",
+        "value": "Contact"
+      },
+      "e_commerce": {
+        "id": "footer.links.e_commerce",
+        "value": "Ecommerce"
+      },
+      "food": {
+        "id": "footer.links.food",
+        "value": "Food"
+      },
+      "for_businesses": {
+        "id": "footer.links.for_businesses",
+        "value": "Photomag"
+      },
+      "for_photographers": {
+        "id": "footer.links.for_photographers",
+        "value": "Blog"
+      },
+      "gallery": {
+        "id": "footer.links.gallery",
+        "value": "Gallery"
+      },
+      "jobs": {
+        "id": "footer.links.jobs",
+        "value": "Recruitment"
+      },
+      "legacy": {
+        "id": "footer.links.legacy",
+        "value": "Legal notices"
+      },
+      "legal": {
+        "id": "footer.links.legal",
+        "value": "Legal"
+      },
+      "lifestyle": {
+        "id": "footer.links.lifestyle",
+        "value": "Experiences"
+      },
+      "newsroom": {
+        "id": "footer.links.newsroom",
+        "value": "Newsroom"
+      },
+      "publications": {
+        "id": "footer.links.publications",
+        "value": "Publications"
+      },
+      "real_estate": {
+        "id": "footer.links.real_estate",
+        "value": "Real Estate"
+      },
+      "retail": {
+        "id": "footer.links.retail",
+        "value": "Retail"
+      },
+      "sectors": {
+        "id": "footer.links.sectors",
+        "value": "Industry"
+      },
+      "technology": {
+        "id": "footer.links.technology",
+        "value": "Technology"
+      },
+      "who_are_we": {
+        "id": "footer.links.who_are_we",
+        "value": "About us"
+      }
+    },
+    "privacy_policy": {
+      "id": "footer.privacy_policy",
+      "value": "Privacy Policy"
+    },
+    "support": {
+      "id": "footer.support",
+      "value": "Support"
+    }
+  }
+}

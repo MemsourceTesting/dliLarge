@@ -1,0 +1,121 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='introbasics-lecture']
+= Section Content
+
+== Introduction to the Traditional Integration Approach
+
+Complex systems have traditionally used centralized integration mechanisms, such as an ((Enterprise Service Bus)) (ESB).
+An ESB is a middleware service, owned by IT infrastructure departments, which is in charge of routing, processing, and translating the data that flows between the services of a system.
+
+.Example application using an ESB
+image::images/intro/esb.svg[align="center"]
+
+This approach was a powerful solution to decouple services in the waterfall era, but presents scalability and elasticity problems in modern digital environments.
+These new environments require flexibility and faster delivery speed, which are critical to attain a competitive advantage in digital and continuously evolving markets.
+
+Modern applications embrace the agile goals of adaptability and quick delivery.
+They take advantage of the flexibility that small components, usually microservices, provide in terms of agility.
+Therefore, using an isolated, monolithic piece of infrastructure, such as an ESB, impacts the ability of a modern system to scale.
+
+
+== Defining Agile Integration
+
+To deliver software fast enough to meet market demands, organizations need an agile infrastructure plan.
+With this plan, development and infrastructure teams collaborate to break the monolithic integration infrastructure into distributed integration components and manage them as core parts of the application.
+This approach, called ((agile integration)), is the result of combining the following capabilities:
+
+=== The Pillars of Agile Integration
+
+Distributed Integration::
+Organizations should distribute the integration efforts across multiple integration components instead of using a single bus.
+Components should be reusable, so that development teams can deploy the same component in multiple ways.
+
+Application Programming Interfaces (APIs)::
+APIs provide developers with a common language that defines how to communicate with applications.
+With APIs, development teams can enforce policies to control communication, security, authorization, and usage.
+
+Containers::
+Organizations should deploy integration services as containers on the cloud.
+Containers enable cloud-native deployments, and allow development and infrastructure teams to deploy distributed integrations and APIs as microservices.
+
+By using these pillars, integration becomes more scalable and more flexible, providing organizations with better opportunities to quickly respond to customer needs.
+
+
+== Introduction to Agile Integration with Apache Camel
+
+Apache Camel is an open-source integration framework that implements ((Enterprise Integration Patterns)) (EIPs) and makes integration easier.
+EIPs are proven solutions to recurring integration problems.
+
+A Camel application normally implements how information flows from an origin endpoint into a destination endpoint.
+This is called a route.
+
+A route uses Camel components to connect to the endpoints.
+Camel is based on an ecosystem of more than 300 pluggable components and a strong community that maintains these components.
+The following are examples of Camel components.
+
+* Databases, middlewares, web and network protocols, such as FTP and MySQL
+* Enterprise information systems, such as Salesforce
+* Popular APIs, such as Slack and Twitter
+
+For example, with Camel, you can define multiple, reusable integration applications and use them to integrate the different services of your application.
+
+.Example application using Apache Camel for distributed integration
+image::images/intro/camel-app-example.svg[align="center"]
+
+
+=== Red{nbsp}Hat Fuse
+
+Red{nbsp}Hat Fuse is a distributed integration platform that connects everything from legacy systems, APIs, partner networks, and Internet of things (IoT) devices.
+Fuse allows IT departments, developers, and nontechnical users alike to create a unified solution that meets the principles of agile integration.
+
+The core of Red{nbsp}Hat Fuse is Apache Camel, which gives Fuse its agile integration capabilities.
+On top of Camel, Fuse provides a set of capabilities and features to support and improve Camel development.
+
+You can use Fuse in different ways, depending on your needs.
+
+Fuse Standalone::
+To package your application as a JAR and run it on a runtime, such as Spring Boot.
+This distribution supports Apache Karaf, Spring Boot, and Red{nbsp}Hat JBoss Enterprise Application Platform.
+
+Fuse on OpenShift::
+To build and deploy your application and its dependencies as a container image on OpenShift.
+In contrast to Fuse Standalone, Fuse on OpenShift packages all runtime components in a container image.
+
+[NOTE]
+====
+This course focuses on Fuse Standalone with Spring Boot as the runtime.
+Additionally, some activities explore integration development with Quarkus and Camel K.
+====
+
+
+=== Apache Camel K
+
+Apache Camel K is an open-source lightweight platform, which currently uses Camel version 3.
+Developers can easily run cloud-native integrations on OpenShift by using Camel K.
+
+With Camel K, you do not need to develop and maintain an entire integration application.
+You only need to provide the Camel K CLI with a Java Camel DSL file.
+The following are just some of the key capabilities of Camel K:
+
+* Cloud-native integrations on OpenShift and Kubernetes.
+* Runtime based on Camel Quarkus, a Camel subproject.
+* KNative support.
+* Reusable high-level integrations with ((Kamelets)).
+Kamelets are integration template documents in YAML format.
+
+
+Camel K integration development is covered in more detail later in the course.
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+https://camel.apache.org/manual/[Apache Camel User Manual]
+
+https://middlewareblog.redhat.com/2017/09/13/what-is-agile-integration/[What Is Agile Integration? - Red{nbsp}Hat Developers Blog]
+
+For more information, refer to the _Fuse 7.10 Product Overview_ chapter in the _Release Notes for Red{nbsp} Hat Fuse 7.10_ guide at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/release_notes_for_red_hat_fuse_7.10/index#Product
+
+For more information, refer to the _INTRODUCTION TO CAMEL K_ chapter in the _Red{nbsp}Hat Integration Guide_ at https://access.redhat.com/documentation/en-us/red_hat_integration/2021.q4/html/getting_started_with_camel_k/introduction-to-camel-k
+====

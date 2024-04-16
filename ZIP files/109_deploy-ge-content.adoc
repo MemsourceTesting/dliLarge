@@ -1,0 +1,251 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='clouddeploy-practice']
+= Sample Title
+
+In this exercise, you will deploy a Spring Boot Camel application to the Red{nbsp}Hat OpenShift Container Platform (RHOCP) with health checks.
+
+You must deploy a Spring Boot Camel application called `+temperatures-route+`, which exposes a set of temperature measurements in the Fahrenheit scale.
+The measurements originally come from a Node.js gateway service, called `+temperatures-celsius-app+`, which serves Celsius values gathered from temperature sensor devices.
+The `+temperatures-route+` application implements Camel routes that read the Celsius values from `+temperatures-celsius-app+`, converts them to Fahrenheit values, and exposes the values through a REST endpoint.
+
+The `+temperatures-celsius-app+` service is already deployed in the RHOCP cluster.
+You must deploy the `+temperatures-route+` application.
+You must also configure a readiness health check to verify that the Camel route is up and running.
+
+== Outcomes
+
+You should be able to deploy a Spring Boot Camel application to RHOCP, and configure health checks for a Camel application.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+cloud-deploy/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the following:
+
+[compact]
+* The `+AD221-apps+` repository cloned in your workstation.
+* Access to a configured and running RHOCP cluster.
+* The RHOCP CLI (`+oc+`) installed.
+
+From your workspace directory, use the `+lab+` command to prepare your system for this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start cloud-deploy*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/cloud-deploy/apps+` directory, into the `+~/AD221/cloud-deploy+` directory.
+This command also logs you in to the RHOCP cluster and deploys the `+temperatures-celsius-app+` service.
+
+[role='Checklist']
+== Instructions
+
+1) Verify that the `+temperatures-celsius-app+` service is deployed and returning temperature values.
+
+1.1) Get the route of the service by running the following command:
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *oc get route temperatures-celsius-app \
+-o jsonpath="{'http://'}{.spec.host}{'/temperatures\n'}"*
+_...output omitted..._
+----
+
+1.1) Send a GET request to the URL returned by the preceding command.
+Verify that the `+temperatures-celsius-app+` service returns a list of temperature values.
+You can use the `+curl+` command for this.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$] *curl http://temperatures-celsius-app-user-cloud-deploy.apps.cluster.example.com/temperatures*
+_...output omitted..._
+----
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+2) Simulate a scenario in which the `+temperatures-celsius-app+` service is not available.
+
+2.1) Scale down the deployment to zero replicas to simulate that the service is not ready.
+Use the `+oc scale deployment temperatures-celsius-app --replicas=0+` command for this.
+
+2.1) Make another request to the service to verify that the application is not available.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+3) Navigate to the `+~/AD221/cloud-deploy+` directory, and open the project with your editor of choice.
+Inspect the Camel routes in the `+TemperaturesRESTRouteBuilder+` class.
+
+The builder class implements a route that reads Celsius temperature values from the `+temperatures-celsius-app+` service, converts them to Fahrenheit,
+and exposes the result through the `+/camel/temperatures/fahrenheit+` REST endpoint.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+4) Configure the OpenShift deployment in the POM file, by using the `+openshift-maven-plugin+` plug-in.
+
+Open the project's POM file and uncomment the `+openshift+` profile.
+Inspect the profile.
+Note that the profile uses the `+openshift-maven-plugin+` plug-in from JKube, and the `+fuse-java-openshift-jdk11-rhel8+` image for the S2I deployment.
+
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+5) Run the `+./mvnw oc:deploy -Popenshift+` command to deploy the `+temperatures-route+` application to RHOCP.
+Wait for the application to be deployed.
+The deployment might take several minutes.
+You can verify the status of the deployment with the `+oc status+` command.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+6) Verify that the Camel route of the `+temperatures-route+` application fails.
+
+6.1) Get the URL of the `+/camel/temperatures/fahrenheit+` REST path of the application, by running the following command.
+
+[subs=+quotes]
+----
+[student@workstation cloud-deploy]$ *oc get route temperatures-route \
+-o jsonpath="{'http://'}{.spec.host}{'/camel/temperatures/fahrenheit\n'}"*
+_...output omitted..._
+----
+
+6.1) Send a request to the URL of the REST endpoint.
+Notice that the Camel route returns an exception.
+You might get either a `+HttpHostConnectException+` or a `+ConnectTimeoutException+` error.
+
+[subs=+quotes]
+----
+[student@workstation cloud-deploy]$ *curl http://temperatures-route-user-cloud-deploy.apps.cluster.example.com/camel/temperatures/fahrenheit*
+org.apache.http.conn.HttpHostConnectException: Connect to temperatures-celsius-app:3000
+_...output omitted..._
+----
+
+RHOCP is sending traffic to the Spring Boot application, even though the Camel route is not healthy.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+7) Update the application code to expose the readiness status of the Camel route through an HTTP endpoint.
+
+7.1) Inspect the `+application.properties+` file.
+The readiness group includes the `+camelRoute+` health check.
+Invoking the `+/actuator/health/readiness+` endpoint means that the `+camelRoute+` health check is executed.
+
+7.1) Inspect the `+CamelRouteHealthIndicator+` class, which defines the `+camelRoute+` health check.
+This class uses the `+RouteHealth+` bean to get the health status of the Camel route.
+
+7.1) Inspect the `+RouteHealth+` class.
+This class implements the `+up+` and `+down+` methods.
+You must use these methods from the Camel route to set the health state of the route.
+
+7.1) Edit the `+TemperaturesRESTRouteBuilder+` class.
+In the `+processException+` route, after the `+process+` call, use the `+down+` method of the `+route-health+` bean to set the health status to `+down+`.
+
+[subs=+quotes]
+----
+from("direct:onException")
+    .routeId("processException")
+    .process(exchange -> {
+        exchange
+            .getIn()
+            .setHeader("error", exchange.getProperty(Exchange.EXCEPTION_CAUGHT, Exception.class));
+    })
+    // TODO: use the route-health bean to set health down
+    `+.bean("route-health", "down");+`
+----
+
+7.1) In the `+celsiusToFahrenheit+` route, use the Wire Tap EIP to call the `+up+` method of the `+route-health+` bean.
+
+
+[subs=+quotes]
+----
+from("direct:celsiusToFahrenheit")
+    .routeId("celsiusToFahrenheit")
+    _...route details omitted..._
+    // TODO: use the Wire Tap EIP with the route-health bean to set health up
+    `+.wireTap("bean:route-health?method=up");+`
+----
+
+7.1) Configure the container readiness check.
+
+Edit the `+src/main/jkube/deployment.yml+` file.
+Change the path of the readiness probe to check the `+/actuator/health/readiness+` HTTP path.
+
+[subs=+quotes]
+----
+readinessProbe:
+  httpGet:
+    # TODO: Change path to actuator readiness group
+    path: `+/actuator/health/readiness+`
+    port: 8080
+----
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+8) Redeploy the `+temperatures-route+` application.
+Wait until the application is redeployed, and send a request to the pass:[<uri>/camel/temperatures/fahrenheit</uri>] path of the application.
+
+Verify that RHOCP is not sending traffic to the application because the probe detected that the application is not ready.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+9) Verify that the application pod is not ready.
+Run the `+oc describe pod -l app=temperatures-route+` command to verify that the readiness probe failed.
+
+[subs=+quotes]
+----
+[student@workstation cloud-deploy]$ *oc describe pod -l app=temperatures-route*
+_...output omitted..._
+Conditions:
+  ...
+  `+Ready             False+`
+  `+ContainersReady   False+`
+  ...
+_...output omitted..._
+Events:
+  Type     Reason      Age        From         Message
+  ----     ------      ----       ----         -------
+  ...
+  Warning  `+Unhealthy+`   16s        kubelet...   Readiness probe failed...
+----
+
+Note that the probe generates an `+Unhealthy+` event and the pod conditions mark the pod as not ready.
+
+// ------------------------------------------------------------------------------------------------
+
+
+10) Activate the `+temperatures-celsius-app+` service.
+Run the `+oc scale deployment temperatures-celsius-app --replicas=1+` command.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+11) Verify that the `+temperatures-route+` application is ready.
+Send a request to the pass:[<uri>/camel/temperatures/fahrenheit</uri>] REST endpoint of the application and verify that the response contains a list of temperatures.
+You might need to wait a few seconds until the readiness probe succeeds and the `+Ready+` and `+ContainersReady+` pod conditions are set to `+True+`.
+
+
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish cloud-deploy*
+----

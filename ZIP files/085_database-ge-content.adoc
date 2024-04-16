@@ -1,0 +1,172 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='transactiondatabase-practice']
+= Sample Title
+
+In this exercise, you will use the `+camel-jpa-starter+` and `+camel-sql-starter+` components to read and write data in a relational database.
+
+Your company is working on a payment fraud detection system.
+Payments are stored in a database table called `+payments+`.
+The outcome of the fraud detection algorithm is stored in a table called `+payment_analysis+`.
+
+You must develop a Camel integration that retrieves payments from the `+payments+` table, processes each payment by running the fraud detection algorithm, and stores the results in the `+payment_analysis+` table.
+
+== Outcomes
+
+You should be able to implement a route that retrieves payments from a database table by using the `+camel-jpa+` component, and updates another table by using the `+camel-sql+` component.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+transaction-database/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to prepare your system for this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start transaction-database*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/transaction-database/apps+` directory, into the `+~/AD221/transaction-database+` directory.
+This command also starts a containerized MySQL server and creates a database called `+payments+`.
+
+[role='Checklist']
+== Instructions
+
+1)  Navigate to the `+~/AD221/transaction-database+` directory, and open the project with your editor of choice.
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+2) Inspect the application.
+
+
+* The `+PaymentAnalysisRouteBuilder+` class must implement a route to run the fraud detection algorithm for each payment.
+* The `+src/main/resources+` directory contains SQL files to create and seed the `+payments+` and `+payment_analysis+` tables.
+Spring Boot executes these SQL scripts on application startup.
+* The `+Payment+` class implements a Java Persistence API (JPA) entity, which maps to the `+payments+` table.
+* The `+PaymentFraudAnalyzer+` class is a Camel processor that runs a mock fraud detection algorithm.
+This processor computes a fraud score and saves the score in the `+fraudScore+` exchange header.
+* The `+application.properties+` file contains the database connection settings.
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+3) Add the `+camel-jpa-starter+` dependency to your POM file.
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+4) Add the JPA endpoint to read payments from the database.
+
+Edit the `+PaymentAnalysisRouteBuilder+` class and add the consumer JPA endpoint.
+The endpoint requirements are as follows:
+
+[compact]
+* Consume `+com.redhat.training.payments.Payment+` entities.
+* Use the MySQL JPA persistence unit.
+* Do not delete payments from the table after they are consumed.
+* Limit the number of payments consumed to five.
+* Run the query every three seconds.
+* Deactivate the `+consumeLockEntity+` option.
+
+The endpoint must look like the following:
+
+[subs=+quotes]
+----
+// TODO: specify JPA endpoint
+from(`"jpa:com.redhat.training.payments.Payment?"
+      + "persistenceUnit=mysql"
+      + "&consumeDelete=false"
+      + "&maximumResults=5"
+      + "&consumer.delay=3000"
+      + "&consumeLockEntity=false")`
+    .log("${body}")
+    .process(new PaymentFraudAnalyzer())
+    // TODO: add SQL producer endpoint
+    .to("direct:payment_analysis_complete?failIfNoConsumers=false&block=false");
+----
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+5) Use the `+./mvnw clean spring-boot:run -DskipTests+` command to run the application.
+Inspect the logs and verify that the logs display consumed payments.
+
+[subs=+quotes]
+----
+_...output omitted..._
+Payment [id=1, userId=11, amount=41.0, currency=EUR]
+Payment [id=2, userId=12, amount=500000.0, currency=USD]
+_...output omitted..._
+----
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+6) Stop the application.
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+7) Add the `+camel-sql-starter+` dependency to your POM file.
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+8) Add the SQL endpoint to update the fraud scores value for each payment in the `+payment_analysis+` table.
+
+Edit the `+PaymentAnalysisRouteBuilder+` class and add the producer SQL endpoint to update each `+payment_analysis+` row.
+For each payment, you must do the following:
+
+[compact]
+* The `+WHERE+` clause must select rows with a `+payment_id+` field equal to the payment ID of the message body.
+* Set the `+fraud_score+` field to the value of the `+fraudScore+` header.
+This header is set by the `+PaymentFraudAnalyzer+` processor.
+* Set the `+analysis_status+` field to `+Completed+`.
+
+
+The endpoint must look like the following:
+
+[subs=+quotes]
+----
+// TODO: specify JPA endpoint
+from("jpa:com.redhat.training.payments.Payment?"
+      + "persistenceUnit=mysql"
+      + "&consumeDelete=false"
+      + "&maximumResults=5"
+      + "&consumer.delay=3000"
+      + "&consumeLockEntity=false")
+    .log("${body}")
+    .process(new PaymentFraudAnalyzer())
+    // TODO: add SQL producer endpoint
+    `.to("sql:update payment_analysis "
+      + "set fraud_score =:#${headers.fraudScore}, analysis_status = 'Completed' "
+      + "where payment_id=:#${body.id}")`
+    .to("direct:payment_analysis_complete?failIfNoConsumers=false&block=false");
+----
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+9) Run the tests to verify that the route has written fraud scores to the `+payment_analysis+` table of the database.
+Use the `+./mvnw clean test+` command for this.
+
+Verify that two tests pass.
+
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish transaction-database*
+----

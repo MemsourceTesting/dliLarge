@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <string name="bag_staging_title_bag_prep">Préparation des sacs</string>
+  <string name="bag_staging_bag_prep_action">Commencer la préparation des sacs</string>
+  <string name="bag_staging_title_printerless">Ajouter des étiquettes</string>
+  <string name="bag_staging_title_printerless_subtitle">Étiquetez les sacs et les gros articles de %1$s avec ce code.</string>
+  <string name="bag_staging_title_label_quantity">Des étiquettes sont nécessaires</string>
+  <string name="bag_staging_title_label_quantity_subtitle">Entrez le nombre d’étiquettes nécessaires. Chaque sac ou gros article doit en avoir une.</string>
+  <string name="bag_staging_title_label_print">Imprimer les étiquettes</string>
+  <string name="bag_staging_title_label_print_subtitle">Numériser ce code QR pour imprimer les étiquettes.</string>
+  <string name="bag_staging_title_bag_locations">Emplacements des sacs</string>
+  <string name="bag_staging_title_bag_locations_subtitle">Saisir la quantité de sacs étiquetés ou de gros articles que vous avez laissés à chaque emplacement.</string>
+  <string name="bag_staging_card_title_bag_prep">Commande %1$s</string>
+
+  <string name="bag_staging_text_add">Ajouter</string>
+  <string name="bag_staging_text_edit">Modifier</string>
+  <string name="bag_staging_text_complete_batch">Terminer le lot</string>
+  <string name="bag_staging_format_where_2placeholder">Où %1$s %2$s?</string>
+  <string name="bag_staging_text_on">sur</string>
+  <string name="bag_staging_text_in">à</string>
+  <string name="bag_staging_text_next">Suivant</string>
+  <string name="bag_staging_text_confirm">Confirmer</string>
+  <string name="bag_staging_text_add_bags">Ajouter des sacs</string>
+  <string name="bag_staging_options_batchDetails">Détails du lot</string>
+  <string name="bag_staging_options_dashboard">Tableau de bord</string>
+  <string name="bag_staging_options_shoptab">Onglet Courses</string>
+  <string name="bag_staging_options_helpCenter">Centre d’aide</string>
+
+  <string name="bag_staging_orientation_mmb_title">Entreposer les sacs dans l’aire de préparation</string>
+  <string name="bag_staging_orientation_mmb_subtitle">Vous étiquetterez et entreposerez ici les commandes d’achats seulement afin que les autres puissent les trouver facilement.</string>
+
+  <string name="bag_staging_orientation_bag_location_title">Préparer et étiqueter les articles</string>
+  <string name="bag_staging_orientation_bag_location_subTitle">Collez les étiquettes dans le coin supérieur gauche de chaque sac ou de chaque gros article. Ensuite, saisissez leur emplacement sur les étagères.</string>
+
+  <string name="bag_staging_locations_button_text" tools:ignore="PluralsCandidate">%1$d de %2$d sac(s) préparé(s)</string>
+  <string name="bag_staging_remove_all_bags">Retirer tous les sacs</string>
+  <string name="button_learn_more">En savoir plus</string>
+  <string name="text_take_photos">Prendre des photos</string>
+  <string name="text_bag_photos_camera_instruction">Maintenant, prenez une photo de l’emplacement des sacs</string>
+  <string name="text_bag_photos_multiphoto_instructions">Prenez une autre photo de l’emplacement des sacs</string>
+
+  <string name="bag_staging_instructions_title">Comment préparer les sacs</string>
+  <string name="bag_staging_grouping_title">Groupement approprié des articles</string>
+  <string name="bag_staging_grouping_subtitle">Les produits secs, réfrigérés et congelés doivent être placés dans des sacs différents.</string>
+
+  <string name="bag_staging_print_labels_title">Impression des étiquettes pour les sacs et les gros articles</string>
+  <string name="bag_staging_print_labels_subtitle">Trouvez le lecteur dans l’aire de préparation, puis numérisez le code QR afin d’imprimer les étiquettes.</string>
+
+  <string name="bag_staging_place_labels_title">Emplacement des étiquettes dans le coin supérieur gauche</string>
+  <string name="bag_staging_place_labels_subtitle">Collez les étiquettes dans le coin supérieur gauche de chaque sac ou de chaque gros article. Ensuite, saisissez leur emplacement sur les étagères à l’écran suivant.</string>
+
+  <plurals name="bag_staging_add_bags">
+    <item quantity="one">Ajouter un sac</item>
+    <item quantity="other">Ajouter %1$d sacs</item>
+  </plurals>
+
+</resources>

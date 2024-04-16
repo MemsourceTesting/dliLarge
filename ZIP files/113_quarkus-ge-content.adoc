@@ -1,0 +1,200 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='cloudquarkus-practice']
+= Sample Title
+
+In this exercise, you will develop a Quarkus application that uses Camel to route messages for a book publishing company.
+
+The company stores the books as DocBook files, and uses a shared file system for the publishing process.
+A team of editors and graphic designers review the book manuscripts before they are ready for printing.
+
+The company currently publishes technical, and novel books.
+Editors review all types of books, and graphic designers only the technical ones.
+
+Selecting the books to review for each one of the teams is a repetitive, manual, and time-consuming task.
+You must use Red{nbsp}Hat Fuse, and create a Camel route to send the correct type of book to the correct team.
+
+The company also requires you to expose the books assigned to each one of the teams in REST endpoints.
+You must deploy the Quarkus application to Red{nbsp}Hat OpenShift Container Platform (RHOCP).
+
+== Outcomes
+
+You should be able to create routes in Quarkus, add health checks, and deploy the application to RHOCP.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+cloud-quarkus/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the following:
+
+[compact]
+* The `+AD221-apps+` repository cloned in your workstation.
+* Access to a configured and running RHOCP cluster.
+* The OpenShift CLI (`+oc+`) installed.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start cloud-quarkus*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/cloud-quarkus/apps+` directory, into the `+~/AD221/cloud-quarkus+` directory.
+It also verifies the connection to the RHOCP shared cluster, and creates a project to deploy the application.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/cloud-quarkus+` directory, open the project with your editor of choice, and examine the code.
+
+// -----------------------------------------------------------------------------
+
+2) Open the project's POM file, and add the following dependencies from the `+org.apache.camel.quarkus+` group:
+
+[compact]
+* `+camel-quarkus-bean+`
+* `+camel-quarkus-file+`
+* `+camel-quarkus-jackson+`
+* `+camel-quarkus-jacksonxml+`
+* `+camel-quarkus-rest+`
+* `+camel-quarkus-xpath+`
+
+// -----------------------------------------------------------------------------
+
+3) Create a route for the book review pipeline in the `+BookReviewPipelineRouteBuilder+` class.
+
+The route must collect all the books located in the `+file://data/manuscripts+` endpoint, and use the Routing Slip EIP.
+Use the `+RoutingSlipStrategy+` bean to set the routing slip `+destination+` header, set `+book-review-pipeline+` as the route ID, and use the `+noop+` option in the consumer endpoint.
+You must record the file processing progress by logging a message with the following format: `+"File: ${header.CamelFileName} - Destination: ${header.%s}"+`.
+
+The route must look like the following:
+
+[subs=+quotes]
+----
+// TODO: Add the book review pipeline
+`from("file://data/manuscripts?noop=true")
+    .routeId("book-review-pipeline")
+    .setHeader(ROUTING_HEADER)
+    .method(RoutingSlipStrategy.class)
+    .log(String.format(
+        "File: ${header.CamelFileName} - Destination: ${header.%s}",
+        ROUTING_HEADER
+    ))
+    .routingSlip(header(ROUTING_HEADER));`
+----
+
+// -----------------------------------------------------------------------------
+
+4) Create a route in the `+EditorRestRouteBuilder+` class to store all the books assigned to the editors into an in-memory storage.
+
+The route must collect all the books located in the `+file://data/pipeline/editor+` endpoint, with the `+noop+` option activated.
+Next, unmarshal the data, and convert the unmarshalled data to JSON with the `+jacksonxml+` processor.
+Process the JSON data, and store it as an `+Object+` type in the `+inMemoryBooksForEditor+` variable.
+You must set `+pipeline-editor+` as the route ID.
+
+The route must look like the following:
+
+[subs=+quotes]
+----
+// TODO: Add a route to store all editor books in the local variable
+`from("file://data/pipeline/editor?noop=true")
+    .routeId("pipeline-editor")
+    .log("Processing file: ${header.CamelFileName}")
+    .unmarshal().jacksonxml()
+    .process().body(Object.class, (Consumer<Object>) inMemoryBooksForEditor::add);`
+----
+
+// -----------------------------------------------------------------------------
+
+5) Create a Camel REST route in the `+EditorRestRouteBuilder+` class, and expose the books assigned to the editors.
+
+The route must define a GET endpoint in the `+/pipeline/editor+` path.
+Return the content of the `+inMemoryBooksForEditor+` variable in the response body, and set `+rest-pipeline-editor+` as the route ID.
+
+The route must look like the following:
+
+[subs=+quotes]
+----
+// TODO: Add a REST route to expose the books stored in the local variable
+`rest("/pipeline/editor")
+    .get()
+    .route()
+        .routeId("rest-pipeline-editor")
+        .setBody(exchange -> inMemoryBooksForEditor)
+    .endRest();`
+----
+
+// -----------------------------------------------------------------------------
+
+6) Verify the correctness of the routes by executing the unit tests.
+
+Run the `+./mvnw clean -Dtest=EditorPipelineEndpointTest test+` command, and verify that one unit test passes.
+
+// -----------------------------------------------------------------------------
+
+7) Run the Quarkus application by using the `+./mvnw -DskipTests clean package quarkus:dev+` command, and wait for the application to process the books stored in the `+file://data/manuscripts+` endpoint.
+
+Open a browser window, and navigate to pass:[<uri>http://localhost:8080/pipeline/editor</uri>].
+Notice that the application returns a JSON with the three books assigned to the editors.
+
+// -----------------------------------------------------------------------------
+
+8) Open the project's POM file, and add the following dependencies to deploy the application to RHOCP.
+
+[cols="1,1"]
+|===
+| Group ID | Artifact ID
+
+| `+org.apache.camel.quarkus+`
+| `+camel-quarkus-microprofile-health+`
+
+| `+io.quarkus+`
+| `+quarkus-openshift+`
+|===
+
+// -----------------------------------------------------------------------------
+
+9) Wait for Quarkus to perform a live reload, and verify the status of the application in the health check endpoint.
+
+In a browser window, navigate to pass:[<uri>http://localhost:8080/q/health</uri>].
+Notice that the application returns a JSON response with the `+status+` field set to `+UP+`, and stop the application.
+
+// -----------------------------------------------------------------------------
+
+10) Verify the correctness of the complete application by executing the unit tests.
+
+Run the `+./mvnw clean test+` command, and verify that three unit tests pass.
+
+// -----------------------------------------------------------------------------
+
+11) Run the `+./mvnw clean package -Dquarkus.kubernetes.deploy=true+` command to deploy the Quarkus application to RHOCP.
+Wait for the RHOCP deployment process to finish.
+
+// -----------------------------------------------------------------------------
+
+12) By using the `+oc describe pod+` command, verify that the deployed application is running, and it has the health checks configured.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *oc describe pod \*
+*-l app.kubernetes.io/name=book-publishing*
+Name:         book-publishing-2-7twcn
+_...content omitted..._
+`+Status:       Running+`
+_...content omitted..._
+Containers:
+  book-publishing:
+    _...content omitted..._
+    `Liveness:   http-get http://:8080/q/health/live ...
+    Readiness:  http-get http://:8080/q/health/ready ...`
+    _...content omitted..._
+----
+
+== Finish
+
+Return to your workspace directory, and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish cloud-quarkus*
+----

@@ -1,0 +1,1 @@
+Ensure that uploaded translations are not detected by the following APC iterations.

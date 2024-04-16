@@ -1,0 +1,203 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='routefiles-lecture']
+= Section Content
+
+== Introducing the File and FTP Components
+
+Use the File and FTP Camel components to integrate your application with file systems, by reading and writing files.
+In particular, use the File component to work with local file systems.
+The FTP component, on the other hand, interacts with files in remote servers via the file transfer protocol (FTP) and its secure variants.
+
+The following class is an example of a Camel route that uses the `+file+` and `+ftp+` components.
+The route downloads files from an FTP server to a local directory.
+
+[subs=+quotes]
+----
+public class FileRouteBuilder extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+        from("ftp://localhost:21/documents")
+        .to("file:downloads/docs");
+    }
+
+}
+----
+
+== The File Component
+
+Use the `+file+` component to read files from the file system or write files to the file system.
+To use the `+file+` component, you must specify the URI endpoint as follows:
+
+[subs=+quotes]
+----
+file:`++`directoryName`++`
+----
+
+* The `+directoryName+` part is required.
+It specifies the base directory to use for the file endpoint.
+
+* Additionally, you can specify endpoint options.
+For a complete list of endpoint options, refer to the File component documentation.
+
+
+For example, to copy files from one directory to another, you can use the following implementation:
+
+[subs=+quotes]
+----
+public class FileRouteBuilder extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+
+        `+from("file:orders/incoming")+` <1>
+        `+.to("file:orders/outgoing");+` <2>
+
+    }
+}
+----
+
+Note how the example uses the `+file+` component both as the origin and destination of messages.
+
+<1> The `+file+` component reads all the files from the `+orders/incoming+` directory.
+<2> The `+file+` component writes all the files to the `+orders/outgoing+` directory.
+
+
+=== Filtering Files
+
+The `+file+` component requires a directory as the only endpoint parameter.
+If you want to process a specific file, either as the origin or destination of a route, then you must use the `+fileName+` option, as the following example shows.
+
+[subs=+quotes]
+----
+from("file:datasets?`++`fileName=covid_cases.csv`++`")
+.to("file:tmp/data/");
+----
+
+Likewise, you can configure the endpoint to include a subset of files, by using the `+filter+` option.
+The following example demonstrates a `+file+` component endpoint that only reads product `+json+` files.
+
+[subs=+quotes]
+----
+from("file:warehouse/incoming?`++`include=product.*json`++`")
+.to("file:warehouse/outgoing");
+----
+
+[NOTE]
+====
+The `+include+` parameter supports regex patterns, both for the `+file+` and `+ftp+` components.
+====
+
+=== Message Headers
+
+Similar to other components, the `+file+` component provides producer and consumer headers in the message.
+For example, you can use the `+CamelFileLastModified+` header to inspect the last modified time of each consumed file.
+
+[subs=+quotes]
+----
+from("file:orders/")
+`+.log("File: ${header.CamelFileLastModified}")+`
+----
+
+The File component documentation provides the full list of supported headers.
+
+== The FTP Component
+
+Use the `+ftp+` component to read files from and write files to an FTP server.
+The URI endpoint for this component is as follows:
+
+----
+ftp://[username@]hostname[:port]/directoryName
+----
+
+* The component allows the use of `+ftp+`, `+sftp+`, and `+ftps+` protocols.
+* The `+hostname+` parameter is required, but the username and port are optional.
+You can also specify the username as an endpoint query option.
+* The `+directoryName+` parameter must be a relative directory path.
+* Similar to the `+file+` component, you can include further options in the endpoint.
+For example, you can use options to specify additional connection parameters, such as the authentication password.
+
+The following example demonstrates the use of the `+ftp+` component.
+
+[subs=+quotes]
+----
+from(
+    `"ftp://localhost:21/documents?" +
+    "username=myuser&password=mypass"`
+)
+.to("file:docs/");
+----
+
+The preceding Camel route reads files from the `+documents+` directory in an FTP server and copies the files into the `+docs+` directory of the local file system.
+Likewise, you can use the `+ftp+` component as a producer, to write files to an FTP endpoint.
+
+=== Installing the FTP component
+
+The `+ftp+` component is not included in `+camel-core+`.
+To use this component, you must specify the `+camel-ftp+` artifact as a Maven dependency, as follows:
+
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-ftp</artifactId>
+</dependency>
+----
+
+=== Filtering Files
+
+Similar to the `+file+` component, you can use the `+fileName+` and `+include+` parameters to select or filter specific files in an FTP server.
+For example, you can select a subset of the files as the following example shows:
+
+[subs=+quotes]
+----
+from(
+    "ftp://localhost:21/documents?" +
+    "username=myuser&password=mypass&" +
+    `+"include=recipe.*txt"+`
+)
+.to("file:docs/recipes");
+----
+
+=== FTP Connection Mode
+
+By default, the `+ftp+` component uses the FTP `+active+` connection mode.
+In this mode, the FTP server can initiate requests to the client, which means that the client must be publicly accessible to the FTP server.
+If the FTP server cannot reach the client to start a connection, then you must switch to the FTP passive mode.
+In passive mode, only the client starts the connection to the FTP server.
+
+To activate the passive mode, set the `+passiveMode+` endpoint option to `+true+`, as follows:
+
+[subs=+quotes]
+----
+from(
+    "ftp://localhost:21/documents?" +
+    "username=myuser&password=mypass&" +
+    "include=recipe.*txt&" +
+    `+"passiveMode=true"+`
+)
+.to("file:docs/");
+----
+
+=== Message Headers
+
+The `+ftp+` component provides producer and consumer headers for each message.
+For example, you can use the `+CamelFileName+` header to inspect the produced or consumed file name.
+
+[subs=+quotes]
+----
+from("ftp://localhost:21/?include=record.*txt&")
+`+.log("File: ${header.CamelFileName}")+`
+.to("file:records");
+----
+
+The FTP component documentation provides the full list of supported headers.
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _File Component_ chapter in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache Camel Component Reference_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#file-component
+
+For more information, refer to the _FTP Component_ chapter in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache Camel Component Reference_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#ftp-component
+====

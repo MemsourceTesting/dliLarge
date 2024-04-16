@@ -1,0 +1,38 @@
+Felling exercise, 3 trees Ergo
+---------------------------------
+
+.. Created by Creanex Oy SimTrainer Material Editor
+
+
+**Description**
+
+1.   Fell the three marked trees towards the blue target point.
+
+   •   Minimize the distance traveled by the crane.  
+   
+   •   Use multiple simultaneous movements of the crane > smooth use of the crane.  
+   
+   •   Pay attention to the precision of the crane movements. Make sure other trees are not damaged.  
+   
+   •   Pay attention to the orientation of the vertical column. You are not automatically assessed for this.  
+
+2.   You can freely choose a suitable work spot for felling the trees.
+
+
+3.   When you finish the exercise, review the exercise report.
+ 
+ **Requirements for maximum score (100p)**
+
+   •   Precision 0.5 m
+   •   Distance traveled by crane 15 m
+   •   0 tree damage
+
+   MINIMUM POINTS TO PASS: 50p
+
+* `Exercise 1 Ergo <./F_harv_5_1.ponST>`_
+
+Starting position for the exercise:
+
+.. image:: F_harv_5_1.PNG
+   :alt: 
+

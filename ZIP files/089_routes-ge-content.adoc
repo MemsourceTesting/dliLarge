@@ -1,0 +1,166 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='transactionroutes-practice']
+= Sample Title
+
+In this exercise, you will develop an integration for the payments received in an e-commerce platform.
+
+The e-commerce system stores the payments in separate XML files.
+The payments can have a wrong order ID, or an invalid email.
+
+You must develop a Camel integration to notify customers about processed payments.
+The integration must retrieve payments from a folder, store them into a database, validate the payment data, and finally send the payments to a queue for further processing.
+The payments in the database and in the queue must be the ones with valid data.
+
+== Outcomes
+
+You should be able to implement transactional routes in Camel.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+transaction-routes/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to prepare your system for this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start transaction-routes*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/transaction-routes/apps+` directory, into the `+~/AD221/transaction-routes+` directory.
+It also starts a containerized MySQL server, creates a database called `+payments+`, and starts a containerized Red{nbsp}Hat AMQ broker.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/transaction-routes+` directory, open the project with your editor of choice, and examine the code.
+
+// -----------------------------------------------------------------------------
+
+2) Run the `+./mvnw -DskipTests=true clean package spring-boot:run+` command to start the Spring Boot application.
+
+Notice that the Camel route returns an exception every time it tries to process the `+payment-2.xml+`, and `+payment-3.xml+` files.
+On each attempt, the JPA component saves a new record in the `+payments+` database because the exception happens after the storage of the data.
+
+3) Open a new terminal window, and execute the following command to verify the existence of multiple records in the database for the invalid payments.
+Any payment with a negative order ID, or with an empty email, is an invalid order.
+
+[subs=+quotes]
+----
+[student@workstation transaction-routes]$ *podman exec database \
+mysql -u dbuser -pdbpass payments -e "SELECT * FROM payments;"*
+id  user_id  amount  order_id  currency  email             notified
+_...output omitted..._
+54  3        300     -1        EUR       fail@example.com  NULL
+55  2        200     200       EUR                         NULL
+56  3        300     -1        EUR       fail@example.com  NULL
+57  2        200     200       EUR                         NULL
+58  3        300     -1        EUR       fail@example.com  NULL
+----
+
+4) Stop the application.
+
+// -----------------------------------------------------------------------------
+
+5) Open the `+PaymentsTransactionManager+` class, and create a transaction manager instance.
+
+Add a Java bean method that returns a `+PlatformTransactionManager+` implementation.
+The method must accept a `+DataSource+` object as parameter, and return a new instance of the `+DataSourceTransactionManager+` type.
+
+[subs=+quotes]
+----
+// TODO: Create a transaction manager
+`@Bean
+public PlatformTransactionManager transactionManager(DataSource dataSource) {
+    return new DataSourceTransactionManager(dataSource);
+}`
+----
+
+// -----------------------------------------------------------------------------
+
+6) Open the `+PaymentsTransactionPolicy+` class, and create a transaction policy.
+
+Add a Java bean method that returns a `+SpringTransactionPolicy+` instance.
+The method must accept a `+PlatformTransactionManager+` object as parameter, and return a new instance of the `+SpringTransactionPolicy+` type.
+Set `+PROPAGATION_REQUIRED+` as the propagation behavior name and the Java bean name.
+
+[subs=+quotes]
+----
+// TODO: Create a transaction management policy
+`@Bean(name = "PROPAGATION_REQUIRED")
+public SpringTransactionPolicy propagationRequired(PlatformTransactionManager transactionManager) {
+    SpringTransactionPolicy propagationRequired = new SpringTransactionPolicy();
+
+    propagationRequired.setTransactionManager(transactionManager);
+    propagationRequired.setPropagationBehaviorName("PROPAGATION_REQUIRED");
+
+    return propagationRequired;
+}`
+----
+
+// -----------------------------------------------------------------------------
+
+7) Open the `+PaymentRouteBuilder+` class.
+Handle the `+IllegalStateException+` and `+InvalidEmailException+` exceptions raised from the `+NotificationProcessor+` processor by using the `+onException+` clause.
+Capture the exceptions, set the maximum re deliveries to 1, and mark the exception as handled.
+Send the messages with invalid values to the `+jms:queue:dead-letter+` endpoint, and mark the transaction as `+markRollbackOnly+`.
+
+[subs=+quotes]
+----
+// TODO: Add a dead letter queue
+`onException(IllegalStateException.class, InvalidEmailException.class)
+    .maximumRedeliveries(1)
+    .handled(true)
+    .to("jms:queue:dead-letter")
+    .markRollbackOnly();`
+----
+
+// -----------------------------------------------------------------------------
+
+8) Update the `+payments-process+` route to support transactions.
+Mark the route as transacted, and use the `+PROPAGATION_REQUIRED+` policy.
+
+[subs=+quotes]
+----
+// TODO: Set the route as transacted
+from("file://data/payments?noop=true")
+    `+.transacted("PROPAGATION_REQUIRED")+`
+    .routeId("payments-process")
+    .log("File: ${header.CamelFileName}")
+    .unmarshal(xmlDataFormat)
+    .to("jpa:" + Payment.class.getName() + "&usePersist=true")
+    .process(new NotificationProcessor())
+    .to("jms:queue:payment-notifications");
+----
+
+// -----------------------------------------------------------------------------
+
+9) Verify the correctness of the changes made to the route by executing the unit tests.
+Run the `+./mvnw clean test+` command, and verify that three unit tests pass.
+
+// -----------------------------------------------------------------------------
+
+10) Run the `+./mvnw clean package spring-boot:run+` command to start the Spring Boot application.
+Wait for the application to process the payments, and execute the following command to verify the existence of two records in the database.
+
+[subs=+quotes]
+----
+[student@workstation transaction-routes]$ *podman exec database \
+mysql -u dbuser -pdbpass payments -e "SELECT * FROM payments;"*
+id  user_id  amount  order_id  currency  email              notified
+1   1        100     100       EUR       user@example.com   1
+4   4        400     400       USD       hello@example.com  1
+----
+
+Stop the Spring Boot application.
+
+== Finish
+
+Return to your workspace directory, and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish transaction-routes*
+----

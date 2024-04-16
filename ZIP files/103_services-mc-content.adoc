@@ -1,0 +1,94 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='restservices-multchoice']
+= Building and Consuming REST Services
+
+[role='MultChoice']
+== Instructions
+
+Consider that you have recently joined a real estate startup.
+The startup has an online platform that enriches the information available for the properties with external data.
+
+You must choose the correct answers to the following questions to complete the relevant part of the integration services:
+
+// -----------------------------------------------------------------------------
+
+1) The company has a REST service that exposes the information available for the properties.
+Regarding the following code, which sentence is true? (Choose one.)
+
+----
+restConfiguration()
+    .component("servlet")
+        .port(8080)
+        .bindingMode(RestBindingMode.json);
+
+rest("/house")
+    .get("/{maxPrice}")
+        .route()
+            .choice()
+                .when().simple("${maxPrize} > 5000")
+                    .to("direct:partnerHouses")
+                .otherwise()
+                    .to("direct:companyHouses)
+    .get("/")
+        .to("direct:allHouses")
+    .get("/{id}/details")
+        .to("direct:houseDetails");
+----
+
+** The service exposes all the available houses in the `+/+` GET REST endpoint.
+** The `+direct:partnerHouses+` endpoint is responsible for processing GET requests for houses with a `+maxPrice+` greater than 5000.
+** A GET request to the `+/123/details+` endpoint returns details for the property with ID `+123+`.
+** [role='solution'] The code has a bug in the definition and usage of the REST path parameters.
+
+// -----------------------------------------------------------------------------
+
+2) The company has a service responsible for enriching the information available for the properties with external data.
+Regarding the following integration code, which sentence is true? (Choose one.)
+
+----
+from("direct:origin-a")
+  .enrich("direct:origin-b", aggregationStrategy)
+  .to("direct:result");
+----
+
+** The `+enrich+` DSL method invokes asynchronously the `+direct:origin-b+` endpoint to obtain some additional data.
+** [role='solution'] Camel invokes the `+direct:origin-b+` endpoint to enrich incoming messages from the `+direct:origin-a+` endpoint.
+** Camel invokes the `+direct:origin-a+` endpoint to enrich incoming messages from the `+direct:origin-b+` endpoint, and uses the `+aggregationStrategy+` instance to combine the data.
+** The `+aggregationStrategy+` instance is responsible for invoking the `+direct:origin-b+` endpoint, and combining the enrichment data with the original exchange.
+
+// -----------------------------------------------------------------------------
+
+3) A big partner of the startup has a REST API exposed in the `+api.partner.example.com+` hostname.
+The API has a `+properties+` endpoint that returns all the properties available.
+The endpoint also supports the `+details+` parameter to limit the amount of information that it returns.
+You want to build an integration with the partner and use the `+short+` details option.
+Which two options can you use to implement this requirement? (Choose two.)
+
+** Consume from the `+http4://api.partner.example.com/properties?details=short+` endpoint.
+** [role='solution'] Produce to the `+http4://api.partner.example.com/properties?details=short+` endpoint.
+** Consume from the `+http4://api.partner.example.com/properties+` endpoint with an HTTP_QUERY header with `+details=short+` as the value.
+** [role='solution'] Set an HTTP_QUERY header with `+details=short+` as the value, and produce to the `+http4://api.partner.example.com/properties+` endpoint.
+
+// -----------------------------------------------------------------------------
+
+4) The startup enriches the data retrieved from the partners with statistical information about the property location.
+A SOAP service available in the `+stats.example.com+` host provides the statistical information.
+Regarding the following code, which two sentences are true? (Choose two.)
+
+----
+from("direct:start")
+    .setBody(constant("Liverpool"))
+    .bean(GetStatsRequestBuilder.class)
+    .setHeader(CxfConstants.OPERATION_NAME, constant("GetStats"))
+    .setHeader(CxfConstants.OPERATION_NAMESPACE,
+        constant("http://stats.example.com/"))
+    .to("cxf://http://stats.example.com:8423"
+        + "?serviceClass=com.example.StatsService"
+        + "&wsdlURL=/stats.wsdl")
+    .log("The population in the area is : ${body[0].stats.population}");
+----
+
+** The code has a bug in the CFX URI.
+** [role='solution'] The code writes in the log the population of Liverpool.
+** The implementation uses a WSDL located in the `+http://stats.example.com/stats.wsdl+` URL.
+** [role='solution'] The implementation uses a WSDL located in the file system.

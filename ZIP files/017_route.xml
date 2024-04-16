@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % common_entities SYSTEM "../common.ent">
+%common_entities;
+]>
+<!-- Chapters should have an id that is a short version of the title. -->
+<chapter id="route">
+  <title>Creating Camel Routes</title>
+  <abstract>
+    <para>
+      <informaltable frame="all">
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="2.2*"/>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis role="bold">Goal</emphasis>
+              </entry>
+              <entry>
+                Develop Camel routes and process messages.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis role="bold">Objectives</emphasis>
+              </entry>
+              <entry>
+                <!-- List Chapter Objectives -->
+                <!-- If only one objective, remove the <itemizedlist> -->
+                <itemizedlist>
+                  <listitem>
+                    <para>
+                      Create a route that reads and writes data to the file system.
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Create a route that reads from an FTP server.
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Implement routes that include dynamic routing.
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Use processors to manipulate exchange messages in routes.
+                    </para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis role="bold">Sections</emphasis>
+              </entry>
+              <entry>
+                <!-- Enter lecture section titles here. Do not list practice titles. Should be a 1-1 match with performance objectives. -->
+                <!-- If only one section, remove the <itemizedlist> -->
+                <itemizedlist>
+                  <listitem>
+                    <para>
+                      Creating Routes Using the Java and XML DSL (and Guided Exercise)
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Reading and Writing Files (and Guided Exercise)
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Routing Messages (and Guided Exercise)
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Developing a Camel Processor (and Guided Exercise)
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Creating Camel Routes (Quiz)
+                    </para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </abstract>
+  <!-- Include section content from the topics directory. -->
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/build-lecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/build-ge.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/files-lecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/files-ge.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/messages-lecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/messages-ge.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/processor-lecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/processor-ge.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/creation-mc.xml"/>
+
+  <section id="route-summary">
+    <title>Summary</title>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/route/summary-content.xml" xpointer="xpointer(/section/node()[not(self::title)])">
+      <!--<xi:fallback>
+          
+            
+            
+            
+          <note>
+            <para>
+              This section is under development.
+            </para>
+          </note>
+      </xi:fallback>-->
+    </xi:include>
+  </section>
+</chapter>

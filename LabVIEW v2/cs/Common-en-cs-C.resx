@@ -1,0 +1,1458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>Zrušit updtovaný</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategorie updatovaný</value>
+  </data>
+  <data name="Client" xml:space="preserve">
+    <value>Klient</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="Division" xml:space="preserve">
+    <value>Divize</value>
+  </data>
+  <data name="API" xml:space="preserve">
+    <value>API</value>
+  </data>
+  <data name="KnowledgeCenter" xml:space="preserve">
+    <value>Centrum znalostí</value>
+  </data>
+  <data name="NeedHelp" xml:space="preserve">
+    <value>Potřebujete pomoc?</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Něco</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Ne, opravdu</value>
+  </data>
+  <data name="PortalName" xml:space="preserve">
+    <value>Johnson &amp; Johnson Global Translation Center</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Sector" xml:space="preserve">
+    <value>Sektor</value>
+  </data>
+  <data name="PoweredBy" xml:space="preserve">
+    <value>Poháněno Amplexor</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Soukromí</value>
+  </data>
+  <data name="ReturnToKnowledgeCenter" xml:space="preserve">
+    <value>Návrat do Knowledge Center</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Johnson &amp; Johnson</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Přihlásit se</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Odhlásit se</value>
+  </data>
+  <data name="UhOhMsg" xml:space="preserve">
+    <value>Uh oh! Něco se stalo.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ano</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Akce</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Průhledná</value>
+  </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Klienti</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Odstranit</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaily</value>
+  </data>
+  <data name="Divisions" xml:space="preserve">
+    <value>Divize</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Ke stažení</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Soubor</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Prosím, počkejte...</value>
+  </data>
+  <data name="Regions" xml:space="preserve">
+    <value>Regiony</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Vyhledávání</value>
+  </data>
+  <data name="Sectors" xml:space="preserve">
+    <value>Sektory</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Vybrat</value>
+  </data>
+  <data name="SelectMultiples" xml:space="preserve">
+    <value>Pomocí klávesy Ctrl vyberte násobky.</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Produkty</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>Projektuje</value>
+  </data>
+  <data name="SourceLanguage" xml:space="preserve">
+    <value>Zdrojový jazyk</value>
+  </data>
+  <data name="SourceLanguages" xml:space="preserve">
+    <value>Zdrojové jazyky</value>
+  </data>
+  <data name="TargetLanguage" xml:space="preserve">
+    <value>Cílový jazyk</value>
+  </data>
+  <data name="TargetLanguages" xml:space="preserve">
+    <value>Cílové jazyky</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Soubory</value>
+  </data>
+  <data name="KPIs" xml:space="preserve">
+    <value>KPI</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>Kvalita</value>
+  </data>
+  <data name="Quotes" xml:space="preserve">
+    <value>Citáty</value>
+  </data>
+  <data name="TMs" xml:space="preserve">
+    <value>TM</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mailem</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Jazyky</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Křestní jméno</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Příjmení</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Vyžaduje se e-mail.</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Měna</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Rande</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Vlastník</value>
+  </data>
+  <data name="Owners" xml:space="preserve">
+    <value>Majitelé</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon je můj!</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Produkt</value>
+  </data>
+  <data name="ProjectStatus" xml:space="preserve">
+    <value>Stav projektu</value>
+  </data>
+  <data name="Recipients" xml:space="preserve">
+    <value>Příjemci</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Sender" xml:space="preserve">
+    <value>Odesílatel</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Stát United</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Dodavatel</value>
+  </data>
+  <data name="Suppliers" xml:space="preserve">
+    <value>Dodavatelé</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Verze</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Přidat</value>
+  </data>
+  <data name="AdditionalNotes" xml:space="preserve">
+    <value>Doplňkové poznámky</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Přidat nový</value>
+  </data>
+  <data name="AreGraphicsIllustrationsTranslated" xml:space="preserve">
+    <value>Grafika nebo ilustrace musí být skutečně přeloženy</value>
+  </data>
+  <data name="AreSpeakerNotesTranslated" xml:space="preserve">
+    <value>Poznámky reproduktorů je třeba přeložit</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Špatný požadavek</value>
+  </data>
+  <data name="BidId" xml:space="preserve">
+    <value>ID nabídky</value>
+  </data>
+  <data name="BidStatus" xml:space="preserve">
+    <value>Stav nabídky</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Vytvořeno</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Datum vytvoření</value>
+  </data>
+  <data name="CreateProject" xml:space="preserve">
+    <value>Vytvořit projekt</value>
+  </data>
+  <data name="Deadline" xml:space="preserve">
+    <value>Termín</value>
+  </data>
+  <data name="DescriptionNotes" xml:space="preserve">
+    <value>Popis &amp; Poznámky</value>
+  </data>
+  <data name="EarlyProjects" xml:space="preserve">
+    <value>Rané projekty</value>
+  </data>
+  <data name="EditDisabledProjectCancelled" xml:space="preserve">
+    <value>Upravit zakázaný &lt;br&gt;projekt Zrušeno</value>
+  </data>
+  <data name="EditDisabledProjectClosed" xml:space="preserve">
+    <value>Upravit zakázaný &lt;br&gt;projekt uzavřen</value>
+  </data>
+  <data name="EditDisabledSkipToProject" xml:space="preserve">
+    <value>Upravit zakázaný &lt;br&gt;Přeskočit na projekt</value>
+  </data>
+  <data name="FileRequired" xml:space="preserve">
+    <value>Soubor je vyžadován.</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="GenerateTM" xml:space="preserve">
+    <value>Generovat TM</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Historie</value>
+  </data>
+  <data name="Invitations" xml:space="preserve">
+    <value>Pozvánky</value>
+  </data>
+  <data name="IsUpdateProject" xml:space="preserve">
+    <value>Aktualizace projektu</value>
+  </data>
+  <data name="LanguagesFormatsServices" xml:space="preserve">
+    <value>Jazyky, formáty a služby</value>
+  </data>
+  <data name="LargeProjectDiscount" xml:space="preserve">
+    <value>Velký projekt Sleva můj přítel</value>
+  </data>
+  <data name="LateProjects" xml:space="preserve">
+    <value>Pozdní projekty</value>
+  </data>
+  <data name="LinguisticMajorNCs" xml:space="preserve">
+    <value>Jazykové hlavní NC</value>
+  </data>
+  <data name="LinguisticMinorNCs" xml:space="preserve">
+    <value>Jazykovědné vedlejší NC</value>
+  </data>
+  <data name="Lost" xml:space="preserve">
+    <value>Ztracený</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Zpráva</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Měsíc</value>
+  </data>
+  <data name="NonConformances" xml:space="preserve">
+    <value>Neshody</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Odeslat zprávu</value>
+  </data>
+  <data name="NotificationsDisabledProjectCancelled" xml:space="preserve">
+    <value>Odeslat zprávu Zakázáno &lt;br&gt;Projekt Zrušen</value>
+  </data>
+  <data name="NotificationsDisabledProjectClosed" xml:space="preserve">
+    <value>Odeslat zprávu Zakázáno &lt;br&gt;Projekt uzavřen</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OnTimeProjects" xml:space="preserve">
+    <value>On-Time Projekty</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Otevřeno</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Balíčky</value>
+  </data>
+  <data name="PmMajorNCsCap" xml:space="preserve">
+    <value>PM MAJOR NC</value>
+  </data>
+  <data name="PmMinorNCsCap" xml:space="preserve">
+    <value>PM MINOR NC</value>
+  </data>
+  <data name="PONumber" xml:space="preserve">
+    <value>Číslo PO</value>
+  </data>
+  <data name="POs" xml:space="preserve">
+    <value>POS</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="ProjectDeadline" xml:space="preserve">
+    <value>Uzávěrka projektu</value>
+  </data>
+  <data name="ProjectDeadlineFlexible" xml:space="preserve">
+    <value>Uzávěrka projektu je flexibilní</value>
+  </data>
+  <data name="ProjectDescription" xml:space="preserve">
+    <value>Popis projektu</value>
+  </data>
+  <data name="ProjectKeyNotFound" xml:space="preserve">
+    <value>Klíč projektu nebyl nalezen: {0}</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Název projektu</value>
+  </data>
+  <data name="ProvideBasicsAboutKPI" xml:space="preserve">
+    <value>Poskytněte základní informace o KPI.</value>
+  </data>
+  <data name="ProvideProjectBasicsMsg" xml:space="preserve">
+    <value>Poskytněte základní informace o svém projektu.</value>
+  </data>
+  <data name="QuoteDeadline" xml:space="preserve">
+    <value>Uzávěrka nabídky</value>
+  </data>
+  <data name="QuoteDeadlineFlexible" xml:space="preserve">
+    <value>Uzávěrka nabídky je flexibilní</value>
+  </data>
+  <data name="QuoteKeyNotFound" xml:space="preserve">
+    <value>Quote Key nebyl nalezen: {0}</value>
+  </data>
+  <data name="QuoteRequest" xml:space="preserve">
+    <value>Žádost o cenovou nabídku</value>
+  </data>
+  <data name="QuoteStatus" xml:space="preserve">
+    <value>Stav nabídky</value>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>Datum žádosti</value>
+  </data>
+  <data name="Requestor" xml:space="preserve">
+    <value>Žadatel</value>
+  </data>
+  <data name="Requestors" xml:space="preserve">
+    <value>Žadatelé</value>
+  </data>
+  <data name="ResponseDate" xml:space="preserve">
+    <value>Datum odezvy</value>
+  </data>
+  <data name="Responses" xml:space="preserve">
+    <value>Odpovědi</value>
+  </data>
+  <data name="SectorDivisionRegion" xml:space="preserve">
+    <value>Sektor/Divize/Region</value>
+  </data>
+  <data name="SelectCurrencyEllipsis" xml:space="preserve">
+    <value>Vyberte měnu...</value>
+  </data>
+  <data name="SendInvitations" xml:space="preserve">
+    <value>Odeslat pozvánky</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>Odeslat oznámení</value>
+  </data>
+  <data name="SendNotifications" xml:space="preserve">
+    <value>Odeslat oznámení</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Služby</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Velikost</value>
+  </data>
+  <data name="SkipToProject" xml:space="preserve">
+    <value>Přeskočit na projekt</value>
+  </data>
+  <data name="SourceFileFormats" xml:space="preserve">
+    <value>Formáty zdrojových souborů</value>
+  </data>
+  <data name="SpendAwarded" xml:space="preserve">
+    <value>Udělené utratit</value>
+  </data>
+  <data name="SpendInvoiced" xml:space="preserve">
+    <value>Utratit fakturované</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Předmět</value>
+  </data>
+  <data name="SupplierHistory" xml:space="preserve">
+    <value>Historie dodavatele</value>
+  </data>
+  <data name="SupplierNotFound" xml:space="preserve">
+    <value>Dodavatel nebyl nalezen: {0}</value>
+  </data>
+  <data name="SuppliersHistory" xml:space="preserve">
+    <value>Historie dodavatelů</value>
+  </data>
+  <data name="TargetFileFormats" xml:space="preserve">
+    <value>Formáty cílových souborů</value>
+  </data>
+  <data name="TechnicalMajorNCs" xml:space="preserve">
+    <value>Technické hlavní NC</value>
+  </data>
+  <data name="TechnicalMinorNCs" xml:space="preserve">
+    <value>Technické Minor NC</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Šablony</value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Děkuji</value>
+  </data>
+  <data name="TheBasics" xml:space="preserve">
+    <value>Základy</value>
+  </data>
+  <data name="TMSavings" xml:space="preserve">
+    <value>TM Úspory</value>
+  </data>
+  <data name="TotalCost" xml:space="preserve">
+    <value>Celkové náklady</value>
+  </data>
+  <data name="TotalMajorNCs" xml:space="preserve">
+    <value>Celkem Major NCs</value>
+  </data>
+  <data name="TotalMinorNCs" xml:space="preserve">
+    <value>Celkem menších NC</value>
+  </data>
+  <data name="TranslationCertificateRequired" xml:space="preserve">
+    <value>Vyžaduje se překlad certifikátu</value>
+    <comment>.</comment>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Nahráno</value>
+  </data>
+  <data name="UploadTM" xml:space="preserve">
+    <value>Nahrát TM</value>
+  </data>
+  <data name="VolumeSavings" xml:space="preserve">
+    <value>Úspora objemu</value>
+  </data>
+  <data name="Won" xml:space="preserve">
+    <value>Vyhrál</value>
+  </data>
+  <data name="WordCount" xml:space="preserve">
+    <value>Počet slov</value>
+  </data>
+  <data name="CreateTemplate" xml:space="preserve">
+    <value>Vytvořit šablonu</value>
+  </data>
+  <data name="HideHistory" xml:space="preserve">
+    <value>Skrýt historii</value>
+  </data>
+  <data name="RequestQuote" xml:space="preserve">
+    <value>Žádost o cenovou nabídku</value>
+  </data>
+  <data name="ReturnToProjects" xml:space="preserve">
+    <value>Návrat k projektům</value>
+  </data>
+  <data name="ReturnToQuotes" xml:space="preserve">
+    <value>Návrat do nabídek</value>
+  </data>
+  <data name="PleaseSelectSupplier" xml:space="preserve">
+    <value>Vyberte prosím nového dodavatele.</value>
+  </data>
+  <data name="ShowHistory" xml:space="preserve">
+    <value>Zobrazit historii</value>
+  </data>
+  <data name="SubmitQuoteRequest" xml:space="preserve">
+    <value>Odeslat žádost o cenovou nabídku</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>zavřeno</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Pokračovat</value>
+  </data>
+  <data name="ProjectTurnaround" xml:space="preserve">
+    <value>Obrat projektu</value>
+  </data>
+  <data name="ReOpened" xml:space="preserve">
+    <value>znovu otevřen</value>
+  </data>
+  <data name="ReturnToProject" xml:space="preserve">
+    <value>Návrat do projektu</value>
+  </data>
+  <data name="SendDate" xml:space="preserve">
+    <value>Datum odeslání</value>
+  </data>
+  <data name="SourceFormat" xml:space="preserve">
+    <value>Zdrojový formát</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="SubmittedOn" xml:space="preserve">
+    <value>Odesláno dne</value>
+  </data>
+  <data name="TargetFormats" xml:space="preserve">
+    <value>Cílové formáty</value>
+  </data>
+  <data name="AdditionalEmails" xml:space="preserve">
+    <value>Další e-maily</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="ClientName" xml:space="preserve">
+    <value>Jméno klienta</value>
+  </data>
+  <data name="ClientRequired" xml:space="preserve">
+    <value>Vyžaduje se klient.</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Již brzy</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potvrdit</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Balíček</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Předvolby</value>
+  </data>
+  <data name="ProjectDelivery" xml:space="preserve">
+    <value>Dodání projektu</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Odstranit</value>
+  </data>
+  <data name="ReturnToKPIs" xml:space="preserve">
+    <value>Zpět na KPI</value>
+  </data>
+  <data name="Skip" xml:space="preserve">
+    <value>Přeskočit</value>
+  </data>
+  <data name="StatusRequired" xml:space="preserve">
+    <value>Stav je vyžadován.</value>
+  </data>
+  <data name="Thanks" xml:space="preserve">
+    <value>Díky!</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Aktualizace</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
+  <data name="ViewProject" xml:space="preserve">
+    <value>Zobrazit projekt</value>
+  </data>
+  <data name="BackToProject" xml:space="preserve">
+    <value>Zpět na Project</value>
+  </data>
+  <data name="BackToQuote" xml:space="preserve">
+    <value>Zpět na nabídku</value>
+  </data>
+  <data name="InvalidEmailAddressEntered" xml:space="preserve">
+    <value>Zadána neplatná e-mailová adresa.</value>
+  </data>
+  <data name="Activation" xml:space="preserve">
+    <value>Aktivace</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Potvrďte heslo</value>
+  </data>
+  <data name="ConfirmPasswordRequired" xml:space="preserve">
+    <value>Potvrďte požadované heslo.</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>Je vyžadováno křestní jméno.</value>
+  </data>
+  <data name="LanguageRequired" xml:space="preserve">
+    <value>Vyžaduje se jazyk.</value>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>Vyžaduje se příjmení.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="PasswordLengthCriterion" xml:space="preserve">
+    <value>{0} Musí mít alespoň {2} znaky dlouhé.</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Je vyžadováno heslo.</value>
+  </data>
+  <data name="PasswordsDoNotMatch" xml:space="preserve">
+    <value>Heslo a potvrzovací heslo se neshodují.</value>
+  </data>
+  <data name="RoleRequired" xml:space="preserve">
+    <value>Vyžaduje se role.</value>
+  </data>
+  <data name="SelectCategory" xml:space="preserve">
+    <value>Vyberte kategorii...</value>
+  </data>
+  <data name="SelectDivision" xml:space="preserve">
+    <value>Vyberte dělení...</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Vyberte jazyk...</value>
+  </data>
+  <data name="SelectProduct" xml:space="preserve">
+    <value>Vyberte produkt...</value>
+  </data>
+  <data name="SelectProject" xml:space="preserve">
+    <value>Vybrat projekt...</value>
+  </data>
+  <data name="SelectRegion" xml:space="preserve">
+    <value>Vyberte oblast...</value>
+  </data>
+  <data name="SelectSector" xml:space="preserve">
+    <value>Vyberte Sektor...</value>
+  </data>
+  <data name="SelectTimezone" xml:space="preserve">
+    <value>Vyberte Časové pásmo...</value>
+  </data>
+  <data name="TimezoneRequired" xml:space="preserve">
+    <value>Vyžaduje se časové pásmo.</value>
+  </data>
+  <data name="TMStatusRequired" xml:space="preserve">
+    <value>Je vyžadován stav TM.</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Ahoj</value>
+  </data>
+  <data name="NotApplicable" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>požadované</value>
+  </data>
+  <data name="SaveTemplate" xml:space="preserve">
+    <value>Uložit šablonu</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Shrnutí</value>
+  </data>
+  <data name="Conformances" xml:space="preserve">
+    <value>SHODY</value>
+  </data>
+  <data name="Dollars" xml:space="preserve">
+    <value>Dolarů</value>
+  </data>
+  <data name="NonConformanceTypeBy" xml:space="preserve">
+    <value>Typ neshody podle {0}</value>
+  </data>
+  <data name="ProjectDeliveryBy" xml:space="preserve">
+    <value>Dodání projektu {0}</value>
+  </data>
+  <data name="SpendingAndSavingsBy" xml:space="preserve">
+    <value>Výdaje &amp; Úspory {0}</value>
+  </data>
+  <data name="TotalInvoiced" xml:space="preserve">
+    <value>Celkem fakturované</value>
+  </data>
+  <data name="TotalNonConformancesBy" xml:space="preserve">
+    <value>Celkové neshody {0}</value>
+  </data>
+  <data name="Words" xml:space="preserve">
+    <value>Slova</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Schváleno</value>
+  </data>
+  <data name="NotApproved" xml:space="preserve">
+    <value>Nesváleno</value>
+  </data>
+  <data name="Deliverables" xml:space="preserve">
+    <value>výstupy</value>
+  </data>
+  <data name="SourceFormats" xml:space="preserve">
+    <value>Zdrojové formáty</value>
+  </data>
+  <data name="ProjectManagementMajorNCs" xml:space="preserve">
+    <value>Projektový management Hlavní NC</value>
+  </data>
+  <data name="ProjectManagementMinorNCs" xml:space="preserve">
+    <value>Projektový management Minor NC</value>
+  </data>
+  <data name="ReportDate" xml:space="preserve">
+    <value>Datum zprávy:</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Výsledky</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Akce</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="SupplierName" xml:space="preserve">
+    <value>Název dodavatele</value>
+  </data>
+  <data name="TMStatus" xml:space="preserve">
+    <value>Stav TM</value>
+  </data>
+  <data name="DownloadFiles" xml:space="preserve">
+    <value>Stáhnout soubory</value>
+  </data>
+  <data name="EditDisabled" xml:space="preserve">
+    <value>Upravit Zakázáno</value>
+  </data>
+  <data name="QuoteCancelled" xml:space="preserve">
+    <value>Nabídka Zrušena</value>
+  </data>
+  <data name="QuoteClosed" xml:space="preserve">
+    <value>Nabídka uzavřena</value>
+  </data>
+  <data name="Rights" xml:space="preserve">
+    <value>Práva</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>Klíčová slova</value>
+  </data>
+  <data name="AllQuoteStatus" xml:space="preserve">
+    <value>Stav všech nabídek</value>
+  </data>
+  <data name="AllRequestors" xml:space="preserve">
+    <value>Všichni majitelé</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Všechny</value>
+  </data>
+  <data name="AllClients" xml:space="preserve">
+    <value>Všichni klienti</value>
+  </data>
+  <data name="PO" xml:space="preserve">
+    <value>PO</value>
+  </data>
+  <data name="ProjectCancelled" xml:space="preserve">
+    <value>Projekt zrušen</value>
+  </data>
+  <data name="ProjectClosed" xml:space="preserve">
+    <value>Projekt uzavřen</value>
+  </data>
+  <data name="AllProjectStatus" xml:space="preserve">
+    <value>Veškerý stav projektu</value>
+  </data>
+  <data name="AllOwners" xml:space="preserve">
+    <value>Všichni majitelé</value>
+  </data>
+  <data name="AllSuppliers" xml:space="preserve">
+    <value>Všichni dodavatelé</value>
+  </data>
+  <data name="AllCategories" xml:space="preserve">
+    <value>Všechny kategorie</value>
+  </data>
+  <data name="EditFile" xml:space="preserve">
+    <value>Upravit soubor</value>
+  </data>
+  <data name="FileDetails" xml:space="preserve">
+    <value>Detaily souboru</value>
+  </data>
+  <data name="NoEditPermission" xml:space="preserve">
+    <value>Žádné oprávnění k úpravě</value>
+  </data>
+  <data name="ReturnToFiles" xml:space="preserve">
+    <value>Návrat k souborům</value>
+  </data>
+  <data name="NoDeletePermission" xml:space="preserve">
+    <value>Žádné oprávnění k odstranění</value>
+  </data>
+  <data name="TranslationUnits" xml:space="preserve">
+    <value>Překladatelské jednotky</value>
+  </data>
+  <data name="UploadDate" xml:space="preserve">
+    <value>Datum nahrání</value>
+  </data>
+  <data name="AllTmStatus" xml:space="preserve">
+    <value>Všechny TM Status</value>
+  </data>
+  <data name="SearchTMs" xml:space="preserve">
+    <value>Hledat překladové vzpomínky</value>
+  </data>
+  <data name="AllProjects" xml:space="preserve">
+    <value>Všechny projekty</value>
+  </data>
+  <data name="AllSourceLanguages" xml:space="preserve">
+    <value>Všechny zdrojové jazyky</value>
+  </data>
+  <data name="AllTargetLanguages" xml:space="preserve">
+    <value>Všechny cílové jazyky</value>
+  </data>
+  <data name="ProjectNames" xml:space="preserve">
+    <value>Názvy projektů</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Datum ukončení</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Datum zahájení</value>
+  </data>
+  <data name="CombineMultipleTMStatus" xml:space="preserve">
+    <value>Kombinujte více stavů TM ve stejném souboru</value>
+  </data>
+  <data name="FilenamePrefix" xml:space="preserve">
+    <value>Předpona názvu souboru</value>
+  </data>
+  <data name="GenerateTranslationMemory" xml:space="preserve">
+    <value>Generování překladové paměti</value>
+  </data>
+  <data name="GeneratingTM" xml:space="preserve">
+    <value>Generování TM</value>
+  </data>
+  <data name="WaitTMGenerating" xml:space="preserve">
+    <value>Prosím čekejte, vaše TM se generuje...</value>
+  </data>
+  <data name="ChooseFiles" xml:space="preserve">
+    <value>Zvolte soubory</value>
+  </data>
+  <data name="UploadFiles" xml:space="preserve">
+    <value>Nahrát soubory</value>
+  </data>
+  <data name="SaveFile" xml:space="preserve">
+    <value>Uložit soubor</value>
+  </data>
+  <data name="HideConversation" xml:space="preserve">
+    <value>Skrýt oznámení</value>
+  </data>
+  <data name="ShowConversation" xml:space="preserve">
+    <value>Zobrazit oznámení</value>
+  </data>
+  <data name="AllBidStatus" xml:space="preserve">
+    <value>Stav všech nabídek</value>
+  </data>
+  <data name="FileCount" xml:space="preserve">
+    <value>Počet souborů</value>
+  </data>
+  <data name="ProjectCount" xml:space="preserve">
+    <value>Počet projektů</value>
+  </data>
+  <data name="QuoteCount" xml:space="preserve">
+    <value>Počet nabídek</value>
+  </data>
+  <data name="TMCount" xml:space="preserve">
+    <value>Počet TM</value>
+  </data>
+  <data name="AsYouSelectValues" xml:space="preserve">
+    <value>Při výběru hodnot z každé nabídky se možnosti v následujících nabídkách sníží na základě předem definované hierarchie. Kromě toho budou dostupné možnosti záviset na vaší úrovni přístupových práv k systému.</value>
+  </data>
+  <data name="DetailsSectionIncludes" xml:space="preserve">
+    <value>Část podrobností obsahuje možnosti, které popisují strukturu a podrobnější údaje týkající se vaší společnosti.</value>
+  </data>
+  <data name="UnderstandingDetails" xml:space="preserve">
+    <value>Porozumění podrobnostem</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Výsledky vyhledávání</value>
+  </data>
+  <data name="AllMonths" xml:space="preserve">
+    <value>Všechny měsíce</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Servis</value>
+  </data>
+  <data name="SelectWithEllipsis" xml:space="preserve">
+    <value>Vybrat...</value>
+  </data>
+  <data name="ProjectChanges" xml:space="preserve">
+    <value>Změny projektu</value>
+  </data>
+  <data name="Quote" xml:space="preserve">
+    <value>Žádost o cenovou nabídku</value>
+  </data>
+  <data name="QuoteChanges" xml:space="preserve">
+    <value>Změny nabídky</value>
+  </data>
+  <data name="OptionalMessage" xml:space="preserve">
+    <value>Volitelná zpráva</value>
+  </data>
+  <data name="ProjectChange" xml:space="preserve">
+    <value>Změna projektu</value>
+  </data>
+  <data name="ProjectChangeNotifications" xml:space="preserve">
+    <value>Oznámení o změně projektu</value>
+  </data>
+  <data name="QuoteChange" xml:space="preserve">
+    <value>Změna žádosti o nabídku</value>
+  </data>
+  <data name="QuoteChangeNotifications" xml:space="preserve">
+    <value>Oznámení o změně žádosti o nabídku</value>
+  </data>
+  <data name="SelectRecipientsChange" xml:space="preserve">
+    <value>Vyberte příjemce, které chcete na tuto změnu upozornit.</value>
+  </data>
+  <data name="SelectRecipientsChanges" xml:space="preserve">
+    <value>Vyberte příjemce, které chcete na tyto změny upozornit.</value>
+  </data>
+  <data name="SendProjectChangeNotifications" xml:space="preserve">
+    <value>Odeslání oznámení o změně projektu</value>
+  </data>
+  <data name="SendQuoteChangeNotifications" xml:space="preserve">
+    <value>Odeslat oznámení o změně žádosti o nabídku</value>
+  </data>
+  <data name="TranslationFiles" xml:space="preserve">
+    <value>Překladové soubory</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>hodin</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>minut</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>sekund</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>hodina</value>
+  </data>
+  <data name="Minute" xml:space="preserve">
+    <value>minuta</value>
+  </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>Nebyly nalezeny žádné výsledky.</value>
+  </data>
+  <data name="PleaseSelectAClient" xml:space="preserve">
+    <value>Vyberte prosím klienta.</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>druhý</value>
+  </data>
+  <data name="AddFilePackage" xml:space="preserve">
+    <value>Přidat balíček souborů</value>
+  </data>
+  <data name="SelectSupplierChange" xml:space="preserve">
+    <value>Vyberte dodavatele, které chcete upozornit na tuto změnu.</value>
+  </data>
+  <data name="SelectSupplierChanges" xml:space="preserve">
+    <value>Vyberte dodavatele, které chcete o těchto změnách informovat.</value>
+  </data>
+  <data name="InviteSuppliers" xml:space="preserve">
+    <value>Pozvat dodavatele</value>
+  </data>
+  <data name="SendQuoteInvitations" xml:space="preserve">
+    <value>Poslat pozvánky na nabídku</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Název souboru</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>Velikost souboru</value>
+  </data>
+  <data name="NoFilesAssociatedQuote" xml:space="preserve">
+    <value>S touto citací nejsou spojeny žádné soubory.</value>
+  </data>
+  <data name="DateRange" xml:space="preserve">
+    <value>Rozsah dat</value>
+  </data>
+  <data name="TotalProjects" xml:space="preserve">
+    <value>Celkem projektů</value>
+  </data>
+  <data name="TotalWordCount" xml:space="preserve">
+    <value>Celkový počet slov</value>
+  </data>
+  <data name="EstimatedProcessTime" xml:space="preserve">
+    <value>Odhadovaná doba procesu</value>
+  </data>
+  <data name="EstimatedTMFileSize" xml:space="preserve">
+    <value>Odhadovaná velikost souboru TM</value>
+  </data>
+  <data name="EstimatedZipFileSize" xml:space="preserve">
+    <value>Odhadovaná velikost souboru Zip</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>Naposledy aktualizováno</value>
+  </data>
+  <data name="UpdateHistory" xml:space="preserve">
+    <value>Historie aktualizací</value>
+  </data>
+  <data name="NoFilesAssociatedProject" xml:space="preserve">
+    <value>K tomuto projektu nejsou přidruženy žádné soubory.</value>
+  </data>
+  <data name="QuoteDescription" xml:space="preserve">
+    <value>Popis nabídky</value>
+  </data>
+  <data name="NoSuppliersInvited" xml:space="preserve">
+    <value>Žádní dodavatelé pozváni</value>
+  </data>
+  <data name="Recipient" xml:space="preserve">
+    <value>Příjemce</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Odeslat zprávu</value>
+  </data>
+  <data name="SendMessageDisabled" xml:space="preserve">
+    <value>Odeslat zprávu Zakázáno</value>
+  </data>
+  <data name="SelectSuppliers" xml:space="preserve">
+    <value>Vyberte dodavatele</value>
+  </data>
+  <data name="YourMessageSentTo" xml:space="preserve">
+    <value>Vaše zpráva byla odeslána {0}</value>
+  </data>
+  <data name="AdministrativeReports" xml:space="preserve">
+    <value>Správní zprávy</value>
+  </data>
+  <data name="Auto" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="Translate" xml:space="preserve">
+    <value>Přeložit</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Uživatelé</value>
+  </data>
+  <data name="AllCurrencies" xml:space="preserve">
+    <value>Všechny měny</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Počítat</value>
+  </data>
+  <data name="LinguisticMajorNCsCap" xml:space="preserve">
+    <value>JAZYKOVÉ HLAVNÍ NC</value>
+  </data>
+  <data name="LinguisticMajorNonConformances" xml:space="preserve">
+    <value>Jazykové hlavní neshody</value>
+  </data>
+  <data name="LinguisticMinorNCsCap" xml:space="preserve">
+    <value>JAZYKOVĚDNÉ MENŠÍ NC</value>
+  </data>
+  <data name="LinguisticMinorNonConformances" xml:space="preserve">
+    <value>Lingvistické drobné neshody</value>
+  </data>
+  <data name="ProjectManagementMajorNonConformances" xml:space="preserve">
+    <value>Hlavní neshody projektového managementu</value>
+  </data>
+  <data name="ProjectManagementMinorNonConformances" xml:space="preserve">
+    <value>Projektový management Drobné neshody</value>
+  </data>
+  <data name="TechnicalMajorNCsCap" xml:space="preserve">
+    <value>TECHNICKÉ HLAVNÍ NC</value>
+  </data>
+  <data name="TechnicalMajorNonConformances" xml:space="preserve">
+    <value>Technické hlavní neshody</value>
+  </data>
+  <data name="TechnicalMinorNCsCap" xml:space="preserve">
+    <value>TECHNICKÉ MINOR NC</value>
+  </data>
+  <data name="TechnicalMinorNonConformances" xml:space="preserve">
+    <value>Technické drobné neshody</value>
+  </data>
+  <data name="TotalMajorNCsCap" xml:space="preserve">
+    <value>CELKEM HLAVNÍ NC</value>
+  </data>
+  <data name="TotalMinorNCsCap" xml:space="preserve">
+    <value>CELKEM MENŠÍCH NC</value>
+  </data>
+  <data name="PackageFileDeletedSuccessfully" xml:space="preserve">
+    <value>Soubor balíčku byl úspěšně smazán.</value>
+  </data>
+  <data name="ProjectId" xml:space="preserve">
+    <value>ID projektu</value>
+  </data>
+  <data name="QuoteId" xml:space="preserve">
+    <value>ID nabídky</value>
+  </data>
+  <data name="WorkType" xml:space="preserve">
+    <value>Typ práce</value>
+  </data>
+  <data name="ClearSearch" xml:space="preserve">
+    <value>Vymazat vyhledávání</value>
+  </data>
+  <data name="LoadSearch" xml:space="preserve">
+    <value>Načíst vyhledávání</value>
+  </data>
+  <data name="SaveSearch" xml:space="preserve">
+    <value>Uložit hledání</value>
+  </data>
+  <data name="Originator" xml:space="preserve">
+    <value>Původce</value>
+  </data>
+  <data name="CantFindSomething" xml:space="preserve">
+    <value>Nemůžete něco najít?</value>
+  </data>
+  <data name="RecommendChanges" xml:space="preserve">
+    <value>Pokud nemůžete najít položku nabídky, kterou byste očekávali, že bude uvedena, můžete {&lt;span class=&gt; požádat o přidání další položky nabídky&lt;&lt;span class=} do hierarchie vaší organizace.</value>
+  </data>
+  <data name="DownloadFile" xml:space="preserve">
+    <value>Stáhnout soubor</value>
+  </data>
+  <data name="ExportHistory" xml:space="preserve">
+    <value>Historie exportu</value>
+  </data>
+  <data name="TranslationUnitsAdded" xml:space="preserve">
+    <value>{0} byly přidány překladové jednotky {1}.</value>
+    <comment>Example - 534 translation units were added on July 1st 2020.</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Domovská stránka portálu</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>První</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Poslední</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Další</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Předchozí</value>
+  </data>
+  <data name="NotifyRegardingChange" xml:space="preserve">
+    <value>{0} Upozornit na tuto změnu.</value>
+    <comment>Example - Notify Amplexor regarding this change.</comment>
+  </data>
+  <data name="SendTo" xml:space="preserve">
+    <value>Odeslat do</value>
+  </data>
+  <data name="DeleteTemplate" xml:space="preserve">
+    <value>Odstranit šablonu</value>
+  </data>
+  <data name="EditTemplate" xml:space="preserve">
+    <value>Upravit šablonu</value>
+  </data>
+  <data name="LoadTemplate" xml:space="preserve">
+    <value>Načíst šablonu</value>
+  </data>
+  <data name="SendInvitation" xml:space="preserve">
+    <value>Odeslat pozvánku</value>
+  </data>
+  <data name="EditDisabledGcsProject" xml:space="preserve">
+    <value>Upravit zakázaný &lt;br&gt;projekt Vytvořený</value>
+  </data>
+  <data name="QuoteRequestSubmitted" xml:space="preserve">
+    <value>Žádost o nabídku odeslána</value>
+  </data>
+  <data name="FilesTargetLanguages" xml:space="preserve">
+    <value>Soubory a cílové jazyky</value>
+  </data>
+  <data name="SourceLanguageServiceFormats" xml:space="preserve">
+    <value>Zdrojový jazyk, služby a formáty</value>
+  </data>
+  <data name="DetailsDescription" xml:space="preserve">
+    <value>Podrobnosti Popis</value>
+  </data>
+  <data name="TotalAwarded" xml:space="preserve">
+    <value>Celkem uděleno</value>
+  </data>
+  <data name="MachineTranslate" xml:space="preserve">
+    <value>Strojový překlad</value>
+  </data>
+  <data name="FileType" xml:space="preserve">
+    <value>Typ souboru</value>
+  </data>
+  <data name="ClientDetails" xml:space="preserve">
+    <value>Podrobnosti o klientovi</value>
+  </data>
+  <data name="DownloadProjects" xml:space="preserve">
+    <value>Stáhnout zprávu o projektech</value>
+  </data>
+  <data name="DownloadQuotes" xml:space="preserve">
+    <value>Stáhnout zprávu o citacích</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Aktivní</value>
+  </data>
+  <data name="AllUsers" xml:space="preserve">
+    <value>Všichni uživatelé</value>
+  </data>
+  <data name="TeamMembers" xml:space="preserve">
+    <value>Členové týmu</value>
+  </data>
+  <data name="MajorNonConformances" xml:space="preserve">
+    <value>Hlavní neshody</value>
+  </data>
+  <data name="MinorNonConformances" xml:space="preserve">
+    <value>Menší neshody</value>
+  </data>
+  <data name="ServicesRequested" xml:space="preserve">
+    <value>Požadované služby</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>Do</value>
+  </data>
+  <data name="ReturnToLocalizations" xml:space="preserve">
+    <value>Návrat k lokalizacím</value>
+  </data>
+  <data name="ChooseDataLocalizationFilesToImport" xml:space="preserve">
+    <value>Zvolte soubory lokalizace dat, které chcete importovat</value>
+  </data>
+  <data name="ImportDataLocalization" xml:space="preserve">
+    <value>Import datových lokalizací</value>
+  </data>
+  <data name="TheFilesHaveBeenSuccessfullyImported" xml:space="preserve">
+    <value>Soubory byly úspěšně importovány.</value>
+  </data>
+  <data name="UploadAndImportFiles" xml:space="preserve">
+    <value>Nahrávání a import souborů</value>
+  </data>
+  <data name="UploadAndImportTranslationFiles" xml:space="preserve">
+    <value>Nahrát a importovat soubory překladu</value>
+  </data>
+  <data name="AllServices" xml:space="preserve">
+    <value>Všechny služby</value>
+  </data>
+  <data name="ReferenceMaterials" xml:space="preserve">
+    <value>Referenční materiály</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Recenze</value>
+  </data>
+  <data name="TaskStatus" xml:space="preserve">
+    <value>Stav úlohy</value>
+  </data>
+  <data name="TheFilesHaveBeenImportedWithExceptions" xml:space="preserve">
+    <value>Soubory byly importovány s výjimkami. Některé překlady nebyly importovány. Viz poznámky níže. </value>
+  </data>
+  <data name="FilePackages" xml:space="preserve">
+    <value>Balíčky souborů</value>
+  </data>
+  <data name="PackageState" xml:space="preserve">
+    <value>Stav balíčku</value>
+  </data>
+  <data name="AllPackageStates" xml:space="preserve">
+    <value>Všechny stavy balíčku</value>
+  </data>
+  <data name="PackageStates" xml:space="preserve">
+    <value>Státy balíčku</value>
+  </data>
+  <data name="DownloadFilePackagesReport" xml:space="preserve">
+    <value>Stáhnout soubor balíčků Report</value>
+  </data>
+  <data name="FileNames" xml:space="preserve">
+    <value>Názvy souborů</value>
+  </data>
+  <data name="ReviewStatus" xml:space="preserve">
+    <value>Stav kontroly</value>
+  </data>
+  <data name="ReturnToReferenceMaterials" xml:space="preserve">
+    <value>Návrat k referenčním materiálům</value>
+  </data>
+  <data name="UploadReferenceMaterials" xml:space="preserve">
+    <value>Nahrát referenční materiály</value>
+  </data>
+  <data name="DownloadReferenceMaterial" xml:space="preserve">
+    <value>Stáhnout referenční materiál</value>
+  </data>
+  <data name="EditReferenceMaterialId" xml:space="preserve">
+    <value>Upravit referenční materiál {0}</value>
+  </data>
+  <data name="SaveReferenceMaterial" xml:space="preserve">
+    <value>Uložit referenční materiál</value>
+  </data>
+  <data name="ViewReferenceMaterial" xml:space="preserve">
+    <value>Zobrazit referenční materiál {0}</value>
+  </data>
+  <data name="DeleteReferenceMaterial" xml:space="preserve">
+    <value>Odstranit referenční materiál</value>
+  </data>
+  <data name="EditReferenceMaterial" xml:space="preserve">
+    <value>Upravit referenční materiál</value>
+  </data>
+  <data name="LanguagePairs" xml:space="preserve">
+    <value>Jazykové páry</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>více</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>žádný</value>
+  </data>
+  <data name="AltEmail" xml:space="preserve">
+    <value>Alternativní e-maily</value>
+  </data>
+  <data name="AdditionalEmailsFormatExample" xml:space="preserve">
+    <value>Příklad: user.one@email.com, user.two@email.com</value>
+  </data>
+  <data name="AdditionalEmailsFormatMsg" xml:space="preserve">
+    <value>Pomocí čárky zadejte více dalších e-mailů.</value>
+  </data>
+  <data name="AdditionalNotificationEmails" xml:space="preserve">
+    <value>Další e-maily s oznámeními</value>
+  </data>
+  <data name="LanguagePair" xml:space="preserve">
+    <value>Jazyková dvojice</value>
+  </data>
+  <data name="FileLanguagePairs" xml:space="preserve">
+    <value>Dvojice jazykových souborů</value>
+  </data>
+  <data name="PackageDetails" xml:space="preserve">
+    <value>Podrobnosti o balíčku</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>recenzent</value>
+  </data>
+  <data name="NoRemovePermission" xml:space="preserve">
+    <value>Žádné oprávnění k odebrání</value>
+  </data>
+</root>

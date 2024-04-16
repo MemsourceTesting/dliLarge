@@ -1,0 +1,231 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='clouddeploy-lecture']
+= Section Content
+
+== Deploying Spring Boot Camel Applications to Red{nbsp}Hat OpenShift Container Platform
+
+There are multiple ways to deploy Spring Boot applications to the Red{nbsp}Hat OpenShift Container Platform (RHOCP).
+You can take responsibility for the whole process: building a container image, pushing the image to a container registry, and creating all the required RHOCP resources to deploy the image to the cluster.
+
+Alternatively, you can use the RHOCP Source-to-Image (S2I) build process to offload parts of the deployment process to RHOCP.
+The following options are some common deployment workflows:
+
+* Trigger an S2I build from the source code.
+* Trigger an S2I build from a binary artifact, such as a JAR file.
+* Do not use S2I. Instead, build the container image, push the image to a registry, and create the deployment in RHOCP.
+
+This course focuses on S2I builds from the source code triggered by JKube.
+JKube is a project of the Eclipse foundation, which provides components to simplify the deployment of cloud-native Java applications, relieving developers from repetitive deployment tasks.
+JKube uses S2I to generate the container image for you, also creating the rest of RHOCP and Kubernetes resources required to deploy the application.
+
+=== Configuring Deployments with JKube
+
+For OpenShift deployments, JKube provides the `+openshift-maven-plugin+` module.
+To use this plug-in to deploy your application, you must create a build profile in you POM file, as follows:
+
+[subs=+quotes]
+----
+<profile>
+    <id>openshift</id>
+    <properties>
+        `<jkube.generator.from>
+            registry.redhat.io/fuse7/fuse-java-openshift-rhel8:1.10
+        </jkube.generator.from>` <1>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jboss.redhat-fuse</groupId>
+                `+<artifactId>openshift-maven-plugin</artifactId>+` <2>
+                <version>7.10.0.fuse-sb2-7_10_0-00014-redhat-00001</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            `+<goal>resource</goal>+` <3>
+                            `+<goal>build</goal>+` <4>
+                            `+<goal>apply</goal>+` <5>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</profile>
+----
+
+<1> The base image used to generate the container image where the application runs.
+The `+registry.redhat.io/fuse7/fuse-java-openshift-rhel8+` image provides all the required dependencies to run Spring Boot Camel applications on OpenShift.
+<2> The name of the plug-in to use in this profile: `+openshift-maven-plugin+`.
+The plug-in provides build goals to generate Kubernetes and RHOCP artifacts and resources.
+<3> The `+resource+` goal generates the OpenShift resources required for your application, based on the contents of your project's `+src/main/jkube+` directory.
+<4> The `+build+` goal builds the container image for your application.
+<5> The `+apply+` goal applies the resources produced by the `+resource+` goal to your RHOCP cluster.
+
+Additionally, if you use Java 11 with Fuse 7.10, you might want to specify a Java 11 profile to simplify the build process.
+
+[NOTE]
+====
+Alternatively, you can use the `+spring-boot-2-camel-xml+` quick start, provided by Red{nbsp}Hat Fuse.
+The archetype creates a Spring Boot Camel project ready to be deployed to RHOCP.
+====
+
+To deploy your application to RHOCP, use the following command from the root of your Spring Boot project:
+
+[subs=quotes]
+----
+[student@workstation your-project] *mvn oc:deploy -Popenshift*
+----
+
+[IMPORTANT]
+====
+Before running `+mvn oc:deploy+`, you must use the `+oc+` CLI  to log in to the cluster, and select the
+project in which you want to deploy your application.
+====
+
+== Monitoring Health with Probes
+
+In Kubernetes and RHOCP, you can monitor the health of your application by using container health probes.
+You must define probes at the container level, when declaring the pods of your application.
+There are three types of probes:
+
+Readiness Probes::
+A _readiness probe_ determines whether a container is ready to service requests.
+If the probe fails, then RHOCP stops sending traffic to the container.
+
+Liveness Probes::
+A _liveness probe_ determines whether a container is still running.
+If the probe fails, then RHOCP kills the container, which is subjected to its restart policy.
+
+Startup probe::
+A _startup probe_ verifies whether an application in a container has started.
+Startup probes automatically disable readiness and liveness probes until the application starts.
+If the startup probe fails, then RHOCP kills the container, which is subjected to its restart policy.
+
+
+To configure probes with JKube, specify the configuration of the probes in the `+src/main/jkube/deployment.yml+` file of your project.
+The following snippet shows an example of this file including probes configuration:
+
+[subs=+quotes]
+----
+spec:
+  template:
+    spec:
+      containers:
+        `- readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 80
+              scheme: HTTP
+            timeoutSeconds: 5
+          livenessProbe:
+              exec:
+                command:
+                - cat
+                - /tmp/health
+            failureThreshold: 4`
+        _...container spec omitted..._
+----
+
+The preceding example defines a readiness and a liveness probe.
+
+[compact]
+* The readiness probe makes requests to the `+/health/ready+` endpoint and port 80 of the container host.
+* The liveness probe executes the `+cat /tmp/health+` command in the container.
+
+Probes can verify the health status by using checks such as _HTTP endpoint checks_, and _Container execution checks_.
+You can also set up configuration options, such as failure thresholds and timeouts.
+Refer to the RHOCP health monitoring documentation for more details about different types of checks and configurations.
+
+== Exposing Health Endpoints with Spring Boot Actuator
+
+The `+spring-boot-actuator+` module implements a set of production-ready features for Spring Boot applications.
+With Actuator, you can easily expose endpoints to audit and monitor applications.
+
+Spring Boot Actuator is preconfigured with default health checks exposed through `+/actuator/health/*+` endpoints.
+An endpoint reporting a healthy state returns a `+200 OK+` HTTP code.
+Otherwise, the endpoint returns a `+503 Service Unavailable+` HTTP code.
+
+In the Actuator, beans that implement health checks are called ((health indicators)).
+Each indicator implements the `+org.springframework.boot.actuate.health.HealthIndicator+` interface.
+By implementing this interface, you can define custom health indicators.
+For example, you can define an indicator to verify the health of a Camel route, as the following example demonstrates:
+
+[subs=+quotes]
+----
+@Component
+public class MyCamelRouteHealthIndicator implements HealthIndicator {
+
+    _...code omitted..._
+
+    @Override
+    public Health health() {
+        if (myRouteChecker.isDown()) {
+            return Health
+                    .down()
+                    .withDetail(
+                        "Route failed",
+                        CamelRouteHealth.getErrorMessage())
+                    .build();
+        }
+        return Health.up().build();
+    }
+
+}
+----
+You can use a simple bean instance, such as `+myRouteChecker+` in the preceding example, to store the health status of a route.
+From your route, you can use this bean to set the health status of the route.
+
+=== Actuator Configuration
+
+You can configure Actuator endpoints and health checks in your `+application.properties+` file.
+For example:
+
+----
+management.endpoint.health.show-details = always <1>
+management.health.probes.enabled=true <2>
+----
+
+<1> Shows additional details in the `+/actuator/health/+` endpoint for all requests.
+When `+show-details+` is activated, Actuator returns more detailed information, such as the uptime, and the result of each registered indicator.
+<2> Activates container health probes.
+
+=== Liveness and Readiness Probes
+
+When the `+management.health.probes+` setting is enabled, Actuator enables the following endpoints:
+
+[compact]
+* `+/actuator/health/liveness+`
+* `+/actuator/health/readiness+`
+
+These endpoints correspond to the liveness and readiness ((health groups)).
+A health group is a way to organize multiple indicators together.
+
+By default, the `+readiness+` group only includes the `+readinessState+` indicator.
+The `+liveness+` group only includes the `+livenessState+` indicator.
+
+You can add additional indicators to a group with the corresponding configuration parameter, as the following example shows:
+
+----
+management.endpoint.health.group.readiness.include=myCustomCheck,readinessState
+----
+
+The preceding example uses the `+myCustomCheck+` and `+readinessState+` indicators for the `+readiness+` group.
+If any of these indicators report that the health status is `+down+`, then the `+/actuator/health/readiness+` endpoint returns a 503 HTTP error, indicating that the application is not ready.
+
+To map the class name of an indicator to an indicator identifier, Actuator removes the trailing `+HealthIndicator+` from the class name.
+Therefore, for the previous example, `+myCustomCheck+` resolves to the `+MyCustomCheckHealthIndicator+` bean.
+
+
+[role="References"]
+[NOTE]
+====
+https://www.eclipse.org/jkube/docs/openshift-maven-plugin[JKube openshift-maven-plugin]
+
+https://docs.spring.io/spring-boot/docs/2.3.12.RELEASE/reference/html/production-ready-features.html#production-ready-health[Spring Boot 2.3.12.RELEASE - Health Information]
+
+For more information, refer to the _Monitoring application health by using health checks_ chapter in the _OpenShift{nbsp}Container{nbsp}Platform{nbsp}4.6 Applications Guide_ at https://access.redhat.com/documentation/en-us/openshift_container_platform/4.6/html-single/applications/index#application-health
+
+For more information, refer to the _Creating and deploying applications on Fuse on OpenShift_ section in the _Fuse on OpenShift Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/fuse_on_openshift_guide/index#create-and-deploy-applications
+
+For more information, refer to the _OpenShift Maven plugin_ appendix in the _Fuse on OpenShift Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/fuse_on_openshift_guide/index#openshift-maven-plugin
+====

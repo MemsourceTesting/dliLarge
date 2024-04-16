@@ -1,0 +1,118 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='restdsl-practice']
+= Implementing REST services with the REST DSL
+
+In this exercise, you will develop a REST API for a retail company.
+
+The company requires you to create two REST endpoints.
+One to expose all customer payments, and another to expose all the payments for a specific customer.
+
+The internal database has all the customer payments in the `+payments+` table, and the `+userId+` field identifies each customer.
+The company also requires you to use the JPA component to interact with the database, so you can reuse code from a previous integration.
+
+== Outcomes
+
+You should be able to implement a route that hosts a REST service that implements two use cases:
+
+[compact]
+* Retrieve all Payments in the database.
+* Retrieve all Payments made by one User.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+rest-dsl/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to prepare your system for this exercise.
+
+This command ensures that the MySQL database is already running before you proceed with the exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start rest-dsl*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/rest-dsl/apps+` directory, into the `+~/AD221/rest-dsl+` directory.
+The `+lab+` command also creates a MySQL instance with the data.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/rest-dsl+` directory and open the project with an editor, such as VSCodium.
+
+2) Configure the REST component inside the RouteBuilder.
+
+Use the `+servlet+` REST component and configure it to use the port `+8080+` and use the JSON `+RestBindingMode+`.
+
+[subs=+quotes]
+----
+// TODO: configure rest-dsl
+// to use servlet component and run on port 8080
+`restConfiguration()
+    .component("servlet")
+    .port(8080)
+    .bindingMode(RestBindingMode.json);`
+----
+
+3) Add two GET REST endpoints by using REST DSL under the `+/payments+` path that fetches data from the `+payments+` table.
+
+3.1) The first one on the `+/+` subpath redirects to a Direct component that fetches all the Payments.
+
+[subs=+quotes]
+----
+// TODO: rest services under the payments context-path
+`rest("/payments")
+    .get("/")
+        .to("direct:allPayments")`
+----
+
+3.2) The second one on the `+/{userId}+` subpath redirects to a Direct component that fetches all the Payments that belong to the specified user ID.
+
+[subs=+quotes]
+----
+// TODO: rest services under the payments context-path
+rest("/payments")
+    .get("/")
+        .to("direct:allPayments")
+    `.get("/{userId}")
+        .to("direct:getPayment");`
+----
+
+4) Create the Direct routes to retrieve the data for the REST endpoints.
+
+4.1) Create a direct route to retrieve all the Payments in the database.
+
+[subs=+quotes]
+----
+// TODO: routes that implement the REST services
+`from("direct:allPayments")
+    .log("Retrieving all payments")
+    .to("jpa:com.redhat.training.payments.Payment?query=select p from com.redhat.training.rest.Payment p");`
+----
+
+4.2) Create a direct route to retrieve all the Payments of a specific user ID.
+
+[subs=+quotes]
+----
+`from("direct:getPayment")
+    .log("Retrieving payment with id ${header.userId}")
+    .toD("jpa:com.redhat.training.payments.Payment?query=select p from com.redhat.training.rest.Payment p where p.userId = ${header.userId}");`
+----
+
+5) Run the Route with `+./mvnw spring-boot:run+` and use the `+curl+` command to verify that the route is working.
+The URL to get the payments is `+localhost:8080/camel/payments+`.
+If the application works successfully, then you should see a list of payments.
+
+6) To verify that the Route is working as expected, there is a test in the project that you can use.
+Use `+./mvnw test+` to verify that the route matches the expected behavior. If you still have the Route running, use Ctrl+C to terminate it before running the tests.
+
+== Finish
+
+Return to your workspace directory, and use the lab command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish rest-dsl*
+----

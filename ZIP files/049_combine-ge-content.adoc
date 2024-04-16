@@ -1,0 +1,109 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='patterncombine-practice']
+= Splitting and Aggregating Messages
+
+In this exercise, you will split the incoming CSV file to work on each line individually and then batch the operations every 10 lines.
+
+Your department produces text files that contain the details of processed orders.
+The number of orders that each file contains is too large to be processed by other departments in your company.
+Each line of an orders file represents an order.
+You must split the input files by order, and then produce batches of 10 orders, so that other departments can easily process the data.
+
+== Outcomes
+
+You should be able to split incoming messages into smaller parts and implement a custom aggregation strategy to aggregate batches of lines every 10 lines.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+pattern-combine/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start pattern-combine*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/pattern-combine/apps+` directory, into the `+~/AD221/pattern-combine+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/pattern-combine+` directory, open the project with your editor of choice, and examine the code.
+
+2) Update the route `+configure+` method of the `+CombineRouteBuilder+` class to add the splitting and aggregation code.
+
+2.1) Add the split step to the route pipeline that uses the system line separator as the tokenizer for the message body:
+
+[subs=+quotes]
+----
+.split( body().tokenize( SEPARATOR ) )
+----
+
+2.2) Add the aggregating step to the route pipeline and create a new `+org.apache.camel.processor.aggregate.AggregationStrategy+` instance as the parameter:
+
+[subs=+quotes]
+----
+.aggregate( constant(true), new AggregationStrategy() {
+    public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
+    }
+} )
+----
+
+2.3) Inside the `+aggregate+` method, return the next element in the queue if it is the first one:
+
+[subs=+quotes]
+----
+if (oldExchange == null) {
+    return newExchange;
+}
+----
+
+2.4) Otherwise, concatenate the previous message body with the new one by using the line separator:
+
+[subs=+quotes]
+----
+String oldBody = oldExchange.getIn().getBody( String.class );
+String newBody = newExchange.getIn().getBody( String.class );
+oldExchange.getIn().setBody( oldBody + SEPARATOR + newBody );
+----
+
+2.5) Return the old message with the concatenated content.
+
+[subs=+quotes]
+----
+return oldExchange;
+----
+
+3) Accumulate the lines, batching them every 10 lines.
+After the aggregate method, call the `+completionSize+` method with a batch size of 10.
+
+[subs=+quotes]
+----
+.completionSize( 10 )
+----
+
+4) Test the `+CombineRouteBuilder+` class.
+The project contains a test for the route that you can execute to verify that the execution is correct.
+
+[subs=+quotes]
+----
+[student@workstation pattern-combine]$ *./mvnw clean test*
+_...output omitted..._
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+_...output omitted..._
+----
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish pattern-combine*
+----

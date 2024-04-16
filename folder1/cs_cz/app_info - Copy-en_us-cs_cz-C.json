@@ -1,0 +1,32 @@
+{
+  "platform": "123",
+  "version": "123",
+  "files": [
+    {
+      "location": "123",
+      "extractLocation": "123",
+      "hash": "34CEBAD0FF41B9506E036FC27CD09431",
+      "size": 68577287,
+      "status": "",
+      "excludes": [
+        ""
+      ],
+      "executableFiles": []
+    },
+    {
+      "location": "",
+      "extractLocation": "",
+      "hash": "",
+      "size": 237813939,
+      "status": "",
+      "excludes": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "executableFiles": []
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+   "root":[
+      {
+         "title":"nejnovější aktualizovaný text pro překlad 2, po dalších 30 minutách",
+         "new key":"další nový aktualizovaný text pro překlad",
+         "note":"poznámka k textu 1",
+         "length":13
+      },
+      {
+         "description":"skutečný aktualizovaný text pro překlad 2, černobílý",
+         "note":"poznámka k textu 2",
+         "length":16
+      },
+      {
+         "description":"skutečný nejnovější text pro překlad 3, černobílé",
+         "note":"poznámka k textu 3",
+         "new key":"další nový text pro překlad",
+         "new key":"zcela nový text pro překlad",
+         "length":17
+      }
+   ]
+}

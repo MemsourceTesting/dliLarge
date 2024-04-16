@@ -1,0 +1,186 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='asynckafka-lecture']
+= Section Content
+
+== Defining Apache Kafka
+
+Apache Kafka is an open source distributed system composed of servers and clients that communicate through the TCP protocol.
+Kafka is a high-performance messaging system, and it is referred to as a distributed commit log system, or as a distributed streaming platform.
+
+Kafka is composed of several servers that are called brokers.
+To be horizontally scalable, Kafka distributes messages with copies through brokers.
+These messages are also known as _records_.
+
+Kafka categorizes messages into _topics_.
+Messages within the same topic are usually related.
+That is why a topic is conceptually similar to the table of a relational database.
+
+Topics consist of _partitions_ which are distributed into brokers.
+Kafka distributes messages into partitions for scalability.
+
+Kafka has clients that either write messages to the topics or read messages from topics.
+A client that writes messages to a topic is called a _producer_, and a client that reads messages from a topic is called a _consumer_.
+
+.The structure of a Kafka topic
+image::images/async/kafka-arch-topic.svg[align="center",width="90%"]
+
+Kafka accepts messages in the binary format.
+That is why it provides a serialization and deserialization (SerDe) mechanism with its client API.
+Producers serialize messages before sending them, and consumers deserialize messages after receiving them.
+
+You can either use the SerDe classes provided by the Kafka client API for some basic types such as `+String+`, or you can create your custom SerDe classes depending on your requirements.
+
+.The Kafka SerDe
+image::images/async/kafka-serde.svg[align="center",width="90%"]
+
+== The Camel Kafka Component
+
+Camel provides a Kafka component that enables Kafka usage in a Camel based integration system.
+
+With the Kafka component, Camel can take advantage of Kafka benefits such as resilience, high-performance and durability, which traditional message brokers usually lack.
+
+As an example, Kafka is durable, so it provides a message replay feature.
+You can use this feature to consume previous messages in case of a delivery failure.
+With a traditional broker implementation of Camel, such as JMS or AMQP, you have to implement the _Dead Letter Channel_ enterprise integration pattern for resiliency.
+You do not have to implement the same pattern when using the Kafka component.
+
+=== Configuring the Kafka Component
+
+To use the Kafka component in a Camel route, you must add the relevant Maven dependency for the component.
+Depending on the requirements, you can either use the core dependency or the Spring Boot Starter dependency for Kafka.
+
+Using the core dependency::
+This is the core dependency that provides the bare minimum to use the Kafka component in a Camel context.
+You can use this dependency in any Maven-based Java application that runs a Camel context.
++
+[subs=+quotes]
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-kafka</artifactId>
+</dependency>
+----
+
+Using the Spring Boot starter dependency::
+This is the Spring Boot starter dependency that brings Spring Boot autoconfiguration capabilities to Camel.
++
+[subs=+quotes]
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-kafka-starter</artifactId>
+</dependency>
+----
++
+The Spring Boot starter dependency uses the core dependency as well but extends it for Spring Boot usage.
+This dependency is very useful when adding Kafka configurations for a Spring Boot based Camel application.
+The subsequent parts of this lecture cover more about how to use the autoconfiguration.
+
+By adding the Maven dependency, the Kafka component becomes ready to use and ready to configure.
+The Camel URI format for the Kafka component is as follows:
+
+[subs=+quotes]
+----
+kafka:my-topic[?options]
+----
+
+The endpoint URI must start with the `+kafka:+` prefix.
+Then as a mandatory path parameter, the topic name must follow.
+In the example the topic name is `+my-topic+`.
+You can add additional options.
+Each option must follow the URI parameter format.
+
+These options are the parameters that configure the Camel Kafka component.
+For example, you can define the `+brokers+` option and an optional consumer parameter `+autoCommitEnable+` as follows:
+
+[subs=+quotes]
+----
+kafka:my-topic?brokers=localhost:9092&autoCommitEnable=false
+----
+
+If you are using the Spring Boot starter dependency, then you do not have to specify the options in the URI.
+You can define the configurations in the `+application.properties+` file of the application.
+The Spring Boot based Red{nbsp}Hat Fuse application uses its autoconfiguration mechanism to apply the configuration.
+The following snippet applies the same configuration of the preceding example:
+
+[subs=+quotes]
+----
+camel.component.kafka.configuration.`+brokers+`=localhost:9092
+camel.component.kafka.configuration.`+auto-commit-enable+`=false
+----
+
+You must use the `+camel.component.kafka.configuration.*+` autoconfiguration prefix to add the Kafka component configurations.
+
+[NOTE]
+====
+For more information about the configuration options of the Kafka component, refer to the Camel Kafka Component reference, which is in the references list of this lecture.
+====
+
+=== Using the Kafka Component
+
+A Camel route acts as a client for Kafka.
+This client either acts as a consumer or a producer.
+
+Consuming messages::
+You can consume messages from Kafka by using the `+from+` method of Camel.
+The following code snippet is a minimal example of a route that reads messages from Kafka.
++
+[subs=+quotes]
+----
+from("kafka:my-topic")
+    `+.log("Message received from Kafka : ${body}")+` <1>
+    `+.log("on the topic ${headers[kafka.TOPIC]}")+` <2>
+    .log("on the partition ${headers[kafka.PARTITION]}")
+    .log("with the offset ${headers[kafka.OFFSET]}")
+    .log("with the key ${headers[kafka.KEY]}");
+----
+<1> The Camel message body, which is also the received Kafka message.
+<2> The Camel Kafka component carries the information that returns for the consumed Kafka message by using the message header.
+You can access this information by using the `+headers+` array and the `+kafka.*+` prefixed keys.
+In this example, the client returns the topic name, the partition, offset and key information of the consumed message.
++
+You can consume from more than one topic with a single Camel Kafka component by separating the topic names with commas:
++
+[subs=+quotes]
+----
+from("kafka:my-topic,other-topic,another-topic")
+    .log("Message received from Kafka : ${body}");
+----
+
+Producing messages::
+You can produce messages to Kafka by using the `+to+` method of Camel.
+The following code snippet is a minimal example of a route that writes messages to Kafka.
++
+[subs=+quotes]
+----
+from("direct:kafka-producer")
+    `+.setBody(constant("Message from Camel"))+` <1>
+    `+.setHeader(KafkaConstants.KEY, constant("Camel"))+` <2>
+    `+.to("kafka:my-topic");+`  <3>
+----
+<1> A String message to send to Kafka.
+<2> A String key that the Camel Kafka component must carry in the message header.
+A key is an optional part of a message so this setting is not mandatory.
+Headers have an important role for carrying message related data for producers, like they do for the consumers.
+<3> The producing part of the route.
+The route sends the defined message and the key to the `+my-topic+` topic.
+
+[NOTE]
+====
+For the preceding examples of consumer and producer routes, you might notice there are no configuration parameters in the URIs.
+Suppose that you use Spring Boot autoconfiguration for the examples.
+====
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _Kafka Component_ chapter in the _Apache Camel Component Reference Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#kafka-component
+
+https://kafka.apache.org/documentation[Apache Kafka Official Documentation]
+
+https://www.enterpriseintegrationpatterns.com/DeadLetterChannel.html[Dead Letter Channel]
+
+https://camel.apache.org/components/2.x/kafka-component.html[Camel Kafka Component]
+====

@@ -1,0 +1,205 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='transactionroutes-lecture']
+= Section Content
+
+== Defining Transactional Routes
+
+A _transaction_ is an operation that conceptually consists of a single step, but the implementation requires a series of steps.
+In this type of operation, all the steps must succeed or fail, to avoid leaving the system in an inconsistent state.
+
+For example, a route that processes bank transfers between accounts must require that each message can complete different endpoints without data loss.
+Using transactions during route processing alleviates many common integration issues by rolling back the transfer operation.
+
+When developing a Camel route with transactions, each component must support transactions, and all of them must use the same transaction manager.
+The JMS messaging, and SQL database components support the use of transactions by implementing the Transactional Client EIP.
+
+There are two types of transactions:
+
+Local transaction::
+A transaction that spans over one single resource, such as one database.
+
+Global transaction::
+A transaction that spans over multiple resources, such as one database and one messaging system.
+
+[NOTE]
+====
+Camel supports transactions by using Spring Transactions, or a JTA transaction manager.
+====
+
+=== Transaction Managers
+
+A _transaction manager_ is the part of an application responsible for coordinating transactions across endpoints.
+In an integration pipeline, the transaction manager restores the processing state immediately following a failure.
+This allows a two-phase commit (2PC) approach, where each system is part of a transaction.
+The transaction is committed when the entire route execution is complete.
+At this point, all the systems are ready to process the transaction.
+
+Spring offers a number of transaction managers for local transactions.
+The following snippet creates a `+DataSourceTransactionManager+` instance to use as the application local transaction manager in Spring Boot.
+
+----
+@Configuration
+public class MyCustomTransactionManager {
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+}
+----
+
+To implement global transactions, you must use a third-party JTA transaction manager, or implement an event-driven architecture.
+
+=== Transactions Implementation
+
+To enable transaction management in a route, the route must have a `+transacted+` DSL method after the `+from+` method.
+
+[subs=+quotes]
+----
+from("schema:origin")
+    `+.transacted()+`
+    ...
+----
+
+=== Transactions Rollback
+
+If a route throws an exception, then Camel might not roll back the transaction.
+`+RuntimeException+` exceptions are automatically rolled back by a route processing operation.
+However, other exceptions are not subject to rollback.
+To roll back a transaction, it must be marked as `+markRollbackOnly+` as part of the exception management.
+
+[subs=+quotes]
+----
+onException(ConnectionException.class)
+    .handled(true)
+    .to("schema:failure-destination")
+    `+.markRollbackOnly();+`
+----
+
+== Defining Transaction Propagation Policies
+
+((Transaction policies)) influence the way a transactional client creates new transactions.
+For example, you can decide the behavior of a transactional client that detects the existence of a transaction associated with the current thread.
+
+
+Camel supports predefined and custom transaction propagation policies.
+The following list contains the most commonly used propagation policies:
+
+PROPAGATION_REQUIRED::
+All Camel processors from a route must use the same transaction.
+
+PROPAGATION_REQUIRES_NEW::
+Each processor creates its own transaction.
+
+PROPAGATION_NOT_SUPPORTED::
+Does not support a current transaction.
+
+The following snippet defines a custom transaction policy as a Java bean in Spring Boot.
+
+[subs=+quotes]
+----
+@Bean(name = "myTransactionPolicy")
+public SpringTransactionPolicy propagationRequired(
+        PlatformTransactionManager transactionManager
+) {
+
+    SpringTransactionPolicy policy = new SpringTransactionPolicy();
+
+    policy.setTransactionManager(transactionManager);
+    policy.setPropagationBehaviorName("PROPAGATION_REQUIRED");
+
+    return policy;
+}
+----
+
+The preceding example creates a custom transaction management policy called `+myTransactionPolicy+`.
+This policy, sets the propagation behavior as `+PROPAGATION_REQUIRED+`, meaning that all Camel processors in the route must use the same transaction.
+
+The following snippet uses the custom transaction management policy called `+myTransactionPolicy+` in the route transaction.
+
+[subs=+quotes]
+----
+from("schema:origin")
+    `+.transacted("myTransactionPolicy")+`
+    .to("schema:destination");
+----
+
+In Camel, a route can only have exactly one transaction policy.
+If you need to change transaction propagation, for example on nested transactions, then you must use a new route.
+
+== Testing Transactional Routes
+
+Transacted routes can be challenging to test because external systems, such as a database, message queues, or transaction managers, must be available while running integration tests.
+Further, routes must process test data to verify the integrity across multiple services.
+
+Camel supports a set of mechanisms to emulate these requirements, such as the Camel Test Kit (CTK) to mock external systems to run integration tests with live systems, or extension capabilities to plug external technologies to substitute services.
+
+For testing purposes, tests must use a transaction manager to create a runtime environment as accurate as possible to a real world environment.
+To test whether a transaction fails during a route execution, the Camel Test Kit supports the capability to throw route exceptions, and evaluate the results of the error as well as the success or failure of any transaction rollbacks.
+
+----
+@Before
+public void setUp() throws Exception {
+    context
+        .getRouteDefinition("route-one") <1>
+        .adviceWith(context, new AdviceWithRouteBuilder() {
+            @Override
+            public void configure() {
+                interceptSendToEndpoint("jpa:*") <2>
+                    .throwException( <3>
+                        new SQLException("Cannot connect to the database")
+                    );
+            }
+        });
+
+    context.start();
+}
+----
+
+<1> Updates the `+route-one+` route.
+<2> Intercepts any message sent to any JPA endpoint.
+<3> Throws an `+SQLException+` exception whenever a message is sent to the database.
+
+On rollbacks, the route execution must not affect resources, such as external databases.
+To verify if a rollback was successful, tests must query the resources for changes.
+Alternatively, tests can send invalid content to generate a transaction error.
+
+== Avoiding Duplicates with Idempotent Consumers
+
+An algorithm is idempotent if it generates the same result for identical calls, regardless of how many times the algorithm is executed.
+When an operation is not idempotent, multiple, identical calls might generate different results.
+
+In Camel, idempotent consumers prevent processing the same message multiple times.
+Camel provides the `+idempotentConsumer+` processor, which implements the Idempotent Consumer EIP to filter out duplicates.
+
+[subs=+quotes]
+----
+from("direct:start")
+    `+.idempotentConsumer(+`
+        `+header("paymentId"),+` <1>
+        `+MemoryIdempotentRepository.memoryIdempotentRepository()+` <2>
+    `+)+`
+    .log("Unique message ${body}") <3>
+    .to("direct:process_unique_messages");
+----
+
+<1> The unique key is the `+paymentId+` header.
+The idempotent consumer verifies this header to filter out duplicates.
+<2> In-memory implementation of the `+org.apache.camel.spi.IdempotentRepository+` interface.
+Idempotent consumers require an instance of an idempotent repository to keep track of unique messages.
+As the route processes messages, the idempotent consumer queries the repository to verify whether the current message, in this case identified by the `+paymentId+` header, has been processed before.
+<3> The rest of the route only processes unique messages.
+
+Camel provides multiple built-in implementations of the `+IdempotentRepository+` interface, such as the `+org.apache.camel.processor.idempotent.MemoryIdempotentRepository+` class used in the preceding example.
+You can, however, create your own repository implementations.
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+https://docs.spring.io/spring-framework/docs/5.2.15.RELEASE/spring-framework-reference/data-access.html#transaction[Spring Transaction Management]
+
+For more information, refer to the _Transactional Client_ section in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache{nbsp}Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#MsgEnd-Transactional
+
+For more information, refer to the _Idempotent Consumer_ section in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache{nbsp}Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#MsgEnd-Idempotent
+====

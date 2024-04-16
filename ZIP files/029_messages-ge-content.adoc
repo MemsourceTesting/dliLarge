@@ -1,0 +1,155 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='routemessages-practice']
+= Sample Title
+
+In this exercise, you will develop a pipeline that routes messages for a book publishing company dynamically.
+
+The company stores the books as DocBook files, and uses a shared file system for the publishing process.
+A team of editors and graphic designers review the book manuscripts before they are ready for printing.
+
+At this moment, the company publishes technical, and novel books.
+Editors review all types of books, and graphic designers only the technical ones.
+
+Selecting the books to review for each one of the teams is a repetitive, manual, and time-consuming task.
+You must use Red{nbsp}Hat Fuse, and create a Camel route to route the correct type of book to the correct team.
+
+The company also has printing services.
+The printing services use different machines depending on the book type.
+You must create a Camel route to dynamically route the reviewed books to the correct printing system.
+
+== Outcomes
+
+You should be able to create Camel routes that route messages dynamically by using the Routing Slip EIP, and the `+toD+` component.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+route-messages/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to start this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start route-messages*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/route-messages/apps+` directory, into the `+~/AD221/route-messages+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/route-messages+` directory, open the project with your editor of choice, and examine the code.
+
+2) Create a destination algorithm for the book review pipeline.
+This algorithm must use the book type to decide the destination endpoint.
+Edit the `+RoutingSlipStrategy+` class, and implement an algorithm that implements the following rules:
+
+[cols="1,2"]
+|===
+| Book type | Route destinations
+
+| `+technical+`
+| `+file://data/pipeline/graphic-designer+` and `+file://data/pipeline/editor+`
+
+| `+novel+`
+| `+file://data/pipeline/editor+`
+|===
+
+The algorithm must look like the following:
+
+[subs=+quotes]
+----
+// TODO: Create a strategy for the review pipeline
+`ArrayList<String> destinations = new ArrayList<>();
+
+    switch (type) {
+        case "technical":
+            destinations.add("file://data/pipeline/graphic-designer");
+            // No break
+        case "novel":
+            destinations.add("file://data/pipeline/editor");
+    }
+
+return String.join(",", destinations);`
+----
+
+3) Create a route for the book review pipeline in the `+BookReviewPipelineRouteBuilder+` class.
+The route must collect all the books located in the `+file://data/manuscripts+` endpoint, with the `+noop+` option activated, and use the Routing Slip EIP.
+Use the `+RoutingSlipStrategy+` bean to compute the routing slip header, and set `+book-review-pipeline+` as the route ID.
+
+The route must look like the following:
+
+[subs=+quotes]
+----
+// TODO: Create a route for the book review pipeline
+`from("file://data/manuscripts?noop=true")
+    .routeId("book-review-pipeline")
+    .setHeader(ROUTING_HEADER).method(RoutingSlipStrategy.class)
+    .log(String.format(
+        "File: ${header.CamelFileName} - Destination: ${header.%s}",
+        ROUTING_HEADER
+    ))
+.routingSlip(header(ROUTING_HEADER));`
+----
+
+4) Verify the correctness of the `+book-review-pipeline+` route by executing the unit tests.
+Run the `+./mvnw clean -Dtest=BookReviewPipelineRouteBuilderTest test+` command, and verify that three unit tests pass.
+
+5) Create a destination algorithm for the book printing pipeline in the `+DynamicRoutingStrategy+` class.
+This algorithm must use the book type to dynamically decide the destination endpoint.
+The computed destination must be `+file://data/printing-services/_BOOK_TYPE_+`.
+
+The algorithm must look like the following:
+
+[subs=+quotes]
+----
+// TODO: Create a strategy for the printing pipeline
+`+return "file://data/printing-services/" + type;+`
+----
+
+6) Create a route for the book printing pipeline in the `+BookPrintingPipelineRouteBuilder+` class.
+The route must collect all the books located in the `+file://data/pipeline/ready-for-printing+` endpoint, with the `+noop+` option activated.
+Set `+book-printing-pipeline+` as the route ID, add a message header with the computed destination, and use the `+toD+` component to send the messages to the computed endpoint.
+
+The route must look like the following:
+
+[subs=+quotes]
+----
+// TODO: Create a route for the printing pipeline
+`from("file://data/pipeline/ready-for-printing?noop=true")
+    .routeId("book-printing-pipeline")
+    .setHeader(ROUTING_HEADER).method(DynamicRoutingStrategy.class)
+    .log(String.format(
+        "Sending for printing: ${header.CamelFileName} - " +
+            "Destination: ${header.%s}",
+        ROUTING_HEADER
+    ))
+.toD(String.format("${header.%s}", ROUTING_HEADER));`
+----
+
+7) Run the Spring Boot application by using the `+./mvnw clean package spring-boot:run+` command.
+
+8) Wait for the application to process the books stored in the `+file://data/manuscripts+` endpoint, and manually verify the correctness of the book review pipeline:
+
+* The `+data/pipeline/editor+` directory contains the files: `+book-01.xml+`, `+book-02.xml+`, and `+book-03.xml+`.
+* The `+data/pipeline/graphic-designer+` directory contains the files: `+book-01.xml+`, and `+book-03.xml+`.
+
+9) To simulate the end of the book review process by the editors, copy the `+book-01.xml+` and `+book-02.xml+` files from the `+data/pipeline/editor+` directory to the `+data/pipeline/ready-for-printing+` directory.
+Wait for the application to process the files, and manually verify the correctness of the book printing pipeline:
+
+* The `+data/printing-services/novel+` directory contains the file `+book-02.xml+`.
+* The `+data/printing-services/technical+` directory contains the file `+book-01.xml+`.
+
+10) Stop the Spring Boot application, run the tests by executing the `+./mvnw test+` command, and verify that five unit tests pass.
+
+
+== Finish
+
+Return to your workspace directory, and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish route-messages*
+----

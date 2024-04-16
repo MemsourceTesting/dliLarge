@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % common_entities SYSTEM "common.ent" >
+%common_entities;
+]>
+
+<!-- This next section will need to be customized for most courses -->
+<section id="classroom_orientation">
+  <title>Orientation to the Classroom Environment</title>
+
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Intro-Classroom-content.xml" xpointer="xpointer(/section/*[not(self::title)] )">
+    <!--<xi:fallback>
+      <section>
+        <title>Under Development</title>
+        <para>
+          Classroom environment under development.
+        </para>
+      </section>
+    </xi:fallback>-->
+  </xi:include>
+  <!-- "Controlling Your Systems" include.
+
+  The following include inserts the instructions on how to operate the classroom ("Controlling Your Systems") as a subsection of the Orientation to the Classroom section.
+  It will appear to start with a bridgehead.
+  The Common/Control-Classroom.xml file should be freshly copied from the skeleton to get the most up-to-date copy in the course.
+  Normally, it should not be edited by course developers.
+  If there is a need to customize the standard operating instructions, discuss with your architect and content services. -->
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Common/Control-Classroom.xml"/>
+
+</section>

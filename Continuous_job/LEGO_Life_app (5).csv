@@ -1,0 +1,470 @@
+key;comment;text
+app_name;The name of the App;LEGO® Life
+all_on;Settings screen: On / Off label, on state name;On
+all_off;Settings screen: On / Off label, off state name;Off
+all_loginButton;Login button name, shared across the app;Log in
+all_logoutButton;Logout button name, shared across the app;Log out
+all_anonymousUsername;If user has no displayname set, then they become anonymous;Mysterious!
+all_registerButton;Create Account button name, shared across the app;Sign up!
+all_try_again;Try again;Try again
+errorDialog_commonErrorTitle;Title for all error messages;Oops!
+errorDialog_commonErrorDescription;Description for all error messages;Something weird happened. Please try again.
+errorDialog_noNetworkErrorDescription;Description for no internet message;Check your connection...
+errorDialog_noNetworkErrorTitle;Title for no internet message;Not Online!
+errorDialog_commonErrorAction;Call to action button title for all error messages;Will do!
+errorDialog_noNetworkErrorAction;Call to action button title for all no internet messages;I'll check!
+welcomeScreen_forParentsButton;For parent button title, Welcome Screen;Grown ups!
+uploadFlowScreen_previewStep_keepPrivateButton;Preview album, save locally button title, upload flow;Keep Private
+uploadFlowScreen_previewStep_uploadButton;Preview album, share album button title, upload flow;Share it!
+uploadFlowScreen_decorateChallengeStep_headline;Choose a photo to decorate, headline, decorate challenge;Pick a photo to decorate
+uploadFlowScreen_cameraRollStep_title;Camera roll, top title, upload flow;All your images
+uploadFlowScreen_retakeImageDialogTitle;Retake dialog;Retake photo?
+uploadFlowScreen_retakeImageDialogDescriptionTop;Retake dialog;Wait! Going back your photo will be lost. Are you sure?
+uploadFlowScreen_retakeImageDialogActionRight;Retake dialog;Retake
+uploadFlowScreen_deleteImageDialogTitle;Delete image popup, title;Delete your creation?
+uploadFlowScreen_deleteImageDialogDescriptionTop;Delete image popup, description 1;Wait! Do you want to delete this piece of awesomeness?
+uploadFlowScreen_cancelDialogActionLeft;Delete album popup, no button title;No! Keep it!
+uploadFlowScreen_cancelDialogActionRight;Delete album popup, yes button title;Delete
+uploadFlowScreen_savedDialogTitle;Album saved locally popup, title;All saved!
+uploadFlowScreen_savedDialogDescriptionBottom;Album saved locally popup, description;Only you can see this - you can see it and share it in your profile.
+uploadFlowScreen_savedDialogAction;Album saved locally popup, ok button title;OK!
+permissionDialog_accessToCameraTitle;Access to camera popup, title;Using the Camera
+permissionDialog_accessToCameraDescriptionTop;Access to camera popup, description 1;The app will now ask for access to your camera
+permissionDialog_accessToCameraDescriptionBottom;Access to camera popup, description 2;Select OK in order to take pictures with the LEGO® Life app in the next pop-up!
+permissionDialog_accessToCameraActionButton;Access to camera popup, button title;OK!
+permissionDialog_deniedAllTitle;No permissions popup, title;We need permission!
+permissionDialog_deniedCameraDescriptionTop;No camera permission popup, description;To take pictures, the app needs to access your camera.
+permissionDialog_deniedAllDescriptionBottom;No camera or photos permissions popup, description ;"To give the app access, go to ""Permissions"" under app settings."
+permissionDialog_deniedAllActionLeft;No camera or photos permissions popup, cancel button title;No thanks!
+permissionDialog_deniedAllActionRight;No camera or photos permissions popup, ok button title;Go to Settings!
+goToPlayStoreDialog_description;Go to Play Store popup, description;Opening the Play Store…
+goToPlayStoreDialog_title;Go to Play Store popup, title;Redirect to Play Store
+goToPlayStoreDialog_actionLeft;Go to Play Store popup, cancel button title;Stay here
+goToPlayStoreDialog_actionRight;Go to Play Store popup, ok button title;OK!
+feedDetailsScreen_challengeStartButton;Challenge detail, start button title;Let's go!
+feedDetailsScreen_challengeStepsTitle;Challenge detail, instructions headline;What to do…
+feedDetailsScreen_challengeDecorateStep1;Decorate Challenge instructions step 1;Pick one of our images
+feedDetailsScreen_challengeDecorateStep2;Decorate Challenge instructions step 2;Get to work on it with a load of stickers!
+feedDetailsScreen_challengeDecorateStep3;Decorate Challenge instructions step 3;Add your photo to LEGO® Life!
+feedDetailsScreen_challengeBuildStep1;Build Challenge instructions step 1;Build away!
+feedDetailsScreen_challengeBuildStep2;Build Challenge instructions step 2;Use your phone to take a shot of your creation. Click!
+feedDetailsScreen_challengeBuildStep3;Build Challenge instructions step 3;Share your work on LEGO® Life!
+feedDetailsScreen_videoGeoBlockingExplanation;Video is not available in your country message;Sorry, this video is not available in your country :(
+feedDetailsScreen_commentsLoadMoreButton;Load more comments button title;See more comments 
+feedDetailsScreen_commentsAddButton;Add a comment button title;Something to say?
+feedDetailsScreen_relatedContentHeader;Related content header text;Stuff like this
+quizChallengeSubmitDialog_action;Quiz Challenge, submit dialog button title;Answer
+quizChallengeRejectDialog_title;Quiz Challenge, wrong answer, title;Sorry, not quite…
+quizChallengeRejectDialog_descriptionTop;Quiz Challenge, wrong answer, description;Have another go.
+quizChallengeRejectDialog_action;Quiz Challenge, wrong answer, button title;Try again!
+joinChallengeDialog_action;Join challenge popup, button title;OK!
+completeChallengeDialog_action;Complete challenge popup, button title;OK!
+commentDialog_title;Comments dialog, title;Comment away!
+reportDialog_title;Reporting dialog, title;Report this
+reportDialog_reason_1;Reporting dialog, reasone;It's not LEGO creation or a copy
+reportDialog_reason_2;Reporting dialog, reasone;It's too blurry or upside down
+reportDialog_reason_3;Reporting dialog, reasone;It's offensive or not kid-friendly
+reportDialog_reason_4;Reporting dialog, reasone;There are people in the image
+reportDialog_reason_5;Reporting dialog, reasone;Other
+reportSentDialog_description;Reporting sent dialog, description;Thank you for sending a report. We'll take a look at this post.
+reportDialog_actionButton;Reporting dialog, send button title;Report
+ownPostScreen_uploadButton;Own Post from Profile, upload button title;Share!
+ownPostScreen_moderationStatusLiteral;Own Post from Profile, moderation status title;Moderation Status
+ownPostScreen_postStatus_rejectedReason;Own Post from Profile, rejection reason title;Rejected Reason
+ownPostScreen_postStatus_pending;Own Post from Profile, moderation status pending;Pending
+ownPostScreen_postStatus_inModeration;Own Post from Profile, moderation status in moderation;In moderation
+ownPostScreen_postStatus_rejected;Own Post from Profile, moderation status rejected;Rejected
+preferencesScreen_soundLiteral;Settings, sound title;Sound
+preferencesScreen_myAccountLiteral;Settings, my account title;My Account
+preferencesScreen_childSafetyLiteral;Settings, Child Safety;Child Safety
+preferencesScreen_contactUsLiteral;Settings, Contact us;Contact Us
+preferencesScreen_title;Settings top title;Settings
+searchBar_hint;Search, placeholder text;Find something!
+searchScreen_seeMoreButtonTitle;See more;See more
+searchDetailScreen_resultTitle;Results for:;Results for:
+searchScreen_notFoundHeader;Search screen, no results header;Sorry, we can't find that anywhere!
+searchScreen_charactersHeader;;Characters
+searchScreen_characterHeader;;Character
+searchScreen_groupsHeader;;Groups
+searchScreen_groupHeader;;Group
+searchScreen_usersHeader;;People
+searchScreen_userHeader;;User
+searchScreen_setsHeader;;LEGO® sets
+searchScreen_emptyResultTop;;Oops! We couldn’t find anything.
+searchScreen_emptyResultBottom;;Try searching for something else.
+activitiesScreen_buildChallengeJoined;Notification center, build challenge joined;<b>You</b> have joined this building challenge
+activitiesScreen_buildChallengeCompleted;Notification center, build challenge completed;<b>You</b> have completed this building challenge
+activitiesScreen_decorateChallengeCompleted;Notification center, decorate challenge completed;<b>You</b> have completed this decorating challenge
+activitiesScreen_quizChallengeCompleted;Notification center, quiz challenge completed;<b>You</b> have completed this quiz
+activitiesScreen_defaultModerationRejected;;I'm afraid your creation <b>has not been approved</b>
+activitiesScreen_defaultWelcomeLEGOLife;Notification center, not logged in, welcome message;Welcome to <b>LEGO® Life</b>
+commentingScreen_sendButton;;Submit
+preferencesScreen_legalNoticesLiteral;;Legal Notices
+all_today;Notification center, activity screen, date separator representing today;Today
+all_yesterday;Notification center, activity screen, date separator representing yesterday;Yesterday
+allowPushPopup_title;;Get Push Notifications?
+allowPushPopup_body;;Do you want to hear about this awesome stuff:
+allowPushPopup_comment_text;;Comments on your albums
+allowPushPopup_moderation_text;;Moderation status
+allowPushPopup_like_text;;Likes on your albums
+allowPushPopup_cancel;Pop-up used to prompt the user to register for PNs, decline button;Not now
+allowPushPopup_accept;Pop-up used to prompt the user to register for PNs, accept button;Yes!
+allowPushPopup_turnOffInSettings;;You can always turn them off in Settings
+settingsScreen_pushPopup_accept;Pop-up used to prompt user to go to settings and enable push, accept button;Phone Settings
+settingsScreen_pushPopup_decline;Pop-up used to prompt user to go to settings and enable push, decline button;Not now
+settingsScreen_pushPopup_title;Pop-up used to prompt user to go to settings and enable push, title text;Push notifications
+settingsScreen_pushPopup_body;Pop-up used to prompt user to go to settings and enable push, body test in the upper side;You haven’t allowed push notifications. To enable them, go to Phone Settings.
+shareAvatar_title1;Title #1 used in the post generated by the Share Avatar feature;My new look!
+shareAvatar_title2;Title #2 used in the post generated by the Share Avatar feature;One of a kind!
+shareAvatar_title3;Title #3 used in the post generated by the Share Avatar feature;Ohh yeahh!
+shareAvatar_title4;Title #4 used in the post generated by the Share Avatar feature;Feeling all bricky today
+shareAvatar_title5;Title #5 used in the post generated by the Share Avatar feature;Me!!!
+settingsScreen_pushNotifications_summary;Used to show description under Settings, Push notification option on Android devices running 4.4 and below, because there we cannot tell if the notification system permission has been enabled or not.;You would also need to enable push notifications on your phone settings to get regular updates.
+searchBar_cancel;Text for Cancel button on the search bar;Cancel
+competitionChallenge_terms_title;Headline for terms & condition section in a competition;Terms and Conditions
+competitionChallenge_terms_accept;checkbox text for acceptin terms & condition in a competition;I agree to Terms and Conditions
+competitionChallenge_uploadButton_text;button text for starting a build-competition CHANGED THIS 01/08;Choose Picture
+competitionChallenge_popup_title;Title for the popup message in competitions, if you try to enter without accepting or expanding the terms and conditions;Accept the terms and conditions to upload your entry!
+competitionChallenge_popup_body;Body for the popup message in competitions, if you try to enter without accepting or expanding the terms and conditions;Tap on the check box to accept terms and conditions.
+competitionChallenge_popup_accept;Button text for the popup message in competitions, if you try to enter without accepting or expanding the terms and conditions;OK!
+startScreenActivity_start;Start button for the home screen;Start
+all_verifyAccountButton;;Verify Account
+profileScreen_myFriends;;My friends
+profileScreen_myGroups;;My groups
+unfriendPopup_title;;Unfriend?
+unfriendPopup_description;;Are you sure you want to unfriend %s?
+unfriendPopup_actionButton;;Unfriend
+unfriendPopup_cancelButton;;Cancel
+myGroupScreen_title;;My groups
+myGroupScreen_recommended_title;;You might like
+joinGroup_button_text;;Join group
+memberGroup_button_text;;Group member
+otherProfileScreen_addFriend_text;;Add friend
+otherProfileScreen_friendStatus_text;;Request sent
+otherProfileScreen_yourFriend_text;;Your friend
+otherProfileScreen_acceptFriendRequest_text;;Add Friend
+otherProfileScreen_declineFriendRequest_text;;Ignore
+upload_flow_title_add_sticker_to_photo;Upload flow title;Add stickers to your photo
+upload_flow_title_describe_photo;Upload flow title;Describe your photo
+upload_flow_title_this_is_how_it_will_look;Upload flow title;This is how it will look
+shareScreen_title;Share screen title;Describe your photo
+shareScreen_description_hint;Description hint;Tell us more about your photo!
+shareScreen_tagSelection_title;Tag selection title;What's in your photo?
+shareScreen_tagSelection_description;Tag selection description;Select up to 3 groups to share your photo in.
+shareScreen_tagSelection_button_title;Add more button title;Add more
+tagSelectionScreen_title;Select groups;Select groups
+tagSelectionScreen_preselected_header;Section header;Groups from this challenge
+tagSelectionScreen_other_header;Section header;Other groups
+unsupported_file_type;When the camera is not available and the user chooses a file from his gallery but the file isn't supported.;Unsupported file type
+select_photo;When the camera is not available and the user have to choose a file from his gallery.;Select photo
+upload_title_error_message;Error message on upload flow when the user taps on the disabled next button on Description screen;You need to enter a title
+upload_title_hint;New hint for upload flow title edit text;What did you build?
+bottomsheet_camera_action;Label for the camera action on the bottom sheet;Camera
+bottomsheet_gallery_action;Label for the gallery action on the bottom sheet;Your photos
+bottomsheet_title;Title for the bottom sheet on android;Add a photo from
+upload_flow_title_take_photo;title of the custom camera screen on iOS;Take a photo
+onboarding_taskListItem_nickname;Item on list tasking you with picking a nickname for yourself;Pick your name
+onboarding_taskListItem_avatar;Item on list tasking you with creating your own LEGO Life avatar;Build yourself in LEGO pieces
+onboarding_taskListItem_like;Item on list tasking you with liking a piece of UGC;Like something
+onboarding_taskListItem_joinGroup;item on list tasking you with joining a group;Search & join a group
+onboarding_taskListItem_upload;item on list taksing you with completing the upload flow;Share something you've built
+onboarding_taskListItem_expand;button allows you to expand the list of tasks;more
+onboarding_taskListItem_collapse;button allows you to reduce the amount of tasks visible;less
+onboarding_celebration_header;Title of celebration screen;Way to Go!
+onboarding_celebration_avatarDesc;Text explaining you finished the task;You created your very own avatar
+onboarding_celebration_likeDesc;Text explaining you finished the task;You found something you liked
+onboarding_celebration_joinGroupDesc;Text explaining you finished the task;You joined a group
+onboarding_celebration_uploadDesc;Text explaining you finished the task;You shared something you've built
+onboarding_celebration_nextDesc;;Now keep it going and see what else you can do
+onboarding_celebration_nextButton;;Next
+onboarding_finalCelebration_header;;Congratulations!
+onboarding_finalCelebration_desc;;You're a LEGO Life pro
+onboarding_finalCelebration_button;;Amazing!
+productRegistration_cameraPermission_description;;Scan LEGO® QR codes by allowing access to the camera.
+productRegistration_cameraPermission_button;;Allow camera
+productRegistration_goToSettings_description;;Camera is turned off! LEGO® Life needs access to the camera to scan LEGO QR codes.
+productRegistration_goToSettings_button;;Go to settings
+productRegistration_description;;Scan a LEGO® QR code to discover unique set content
+productRegistration_error_wrongCode;;Not a valid LEGO® QR code!
+startScreenActivity_productRegistration;;Scan
+resourcePermission_photoLibrary_need_access_description;Description: Initial photo library primer on screen;Decorate and share your own photos by allowing access to your photo library.
+resourcePermission_photoLibrary_need_access_button_title;Button: 'Allow' photo library;Allow
+resourcePermission_photoLibrary_gotoSettings_description;Description: ''Go to settings' help text;Photo library access is turned off! LEGO Life needs access to your photos so you can decorate and share them.
+resourcePermission_photoLibrary_gotoSettings_button_title;Button: 'Go to settings';Go to Settings
+resourcePermission_photoLibrary_no_access_description;Description: Photo library has been restricted by device admin ;Unfortunately, access to the photo library has been restricted.
+resourcePermission_camera_need_access_description;Description: Initial camera primer text on screen;Share photos of your awesome creations by allowing access to the camera.
+resourcePermission_camera_need_access_button_title;Button: 'Allow' camera;Allow
+resourcePermission_camera_gotoSettings_description;Description: 'Go to settings' help text;Camera is turned off! Camera access is needed to take photos and share your creations.
+resourcePermission_camera_gotoSettings_button_title;Button: 'Go to settings' button;Go to Settings
+resourcePermission_camera_no_access_description;Description: 'Device has no camera (available);Unfortunately, your device does not appear to have a camera.
+productDetail_addToProfile_button;Add set to profile button's title on product detail page;Add to My Sets
+productDetail_addedToProfile_button;Remove set from profile button's title on product detail page;Added to My Sets
+productDetail_removeSetPopup_title;Remove set from profile confirmation popup's title;Remove from My Sets?
+productDetail_removeSetPopup_descriptionTop;Remove set from profile confirmation popup's description 1/2;Do you want to remove this set from My Sets?
+productDetail_removeSetPopup_descriptionBottom;Remove set from profile confirmation popup's description 2/2;You can always add it again later.
+productDetail_removeSetPopup_cancelButton;Cancel button's title on remove set from profile confirmation popup;Cancel
+productDetail_removeSetPopup_deleteButton;Remove button's title on remove set from profile confirmation popup;Remove
+productDetail_dbix_title;DBIX panel's section header on product detail page;Instructions PLUS
+productDetail_dbix_button;Button's title on DBIX panel (product detail page);Go build
+productDetail_buildingInstructions_titleSingularis;PDF Building Instructions - Header singularis;Instruction booklet
+productDetail_buildingInstructions_titlePluralis;PDF Building Instructions - Header pluralis;Instruction booklets
+productDetail_buildingIdeas_title;Inspirational builds section's header on product detail page;Build Ideas
+product_detail_buildIdeas_lockedState_description;Locked inspirational build's description on product detail;Sign up to LEGO® Life Account to unlock Build Ideas
+product_detail_buildIdeas_lockedState_unlock;Button's title on inspirational build's lock state on product detail;Unlock
+productDetail_noContent;There is no content on product detail page;Sorry, no content available.
+achievementScreen_title;Title of the achievment screen(Celebration screen for new badge);Awesome!
+achievementScreen_actionButton_title;Button title on achievement screen;See badges
+badgesListScreen_title;Title of the badges list screen;My badges
+badgeDetailScreen_actionButton_lockedState_title;Button title on badge detail screen when badge is locked;I got it
+badgeDetailScreen_actionButton_unlockedState_title;Button title on badge detail screen when badge is unlocked;OK
+appExit_warningDialogTitle;Exit dialog title;Are you sure you want to leave? 
+appExit_warningDialogDescription;Exit dialog description;You’re about to exit the LEGO Life App.
+appExit_warningDialogNegativeAction;Exit dialog cancel button;Stay here!
+appExit_warningDialogPositiveAction;Exit dialog confirm button;Leave the app
+forceUpdateScreen_title;Force update screen title;Update your LEGO Life app
+forceUpdateScreen_description;Force update screen description;New version of your fave app is ready for you. It’s alive and the best one yet! \nGo the store where you get all your apps by using the button below and get the latest version of LEGO Life.
+forceUpdateScreen_buttonTitle;Force update screen button title;UPDATE NOW!
+doneButtonTitle;"""Done!"" button title";Done!
+retryButtonTitle;The title of the retry button;Retry
+parentalGate_title;The title text for the parental gate;Hi, grown-up
+parentalGate_description;The description text for the parental gate ;You must solve this little math problem to continue
+mySetsScreen_title;My sets title;My Sets
+mySetsScreen_noSets_descriptionTop;My sets placeholder text when no sets are added 1/2;No sets in here yet!
+mySetsScreen_noSets_descriptionBottom;My sets placeholder text when no sets are added 2/2;You can add sets that have the LEGO QR code on the cover of the building instruction booklet.
+unauthorized_dialog_title;;Oops, something went wrong
+unauthorized_dialog_subtitle_full_acc;;That's weird. You appear to be logged out.
+unauthorized_dialog_subtitle_play_acc;;That's weird. We couldn't get that to work. You can try again or reset the app.
+unauthorized_dialog_desc_full_acc;;You can try the action again or you can log in to refresh your session.
+unauthorized_dialog_desc_play_acc;;Be aware: if you reset the app, you will lose the current progress made on your profile.
+unauthorized_dialog_try_again;;I'll try again
+unauthorized_dialog_log_in;;Log in
+unauthorized_dialog_reset_app;;Reset app
+onboarding_taskListItem_safetyPledge;Item on list tasking you with signing the safety pledge;Sign the LEGO® Safety Pledge
+onboarding_celebration_safetyPledgeDesc;Celebration text description;Congratulations! You have taken the LEGO® Safety Pledge
+brickCounterDetail_title;The title of the brick counter detail screen;Brick Counter
+brickCounterDetail_description;The top description text on the brick counter detail screen;Based on the items you have listed in My Sets, the total number of bricks you own is:
+brickCounterDetail_label;The bottom description text on the brick counter detail screen;You can add sets you own to My Sets to get more bricks.
+brickCounterDetail_button;The text on the bottom button on the brick counter detail screen;OK
+incentiveDialog_addToProfile_title;Create profile to add set dialog title;Create a profile?
+incentiveDialog_addToProfile_descriptionTop;Create profile to add set dialog top description;Add this set to My Sets by creating a profile.
+incentiveDialog_addToProfile_descriptionBottom;Create profile to add set dialog bottom description;It’s quick and easy and you'll get access to loads of fun stuff!
+incentiveDialog_addToProfile_actionTop;Create profile to add set dialog top button text;Create profile
+incentiveDialog_addToProfile_actionBottom;Create profile to add set dialog bottom button text;Log in
+incentiveDialog_upgrade_title;Upgrade dialog title;Sign up to do more!
+incentiveDialog_upgrade_descriptionTop;Upgrade dialog top description;To share creations, comment and make friends you need a LEGO Life account.
+incentiveDialog_upgrade_descriptionBottom;Upgrade dialog bottom description;It’s fast and easy!
+incentiveDialog_upgrade_actionTop;Upgrade dialog top button text;Sign up
+incentiveDialog_upgrade_actionBottom;Upgrade dialog bottom button text;Log In
+incentiveDialog_logInAndStartOver_title;Log in and start over dialog title;Just so you know…
+incentiveDialog_logInAndStartOver_descriptionTop;Log in and start over dialog top description;If you log in to an existing account, all progress made on your current profile will be lost.
+incentiveDialog_logInAndStartOver_descriptionBottom;Log in and start over dialog bottom description;Save your current progress on your existing profile by signing up for a LEGO Life account.
+incentiveDialog_logInAndStartOver_actionTop;Log in and start over dialog top button text;Log in to existing
+incentiveDialog_logInAndStartOver_actionBottom;Log in and start over dialog bottom button text;Sign up
+incentiveDialog_consentRevoked_title;Consent revoked dialog title;Sorry, that’s off limits!
+incentiveDialog_consentRevoked_descriptionTop;Consent revoked dialog top description;Sorry, buddy. You can’t use this because it has been disabled in account settings.
+incentiveDialog_consentRevoked_descriptionBottom;Consent revoked dialog bottom description;Talk to your parents about which parts of the app they think are a good idea for you to use and why.
+incentiveDialog_consentRevoked_action;Consent revoked dialog button text;OK
+incentiveDialog_createAndLinkProfile_title;Create and link profile dialog title;Create profile and link it!
+incentiveDialog_createAndLinkProfile_descriptionTop;Create and link profile dialog top description;Access Build Ideas and the Brick Counter by creating a profile and linking it to your parent’s LEGO Account.
+incentiveDialog_createAndLinkProfile_descriptionBottom;Create and link profile dialog bottom description;The profile will be linked to an adult account and will be managed by your parent.
+incentiveDialog_createAndLinkProfile_action;Create and link profile dialog button text;Create and link
+incentiveDialog_linkAccount_title;Link account dialog title;Link your account
+incentiveDialog_linkAccount_descriptionTop;Link account dialog top description;Access Build Ideas and the Brick Counter by linking your account to your parent’s LEGO Account.
+incentiveDialog_linkAccount_descriptionBottom;Link account dialog bottom description;This account will be linked to an adult account and will be managed by your parent.
+incentiveDialog_linkAccount_action;Link account dialog button text;Link accounts
+incentiveDialog_linkProfile_title;Link profile dialog title;Link your profile
+incentiveDialog_linkProfile_descriptionTop;Link profile dialog top description;Access Build Ideas and the Brick Counter by linking your profile to your parent’s LEGO Account.
+incentiveDialog_linkProfile_descriptionBottom;Link profile dialog bottom description;This profile will be linked to an adult account and will be managed by your parent.
+incentiveDialog_linkProfile_action;Link profile dialog button text;Link
+unlock_brickCounter_title;Unlock brick counter celebration screen title;Brick Counter unlocked!
+unlock_brickCounter_description;Unlock brick counter celebration screen top description;All the bricks from the sets in My Sets add up to:
+unlock_brickCounter_label;Unlock brick counter celebration screen bottom description;Add the sets you own to get more bricks (you can only add sets with LEGO QR code).
+unlock_brickCounter_button;Unlock brick counter celebration screen button text;Yay!
+unlock_buildIdeas_title;Unlock inspirational build celebration screen title;Build Ideas unlocked!
+unlock_buildIdeas_description;Unlock inspirational build celebration screen top description;You now have access to Build Ideas.
+unlock_buildIdeas_label;Unlock inspirational build celebration screen bottom description;Get inspired to build other stuff with the bricks you already have in your set.
+unlock_buildIdeas_button;Unlock inspirational build celebration screen button text;Cool!
+lego_safety_pledge;Safety Pledge screens main Title;The LEGO® Safety Pledge
+safety_pledge_be_safe_title;Pledge Screen #1 Title;Be Safe
+safety_pledge_be_safe_description;Pledge Screen #1 Description;Remember to only share your personal information with people and sites you trust.
+safety_pledge_be_cool_title;Pledge Screen #2 Title;Be Cool
+safety_pledge_be_cool_description;Pledge Screen #2 Description;Share your good or bad experiences with friends or someone who can help you.
+safety_pledge_respect_others_title;Pledge Screen #3 Title;Respect Others
+safety_pledge_respect_others_description;Pledge Screen #3 Description;Treat others with respect and they will treat you the same.
+safety_pledge_have_fun_title;Pledge Screen #4 Title;Have Fun
+safety_pledge_have_fun_description;Pledge Screen #4 Description;Play, explore, and learn new tools and tricks!
+safety_pladge_sign_it;Sign Pledge Screen Description;Sign the LEGO® Life Safety Pledge
+safety_pladge_sign_it_description;Sign Pledge Call to Action;Draw your mark
+child_safety_captain_safety_hello;Safety Mascot Introduction Title;Hello, I’m Captain Safety!
+child_safety_captain_safety;Captain safety;Captain Safety
+child_safety_intro_description;Safety Mascot Introduction Description;I’ll give you some tips on how to be safe in LEGO® Life.
+child_safety_friends_description;Friends Screen Description;You are safe with friends. Your personal information is not shared.
+child_safety_upload_flow_stickers_description;Photo Upload Stickers Description;Share with care – only post things you would want to see too.
+child_safety_upload_flow_title_description;Photo Upload Text Description;Be kind – stay positive, avoid words that can hurt others.
+child_safety_moderation_description;Photo Moderation Description;Just a sec, before showing your post we check it to make sure it’s all good.
+child_safety_comment_description;Comment Description;Speak only about others as you would like them to speak about you.
+reportingScreen_guidingDescription;Gives some context in which cases they should use moderation;If you see something that’s not alright, that might harm others – let us know.
+reportingScreen_guidingQuestion;Reporting Screen Guiding Question;What’s wrong with this image?
+productRegistration_errorInexistent_title;Error pop-up 'set not released yet' or spoofed code - Header;Oops
+productRegistration_errorInexistent_description;Error pop-up 'set not released yet' or spoofed code - Description;Sorry, this set doesn't appear to exist.
+productRegistration_errorInexistent_button;Error pop-up 'set not released yet' or spoofed code - CTA;OK
+productDetail_exitDialog_title;Exit confirmation - Header;Save set?
+productDetail_exitDialog_descriptionTop;Exit confirmation - Description 1 ;Save the set to My Sets for easy access later.
+productDetail_exitDialog_descriptionBottom;Exit confirmation - Description 2;Or you can always scan the LEGO QR code again to view set content.
+productDetail_exitDialog_positiveButton;Exit confirmation - Main CTA ;Save it!
+productDetail_exitDialog_negativeButton;Exit confirmation - Secondary CTA (cancel+closes) ;Don't save
+no_browser_available_dialog_title;No browser present on device pop-up: Title;Oops!
+no_browser_available_dialog_description_top;No browser present on device pop-up: Description top;You don't have access to a browser on this device.
+no_browser_available_dialog_description_bottom;No browser present on device pop-up: Description bottom;Please allow access to a browser to create a profile, log into an account or link accounts.
+no_browser_available_dialog_button_text;No browser present on device pop-up: Button CTA;OK
+profileScreen_friends_title;Profile Screen- Title when Friends tab is active;My Friends
+profileScreen_badges_title;Profile Screen- Title when My Badges tab is active;My Badges
+profileScreen_avatar_title;Profile Screen- Title when Avatar tab is active;Avatar
+profileScreen_albums_title;Profile Screen- Title when My Uploads tab is active;My Photos
+profileScreen_groups_title;Profile Screen- Title when My Groups tab is active;My Groups
+profileScreen_sets_title;Profile Screen- Title when My Sets tab is active;My Sets
+profileScreen_friends_action;Profile Screen - Friends - Action button;Add Friend
+profileScreen_groups_action;Profile Screen - Groups - Action button;Join Group
+profileScreen_albums_action;Profile Screen - Uploads - Action button;Share Photo
+profileScreen_groups_recommendation;Profile Screen - Groups - Recommendation text;You might like
+profileScreen_albums_noContent_descriptionTop;Profile Screen- Uploads - Top text when no uploads available;Nothing in here yet.
+profileScreen_albums_noContent_descriptionBottom;Profile Screen- Uploads - Bottom text when no uploads available;Tap Share Photo to share your first creation.
+profileScreen_friends_noContent_descriptionTop;Profile Screen - Friends - Top text when no friends available;LEGO® Life can be full of your friends!
+profileScreen_friends_noContent_descriptionBottom;Profile Screen - Friends - Bottom text when no friends available;Tap Add Friend to find your first friend.
+profileScreen_groups_noContent_descriptionTop;Profile Screen- Groups - Top text when no groups available;There's so much to explore in LEGO® Life.
+profileScreen_groups_noContent_descriptionBottom;Profile Screen- Groups - Bottom text when no groups available;Tap Join Group to find your favorite groups.
+profileScreen_sets_action;Profile Screen-Sets - Action button;Add to My Sets
+profileScreen_sets_noContent_descriptionTop;Profile Screen-Sets - Top text when no sets available;No sets in here yet!
+profileScreen_sets_noContent_descriptionBottom;Profile Screen- Sets - Bottom text when no sets available;You can add sets that have the LEGO QR code on the cover of the building instruction booklet.
+profileScreen_friends_myFriends;Profile Screen - Friends - My friends without counter;My friends
+profileScreen_friends_myFriends_title;Profile Screen - Friends - My friend with counter;My friend (%s)
+profileScreen_friends_myFriends_plural_title;Profile Screen - Friends - My friends with counter plural format;My friends (%s)
+profileScreen_friends_newInvites;Profile Screen - Friends - New invites without counter;New invites
+profileScreen_friends_newInvites_title;Profile Screen - Friends - New invites with counter;New invite (%s)
+profileScreen_friends_newInvites_plural_title;Profile Screen - Friends - Friend requests section title plural format;New invites (%s)
+profileScreen_avatar_action_suggestion;Profile Screen - Avatar - Suggestion action;Edit
+otherProfileScreen_albums_noContent_descriptionTop;Other User Profile Screen - Albums - Top placeholder text for empty state;No photos yet.
+otherProfileScreen_albums_noContent_descriptionBottom;Other User Profile Screen - Albums - Bottom placeholder text for empty state;Check back later.
+browser_groups_search_placeholder;Browser - Groups - Placeholder for the searchbar;Search for groups
+browser_friends_search_placeholder;Browser - Friends - Placeholder ;Search for friends
+browser_search_cancel_action;Browser - Groups/Friends - Cancel action;Cancel
+feedDetailsScreen_challengeVideoStepsTitle;;How does this work?
+userNotFound_warningDialogDescription;Dialog shown when a user's profile cannot be retrieved from the server;Sorry! We couldn’t find that user.
+uploadedAlbumScreen_title;Title for the image detail screen which appears after upload;Photo uploaded!
+startScreenActivity_build;Build bubble on the new start screen;Build
+startScreenActivity_share;Share bubble on the new start screen;Share
+startScreenActivity_inspire;Inspire bubble on the new start screen;Inspire
+contentFeed_dbixReminder_title;Dbix feed reminder card title;Build on!
+contentFeed_dbixReminder_finishButton;Dbix feed reminder card finish button;Finished it!
+contentFeed_dbixReminder_description;Dbix feed reminder card set description;Your %s set is almost complete. Continue building it!
+contentFeed_dbixReminder_celebrationDescription;Dbix feed reminder card celebration description;Congrats for building this awesome set! Keep on building!
+remindToBuildNotification_instructionsPlusNotStarted_message;Notification message shown to set owners who never started building with Instructions PLUS;Did you know you can build your sets using Instructions PLUS?
+remindToBuildNotification_instructionsPlusStarted_message;Notification message shown to set owners who started building with Instructions PLUS, but did not finish;Keep the fun going! Finish building your set and share a picture of it!
+campaign_seaLife_feed_item_title_part1;First part of the title shown on the feed item (de-emphasized compared to part 2);Become a
+campaign_seaLife_feed_item_title_part2;Second (emphazied) part of the title shown on the feed item;Sea Life Friend!
+campaign_seaLife_detail_title;Title of the SeaLife detail screen;Sea Life Pledge
+campaign_seaLife_detail_page1_description;Description of the first page in the SeaLife detail screen;Do you love the underwater world? Push and pledge – Become a Sea Life Friend!
+campaign_seaLife_detail_page2_description;Description of the second page in the SeaLife detail screen;Are you curious to learn how you can help to save the ocean’s rare and beautiful sea animals?
+campaign_seaLife_detail_page3_description;Description of the third page in the SeaLife detail screen;I promise to do my best to take care of the sea and all life inside it.
+campaign_seaLife_detail_action_yes;Text on action button in first 2 SeaLife detail pages;Yes!
+campaign_seaLife_detail_action_push_pledge;Pledge action label;Push & Pledge
+campaign_seaLife_celebration_description;"The description right below the ""Awesome"" label on the celebration screen";Thank you for being a Sea Life Friend.
+campaign_seaLife_celebration_label;The badge label shown on the celebration screen;Sea life friend
+campaign_seaLife_celebration_question;Question before clicking the action on the celebration screen;Ready to get started?
+campaign_seaLife_celebration_action;Action on the celebration screen;To the sea
+campaign_seaLife_celebration_redoAction;Title of the second action button on SeaLife celebration screen;Release More!
+campaign_seaLife_celebration_releaseAnimation_text;Text displayed on the happy fish animation screen;Thanks for\nbeing awesome!
+campaign_seaLife_badgeDetail_redoAction;Title of the second action button when user goes to detail of sealife badge;Release a Creature!
+campaign_seaLife_fishSetup_fishDescription;Description above fish selector on Fish setup screen;Choose a Sea Life animal you want to release onto the LEGO® Reef
+campaign_seaLife_fishSetup_nameDescription;Description above name textfield on Fish setup screen;Name your Sea Life animal.
+campaign_seaLife_fishSetup_action;Title of the bottom action button on Fish setup screen;Release!
+campaign_seaLife_fishName_blobfish;Name of sea creature, displayed on fish release screen when creature is selected;Blobfish
+campaign_seaLife_fishName_yellowCoralGoby;Name of sea creature, displayed on fish release screen when creature is selected;Yellow Coral Goby 
+campaign_seaLife_fishName_copperbandButterflyfish;Name of sea creature, displayed on fish release screen when creature is selected;Copperband Butterflyfish
+campaign_seaLife_fishName_turtle;Name of sea creature, displayed on fish release screen when creature is selected;Turtle
+campaign_seaLife_fishName_octopus;Name of sea creature, displayed on fish release screen when creature is selected;Octopus
+campaign_seaLife_fishName_dolphin;Name of sea creature, displayed on fish release screen when creature is selected;Dolphin
+campaign_seaLife_fishName_narwhal;Name of sea creature, displayed on fish release screen when creature is selected;Narwhal
+campaign_seaLife_fishName_shark;Name of sea creature, displayed on fish release screen when creature is selected;Shark
+campaign_seaLife_fishName_seahorse;Name of sea creature, displayed on fish release screen when creature is selected;Seahorse
+campaign_seaLife_fishName_sealion;Name of sea creature, displayed on fish release screen when creature is selected;Sea Lion
+campaign_hiddenSide_feed_item_title;Feed - Label for the Hidden Side campaign CTA on the Feed - this copy will appear in two lines every time.;DARE TO LOOK FOR\nHIDDEN THINGS?
+campaign_hiddenSide_detail_title;Intro screen - screen title;Hidden Side
+campaign_hiddenSide_detail_page1_question;Intro screen - Question on the intro screen;DARE TO LOOK FOR HIDDEN THINGS?
+campaign_hiddenSide_detail_page1_desc;Intro screen - short hint for the kids;Take part in Hidden Side challenges to unlock awesome halloween theme for a limited time.
+campaign_hiddenSide_detail_page1_action;Intro screen - green button label;Let's go!
+campaign_hiddenSide_detail_page2_question;Jump scare screen - another question like hint for the kids as a reminder that they need to take part in a challenge;DARE TO TAKE PART IN HIDDEN SIDE CHALLENGES?
+campaign_hiddenSide_detail_page2_action;Jump scare screen - green button label;Yes!
+campaign_hiddenSide_celebration_desc;Celebration screen - Description;You have finished a Hidden Side challenge, you are a fearless Ghost Hunter.
+campaign_hiddenSide_badge_label;Celebration screen - Badge label;Ghost Hunter
+campaign_hiddenSide_badge_desc;Badge detail screen - badge detail description;You’ve earned the Ghost Hunter Badge!
+getYourParentScreen_screenTitle;Get your parents screen title;Almost there
+getYourParentScreen_heading;Get your parents!;Go get a parent!
+getYourParentScreen_description;"Kids can read the screen content and after that they need to grab their parents.";To share creations, comment and make friends you need a LEGO® Account.\nGet your parents to help set up the account.\n\nLEGO Life is a safe online community for children.
+getYourParentScreen_benefit_1;LEGO Life safety benefits;Accounts are anonymous
+getYourParentScreen_benefit_2;LEGO Life safety benefits;Content and comments are moderated
+getYourParentScreen_benefit_3;LEGO Life safety benefits;Creations are moderated
+getYourParentScreen_button_title_parent;The parent can select this in case they don't have an account.;I'M A PARENT!
+getYourParentScreen_button_title_account;The parent can select this in case they already have an account.;I HAVE AN ACCOUNT
+CFBundleDisplayName;The name of the App;LEGO® Life
+CFBundleName;The name of the App;LEGO® Life
+NSCameraUsageDescription;iOS Only. iOS camera permissions: OS system level permissions prompt. This key will be converted into NSCameraUsageDescription and used in the InfoPlist.strings files;Enables you to take photos of your awesome creations and share them.
+NSPhotoLibraryUsageDescription;iOS Only. iOS photo library permissions: OS system level permissions prompt. This key will be converted into NSPhotoLibraryUsageDescription and used in the InfoPlist.strings files;Enables you decorate and share your own photos.
+reportingScreen_commentGuidingQuestion;Reporting screen guiding question;What’s wrong with this comment?
+reportDialog_comment_reason_1;Comment reporting screen, option 1;It is inappropriate or not suitable for children
+reportDialog_comment_reason_2;Comment reporting screen, option 2;It is hurtful or mean
+reportDialog_comment_reason_3;Comment reporting screen, option 3;Spam alert! It is junk that has been posted several times
+reportDialog_comment_reason_4;Comment reporting screen, option 4;It is in a foreign language
+reportDialog_comment_reason_5;Comment reporting screen, option 5;Other reason
+actionSheet_report_button;iOS style action sheet button;Report
+actionSheet_cancel_button;iOS style action sheet button;Cancel
+actionSheet_delete_button;iOS style action sheet button;Delete
+NSScanSetTitle;iOS Only: This string is used for InfoPlist.strings on NSScanSetTitle for 3D Touch;Scan
+commentCell_reported_placeholder_text;Placeholder when a comment was reported;You have reported this comment. Our moderator will have a look at it.
+infoBanner_operatingSystem_title;Operating system info banner title;Important!
+infoBanner_operatingSystem_description;Operating system info banner description;<b>Please update to (%s) to start using the latest version of LEGO® Life. </b>The current version will continue to run on your device, but you will not receive any more updates.
+infoBanner_appUpdate_title;App update info banner title;New Update Available
+infoBanner_appUpdate_description;App update info banner description;A new version of LEGO® Life is ready for you! Please visit your app store to update.
+infoBanner_appUpdate_buttonTitle;App update info banner button title;Update!
+infoBanner_appUpdateComplete_title;App update complete info banner title;Important Announcement
+infoBanner_appUpdateComplete_description;App update complete info banner description;Your LEGO Life application is up to date. Once you hit reload, the new features are ready for you to explore!
+infoBanner_appUpdateComplete_buttonTitle;App update complete info banner button title;Reload!
+feedList_empty_group_videos_list;Placeholder text for a empty list of videos;This group has no videos yet
+feedList_empty_group_buildIdeas_list;Placeholder text for a empty list of build ideas;This group has no Build Ideas yet
+feedList_empty_group_challenges_list;Placeholder text for a empty list of challenges;This group has no challenges yet
+feedList_empty_group_list;Default placeholder text for a empty list;Sorry, we can't find that anywhere!
+delete_confirmation_popup_delete_comment_title;Title for the delete confirmation popup when deleting a comment;Delete your comment?
+comment_deleted;Comment deleting confirmation popup;Comment deleted
+delete_confirmation_popup_delete_comment_description;Description for the delete confirmation popup when deleting a comment;Wait! Are you sure you want to delete your comment?
+delete_confirmation_popup_delete_album_title;Title for the delete confirmation popup when deleting an album;Delete your creation?
+delete_confirmation_popup_delete_album_description;Description for the delete confirmation popup when deleting an album;Wait! Do you want to delete this piece of awesomeness?
+favoriting_snackbar_description_removed;Pop-up description notifying the user that the post was removed from the Favourites list;Removed from favourites.
+favoriting_snackbar_description_added;Pop-up description notifying the user that the post was added to the Favourites list;Added to favourites.
+profileScreen_favorites_title;Favourites list title on profile tab;Favourites
+profileScreen_favorites_noContent_descriptionBottom;Favourites list empty state description on profile tab;Add cool stuff from the feed to your favourites by clicking the star icon so you can find it here later!
+build_ideas_detail_gather_step;The title of the Gather the bricks step;Gather the bricks
+build_ideas_detail_build_step;The title of the Build step;Build
+build_ideas_detail_share_step;The title of the Share step;Share your build!
+build_ideas_detail_action_button;The title of the action button;Let’s go!
+build_ideas_detail_related_header;The header of the releated build ideas feed;Builds by others
+build_ideas_detail_commenting_label;The title of the commenting button;Something to say
+feed_hanger_header_build_ideas;The header title of the build ideas hanger in the feed;Build Ideas
+build_ideas_notification;Text for a Build Ideas Notification;Have you seen this Build Idea for the set you just added?
+vpc_incentive_screen_title_favorite_posts_new;Title for new feature where the user can mark posts as favorites.;New feature
+vpc_incentive_screen_description_favorite_posts_new;Description for new feature where the user can mark posts as favorites.;Save cool posts to your favorite list by giving them a star!
+vpc_incentive_screen_title_even_safer;Title for screen telling the kids to have their parents validate their account to improve safety.;We’re making your account even safer
+vpc_incentive_screen_description_even_safer;Description for screen telling the kids to have their parents validate their account to improve safety.;Get your parents’ help so you can keep uploading images and commenting!
+vpc_incentive_screen_title_upload_photos;Title for a feature where users can upload photos;Features include
+vpc_incentive_screen_description_upload_photos;Description for a feature where users can upload photos;Upload photos of your awesome LEGO builds to share with other creators!
+vpc_incentive_screen_title_comment_posts;Title for a feature where users can comment on posts;Features include
+vpc_incentive_screen_description_comment_posts;Description for a feature where users can comment on posts;Comment on posts!
+vpc_incentive_screen_title_favorite_posts;Title for new feature where the user can mark posts as favorites;Features include
+vpc_incentive_screen_description_favorite_posts;Description for new feature where the user can mark posts as favorites.;Save cool posts to your favorite list by giving them a star!
+vpc_incentive_screen_title_unlock_features;Title for screen telling the kids to have their parents validate their account to improve safety;Unlock all features
+vpc_incentive_screen_description_unlock_features;Description for screen telling the kids to have their parents validate their account to improve safety;Get your parents’ help to start uploading images and commenting!
+vpc_incentive_screen_button_upgrade_account;Link to click if the user already have an account;Upgrade account
+vpc_incentive_screen_already_have_account;Button text on the button to upgrade account;Already have a verified account?
+campaign_winter_feed_snowFalling_notification;Snow falling notification description(max 50 charachters);Shake your device and let it snow.
+scanning_missingProduct_popup_title;Title for the scanning popup for early products;You’re lucky!
+scanning_missingProduct_popup_topDesc;Scanning pop up 1st part of the description;We’re still a few days away from the OFFICIAL launch date of this set, but you managed to get your hands on it.
+scanning_missingProduct_popup_bottomDesc;Scanning pop up 2nd part of the description;Please come back to register your set from <b>January 1st 2020</b>. Until then, enjoy building!

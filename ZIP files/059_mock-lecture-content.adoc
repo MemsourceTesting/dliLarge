@@ -1,0 +1,255 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='testmock-lecture']
+= Section Content
+
+== Introduction to the Mock Component
+
+When implementing route tests, especially unit tests for routes, you should replace endpoints with mocks or other test doubles to decouple tests from route dependencies, such as external web services or databases.
+With the Camel `+mock+` component, you can replace actual endpoints with fake endpoints and define simulated test scenarios.
+This is useful to implement tests, but also to develop routes that depend on external systems that are not yet available.
+
+The `+mock+` endpoint only supports producer endpoints.
+Use this endpoint by specifying the `+mock:+` prefix, followed by a name that identifies the mock.
+The following example shows how to create a mock endpoint called `+out+`.
+
+[subs=+quotes]
+----
+from("direct:in")
+`+.to("mock:out");+`
+----
+
+=== Injecting Mock Endpoints in Test Cases
+
+Before defining the expectations and behaviors of a mock, you must inject the corresponding `+MockEndpoint+` object in your test class.
+To inject a mock endpoint object into a test class, use the `+EndpointInject+` annotation, as follows:
+
+[subs=+quotes]
+----
+public class YourRouteBuilderTest {
+    `@EndpointInject(uri = "mock:out")
+    MockEndpoint outEndpoint;`
+
+    ...implementation omitted...
+}
+----
+
+The `+uri+` parameter of the `+@EndpointInject+` annotation determines the specific mock endpoint to inject.
+This URI must match the URI of the endpoint that you want to test.
+
+In this particular example,  the `+uri+` parameter is `+mock:out+`, which matches the endpoint defined in the preceding route example.
+Therefore, the `+outEndpoint+` variable is the `+MockEndpoint+` instance that defines the behaviors and expectations of the `+mock:out+` endpoint.
+
+=== Defining and Asserting Expectations
+After injecting the mock endpoint, you can define the expectations of the mock in your test cases.
+Define mock expectations by using one of the `+MockEndpoint#expectXYZ+` methods, as demonstrated in the following example:
+
+[subs=+quotes]
+----
+@Test
+public void yourTestCase() throws InterruptedException {
+    `outEndpoint.expectedMessageCount(1);
+    outEndpoint.expectedBodiesReceived("Hello Eduardo");` <1>
+
+    template.sendBody("direct:in", "Hello Eduardo"); <2>
+
+    `+outEndpoint.assertIsSatisfied();+` <3>
+}
+----
+
+<1> Define the mock expectations as preconditions before sending messages to the route.
+<2> Send a message to the route under test.
+<3> Assert that the mock has met the expectations.
+
+The following methods are some of the most common expectations:
+
+[cols="1,1"]
+|===
+| `+expectedMessageCount+`
+| Expects a specific number of received messages
+
+| `+expectedBodiesReceived+`
+| Expects a message with a specific body or bodies
+
+| `+expectedHeaderReceived+`
+| Expects a message with a specific header
+
+| `+expectsNoDuplicates+`
+| Expects no duplicated messages
+|===
+
+
+=== Defining Behavior
+
+You can also tell a mock how to behave to simulate test scenarios.
+For example, you can configure an HTTP mock endpoint to simulate a specific HTTP response body, and later make your test verify how the route processes this response.
+
+[subs=+quotes]
+----
+@Test
+public void yourTestCase() throws InterruptedException {
+    `httpMockEndpoint.whenAnyExchangeReceived(e -> {
+        e.getOut().setBody("Hello, Randy!");
+    });`
+
+    template.sendBody("direct:start", null);
+
+    ...assertions omitted...
+}
+----
+
+With the `+whenAnyExchangeReceived+` function, you can define the preprogrammed behavior and responses required to set up the test scenario.
+
+The `+whenAnyExchangeReceived+` method receives a `+Proccessor+` instance as a parameter, which allows you to manipulate the exchange object.
+
+[NOTE]
+====
+The `+mock+` component exposes numerous methods to define expectations and behaviors, other than the ones covered in this lecture.
+Refer to the `+mock+` component documentation for a complete list of methods.
+====
+
+== Replacing Endpoints with Mocks
+
+Manually replacing real endpoints with mocks in your code each time you run a test is tedious and prone to errors.
+You should be able to test any route without including any external system in the test, even if your route code points to production systems.
+
+Camel supports the replacement of endpoints in routes with the `+adviceWith+` feature.
+With this feature, you can _advise_ the route to intercept messages and substitute endpoints with mock endpoints, before starting the Camel context.
+
+The following example illustrates the use of `+adviceWith+`.
+
+[subs=+quotes]
+----
+@RunWith( CamelSpringBootRunner.class )
+@SpringBootTest
+`+@UseAdviceWith+` <1>
+public class YourTest {
+    @EndpointInject(uri = "mock:file:customer_requests")
+    MockEndpoint fileMock;
+
+    ...other injections omitted...
+
+    @Before
+    public void setUp() throws Exception {
+        context
+            .getRouteDefinition("myRoute")
+            `+.adviceWith(context, new AdviceWithRouteBuilder() {+` <2>
+                `@Override
+                public void configure() {
+                    replaceFromWith("direct:origin);` <3>
+
+                    `+interceptSendToEndpoint("file:.\*customer_requests.*")+` <4>
+                            `+.skipSendToOriginalEndpoint()+` <5>
+                            `+.to("mock:file:customer_requests");+` <6>
+                `}
+            });`
+
+        `+context.start();+` <7>
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        `+context.stop();+` <8>
+    }
+
+    ...test cases omitted...
+}
+----
+
+<1> The `+@UseAdviceWith+` annotation marks the use of `+adviceWith+` in the test class.
+This annotation deactivates the automatic Camel context start/stop feature.
+Deactivating the context autostart is a prerequisite, because Camel needs to know route advice before starting the context.
+
+<2> The `+adviceWith+` method requires an `+AdviceWithRouteBuilder+` object.
+You must override the `+configure+` method of this class to advise the route.
+
+<3> The `+replaceFromWith+` call replaces the `+from+` endpoint with another component.
+
+<4> The `+interceptSendToEndpoint+` call intercepts messages sent to endpoints that match the pattern.
+
+<5> The `+skipSendToOriginalEndpoint+` call skips the original endpoint and just sends messages to the mock.
+
+<6> The mock endpoint where Camel should send intercepted messages.
+Note that this endpoint must match the URI of the `+MockEndpoint+` object injected in the test class.
+
+<7> After advising the routes, start the context.
+
+<8> After running your tests, stop the context.
+
+
+
+== Automocking Endpoints
+
+Instead of using `+interceptSendToEndpoint+`, you can use the simpler `+mockEndpointsAndSkip+` call to easily replace endpoints with mocks.
+For example:
+
+[subs=+quotes]
+----
+context
+    .getRouteDefinition( "myRoute" )
+    .adviceWith( context, new AdviceWithRouteBuilder() {
+        @Override
+        public void configure() {
+            replaceFromWith( "direct:start" );
+
+            `+mockEndpointsAndSkip("file:.\*customer_requests.*");+`
+        }
+    } );
+----
+
+The `+mockEndpointsAndSkip+` method replaces all the endpoints that match the given pattern by following these steps:
+
+. Adds the `+mock:+` prefix to the original endpoint.
+. Replaces the first `+://+` occurrence with `+:+`.
+. Strips off additional endpoint parameters.
+
+For example, given the `+http://localhost:8888/users?sort=name+` URI, `+mockEndpointsAndSkip+` replaces the http endpoint with the `+mock:http:localhost:8888/users+` endpoint.
+
+=== Automocking in Spring Boot
+
+If you use the `+camel-test-spring+` package, then you can use the `+@MockEndpointsAndSkip+` annotation to replace all the endpoints matching a pattern.
+The result is the same as what you get by advising the route with the `+mockEndpointsAndSkip+` method.
+
+[subs=+quotes]
+----
+`+@MockEndpointsAndSkip("file:.\*customer_requests.*")+`
+public class YourTest {
+    ...implementation omitted...
+----
+
+By using `+@MockEndpointsAndSkip+`, you can quickly mock endpoints without having to implement `+adviceWith+` code or manually starting and stopping the Camel context.
+
+
+== Using Property Placeholders
+
+Property placeholders are another useful tool to decouple your routes from specific endpoints.
+Instead of hard coding endpoints in your route, use property placeholders, as shown in the following example:
+
+[subs=+quotes]
+----
+from(`+"{{myroute.queue}}"+`)
+    .to(`+"{{myroute.api}}"+`)
+----
+
+Next, you can use your `+application.properties+` file to define values for these properties.
+Additionally, you can define specific property values for your tests, such as mock or direct endpoints, as follows:
+
+[subs=+quotes]
+----
+@SpringBootTest(properties = {
+    `"myroute.queue=direct:start",
+    "myroute.api=mock:api"`
+})
+public class YourTest {
+    ...implementation omitted...
+}
+----
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _Mock Component_ chapter in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache{nbsp}Camel Component Reference_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_component_reference/index#mock-component
+
+For more information, refer to the _Property Placeholders_ section in the _Red{nbsp}Hat Fuse{nbsp}7.10 Apache{nbsp}Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html/apache_camel_development_guide/basicprinciples#BasicPrinciples-PropPlaceholders
+====

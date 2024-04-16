@@ -1,0 +1,2909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" srcLang="en" trgLang="cs" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="vehicles-store">
+    <unit id="ENQUIRY_FORM_CTA_CLOSE">
+      <segment>
+        <source>Open</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ENQUIRY_FORM_CTA_ENQUIRE_NOW">
+      <segment>
+        <source>Esquire now</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ENQUIRY_FORM_CTA_SUBMIT">
+      <segment>
+        <source>Submit nothing, please</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ENQUIRY_FORM_ERROR_BODY">
+      <segment>
+        <source>One or more of your fields seems to be invalid. Please check you have filled out the form correctly and try again.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ENQUIRY_FORM_ERROR_HEADING">
+      <segment>
+        <source>Form submission error</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ENQUIRY_FORM_SUBMITTED_BODY">
+      <segment>
+        <source>Your enquiry has been submitted successfully. A member of our team will get back to you shortly.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ENQUIRY_FORM_SUBMITTED_TITLE">
+      <segment>
+        <source>Thank you!</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ENQUIRY_FORM_TITLE">
+      <segment>
+        <source>Vehicle enquiry</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_COUNT_INVALID">
+      <segment>
+        <source>Looks like we can't retrieve any vehicles at this time. Please make sure the stock location is setup correctly</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_GENERAL_ERROR_MESSAGE">
+      <segment>
+        <source>It looks like something has gone wrong. Our team has been notified and will look into it shortly. We apologise for any inconvenience caused.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_GENERAL_SUBTITLE">
+      <segment>
+        <source>An unexpected error has occurred.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_GENERAL_TITLE">
+      <segment>
+        <source>Uh oh!</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_INVALID_API_KEY_ERROR_MESSAGE">
+      <segment>
+        <source>Please check the URL for spelling mistakes.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_INVALID_API_KEY_SUBTITLE">
+      <segment>
+        <source>We’ve notified our technical team, please come back later.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_INVALID_API_KEY_TITLE">
+      <segment>
+        <source>The link you followed may be broken</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_INVALID_CONFIGURATION_ERROR_MESSAGE">
+      <segment>
+        <source>There may be a setup problem. Our technical team has been notified, please try again.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_INVALID_CONFIGURATION_SUBTITLE">
+      <segment>
+        <source>Looks like we're not quite configured for that scenario</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_INVALID_CONFIGURATION_TITLE">
+      <segment>
+        <source>Invalid configuration</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_NOT_FOUND_ERROR_MESSAGE">
+      <segment>
+        <source>The page you were looking for cannot be found.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_NOT_FOUND_SUBTITLE">
+      <segment>
+        <source>Page not found.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_NOT_FOUND_TITLE">
+      <segment>
+        <source>Oops!</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_PX_ERROR_MESSAGE">
+      <segment>
+        <source>There may be a problem with your connection. Our technical team has been notified, please try again.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_PX_SUBTITLE">
+      <segment>
+        <source>We are unable to retrieve the terms and conditions</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_PX_TITLE">
+      <segment>
+        <source>Whoops</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_QUOTE_NOT_FOUND_ERROR_MESSAGE">
+      <segment>
+        <source>Our technical team has been notified, please try again later.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_QUOTE_NOT_FOUND_SUBTITLE">
+      <segment>
+        <source>We are unable to retrieve a quote.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_QUOTE_NOT_FOUND_TITLE">
+      <segment>
+        <source>Uh oh!</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_TEXT">
+      <segment>
+        <source>To begin your journey again, please click | here</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_UNAUTHORISED_ERROR_MESSAGE">
+      <segment>
+        <source>Please ensure the url is correct. If this problem persists, please contact your local retailer.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_UNAUTHORISED_SUBTITLE">
+      <segment>
+        <source>You are not authorised to view this page.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="ERROR_PAGE_UNAUTHORISED_TITLE">
+      <segment>
+        <source>Sorry</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_CALCULATOR_CONTROLS_ANNUAL_MILEAGE">
+      <segment>
+        <source>Annual mileage</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_CALCULATOR_CONTROLS_CASH_DEPOSIT">
+      <segment>
+        <source>Deposit</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_CALCULATOR_CONTROLS_DURATION">
+      <segment>
+        <source>Term</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_CALCULATOR_CONTROLS_INITIAL_RENTAL">
+      <segment>
+        <source>Initial rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_CALCULATOR_CONTROLS_MONEY_ERROR_NO_VALUE">
+      <segment>
+        <source>Please enter a value.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_CALCULATOR_CONTROLS_MONEY_ERROR_OUT_OF_RANGE">
+      <segment>
+        <source>The value of {value} is out of range, the value must fall between {min} and {max}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_CALCULATOR_PRODUCT_CHANGED_NOTIFICATION">
+      <segment>
+        <source>Your selected finance product has changed to {productName} ({productKey})</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_METHOD_BACK_BUTTON">
+      <segment>
+        <source>Go back</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_METHOD_BACK_TO_SELECTION">
+      <segment>
+        <source>Back to selection</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_METHOD_FUNDING_OPTION_SELECT">
+      <segment>
+        <source>Select</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_METHOD_FUNDING_OPTION_VIDEO_UNAVAILABLE">
+      <segment>
+        <source>Video currently unavailable</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_METHOD_FUNDING_OPTION_WHAT_IS">
+      <segment>
+        <source>What is</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_METHOD_SUBTITLE">
+      <segment>
+        <source>Please select your preferred funding method</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_METHOD_TITLE">
+      <segment>
+        <source>Tell us exactly how you'd like to pay</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_OPTION_DESCRIPTIONS_CONDITIONAL_SALE">
+      <segment>
+        <source>A fixed period, fixed cost finance plan linked or secured to the purchase of a vehicle. Pay a deposit and agree your annual mileage to calculate your monthly repayments. Pay your monthly repayments based on the remaining balance (plus interests). Upon final monthly repayment, you will automatically become the legal owner of the vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_OPTION_DESCRIPTIONS_LEASE_PURCHASE">
+      <segment>
+        <source>Lease purchase is a form of conditional sale agreement, which means that the regular payments are similar to a lease/rental agreement but you will own the car at the end of the deal. You may be asked to pay a deposit at the start of your agreement and a sum is usually deferred to the end of the deal.  The deferred sum will be determined by the age and mileage of the car at the end of the agreement and must be paid to take ownership of the vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_OPTION_DESCRIPTIONS_HIRE_PURCHASE">
+      <segment>
+        <source>A fixed period, fixed cost finance plan linked or secured to the purchase of a vehicle. Pay a deposit, agree your annual mileage and repayment term to calculate your monthly repayments. Pay your monthly repayments based on the remaining balance (plus interests). At the end of the term, you will have two options: become the legal owner by paying the Option to Purchase fee or hand the vehicle back and make no further monthly payments, subject to mileage/vehicle condition.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_OPTION_DESCRIPTIONS_PERSONAL_CONTRACT_PURCHASE">
+      <segment>
+        <source>A flexible finance plan with lower monthly repayments, shorter terms and a Guaranteed Minimum Future Value  (GMFV or Optional Final Payment). Pay an initial deposit, agree your annual mileage allowance and repayment term to receive your GMFV. This is deducted with your deposit from the price of the vehicle. Pay your monthly repayments based on the remaining balance (plus interests). At the end of the term, you will have three options: ​become the legal owner by paying the GMFV and any fees. Hand the vehicle back and make no further monthly payments, subject to mileage/vehicle condition. Start a new PCP contract by part-exchanging your current vehicle for a new one.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_OPTION_DESCRIPTIONS_FINANCE_LEASE">
+      <segment>
+        <source>Pay a deposit and a monthly rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_OPTION_DESCRIPTIONS_ADVANCED_PURCHASE_PLAN">
+      <segment>
+        <source>A form of finance with a single, larger up-front deposit and no monthly repayments. Agree your annual mileage and repayment term to receive your Guaranteed Minimum Future Value (GMFV/ Optional Final Payment). This is deducted with your deposit from the price of the vehicle. Pay the remaining balance (plus interests) as a single up-front payment. At the end of the term, you will have three options: ​become the legal owner by paying the GMFV and any fees. Hand the vehicle back and make no further monthly payments, subject to mileage/vehicle condition. Start a new PCP contract by part-exchanging your current vehicle for a new one.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_OPTION_DESCRIPTIONS_CONTRACT_HIRE">
+      <segment>
+        <source>A flexible form of leasing to fund the use of a vehicle. Agree on an annual mileage allowance over a fixed repayment term, make an advanced rental payment and use the vehicle while paying fixed monthly rental payments. At the end of the term, make no further monthly payments, subject to mileage/vehicle condition, and hand the vehicle back. Servicing plans, maintenance plans and road tax can be incorporated into the monthly repayments.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_OPTION_DESCRIPTIONS_SINGLE_PAYMENT">
+      <segment>
+        <source>Financing a car with cash means you are paying for the vehicle in full via the retailer’s payment gateway, card or bank transfer facilities. You will own the car in full when payment is made and no further repayments will be required.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_BACK_BUTTON">
+      <segment>
+        <source>Go back to choosing how you'd like to pay</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_CARD_TEXT">
+      <segment>
+        <source>There {vehiclesAvailable, plural, =0{are} one{is} other{are}} &lt;span class="font-weight-bold"&gt;{vehiclesAvailable} {vehiclesAvailable, plural, =0{results} one{result} other{results}}&lt;/span&gt; for you to choose from</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_CARD_TITLE">
+      <segment>
+        <source>Select the finance deal that's best for you.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_CONTROL_LABELS_ADVANCED_RENTAL">
+      <segment>
+        <source>Advanced rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_CONTROL_LABELS_ANNUAL_MILEAGE">
+      <segment>
+        <source>Annual mileage</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_CONTROL_LABELS_INITIAL_RENTAL">
+      <segment>
+        <source>Initial rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_CONTROL_LABELS_REPAYMENT_TERM">
+      <segment>
+        <source>Term</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_CONTROL_LABELS_YOUR_DEPOSIT">
+      <segment>
+        <source>Deposit</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_ERROR_TEXT">
+      <segment>
+        <source>Please select your </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_NEXT_BUTTON">
+      <segment>
+        <source>Continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_NO_VEHICLES">
+      <segment>
+        <source>Please try amending your details to see more vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_TITLE">
+      <segment>
+        <source>How would you like your finance to work for you?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_PARAMETERS_SUBTITLE">
+      <segment>
+        <source />
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_WIZARD_MONEY_ERROR_NO_VALUE">
+      <segment>
+        <source>Please enter a value.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_WIZARD_MONEY_ERROR_OUT_OF_RANGE">
+      <segment>
+        <source>The value of {value} is out of range, the value must fall between {min} and {max}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_WIZARD_HEADER">
+      <segment>
+        <source>Finance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_WIZARD_SUB_HEADER">
+      <segment>
+        <source>Choose your finance option</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_WIZARD_INTRO_PARAGRAPH">
+      <segment>
+        <source>Below, you will find our short guides and helpful videos to help you find a payment method that works for you. Choose between one of the following plans and we will filter the results based on your selection: | You can amend this at any time.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_WIZARD_WATCH_VIDEO">
+      <segment>
+        <source>Watch our helpful video</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_WIZARD_SHOW_VEHICLES">
+      <segment>
+        <source>Show {vehiclesAvailable} {vehiclesAvailable, plural, =0{vehicles} one{vehicle} other{vehicles}}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FINANCE_WIZARD_NO_VEHICLES_AVAILABLE">
+      <segment>
+        <source>There are no vehicles matching this search. Please adjust the options above.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FOOTER_COPYRIGHT">
+      <segment>
+        <source>Copyright &amp;#169; {year} Codeweavers Ltd</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="FOOTER_POWERED_BY">
+      <segment>
+        <source>Powered by: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="IMAGE_CAROUSEL_NEXT">
+      <segment>
+        <source>Next</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="IMAGE_CAROUSEL_PREVIOUS">
+      <segment>
+        <source>Previous</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="INCOMPATIBLE_BROWSER_DOWNLOAD">
+      <segment>
+        <source>Download {browser}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="INCOMPATIBLE_BROWSER_HELP_CONTACT_US">
+      <segment>
+        <source>If you are having issues with this website please | contact us | with a brief explanation and a screenshot of any issues you are having</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="INCOMPATIBLE_BROWSER_HELP_TITLE">
+      <segment>
+        <source>We are here to help</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="INCOMPATIBLE_BROWSER_RECOMMENDED">
+      <segment>
+        <source>These are some browsers that we recommend:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="INCOMPATIBLE_BROWSER_SUBTITLE">
+      <segment>
+        <source>You're using a browser we don't support. For the best experience, and increased security please use one of the browsers below.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="INCOMPATIBLE_BROWSER_TITLE">
+      <segment>
+        <source>The browser you're using is not supported</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="LANDING_PAGE_AVAILABLE_VEHICLES">
+      <segment>
+        <source>Start exploring &lt;span class="font-weight-bold h2 spec--vehicles-available-count"&gt;{vehiclesAvailable}&lt;/span&gt; {vehiclesAvailable, plural, =0{vehicles} one{vehicle} other{vehicles}}.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="LANDING_PAGE_BRANDING_TEXT">
+      <segment>
+        <source>Search here from a wide range of options to find your perfect car.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="LANDING_PAGE_CTA_EXPLORE_BY_BUDGET">
+      <segment>
+        <source>Choose finance option</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="LANDING_PAGE_CTA_SEE_ALL_CARS">
+      <segment>
+        <source>See all available vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="LANDING_PAGE_CTA_SEE_AVAILABLE_CARS">
+      <segment>
+        <source>See {vehiclesAvailable} available vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="LANDING_PAGE_NO_VEHICLES_AVAILABLE">
+      <segment>
+        <source>Sorry, there does not appear to be any vehicles in stock right now.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="LANDING_PAGE_WELCOME_HEADER">
+      <segment>
+        <source>Welcome to the &lt;br&gt;{dealerName} Stock Locator</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_AVAILABLE_VEHICLES">
+      <segment>
+        <source>There  {vehiclesAvailable, plural, =0{are} one{is} other{are}} &lt;span class="font-weight-bold"&gt;{vehiclesAvailable}  {vehiclesAvailable, plural, =0{results} one{result} other{results}}&lt;/span&gt; for you to choose from</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_BACK">
+      <segment>
+        <source>Go back to choosing your finance deal</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_MAX_PAYMENT">
+      <segment>
+        <source>Max. payment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_MAX_RENTAL">
+      <segment>
+        <source>Max. rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_NO_VEHICLES">
+      <segment>
+        <source>Please try amending your details to see more vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_OR">
+      <segment>
+        <source>or</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_PAYMENT">
+      <segment>
+        <source>payment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_PAYMENT_CARD_BUTTON">
+      <segment>
+        <source>Continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_PAYMENT_CARD_TITLE">
+      <segment>
+        <source>Tell us your maximum monthly budget</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_RENTAL">
+      <segment>
+        <source>rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_SKIP_CARD_BUTTON">
+      <segment>
+        <source>Continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_SKIP_CARD_TITLE">
+      <segment>
+        <source>View all suitable vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_SUBTITLE">
+      <segment>
+        <source>Tell us how much you can afford to pay or view all suitable vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="MONTHLY_PRICES_TITLE">
+      <segment>
+        <source>How much can you afford to pay every month?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PAGINATION_FIRST">
+      <segment>
+        <source>First</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PAGINATION_LAST">
+      <segment>
+        <source>Last</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PAGINATION_OF">
+      <segment>
+        <source>of</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PAGINATION_PAGE">
+      <segment>
+        <source>Page</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_APPRAISAL_QUESTIONS_CONTINUE">
+      <segment>
+        <source>Continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_APPRAISAL_QUESTIONS_GO_BACK">
+      <segment>
+        <source>Go back to previous step</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_APPRAISAL_QUESTIONS_TITLE">
+      <segment>
+        <source>Part Exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_ADD_PART_EXCHANGE">
+      <segment>
+        <source>Get your valuation</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_CTA_ADD">
+      <segment>
+        <source>Add part exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_CTA_REMOVE">
+      <segment>
+        <source>Remove part exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_DISCLAIMER">
+      <segment>
+        <source>This is an estimated valuation of your vehicle based on the information you have provided. It is not an offer to purchase your vehicle. The estimated valuation may change and the condition of your vehicle will be inspected by the purchaser. You should ensure that you have taken into account any other costs connected with the disposal of your current vehicle before committing to a purchase for any new vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_EDIT_DETAILS">
+      <segment>
+        <source>Amend details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_ERROR_TEXT">
+      <segment>
+        <source>We could not find a vehicle eligible for part exchange with this registration number. Please contact the retailer directly to arrange a valuation</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_HIDE_ADD_BUTTON_TEXT">
+      <segment>
+        <source>You have pending changes, please continue selecting your finance to add / remove your part exchange.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_OFFER">
+      <segment>
+        <source>Your part exchange offer: &lt;strong&gt;{value}&lt;/strong&gt;, you can add this to your quote.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_OFFER_ADDED">
+      <segment>
+        <source>Part exchange offer: &lt;strong&gt;{value}&lt;/strong&gt;</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_OUR_OFFER_FOR_YOUR_VEHICLE">
+      <segment>
+        <source>Our offer for your vehicle</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_OUR_VALUATION">
+      <segment>
+        <source>Our valuation:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_PART_EXCHANGE">
+      <segment>
+        <source>Part exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_REG_NO">
+      <segment>
+        <source>Reg Number:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_TITLE">
+      <segment>
+        <source>See how much your car is worth</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_UNABLE_TO_ADD_PART_EX">
+      <segment>
+        <source>Unfortunately, due to your part exchange offer of &lt;strong&gt;{value}&lt;/strong&gt;, we are currently unable to add this to your quote.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_VEHICLE">
+      <segment>
+        <source>Vehicle:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_BANNER_YOUR_OUTSTANDING_FINANCE">
+      <segment>
+        <source>Your outstanding finance:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_CONFIRM_CURRENT_VEHICLE_CONTINUE">
+      <segment>
+        <source>Continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_CONFIRM_CURRENT_VEHICLE_EDIT_VEHICLE_REG">
+      <segment>
+        <source>Edit vehicle registration</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_CONFIRM_CURRENT_VEHICLE_GO_BACK">
+      <segment>
+        <source>Go back to previous step</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_CONFIRM_CURRENT_VEHICLE_NOT_YOUR_VEHICLE">
+      <segment>
+        <source>Not your vehicle?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_CONFIRM_CURRENT_VEHICLE_SUB_TITLE">
+      <segment>
+        <source>Your vehicle</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_CONFIRM_CURRENT_VEHICLE_TITLE">
+      <segment>
+        <source>Part Exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_DESCRIPTION">
+      <segment>
+        <source>In a few steps you will be able to get a part exchange valuation and continue finding your perfect vehicle</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_ENQUIRY_FORM_CONTINUE">
+      <segment>
+        <source>Continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_ENQUIRY_FORM_GO_BACK">
+      <segment>
+        <source>Go back to previous step</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_ENQUIRY_FORM_INTRO_TEXT">
+      <segment>
+        <source>We need some personal details to complete your part exchange valuation</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_ENQUIRY_FORM_SUB_TITLE">
+      <segment>
+        <source>Your details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_ENQUIRY_FORM_TITLE">
+      <segment>
+        <source>Part Exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_ERROR_INVALID_NUMBER">
+      <segment>
+        <source>Please enter a valid number</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_ERROR_INVALID_VALUE">
+      <segment>
+        <source>Please enter a value to continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_FIND_CURRENT_VEHICLE_CONTINUE">
+      <segment>
+        <source>Continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_LOOKUP_FIELD">
+      <segment>
+        <source>Registration</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_NO_FINANCE_DEFAULTS_ERROR">
+      <segment>
+        <source>Please contact the dealer if you would like more information on part exchanging your vehicle</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_NO_FINANCE_DEFAULTS_HEADER">
+      <segment>
+        <source>Part Exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_AVAILABLE_PART_EXCHANGE_OFFER">
+      <segment>
+        <source>Your part exchange offer: &lt;strong&gt;{value}&lt;/strong&gt;, you can add this to your quote.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_AVAILABLE_PART_EXCHANGE_OFFER_ADDED">
+      <segment>
+        <source>Part exchange offer: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_AVAILABLE_PART_EXCHANGE_UNABLE_TO_ADD_PART_EX">
+      <segment>
+        <source>Unfortunately, due to your part exchange offer of &lt;strong&gt;{value}&lt;/strong&gt;, we are currently unable to add this to your quote.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_CONFIRM_CURRENT_VEHICLE_CONTINUE">
+      <segment>
+        <source>Yes, that's my vehicle</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_CONFIRM_CURRENT_VEHICLE_DOORS">
+      <segment>
+        <source>Doors:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_CONFIRM_CURRENT_VEHICLE_ENGINE">
+      <segment>
+        <source>Engine:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_CONFIRM_CURRENT_VEHICLE_FUEL">
+      <segment>
+        <source>Fuel:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_CONFIRM_CURRENT_VEHICLE_NOT_YOUR_VEHICLE">
+      <segment>
+        <source>No, re-enter registration</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_CONFIRM_CURRENT_VEHICLE_TITLE">
+      <segment>
+        <source>Is this your vehicle?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_CONFIRM_CURRENT_VEHICLE_YEARS">
+      <segment>
+        <source>Years:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_ENQUIRY_FORM_INTRO_TEXT">
+      <segment>
+        <source>You are one step away from getting your valuation; please enter a few details.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_ENQUIRY_FORM_TITLE">
+      <segment>
+        <source>We need some personal details to complete your part exchange valuation</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_INTRO_TEXT">
+      <segment>
+        <source>Our Part Exchange tool gives you an instant valuation of your current vehicle based on the information you provide. Once completed, you can choose to add the offer to your deal. It only takes a few minutes to complete it.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_STEPS_FOUR_DESCRIPTION">
+      <segment>
+        <source>You will have the option to add the valuation to your deal, which could reduce your monthly payments or the total cost of your new car.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_STEPS_FOUR_TITLE">
+      <segment>
+        <source>Add the offer to your deal</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_STEPS_ONE_DESCRIPTION">
+      <segment>
+        <source>We will find your vehicle details and ask you to confirm if it's the right vehicle before proceeding.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_STEPS_ONE_TITLE">
+      <segment>
+        <source>Enter your vehicle registration number</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_STEPS_THREE_DESCRIPTION">
+      <segment>
+        <source>To complete the valuation, we will ask for some contact details to send you a copy of the estimated valuation for your vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_STEPS_THREE_TITLE">
+      <segment>
+        <source>Enter your contact details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_STEPS_TWO_DESCRIPTION">
+      <segment>
+        <source>We just need to know a few details about your vehicle, such as mileage, any cosmetic damage, warning lights, etc. We will also need to know if you have any outstanding finance; this information will help us give you a more accurate valuation of your current vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_STEPS_TWO_TITLE">
+      <segment>
+        <source>Answer a few questions</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_TITLE">
+      <segment>
+        <source>Part Exchange explained</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_EXPLAINED_VALUATION_SUBTEXT">
+      <segment>
+        <source>To get a valuation, you need to:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_FIND_CURRENT_VEHICLE_TITLE">
+      <segment>
+        <source>Please enter your registration number</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_INFORMATION_NEEDED_BODY">
+      <segment>
+        <source>We just need to know a few details about your vehicle, such as mileage, any cosmetic damage, warning lights, etc. We will also need to know if you have any outstanding finance; this information will help us give you a more accurate valuation of your current vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_INFORMATION_NEEDED_TITLE">
+      <segment>
+        <source>What information do we need</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_STEPS">
+      <segment>
+        <source>Step {currentStep} of {totalSteps}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_UNAVAILABLE_PART_EXCHANGE_CTA">
+      <segment>
+        <source>How does it work?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_UNAVAILABLE_PART_EXCHANGE_TITLE">
+      <segment>
+        <source>Get an instant valuation of your current vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_ADD_TO_DEAL">
+      <segment>
+        <source>Add {valuation} to deal</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_BACK_TO_SEARCH">
+      <segment>
+        <source>Back to search</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_CONTINUE">
+      <segment>
+        <source>Continue</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_DISCLAIMER">
+      <segment>
+        <source> This is an estimated valuation of your vehicle based on the information you have provided. It is not an offer to purchase your vehicle. The estimated valuation may change and the condition of your vehicle will be inspected by the purchaser. You should ensure that you have taken into account any other costs connected with the disposal of your current vehicle before committing to a deposit for any new vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_MAYBE_LATER">
+      <segment>
+        <source>Maybe later</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_OFFER">
+      <segment>
+        <source>Our offer for your vehicle: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_OUR_VALUATION">
+      <segment>
+        <source>Estimated value of car: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_OUTSTANDING_FINANCE">
+      <segment>
+        <source>Your outstanding finance: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_REMOVE_PART_EXCHANGE">
+      <segment>
+        <source>Remove {valuation} from deposit</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_THANK_YOU_TEXT">
+      <segment>
+        <source>Thank you for completing the form. Based on the information you’ve provided, we’ve valued your &lt;strong&gt;{vehicle}&lt;/strong&gt;, registration number: &lt;strong&gt;{registrationNumber}&lt;/strong&gt;</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_SLIDE_IN_VALUATION_TITLE">
+      <segment>
+        <source>Your part exchange valuation</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_TERMS_AND_CONDITIONS_CHECKBOX_TEXT">
+      <segment>
+        <source>To receive your part exchange valuation, please accept the |terms and conditions| and click to continue.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_TERMS_AND_CONDITIONS_TITLE">
+      <segment>
+        <source>Terms and Conditions</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VALUATION_PAGE_BACK_TO_SEARCH">
+      <segment>
+        <source>Back to search</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VALUATION_PAGE_SUB_TITLE">
+      <segment>
+        <source>Your offer</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VALUATION_PAGE_TITLE">
+      <segment>
+        <source>Part Exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VEHICLE_VALUATION_RESULT_ADD_PART_EXCHANGE">
+      <segment>
+        <source>Add your trade in valuation</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VEHICLE_VALUATION_RESULT_DISCLAIMER">
+      <segment>
+        <source> This is an estimated valuation of your vehicle based on the information you have provided. It is not an offer to purchase your vehicle. The estimated valuation may change and the condition of your vehicle will be inspected by the purchaser. You should ensure that you have taken into account any other costs connected with the disposal of your current vehicle before committing to a deposit for any new vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VEHICLE_VALUATION_RESULT_EDIT">
+      <segment>
+        <source>Edit</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VEHICLE_VALUATION_RESULT_NOT_NOW">
+      <segment>
+        <source>Not right now</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VEHICLE_VALUATION_RESULT_OFFER">
+      <segment>
+        <source>Our offer for your vehicle:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VEHICLE_VALUATION_RESULT_OUR_VALUATION">
+      <segment>
+        <source>Our valuation: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VEHICLE_VALUATION_RESULT_OUTSTANDING_FINANCE">
+      <segment>
+        <source>Your outstanding finance: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_VEHICLE_VALUATION_RESULT_REMOVE_PART_EXCHANGE">
+      <segment>
+        <source>Remove {valuation} from deposit</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PART_EXCHANGE_WELCOME_TO_PART_EXCHANGE">
+      <segment>
+        <source>Welcome to Part Exchange</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_POLICY_TITLE">
+      <segment>
+        <source>Privacy Policy</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_CHANGE_PREFERENCE">
+      <segment>
+        <source>Change cookie preferences</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_I_ACCEPT">
+      <segment>
+        <source>I'm OK with that</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_I_DECLINE">
+      <segment>
+        <source>Proceed without analytics</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_OUR_COOKIES">
+      <segment>
+        <source>Our cookies</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_OUR_COOKIES_SUBTEXT">
+      <segment>
+        <source>We use cookies to provide our service, without these the website will not work. We also use analytics cookies to collect information about how this site is being used.&lt;br&gt;&lt;br&gt;If you continue without changing your settings, we'll assume that you are happy to receive all cookies on our website.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_PLEASE_ACCEPT">
+      <segment>
+        <source>Please help us make these improvements by accepting all our cookies.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_TELL_ME_MORE">
+      <segment>
+        <source>Tell me more</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_WHAT_ARE_COOKIES">
+      <segment>
+        <source>What are these analytics cookies?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_WHAT_ARE_COOKIES_SUBTEXT">
+      <segment>
+        <source>This is how we get to understand our website users' preferences and behaviour to make the site more user-friendly. But don't worry. &lt;b&gt;Your personal information will never be collected. The data we collect always remains anonymous.&lt;/b&gt;</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_WHAT_COOKIES_DO_WE_COLLECT">
+      <segment>
+        <source>What Cookies do we collect?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_WHAT_COOKIES_DO_WE_COLLECT_SUBTEXT">
+      <segment>
+        <source>In simple terms, we collect two kinds of cookies. Some cookies are necessary to help our website work properly. Then analytics cookies are our way of improving the site.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_WHY_DO_WE_COLLECT_COOKIES">
+      <segment>
+        <source>Why do we collect cookies?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="PRIVACY_PREFERENCES_WHY_DO_WE_COLLECT_COOKIES_SUBTEXT">
+      <segment>
+        <source>We only collect cookies to improve your personal experience, never to collect personal data.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_LIST_ALSO_CONSIDER">
+      <segment>
+        <source>You may also consider:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_LIST_OTHER_OPTIONS_AVAILABLE">
+      <segment>
+        <source>Alternative finance options may be available, please contact us for further information</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_LIST_YOUR_CURRENT_QUOTE">
+      <segment>
+        <source>Your current quote:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_APR">
+      <segment>
+        <source>A.P.R.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_CASH_DEPOSIT">
+      <segment>
+        <source>Deposit</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_CLOSE">
+      <segment>
+        <source>Close</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_INITIAL_RENTAL">
+      <segment>
+        <source>Initial rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_MONTHLY_PAYMENT">
+      <segment>
+        <source>Monthly payments</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_MONTHLY_RENTALS">
+      <segment>
+        <source>Monthly rentals</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_OPTIONAL_FINAL_PAYMENT">
+      <segment>
+        <source>Optional final payment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_VIEW_FULL_DETAILS">
+      <segment>
+        <source>Full details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_TERMS_AND_CONDITIONS">
+      <segment>
+        <source>Terms and Conditions</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_BACK_TO_CALCULATOR">
+      <segment>
+        <source>Back to calculator</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="QUOTE_PANEL_ERROR">
+      <segment>
+        <source>Currently unavailable</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_CREATE_ALERT_CTA">
+      <segment>
+        <source>Create alert</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_MANAGE_ALERTS_SLIDE_OUT_DELETE_CTA">
+      <segment>
+        <source>Unsubscribe</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_MANAGE_ALERTS_SLIDE_OUT_INTRO_TEXT">
+      <segment>
+        <source>These are the alerts you created; click ‘unsubscribe’ to stop receiving emails.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_MANAGE_ALERTS_SLIDE_OUT_NO_ALERTS">
+      <segment>
+        <source>Nothing to see here!</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_MANAGE_ALERTS_SLIDE_OUT_START_SEARCH">
+      <segment>
+        <source>Start searching | for your perfect car</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_MANAGE_ALERTS_SLIDE_OUT_TITLE">
+      <segment>
+        <source>Your alerts</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_MANAGE_ALERTS_SLIDE_OUT_UNSUBSCRIBE_ALL_CTA">
+      <segment>
+        <source>Unsubscribe from all</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_MANAGE_ALERTS_TRIGGER_SLIDE_OUT">
+      <segment>
+        <source>Your Alerts</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_MANAGE_ALERT_CTA">
+      <segment>
+        <source>Manage alert</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_CREATE_ALERT">
+      <segment>
+        <source>You're creating an alert for:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_EMAIL_FREQUENCY">
+      <segment>
+        <source>No spam promise. We will use this email address only to notify you when vehicles matching your search become available. You will never receive more than one email per day, if you change your mind, you can easily unsubscribe at anytime.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_INFORMATION_INTRO_TEXT_1">
+      <segment>
+        <source>We're always adding new vehicles to our website. If you don't want to miss out on vehicles that match your criteria, set up an alert to receive regular updates.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_INFORMATION_INTRO_TEXT_2">
+      <segment>
+        <source>We'll send you an email with the latest vehicles no more than once per day, and don't worry, you can unsubscribe at any time.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_INFORMATION_INTRO_TEXT_3">
+      <segment>
+        <source>Alternatively, you can get in touch with a member of our team, who can help find your next vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_INFORMATION_TITLE">
+      <segment>
+        <source>What is an alert?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_INTRO_TEXT_1">
+      <segment>
+        <source>Don't miss out on your perfect car.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_INTRO_TEXT_2">
+      <segment>
+        <source>Sign up for alerts, and we will email you when a new vehicle matching your criteria has been added to stock.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_PRIVACY_POLICY_BODY_TEXT">
+      <segment>
+        <source>By clicking “Save alert”, you confirm you have read and accepted the | Privacy Policy | and you agree to receive vehicle alert emails.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_PRIVACY_POLICY_CTA">
+      <segment>
+        <source>Save alert</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_PRIVACY_POLICY_TITLE">
+      <segment>
+        <source>Privacy Policy</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_SENT_ALERT_CTA">
+      <segment>
+        <source>Close</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_SENT_ALERT_TEXT">
+      <segment>
+        <source>You will receive an email shortly allowing you to return to this page at any time. You will also receive updates as soon as new vehicles are available. </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_SENT_ALERT_TITLE">
+      <segment>
+        <source>An alert has been created</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="SAVE_SEARCH_SLIDE_OUT_TITLE">
+      <segment>
+        <source>Create an alert</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STICKY_SIDEBAR_AVAILABLE_FROM">
+      <segment>
+        <source>Available from:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STICKY_SIDEBAR_CONTACT_DETAILS">
+      <segment>
+        <source>Vehicle sold by:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STICKY_SIDEBAR_CURRENT_PRODUCT">
+      <segment>
+        <source>Payment method</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STICKY_SIDEBAR_MONTHLY_PAYMENT">
+      <segment>
+        <source>Monthly payment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STICKY_SIDEBAR_MONTHLY_RENTAL">
+      <segment>
+        <source>Monthly rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STICKY_SIDEBAR_TOTAL_CASH_PRICE">
+      <segment>
+        <source>Total cash price</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STICKY_SIDEBAR_VEHICLE_UNAVAILABLE">
+      <segment>
+        <source>Vehicle unavailable</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STICKY_SIDEBAR_VIEW_RETAILER">
+      <segment>
+        <source>View retailer</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_BENEFITS_BUYING_BODY">
+      <segment>
+        <source>There is no obligation until you are ready to buy. Take your time to explore and find your perfect vehicle.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_BENEFITS_BUYING_TITLE">
+      <segment>
+        <source>A simpler way to buy</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_BENEFITS_HELP_BODY">
+      <segment>
+        <source>If you have any questions or want to speak to a member of our team, please get in touch.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_BENEFITS_HELP_TITLE">
+      <segment>
+        <source>We are here to help</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_BENEFITS_OPEN_HOURS_BODY">
+      <segment>
+        <source>Browse when it suits you. Create alerts on the vehicles you like and jump back in at any time.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_BENEFITS_OPEN_HOURS_TITLE">
+      <segment>
+        <source>Open round the clock</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_HOW_DOES_IT_WORK_SUB_TITLE">
+      <segment>
+        <source>Find and buy your next vehicle in just a few simple steps.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_HOW_DOES_IT_WORK_TITLE">
+      <segment>
+        <source>How does buying online work</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_HOW_DOES_IT_WORK_WHY_CHOOSE">
+      <segment>
+        <source>Why choose {tradingName}?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_PROGRESS_CIRCLES_PAYMENT">
+      <segment>
+        <source>Choose a payment option that suits you</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_PROGRESS_CIRCLES_RESERVED">
+      <segment>
+        <source>Reserve and secure your vehicle</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_PROGRESS_CIRCLES_SUCCESSFUL">
+      <segment>
+        <source>Arrange how to receive your vehicle</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_PROGRESS_CIRCLES_VEHICLES">
+      <segment>
+        <source>Browse and buy from the comfort of home</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_FILTERS_TITLE">
+      <segment>
+        <source>Define your search</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_FILTERS_MANUFACTURERS_SUB_TITLE">
+      <segment>
+        <source>Choose from one of the available manufacturers to define your search</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_FILTERS_MODELS_SUB_TITLE">
+      <segment>
+        <source>Choose from the available models to define your search</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="STORE_FILTERS_AVAILABLE_CARS">
+      <segment>
+        <source>{vehiclesAvailable} available</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="UNSUBSCRIBE_PAGE_MESSAGE">
+      <segment>
+        <source>We have unsubscribed you from these emails.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="UNSUBSCRIBE_PAGE_TEXT">
+      <segment>
+        <source>To begin your journey again, please click | here</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_ADDITIONAL_EQUIPMENT">
+      <segment>
+        <source>Extras</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_APPLY">
+      <segment>
+        <source>Apply</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_BACK_TO_SEARCH">
+      <segment>
+        <source>Go back to your search results</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_BENEFITS_BANNER_EXPLORE">
+      <segment>
+        <source>Why choose {value}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_BENEFITS_BANNER_LEARN_MORE">
+      <segment>
+        <source>Explore the benefits</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_CALCULATE_ERROR_HEADING">
+      <segment>
+        <source>Sorry</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_CALCULATE_ERROR_MESSAGE">
+      <segment>
+        <source>We have not been able to calculate any finance on this vehicle. Please contact our team for further information:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_CASH">
+      <segment>
+        <source>Cash</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_CO2">
+      <segment>
+        <source>CO&lt;sub&gt;2&lt;/sub&gt;</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_COLOUR">
+      <segment>
+        <source>Exterior Colour</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_COMBINED">
+      <segment>
+        <source>combined</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_CONTACT_US_BY_CONTACT_DETAILS_HEADING">
+      <segment>
+        <source>Please contact us</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_CONTACT_US_BY_CONTACT_DETAILS_TEXT">
+      <segment>
+        <source>To enquire about any of our vehicles as a cash purchase, for a priority response please contact our team:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_CONTACT_US_BY_ENQUIRY_FORM_HEADING">
+      <segment>
+        <source>Please contact us</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_CONTACT_US_BY_ENQUIRY_FORM_TEXT">
+      <segment>
+        <source>We’re here to help. For more information on our vehicles, please fill in the form below, and a member of our team will be in touch with you.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_DOORS">
+      <segment>
+        <source>Doors</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_EMAIL">
+      <segment>
+        <source>Email: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_ENGINE">
+      <segment>
+        <source>Engine</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_ENQUIRE">
+      <segment>
+        <source>Enquire</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_ENVIRONMENTAL_DATA">
+      <segment>
+        <source>Environmental data</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_FINANCE">
+      <segment>
+        <source>Finance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_FUEL">
+      <segment>
+        <source>Fuel</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_GKM">
+      <segment>
+        <source>g/km</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_MILEAGE">
+      <segment>
+        <source>Mileage</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_MOBILE_SIDEBAR_CLOSE">
+      <segment>
+        <source>Close</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_MOBILE_SIDEBAR_DEALERS_DETAILS">
+      <segment>
+        <source>Retailer details: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_MOBILE_SIDEBAR_MONTHLY_PAYMENT">
+      <segment>
+        <source>Monthly payment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_MOBILE_SIDEBAR_TOTAL_CASH_PRICE">
+      <segment>
+        <source>Total cash price</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_MPG">
+      <segment>
+        <source>MPG</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_PAYMENT_OPTIONS">
+      <segment>
+        <source>Choose how you'd like to pay</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_PAYMENT_OPTIONS_NO_FINANCE">
+      <segment>
+        <source>Cash Purchase Enquiry</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_PHYSICAL_STATUS_MESSAGE">
+      <segment>
+        <source>Images and photographs on this website are for general guidance only and do not necessarily reflect the exact specifications or features of the model concerned. Please confirm exact specifications, features and availability with your retailer.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_PROCEED">
+      <segment>
+        <source>Buy online</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_RESERVE">
+      <segment>
+        <source>Reserve</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_SHOW_LESS">
+      <segment>
+        <source>Show less</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_SPECIFICATION">
+      <segment>
+        <source>Overview</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_STANDARD_EQUIPMENT">
+      <segment>
+        <source>Standard equipment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_TECHNICAL_DETAILS">
+      <segment>
+        <source>Technical details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_TELEPHONE">
+      <segment>
+        <source>Telephone: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_TRANSMISSION">
+      <segment>
+        <source>Gearbox</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_TYRES_ALL">
+      <segment>
+        <source>Applies to all tyres</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_TYRES_FRONT">
+      <segment>
+        <source>Applies to front tyres</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_TYRES_REAR">
+      <segment>
+        <source>Applies to rear tyres</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_UNKNOWN">
+      <segment>
+        <source>Unknown</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_VEHICLE_UNAVAILABLE">
+      <segment>
+        <source>Vehicle unavailable</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_VIEW_MORE">
+      <segment>
+        <source>View more</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_WHY_CHOOSE">
+      <segment>
+        <source>Why choose {dealer} ?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DETAILS_YEAR">
+      <segment>
+        <source>Year</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DISTANCE_AVAILABLE_AT">
+      <segment>
+        <source>Available at {numberOfLocations} locations</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DISTANCE_CLOSEST">
+      <segment>
+        <source>Closest {value} {unit} away</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_DISTANCE_AWAY">
+      <segment>
+        <source>{value} {unit} away</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_APR">
+      <segment>
+        <source>A.P.R.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_AVAILABLE_VEHICLES">
+      <segment>
+        <source>Available vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_CANNOT_FIND_FACET_DROPDOWN_VALUE">
+      <segment>
+        <source>Sorry, something went wrong, we cannot apply this option right now</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_CASH_CONTRIBUTION">
+      <segment>
+        <source>OTR price shown includes an example contribution of {depositAmount}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_CREATE_ALERT">
+      <segment>
+        <source>Create alert</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_ACCELERATION">
+      <segment>
+        <source>Acceleration (0-60)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_AGE">
+      <segment>
+        <source>Age</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_BODY_STYLE">
+      <segment>
+        <source>Body style</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_COLOURS">
+      <segment>
+        <source>Colours</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_DOORS">
+      <segment>
+        <source>Doors</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_DRIVETRAINS">
+      <segment>
+        <source>Drivetrain</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_ENGINE_SIZE">
+      <segment>
+        <source>Engine size</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_FUEL">
+      <segment>
+        <source>Fuel</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_INSURANCE_GROUP">
+      <segment>
+        <source>Insurance group</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_LAST_UPDATED">
+      <segment>
+        <source>Last updated</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_MANUFACTURERS">
+      <segment>
+        <source>Manufacturers</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_MILEAGE">
+      <segment>
+        <source>Mileage</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_MODELS">
+      <segment>
+        <source>Models</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_SEATS">
+      <segment>
+        <source>Seats</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_STATES">
+      <segment>
+        <source>States</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_TRANSMISSION">
+      <segment>
+        <source>Transmission</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FACET_HEADINGS_OPTIONS">
+      <segment>
+        <source>Interior and Exterior Options</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_TITLE">
+      <segment>
+        <source>Vehicle comparison</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_REMOVE">
+      <segment>
+        <source>Remove vehicle from compare</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_ADD">
+      <segment>
+        <source>Add vehicle to compare</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_COMPARE">
+      <segment>
+        <source>Compare</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_VEHICLE_LOCATION">
+      <segment>
+        <source>Vehicle location</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_TOO_MANY_VEHICLES">
+      <segment>
+        <source>You have more than 5 vehicles already in comparison, please remove one to add a new one.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_TAX">
+      <segment>
+        <source>TAX</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_PRICE">
+      <segment>
+        <source>Price</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_DISTANCE_FROM_LOCATION">
+      <segment>
+        <source>Distance from location</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_COLOUR_INTERIOR">
+      <segment>
+        <source>Interior colour</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_COLOUR_EXTERIOR">
+      <segment>
+        <source>Exterior colour</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_NO_VEHICLES_TITLE">
+      <segment>
+        <source>No vehicles currently in comparison</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_COMPARE_NO_VEHICLES_SUBTITLE">
+      <segment>
+        <source>Add a vehicle first by clicking this button, within the vehicle cards.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_EDIT_BUDGET">
+      <segment>
+        <source>Set monthly price</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_FULL_PRICE">
+      <segment>
+        <source>Filter by full price</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_RESULTS">
+      <segment>
+        <source>Results</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SEARCH">
+      <segment>
+        <source>Search for your perfect car e.g. red, electric.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORTING">
+      <segment>
+        <source>Sorting</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY">
+      <segment>
+        <source>View by</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_RELEVANCE">
+      <segment>
+        <source>Relevance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_DISTANCE">
+      <segment>
+        <source>Distance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_TOTAL_PRICE_LOW_TO_HIGH">
+      <segment>
+        <source>Total price (low to high)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_TOTAL_PRICE_HIGH_TO_LOW">
+      <segment>
+        <source>Total price (high to low)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MONTHLY_RENTAL">
+      <segment>
+        <source>Monthly rental</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MONTHLY_PAYMENT">
+      <segment>
+        <source>Monthly payment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_LOW_TO_HIGH">
+      <segment>
+        <source>(low to high)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_HIGH_TO_LOW">
+      <segment>
+        <source>(high to low)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_LAST_UPDATED_DESCENDING">
+      <segment>
+        <source>Updated date (newest to oldest)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_LAST_UPDATED_ASCENDING">
+      <segment>
+        <source>Updated date (oldest to newest)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MOST_RECENTLY_UPDATED">
+      <segment>
+        <source>Most Recently Updated</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MILEAGE_LOW_TO_HIGH">
+      <segment>
+        <source>Mileage (low to high)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_FIELDS_SORT_BY_OPTIONS_MILEAGE_HIGH_TO_LOW">
+      <segment>
+        <source>Mileage (high to low)</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FUNDING_TOGGLE_CASH">
+      <segment>
+        <source>Cash</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FUNDING_TOGGLE_FINANCE">
+      <segment>
+        <source>Finance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_INFO_FINANCE_TYPE">
+      <segment>
+        <source>Finance type:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_INFO_DEPOSIT">
+      <segment>
+        <source>Deposit:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_INFO_TERM">
+      <segment>
+        <source>Term:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_INFO_MONTHS">
+      <segment>
+        <source>months</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_INFO_ANNUAL_MILEAGE">
+      <segment>
+        <source>Annual mileage:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_INFO_ADJUST_FINANCE">
+      <segment>
+        <source>Adjust my finance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FILTER_SEARCH">
+      <segment>
+        <source>Filter search</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_ADJUST_FINANCE">
+      <segment>
+        <source>Adjust my finance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_ADJUST_PARAMETERS">
+      <segment>
+        <source>Adjust finance parameters</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_CLOSE_PARAMETERS">
+      <segment>
+        <source>Close finance parameters</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_DEPOSIT">
+      <segment>
+        <source>Deposit</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_DURATION">
+      <segment>
+        <source>Term</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_FINANCE_TYPE">
+      <segment>
+        <source>Finance type</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_MILEAGE">
+      <segment>
+        <source>Annual mileage</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_MILES">
+      <segment>
+        <source>miles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_CONTROLS_MONTHS">
+      <segment>
+        <source>months</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_DEPOSIT_CONTRIBUTION">
+      <segment>
+        <source>A finance deposit contribution of {depositAmount} has been applied</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FINANCE_PRODUCT">
+      <segment>
+        <source>Finance product: </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FOUND_VEHICLES">
+      <segment>
+        <source>There {totalResults, plural, =0{are} one{is} other{are}} {totalResults} {totalResults, plural, =0{results} one{result} other{results}} for you to choose from</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_FROM">
+      <segment>
+        <source>From:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_GROUPS_COLOURS">
+      <segment>
+        <source>{colours, plural, =0{colours} one{colour} other{colours}}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_GROUPS_EXPLORE">
+      <segment>
+        <source>Explore all</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_GROUPS_FUEL_TYPES">
+      <segment>
+        <source>{fuelTypes, plural, =0{fuel types} one{fuel type} other{fuel types}}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_GROUPS_PRICE_FROM">
+      <segment>
+        <source>From:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_GROUPS_VEHICLES_AVAILABLE">
+      <segment>
+        <source>vehicles available</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_MANAGE_ALERT">
+      <segment>
+        <source>Manage alert</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_MILES">
+      <segment>
+        <source>mi</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_MPG">
+      <segment>
+        <source>MPG</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_MILES_PER_GALLON">
+      <segment>
+        <source>Miles Per Gallon</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_NO_RESULTS_SUB_TITLE_1">
+      <segment>
+        <source>Showing results for {value} instead. </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_NO_RESULTS_SUB_TITLE_2">
+      <segment>
+        <source>Showing all results instead.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_NO_RESULTS_TITLE">
+      <segment>
+        <source>Unable to find results for </source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_NO_VEHICLES_FOUND">
+      <segment>
+        <source>No vehicles found</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_OUR_PRICE">
+      <segment>
+        <source>Price:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_PER_MONTH">
+      <segment>
+        <source>per month</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_PHYSICAL_STATUS_MESSAGE">
+      <segment>
+        <source>Images and photographs on this website are for general guidance only and do not necessarily reflect the exact specifications or features of the model concerned. Please confirm exact specifications, features and availability with your retailer.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_RETAILER_OVERLAY_AWAY">
+      <segment>
+        <source>away</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_RETAILER_OVERLAY_CHOOSE_RETAILER">
+      <segment>
+        <source>Choose your preferred retailer</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_RETAILER_OVERLAY_HIDE_DETAILS">
+      <segment>
+        <source>Hide details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_RETAILER_OVERLAY_NUMBER_OF_RETAILERS">
+      <segment>
+        <source>This vehicle is available from {numberOfRetailers} {numberOfRetailers, plural, =0{retailers} one{retailer} other{retailers}}</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_RETAILER_OVERLAY_POSTCODE">
+      <segment>
+        <source>Postcode</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_RETAILER_OVERLAY_SELECT">
+      <segment>
+        <source>Select</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_RETAILER_OVERLAY_SHOW_DETAILS">
+      <segment>
+        <source>Show details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SEARCHING_VEHICLES">
+      <segment>
+        <source>Searching vehicles..</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SELECT">
+      <segment>
+        <source>View details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SELECT_RETAILERS">
+      <segment>
+        <source>View retailers</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_VIEW_RETAILER">
+      <segment>
+        <source>Contact details</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_VIEW_RETAILER_VEHICLES_DESCRIPTION">
+      <segment>
+        <source>More vehicles from this retailer</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_VIEW_RETAILER_VEHICLES_LABEL">
+      <segment>
+        <source>Explore the vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SHOW_ALERT_RESULTS">
+      <segment>
+        <source>Showing results for</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_RESET_RETAILER_LABEL">
+      <segment>
+        <source>Back to all vehicles</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_NO_RESULTS">
+      <segment>
+        <source>No results found</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_BELOW">
+      <segment>
+        <source>Below</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_DISTANCE">
+      <segment>
+        <source>Distance</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_FILTER_BY_DISTANCE">
+      <segment>
+        <source>Filter by distance:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_FILTER_BY_FEATURES">
+      <segment>
+        <source>Filter by features:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_FROM">
+      <segment>
+        <source>From</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_NATIONWIDE">
+      <segment>
+        <source>Nationwide</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_PLEASE_SELECT">
+      <segment>
+        <source>Please select</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_POSTCODE">
+      <segment>
+        <source>Postcode</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_RESET">
+      <segment>
+        <source>Reset</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_SHOW_RESULTS">
+      <segment>
+        <source>Show results</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_TO">
+      <segment>
+        <source>To</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_UP_TO">
+      <segment>
+        <source>Up to</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_UP_TO_GROUP">
+      <segment>
+        <source>Up to group</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_VIEW_ALL">
+      <segment>
+        <source>View all</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_FILTER_BY_PRICE">
+      <segment>
+        <source>Filter by price:</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_CASH_PRICE">
+      <segment>
+        <source>Cash price</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_MONTHLY_PAYMENT">
+      <segment>
+        <source>Monthly payment</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_MIN">
+      <segment>
+        <source>Min</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SIDEBAR_MAX">
+      <segment>
+        <source>Max</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SKIP_TO_CONTENT">
+      <segment>
+        <source>Skip to content</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SLIDER_FROM">
+      <segment>
+        <source>from</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SLIDER_TO">
+      <segment>
+        <source>to</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SLIDER_TOGGLE_OTR_INPUTS">
+      <segment>
+        <source>I know how much I want to pay</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_SLIDER_TOGGLE_OTR_SLIDER">
+      <segment>
+        <source>Back To Sliders</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_STATUS_BADGE_APPROVED_USED">
+      <segment>
+        <source>Approved used</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_STATUS_BADGE_NEW">
+      <segment>
+        <source>New</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_TRY_FINANCE_PROMPT_BANNER_TEXT">
+      <segment>
+        <source>Would you like to set a monthly price?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_TRY_FINANCE_PROMPT_CTA">
+      <segment>
+        <source>Yes please</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_TRY_FINANCE_PROMPT_DECLINE_CTA">
+      <segment>
+        <source>Maybe later</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_UNABLE_TO_FIND_VEHICLES_MANUFACTURER_MESSAGE">
+      <segment>
+        <source>You can try adjusting your filters or | start a new search.| Alternatively, you can visit | to explore other options.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_UNABLE_TO_FIND_VEHICLES_SUBTITLE">
+      <segment>
+        <source>Based on the details you gave us, we couldn't find any vehicles so please search again using the filters.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_UNABLE_TO_FIND_VEHICLES_TITLE">
+      <segment>
+        <source>Sorry! We couldn't find any vehicles that match your search.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_UNABLE_TO_FIND_VEHICLES_ALERTS_MANUFACTURER_MESSAGE">
+      <segment>
+        <source>You can try adjusting your filters or | start a new search.| Alternatively, you can visit | to explore other options.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_UNABLE_TO_FIND_VEHICLES_ALERTS_SUBTITLE">
+      <segment>
+        <source>Please amend your choices. Alternatively, you can | create an alert | to receive regular updates when new vehicles have been added to stock.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_UNABLE_TO_FIND_VEHICLES_ALERTS_TITLE">
+      <segment>
+        <source>We don’t have what you’re looking for right now.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_UNKNOWN">
+      <segment>
+        <source>Unknown</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VEHICLE_SEARCH_VIEW_QUOTE">
+      <segment>
+        <source>View quote</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VERIFY_USER_CTA_ALTERNATIVE_METHOD">
+      <segment>
+        <source>Click | here | to use an alternative verification method.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VERIFY_USER_CTA_NEW_CODE">
+      <segment>
+        <source>Click | here | to resend verification code.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VERIFY_USER_HEADING">
+      <segment>
+        <source>It looks like you have been here before.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VERIFY_USER_START_NEW_SESSION_BODY">
+      <segment>
+        <source>By starting from scratch the data you previously entered will be erased. You will then be asked to re-enter your details.</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VERIFY_USER_START_NEW_SESSION_CTA_GO_BACK">
+      <segment>
+        <source>Go Back to Verification Page</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VERIFY_USER_START_NEW_SESSION_CTA_START_NEW">
+      <segment>
+        <source>Start Anyway</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VERIFY_USER_START_NEW_SESSION_HEADING">
+      <segment>
+        <source>Are you sure you want to start a new session?</source>
+        <target />
+      </segment>
+    </unit>
+    <unit id="VERIFY_USER_SUB_HEADING">
+      <segment>
+        <source>To protect your personal information choose one of the following {verificationOptions} options below.</source>
+        <target />
+      </segment>
+    </unit>
+  </file>
+</xliff>

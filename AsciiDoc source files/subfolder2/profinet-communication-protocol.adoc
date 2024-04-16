@@ -1,0 +1,433 @@
+[id="profinet-communication-protocol"]
+
+=  通信协议
+
+
+
+[id="profinet-center-plc"]
+
+==  从 {product-center} 到 PLC
+
+[id="profinet-center-plc-control-output"]
+
+===  Control_Output
+
+[cols="3,7",stripes="even",options="header"]
+|===
+| Bit 位
+| 数据
+| 7
+| /
+| 6
+| /
+| 5
+| /
+| 4
+| 指令执行完成（布尔值）
+| 3
+| 数据已更新（布尔值）
+| 2
+| 相机曝光完成（布尔值）
+| 1
+| 系统触发成功（布尔值）
+| 0
+| 心跳（布尔值）
+|===
+[id="profinet-center-plc-command-complete"]
+
+===  Command_Complete
+
+
+该信号用于指示指令执行完成，用户可以读取端口返回的状态码和其他数据。对于 102 和 205 指令，只有当最后一组位姿数据传输完成时，该信号才会被置高。
+[id="profinet-center-plc-data-ready"]
+
+===  Data_Ready
+
+
+该信号用于指示位姿数据可读。专用于 102 或 205 指令接收多组机器人位姿数据时。
+[id="profinet-center-plc-exposure-complete"]
+
+===  Exposure_Complete
+
+
+当相机曝光完成时，该信号被置高。用于指示被拍目标物体或 EIH 机器人可以从拍照位置移动。
+[id="profinet-center-plc-trigger-acknowledge"]
+
+===  Trigger_Acknowledge
+
+
+Trigger_Acknowledge 等于 1 表示视觉系统被 Trigger 信号成功触发。该信号会保持高位直至 Trigger 信号复位。
+[id="profinet-center-plc-heartbeat"]
+
+===  Heartbeat
+
+
+系统心跳，1 秒反转一次。
+[id="profinet-center-plc-status-code"]
+
+===  Status_Code
+
+
+状态码，INT32。
+
+视觉系统返回的执行状态码，包括正常状态与错误码。
+[id="profinet-center-plc-calib-cam-status"]
+
+===  Calib_Cam_Status
+
+
+标定进行状态，INT8。
+
+专用于 701 指令标定。0：标定中。1：标定结束。
+[id="profinet-center-plc-send-pose-num"]
+
+===  Send_Pose_Num
+
+
+发送的位姿数量，INT8。
+通过此次执行指令传输的位姿数。
+[id="profinet-center-plc-visual-point-index"]
+
+===  Visual_Point_Index
+
+
+“视觉移动”步骤目标点在整个路径中的位置。“视觉移动”步骤即移动至视觉点（抓取物体的点）的移动步骤。
+
+比如，如果规划路径由以下步骤组成：“定点移动_1”，“定点移动_2”，“视觉移动”，“定点移动_3”，则“视觉移动”步骤位置为3。
+
+如果路径中无“视觉移动”步骤，则该参数值为 0。
+
+数据类型：INT8
+[id="profinet-center-plc-do-list"]
+
+===  DO_List
+
+
+用于控制多个吸盘分区或阵列夹具的 64 个 INT8 DO 信号。
+[cols="3,7",stripes="even",options="header"]
+|===
+| Byte
+| Bit 0~7
+| 0
+| DO 列表 0，信号 0~7
+| 1
+| DO 列表 1，信号 8~15
+| 2
+| DO 列表 2，信号 16~23
+| 3
+| DO 列表 3，信号 24~31
+| 4
+| DO 列表 4，信号 32~39
+| 5
+| DO 列表 5，信号 40~47
+| 6
+| DO 列表 6，信号 48~55
+| 7
+| DO 列表 7，信号 56~63
+|===
+[id="profinet-center-plc-notify-message"]
+
+===  Notify_Message
+
+
+{product-viz}/{product-vis} 的“通知”步骤发送的自定义整数消息。
+
+以整数为格式的消息，INT32。
+[id="profinet-center-plc-send-pose-type"]
+
+===  Send_Pose_Type
+
+
+发送的位姿类型，INT8。
+
+* `1`：机器人关节角 JPs。
+
+* `2`：机器人工具中心点 TCP。
+
+
+[id="profinet-center-plc-target-pose"]
+
+===  Target_Pose
+
+
+机器人 TCP 或 JPs 形式的目标点机器人位姿。
+
+NOTE: 从此模块的读取的数据在使用前应除以 10000。
+
+以三维坐标和欧拉角表示的位姿数据结构如下：
+
+[X, Y, Z, A, B, C]
+
+以机器人关节角 JPs 表示的位姿最多包含 6 个关节角度：
+
+[J1, J2, J3, J4, J5, J6]
+[cols="3,7",stripes="even",options="header"]
+|===
+| Byte
+| Bit 0~7
+| 0~3
+| 目标点 X 坐标或 J1 关节角，INT32
+| 4~7
+| 目标点 Y 坐标或 J2 关节角，INT32
+| 8~11
+| 目标点 Z 坐标或 J3 关节角，INT32
+| 12~15
+| 目标点 A 角度或 J4 关节角，INT32
+| 16~19
+| 目标点 B 角度或 J5 关节角，INT32
+| 20~23
+| 目标点 C 角度或 J6 关节角，INT32
+|===
+[id="profinet-center-plc-target-label"]
+
+===  Target_Label
+
+
+发送的位姿对应的标签。该值为非负整数。
+
+数据类型：INT32
+[id="profinet-center-plc-target-speed"]
+
+===  Target_Speed
+
+
+目标点对应的移动类步骤的速度参数百分比值。 范围：0 到 100。
+
+数据类型：INT32
+[id="profinet-center-plc-ext-output-data"]
+
+===  Ext_Output_Data
+
+
+保留模块，用于传输其他数据。
+
+该模块占用 40 个字节（INT32[1:10]，总共 10 个 INT32 整数）。
+[id="profinet-plc-center"]
+
+==  从 PLC 到 {product-center}
+
+[id="profinet-plc-center-control-input"]
+
+===  Control_Input
+
+[cols="3,7",stripes="even",options="header"]
+|===
+| Bit 位
+| 数据
+| 7
+| /
+| 6
+| /
+| 5
+| /
+| 4
+| 重置消息通知（布尔值）
+| 3
+| 数据确认（布尔值）
+| 2
+| 复位 Exposure_Complete “曝光完成”（布尔值）
+| 1
+| 触发信号（布尔值）
+| 0
+| 通信使能（布尔值）
+|===
+[id="profinet-plc-center-reset-exposure"]
+
+===  Reset_Exposure
+
+
+复位 Exposure_Complete “曝光完成”（布尔值）
+
+如果 Reset_Exposure = 1，Exposure Complete 将被设置为 0。
+[id="profinet-plc-center-data-acknowledge"]
+
+===  Data_Acknowledge
+
+
+数据确认（布尔值）用于确认已读取执行 102 指令或 205 指令返回的数据。
+
+Data_Acknowledge = 0，表示PLC 还没有从 {product-center} 读取数据，数据保留在端口。
+
+Data_Acknowledge = 1，表示 PLC 已从 {product-center} 读取数据，{product-center} 可以写入下一轮的数据。
+
+Data_Acknowledge 可以在 Heartbeat 翻转或 Data_Ready = 0 时重置。
+[id="profinet-plc-center-reset-notify"]
+
+===  Reset_Notify
+
+
+重置消息通知（布尔值）
+
+如果 Reset_Notify = 1，Notify_Message 的内容将被清除。
+[id="profinet-plc-center-trigger"]
+
+===  Trigger
+
+
+触发信号（布尔值）
+
+如果 Trigger = 1，{product-center} 将读取发送的指令并执行该指令。
+
+一旦 {product-center} 接收到触发信号，就可以重置 Trigger_Acknowledge。
+
+信号的上行部分认为是 1。
+[id="profinet-plc-center-comm-enable"]
+
+===  Comm_Enable
+
+
+通信使能（布尔值）
+
+`0`：通信禁用。{product-center} 将忽略触发信号。
+
+`1`：通信使能。触发信号将起作用，{product-center} 将接收指令。
+[id="profinet-plc-center-command"]
+
+===  Command
+
+
+指令码，INT32。
+[id="profinet-plc-center-calib-rob-status"]
+
+===  Calib_Rob_Status
+
+
+* `0`：标定开始。
+
+* `1`：机器人已正常移动到发送的最新标定点。
+
+* `2`：机器人未能移动到发送的最新标定点。
+
+
+
+数据类型：INT8
+[id="profinet-plc-center-vision-proj-num"]
+
+===  Vision_Proj_Num
+
+
+{product-vis} 工程编号，可在 {product-vis} 工程列表窗口中查看，工程名称前的数字表示工程编号。
+
+数据类型：INT8
+[id="profinet-plc-center-vision-recipe-num"]
+
+===  Vision_Recipe_Num
+
+
+{product-vis}工程中配方模板的编号，为正整数，取值范围为 1~99。在{product-vis}窗口右下角，单击 menu:工程助手[参数配方]，进入参数配方编辑器，查看配方编号。
+
+数据类型：INT8
+[id="profinet-plc-center-viz-task-name"]
+
+===  Viz_Task_Name
+
+
+指令涉及的 {product-viz} 步骤的步骤编号。 可以在 Task 的参数中读取和设置。
+
+数据类型：INT8
+[id="profinet-plc-center-viz-task-value"]
+
+===  Viz_Task_Value
+
+
+{product-viz} 分支步骤出口端口号，或给 {product-viz} 步骤的 index 参数设置的值。
+
+数据类型：INT8
+[id="profinet-plc-center-req-pose-num"]
+
+===  Req_Pose_Num
+
+
+从 {product-vis} 请求的视觉点数。
+
+`0`：从 {product-vis} 的视觉结果中请求所有可用的视觉点。
+
+数据类型：INT8
+[id="profinet-plc-center-robot-pose-type"]
+
+===  Robot_Pose_Type
+
+
+机器人的位姿类型。
+
+数据类型：INT8
+[id="profinet-plc-center-req-pose-type"]
+
+===  Req_Pose_Type
+
+
+希望 {product-viz} 返回的机器人位姿类型。
+
+* `1`：JPs 类型。
+
+* `2`：TCP 类型。
+
+
+
+数据类型：INT8
+[id="profinet-plc-center-robot-pose-jps"]
+
+===  Robot_Pose_JPS
+
+
+拍照时的机器人关节角 JPs。
+
+设置模块前请先将 JPs 数据乘 10000。
+
+JPs 包含最多 6 个关节角数据（6 个 INT32 整数）：
+
+[J1, J2, J3, J4, J5, J6]
+[cols="3,7",stripes="even",options="header"]
+|===
+| Byte
+| Bit 0~7
+| 0~3
+| 机器人当前 J1 关节角 INT32
+| 4~7
+| 机器人当前 J2 关节角 INT32
+| 8~11
+| 机器人当前 J3 关节角 INT32
+| 12~15
+| 机器人当前 J4 关节角 INT32
+| 16~19
+| 机器人当前 J5 关节角 INT32
+| 20~23
+| 机器人当前 J6 关节角 INT32
+
+|===
+[id="profinet-plc-center-robot-pose-flange"]
+
+===  Robot_Pose_TCP
+
+
+用于拍照的机器人法兰位姿。
+
+在设置到模块之前，请将位姿数据乘 10000。
+
+法兰包括三维坐标（X、Y、Z）和欧拉角（A、B、C），总共 6 个 INT32 整数。
+[cols="3,7",stripes="even",options="header"]
+|===
+| Byte
+| Bit 0~7
+| 0~3
+| 机器人当前 X 坐标 INT32
+| 4~7
+| 机器人当前 Y 坐标 INT32
+| 8~11
+| 机器人当前 Z 坐标 INT32
+| 12~15
+| 机器人当前 A 角度 INT32
+| 16~19
+| 机器人当前 B 角度 INT32
+| 20~23
+| 机器人当前 C 角度 INT32
+
+|===
+[id="profinet-plc-center-ext-input-data"]
+
+===  Ext_Input_Data
+
+
+保留模块，用于传输其他数据。
+
+该模块占用 40 个字节（INT32[1:10]，总共 10 个 INT32 整数）。

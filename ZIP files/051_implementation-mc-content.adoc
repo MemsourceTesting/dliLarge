@@ -1,0 +1,110 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+// Sections should have an id that is a short version of the title.
+[id='patternimplementation-multchoice']
+= Implementing Enterprise Integration Patterns
+
+[role='MultChoice']
+== Instructions
+
+Consider that you have recently joined a company.
+The company has an online Software as a Service (SaaS) solution for file conversion.
+The company's Apache Camel based services have all the conversion and integration logic.
+
+In some integration services, the legacy developer left some unfinished code for you to complete.
+You must choose the correct answers to the following questions to complete the relevant part of the services:
+
+
+1) In the file service, you must implement a custom converter that converts any metric type to an `+InputStream+`.
+The `+Metric+` class, which represents the metric type, has a `+toString+` method that returns the metric values in `+String+` format.
+Regarding the following code, which two of the following options are true? (Choose two.)
+
+[subs="+quotes,+macros"]
+----
+_...imports omitted..._
+
+// TODO: Annotate the class as converter
+public class MetricConverter {
+
+    // TODO: Annotate the method as converter
+    public static InputStream toInputStream(Metric metric) {
+        // TODO: Add logic to convert the metric to an InputStream
+    }
+}
+----
+** You must annotate the class with `+@ClassConverter+` and the method with `+@Converter+`.
+** [role='solution'] The return statement must be as follows: `+return new ByteArrayInputStream(metric.toString().getBytes());+`.
+** The return statement must be as follows: `+return metric.toString();+`.
+** [role='solution'] You must both annotate the class and the method with `+@Converter+`.
+** The return statement must be as follows: `+return new ByteArrayInputStream(metric);+`.
+
+2) In the XML converter service, you must refactor a Camel route that converts XML data to JSON.
+The legacy developer implemented this by first converting the XML to an object, and converting that object to JSON.
+The following code shows the Camel route the legacy developer developed before.
+You must refactor the route to use the `+camel-xmljson+` library to directly convert from XML to JSON.
+The legacy developer added all the required dependencies in the pom.xml file.
+Regarding this code, which of the following options is true for the new implementation? (Choose one.)
+
+[subs="+quotes,+macros"]
+----
+_...code omitted..._
+
+JaxbDataFormat jaxbDataFormat =
+    new JaxbDataFormat(JAXBContext.newInstance(CustomObject.class)); //`+[1]+`
+
+from("file:xml-in")
+.unmarshal(jaxbDataFormat) //`+[2]+`
+.marshal().json(JsonLibrary.Jackson) //`+[3]+`
+.to("kafka:json-out");
+
+_...code omitted..._
+----
+
+** You must replace the code marked as `+[1]+` with `+XmlJsonDataFormat xmlJsonFormat = new XmlJsonDataFormat();+`.
+Also you must remove the codes marked as `+[2]+` and `+[3]+` and leave the code like that.
+** You must only remove the code marked as `+[2]+` and `+[3]+` and add `+.unmarshal()+` instead.
+** [role='solution'] You must remove the code marked as `+[1]+` and put `+XmlJsonDataFormat xmlJsonFormat = new XmlJsonDataFormat();+` instead.
+Also you must remove the codes marked as `+[2]+` and `+[3]+` and add `+.unmarshal(xmlJsonFormat)+` instead.
+** You must keep the code marked as `+[2]+` but delete the codes marked as `+[1]+` and `+[3]+`.
+** You must only add `+.unmarshal(xmlJsonFormat)+` after the code marked as `+[3]+`.
+
+3) In the XML converter service, you have another route that reads big XML files.
+The route is not complete, because it has to process the data one by one for each `+<object>+` of the XML file.
+The route should filter the split XML, and skip all the `+<object>+` elements that have the `+type+` attribute empty.
+Regarding the following code, which two of the following options are true? (Choose two.)
+
+[subs="+quotes,+macros"]
+----
+_...code omitted..._
+
+from("file:objects-xml")
+ // TODO: Split the XML
+ // TODO: Filter the split XML
+ .to("activemq:queue:filtered-objects");
+
+_...code omitted..._
+----
+** [role='solution'] You must split the XML by using `+.split().tokenizeXML("object")+`.
+** You must split the XML by using `+.split("object")+`.
+** You must filter the split XML by using `+.filter("/type/text() != ''")+`.
+** [role='solution'] You must filter the split XML by using `+.filter(xpath("/type/text() != ''"))+`.
+** You must split and filter the XML by using `+.split("object").filter("type!=''")+`.
+
+4) A text service is responsible for appending the different document contents, especially PDFs, to create merged documents from the separate ones.
+In the text service, a route performs the content appending by using an aggregation strategy called `+AppenderAggregationStrategy+`.
+Regarding the following route that uses the `+AppenderAggregationStrategy+`, which of the following options is false? (Choose one.)
+
+[subs="+quotes,+macros"]
+----
+_...code omitted..._
+
+from("file:source-file")
+ .aggregate(header("content"),new AppenderAggregationStrategy())
+ .to("file:appended-file");
+
+_...code omitted..._
+----
+** The `+AppenderAggregationStrategy+` must have an `+aggregate+` method that has the old exchange and the new exchange as its parameters.
+** You must validate if the old exchange is `+null+` to prevent any errors, because when the route receives first message, it does not have an old message or an exchange.
+** [role='solution'] The `+aggregate+` method must have an `+org.apache.camel.Message+` return type.
+** After the concatenation of the exchange bodies, the resulting `+String+` value must be the new exchange's body.
+`+newExchange.getIn().setBody(newBody);+` is a possible implementation of it.

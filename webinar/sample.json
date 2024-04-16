@@ -1,0 +1,34 @@
+
+{
+    "TM": {
+          "ID": "20a0f20cf5d97e3c17a24dab0970b2bf",
+          "TITLE": "TRANSLATION MANAGEMENT (change version 1) edited",
+          "CONTENT": "change. change. Translate a few software strings or deploy Memsource to automate translations in your global organization. Whether you use in-house linguists, translation companies, or machine translation, Memsource provides all you need to automate the process end-to-end, including out-of-the box CMS connectors, powerful continuous localization features, and rich REST API.",
+          "PICTURE": "<img src=\"https://d33wubrfki0l68.cloudfront.net/a9f360aec42ce93fcd553922fe3bb2099988405b/f24a9/uploads/2020/11/12/illustration_tab1-1.svg\">"
+        },
+    "AI": {
+          "ID": "20a0f20cf5d97e3c17a24dab0970b2bf",
+          "TITLE": "ARTIFICIAL INTELLIGENCE",
+          "CONTENT": "Memsource has patented a unique approach to reducing translation costs by combining traditional translation technology with state-of-the-art artificial intelligence. The patented AI technology is capable of identifying content that can be translated automatically at high quality.",
+          "PICTURE": "<img src=\"https://d33wubrfki0l68.cloudfront.net/c097b68547a01ee28129901b19e1ad0b862d9e7c/ea7c8/uploads/2020/11/12/illustration_tab2.svg\">"
+        },
+    "API": {
+          "ID": "20a0f20cf5d97e3c17a24dab0970b2bf",
+          "TITLE": "REST API AND CONNECTORS",
+          "CONTENT": "Connect Memsource with your CMS such as Sitecore, AEM, WordPress, Drupal, or other systems such as Git, Magento, Zendesk, Marketo, HubSpot, Google Drive, Dropbox, and more, to seamlessly and securely send files for translation and receive them back with full end-to-end automation. Or, build a custom integration using our REST API, which provides comprehensive coverage of Memsource’s functionality.",
+          "PICTURE": ""
+        },
+    "MT": {
+          "ID": "20a0f20cf5d97e3c17a24dab0970b2bf",
+          "TITLE": "MACHINE TRANSLATION",
+          "CONTENT": "Pick the engine that works for you thanks to over 30 machine translation engines integrated in Memsource to reduce translation costs. Further enhance the process by leveraging Memsource’s AI-powered machine translation quality estimation, capable of evaluating each engine’s output.",
+          "PICTURE": ""
+        },
+    "EDITOR": {
+          "ID": "20a0f20cf5d97e3c17a24dab0970b2bf",
+          "TITLE": "TRANSLATING IN MEMSOURCE",
+          "CONTENT": "Translating in Memsource is intuitive, collaborative, and accessible across all platforms. Translators have the option of working in three environments: Memsource Editor for Web, available on any supported browser; Memsource Editor for Desktop, which syncs with the cloud in real time and supports offline work; Memsource Editor for Mobile, accessible on iOS and Android devices.",
+          "PICTURE": ""
+        }
+
+}

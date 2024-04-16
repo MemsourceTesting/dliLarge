@@ -1,0 +1,130 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='routemessages-lecture']
+= Section Content
+
+== Routing Messages Dynamically
+
+One common integration problem is when routes are not static, and not always predetermined.
+Camel provides several enterprise integration patterns (EIP) to solve this problem.
+
+=== Content-based Router
+The ((Content-based Router)) (CBR) EIP routes messages to the correct destination based on the message contents.
+
+For example, a logistics system that processes fulfillment orders can implement this EIP.
+A fulfillment order for the ACME provider goes to the `+schema:acme-destination+` endpoint, and the orders for the PACME provider goes to the `+schema:pacme-destination+` endpoint.
+
+To support this pattern, Camel has the `+choice+` DSL element.
+The `+choice+` DSL element contains multiple `+when+` DSL elements, and optionally an `+otherwise+` DSL element.
+
+----
+from("schema:origin")
+    .choice()
+        .when(predicate1) <1>
+            .to("schema:acme-destination")
+        .when(predicate2)
+            .to("schema:pacme-destination")
+        ...
+        .otherwise() <2>
+            .to("schema:destinationN");
+----
+
+<1> The `+when+` DSL element requires a predicate that, when true, sends the message to a specific destination.
+If the predicate is false, then the route flow moves to the next `+when+` element.
+The predicate can use Simple language expression, XPath expressions, or any other expression language supported by Camel.
+
+<2> The `+otherwise+` DSL element defines a destination for messages that fail to match any of the `+when+` predicates.
+//ZG: Should the above example use the "acme" and "pacme" endpoints?
+
+=== Routing Slip
+
+The ((Routing Slip)) EIP routes a message consecutively through a series of processing steps.
+The sequence of steps is unknown at design time, and varies for each message.
+
+For example, a pipeline that processes security checks for a credit card company might have different processing steps.
+A purchase from the same country requires standard security checks.
+But, an international purchase requires additional endpoints to verify that the purchase is not fraudulent.
+
+In this pattern, a header field (the slip) contains the list of endpoints required in the processing steps.
+At run time, Apache Camel reads this header and constructs the pipeline.
+
+[NOTE]
+====
+A pipeline is a route in which all the intermediate steps are endpoints.
+====
+
+To support this pattern, Camel has the `+routingSlip+` method.
+
+----
+from("schema:origin")
+    .routingSlip( <1>
+        header("destination") <2>
+    );
+----
+
+<1> The `+routingSlip+` method requires a comma-separated list of endpoints.
+<2> The `+header+` method extracts the list of endpoints from the `+destination+` header.
+
+You can use a bean to compute the header that contains the list of endpoints.
+
+----
+from("schema:origin")
+    .setHeader("destination") <1>
+        .method(MyBeanImplementation.class) <2>
+    .routingSlip(header("destination")); <3>
+----
+
+<1> The `+setHeader+` method creates a header named `+destination+` to store the list of endpoints.
+<2> The `+method+` method uses the `+MyBeanImplementation+` Java bean to calculate the sequence of endpoints, and adds the result to the `+destination+` header.
+<3> The `+routingSlip+` method constructs a pipeline from the list of endpoints stored in the `+destination+` header, and sends the message to those endpoints.
+
+=== Dynamic Router
+
+The ((Dynamic Router)) EIP routes a message consecutively through a series of processing steps.
+This pattern does not require the series of steps to be predetermined, as with the Routing Slip EIP.
+Each time the message returns from an endpoint, the dynamic router recalculates the next endpoint in the route.
+
+To use the Dynamic Router EIP, create a Java bean with the logic that determines where the message should go next.
+Each time the endpoint process finishes, the route uses the same method to recalculate the next step.
+
+----
+from("schema:origin")
+    .dynamicRouter(
+        method(MyBeanImplementation.class, "calculateDestination")
+    );
+----
+
+The preceding example uses the `+calculateDestination+` method of the `+MyBeanImplementation+` bean to calculate where the message should go next.
+
+=== Dynamic To
+
+The `+toD+` DSL method allows you to send a message to a single dynamically computed endpoint.
+In this method, the parameter must be a String, or a Simple language expression that resolves to a destination.
+
+The following example resolves the key named `+destination+` from the exchange header to identify the destination.
+
+----
+from("schema:origin")
+    .toD("${header.destination}");
+----
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+// Bean Integration
+For more information, refer to the _Bean Integration_ chapter in the _Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#BasicPrinciples-BeanIntegration
+
+// Content-based Router EIP
+For more information, refer to the _Content-based Router_ chapter in the _Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#MsgRout-ContentBased
+
+// Routing Slip EIP
+For more information, refer to the _Routing Slip_ chapter in the _Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#MsgRout-RoutingSlip
+
+// Dynamic Router EIP
+For more information, refer to the _Dynamic Router_ chapter in the _Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#DynamicRouter
+
+// Dynamic To
+For more information, refer to the _Dynamic To_ chapter in the _Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#topic-dynamicto
+
+====

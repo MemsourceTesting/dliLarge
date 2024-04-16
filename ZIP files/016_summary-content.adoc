@@ -1,0 +1,13 @@
+[id='intro-summary']
+= Summary
+// Write a summary statement at the end of every chapter that summarizes the main ideas and key points of the chapter.
+// A summary lists the absolutely critical things the student must know in order to successfully meet the chapter objective.
+// After building your chapter, look back at each section and identify one or two things per section that are critical for the student to know and retain about the section.
+// A summary statement should not restate the section objectives.
+
+In this chapter, you learned:
+
+* About Apache Camel and Red{nbsp}Hat Fuse, and their roles in Agile Integration.
+* Apache Camel concepts and architecture.
+* How Apache Camel supports Enterprise Integration Patterns.
+

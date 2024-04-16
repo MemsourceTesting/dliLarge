@@ -1,0 +1,142 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='routeprocessor-lecture']
+= Section Content
+
+== Defining a Camel Processor
+Camel routes often need to do more than pass a message from a consumer to a producer.
+A processor is a command you insert into the route to perform the arbitrary processing of messages.
+The Message Translator EIP is implemented by a Camel Processor.
+
+=== Describing the Message Translator EIP
+With the Message Translator EIP, a message enters a route with an initial format.
+An intermediate step changes the format of the message.
+The message then exits the route with the new format.
+
+.Message translation
+image::images/route/message-translator-eip.svg[align="center"]
+
+Camel provides many ways to implement the `+Translation+` step in a route.
+If a built-in Camel component is available to perform the required function, then this option is the recommended approach.
+However, when custom Java code is required to provide the needed business logic, a Camel Processor can be used to make changes to any part of an exchange message.
+
+=== Defining the Processor Types
+A processor is a command you can insert into a route to perform the arbitrary processing of messages that flow through the route.
+There are two types of processors, Built-in processors and custom processors.
+
+.Built-in Processors
+Red{nbsp}Hat Fuse provides many built-in processors that perform a wide variety of functions.
+The following list is a sample of these built-in processors.
+
+bean::
+Processes the current exchange by invoking a method on a Java object (or bean).
+
+convertBodyTo::
+Converts the In message body to the specified type.
+
+filter::
+Uses a predicate expression to filter incoming exchanges.
+
+log::
+Logs a message to the console.
+
+marshal::
+Transforms into a low-level or binary format by using the specified data format, in preparation for sending over a particular transport protocol.
+
+unmarshal::
+Transforms the In message body from a low-level or binary format to a high-level format, by using the specified data format.
+
+setBody::
+Sets the message body of the exchange's In message.
+
+setHeader::
+Sets the specified header in the exchange's In message.
+
+removeHeaders::
+Removes the headers matching the specified pattern from the exchange's In message. The pattern can have the form `+_prefix_\*+` — in which case it matches every name starting with `+prefix+`— otherwise, it is interpreted as a regular expression.
+
+.Custom Processors
+Through integration with the Camel API, a custom processor can access any part of the camel exchange message or even the broader camel context.
+
+== Developing a Custom Processor
+A built-in processor should be used whenever possible.
+However, when developing complex Camel routes, it might be necessary to apply business logic to a message.
+A custom Camel processor is one way of adding the functionality, providing complete control over the exchange message.
+
+=== Implementing the Processor Interface
+You must implement the `+Processor+` interface to create a Camel Processor.
+The `+org.apache.camel.Processor+` interface provides a generic way to write custom logic to manipulate an exchange.
+This can be useful for creating new headers or modifying a message body; for example, adding new content such as the date that the message was processed.
+You can use processors to implement the Message Translator and event-driven consumer EIPs.
+
+Implementing the `+Processor+` interface requires implementing a single method called `+process+`:
+
+[subs="+quotes"]
+----
+void process(Exchange exchange) throws Exception
+----
+
+The `+exchange+` argument allows access to both the input and output messages and the parent Camel context.
+Processor implementation classes take advantage of other Camel features, such as data type converters and fluent expression builders.
+
+[subs="+quotes"]
+----
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+
+public class MyProcessor implements Processor {
+    @Override
+    public void process(Exchange exchange) throws Exception {
+        `String custom = exchange.getIn()
+            .getBody(String.class);` <1>
+        String date = custom.substring(10, 20);
+        String formatedOrderDate = getFormattedDate(date);
+        `+exchange.getIn().setHeader("orderDate", formatedOrderDate);+` <2>
+    }
+}
+----
+<1> Extracts the body of the input message as a String using `+getBody+`
+<2> Adds a message header called `+orderDate+` with the value of `+formatedOrderDate+` variable.
+
+The `+exchange+` object instance includes an output message that can be accessed using the `+getOut+` method.
+In practice, the outgoing message is often not used because it does not include the message headers and attachments.
+You can copy the headers and attachments from the incoming message to the outgoing message, but this can be tedious.
+The alternative is to set the changes directly on the incoming message, and to not use the outgoing message as illustrated in the preceding example.
+
+To use a processor inside a route, insert the `+process+` method for Java DSL:
+
+[subs="+quotes"]
+----
+.from("file:inputFolder")
+ *.process(new com.example.MyProcessor())*
+  .to("activemq:outputQueue");
+----
+
+
+Before writing your own `+Processor+` implementation, determine first whether there are ready-to-use Camel components that might provide the same result with less custom code, for example:
+
+. The `+transform+` component allows for changing of a message body by using any expression language supported by Camel.
+. The `+setHeader+` component allows the changing of header values.
+. The `+bean+` component allows the calling of any Java bean method from inside a route.
+
+[NOTE]
+====
+Camel is so powerful that there is a risk of embedding business logic inside a route, as a processor or by other means.
+To avoid doing that, keep your routes just about integration, and leave business logic to application components that are interconnected by Camel routes.
+====
+
+Compared to Java Beans, a Camel processor is preferred when there is a need to call Camel APIs from the custom Java code.
+A Java Bean is preferred when a transformation can reuse code that has no knowledge of Camel APIs.
+
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+// Template for a reference that does not link to Red Hat Documentation.
+// http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation/1/html/Users_Guide/[Publican Users Guide]
+
+For more information, refer to the _Processors_ chapter in the _Red{nbsp}Hat Apache Camel Development Guide_ at  https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#FMRS-P
+
+For more information, refer to the _Implementing a Processor_ chapter in the _Red{nbsp}Hat Apache Camel Development Guide_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#Processors
+====

@@ -1,0 +1,21 @@
+{
+  "boolean_key": "--- true\n",
+  "empty_string_translation": "",
+  "key_with_description": "Check it out! This key has a brand new description! (At least in some formats)",
+  "key_with_line-break": "This translations contains\na line-break.",
+  "nested.deeply.key": "Wow, this key is really nested even deeper.",
+  "nested.key": "This newest key is nested inside a new namespace.",
+  "null_translation": null,
+  "pluralized_key": {
+    "one": "Only this one pluralization found.",
+    "other": "Wow, you have %s pluralizations!",
+    "zero": "You have no pluralization."
+  },
+  "sample_collection": [
+    "first item",
+    "second item",
+    "third item"
+  ],
+  "simple_key": "Just an ordinary but still a brand new key with a simple message.",
+  "unverified_key": "This translation is not yet completely verified and waits for it. (In some formats we also export this status)"
+}

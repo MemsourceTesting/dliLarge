@@ -1,0 +1,271 @@
+product: update by Aleš in Revision step
+components:
+  -
+    type: update by Aleš in Revision step
+    classes: update by Aleš in Revision step
+    show_thumbnails: true
+    show_ratings: true
+    main_text: '<h1 itemprop="name" class="m-0">艾尔维泵</h1>'
+    secondary_text: |
+        世界上第一款静音可穿戴式吸奶器。 
+        适合你的胸罩和你的生活。 
+        没有管子没有电线。没有噪音。
+    tertiary_text: |
+        2 年保修。 
+        免运费。 
+        从每月 62.25 英镑起，每月 0％ 的贝宝积分。 
+        <a class="underline font-bold" href="#" data-target="#insurance" data-toggle="modal">接受 FSA /HSA 资金（仅限美国）。</a>
+    text_position: 对
+    text_colour: 黑暗
+    product: update by Aleš in Revision step
+    heights: '300,600'
+    content_classes: 'lg-4 月 5 日'
+    slides:
+      -
+        type: 幻灯片
+        background_image:
+          - "/assets/hero_banners/pump-carousel-in-bra-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-in-bra.jpg"
+        custom_arrangement: 'lg，XL'
+      -
+        type: 幻灯片
+        background_image:
+          - "/assets/hero_banners/pump-carousel-1-product-group-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-1-product-group.jpg"
+        custom_arrangement: 'lg，XL'
+      -
+        type: 幻灯片
+        background_image:
+          - "/assets/hero_banners/pump-carousel-2-front-and-back-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-2-front-and-back.jpg"
+        custom_arrangement: 'lg，XL'
+      -
+        type: 幻灯片
+        background_image:
+          - "/assets/hero_banners/pump-carousel-3-app-screens-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-3-app-screens.jpg"
+        custom_arrangement: 'lg，XL'
+      -
+        type: 幻灯片
+        background_image:
+          - "/assets/hero_banners/pump-carousel-4-held-in-hand-mobile.jpg"
+          - "/assets/hero_banners/pump-carousel-4-held-in-hand.jpg"
+        custom_arrangement: 'lg，XL'
+    disable_ecommerce: false
+  -
+    type: 品牌框
+    images:
+      - "/assets/pump-lifestyle.png"
+    main_text: '随时随地泵'
+    secondary_text: '艾尔维泵可以根据自己的条件泵 -在家里，在工作或在旅途中。沟隐藏在橱柜里的小时，连接到墙壁或清洁管。有了 Elvie Pump，你可以领导会议，到外面或只是享受一些和平与安静... 所有你泵。'
+    box_colour: 光
+  -
+    type: 块
+    heading: 可穿戴
+    reveal_heading: 尺寸
+    reveal_content: |
+        ![] (/assets/pump-dimensions.png)
+        
+        (a) 128 毫米 x (b) 110 毫米 x (c) 68 毫米  
+        (a) 5 英寸 x (b) 4.3 英寸 x (c) 2.7 英寸  
+        225 克/79 盎司
+    main_text: '小巧轻便，Elvie Pump 穿在标准护理文胸内，使其真正免提。没什么可以把你绑在一起 -或者放慢你的速度'
+    image: "/assets/pump-usp-1-in-bra.jpg"
+    text_position: 左边
+    layout: 默认值
+  -
+    type: 块
+    heading: 沉默
+    main_text: '革命性技术消除噪音，让您可以安心地泵 -随时随地它处于隐形模式，所以你不必成为。'
+    image: "/assets/pump-usp-2-silent.jpg"
+    text_position: 对
+    layout: 候补
+    section_classes: bg 重叠 t
+  -
+    type: 块
+    heading: 无忧无虑
+    main_text: '从设置到清理，使用 Elvie 泵非常简单 -它只有 5 个部件可以清洁，需要几秒钟才能组装。没有电线，没有衣柜更换，没有大惊小怪。'
+    image: "/assets/pump-usp-3-simple-parts.jpg"
+    text_position: 左边
+    layout: 默认值
+  -
+    type: 块
+    image: "/assets/blog_images/elvie-pump-us2.png"
+    heading: 智能
+    reveal_heading: '应用程序功能'
+    main_text: |
+        连接到免费的 Elvie Pump 应用程序，以实时监控牛奶量，跟踪每个母乳的泵送历史，并远程控制泵。 
+        <small>（艾尔维泵工作与或不使用应用程序）。</small>
+    reveal_content: |
+        -从手机播放/暂停泵
+        -改变模式和强度
+        -查看实时牛奶量
+        -跟踪每个乳房的泵送历史
+        -设置抽水定时器
+    text_position: 对
+    layout: 默认值
+    section_classes: "BG-埃尔维埃-白色"
+  -
+    type: 块
+    image: "/assets/mum-baby.jpg"
+    heading: 响应
+    main_text: 'Elvie Pump 自动从刺激切换到表达模式，当它检测到放下，并在瓶子满时将暂停。少一件事要考虑。'
+    text_position: 左边
+    layout: 默认值
+  -
+    type: "硝酸-格里蒂"
+    features:
+      -
+        type: 功能
+        icon: "/assets/pump-nitty-gritty-icons_hands-free.svg"
+        details: |
+            ** 免提 **  
+            一体式设计，无需外部电线或管
+      -
+        type: 功能
+        icon: "/assets/pump-nitty-gritty-icons_2-phase.svg"
+        details: |
+            ** 两阶段 **  
+            刺激和表达模式
+      -
+        type: 功能
+        icon: "/assets/pump-nitty-gritty-icons_variable-suction.svg"
+        details: |
+            ** 可变吸收 **  
+            7 个强度设置
+      -
+        type: 功能
+        icon: "/assets/pump-nitty-gritty-icons_custom-fit.svg"
+        details: |
+            ** 定制适合 **  
+            3 个乳房护罩尺寸（包装盒中包含 2 个）
+      -
+        type: 功能
+        icon: "/assets/pump-nitty-gritty-icons_rechargeable.svg"
+        details: |
+            ** 可充电 **  
+            通过微型 USB 在 2 小时内充电
+      -
+        type: 功能
+        icon: "/assets/pump-nitty-gritty-icons_smart-features.svg"
+        details: |
+            ** 智能功能 **  
+            应用内跟踪和远程控制
+      -
+        type: 功能
+        icon: "/assets/pump-nitty-gritty-icons_reusable-bottle.svg"
+        details: |
+            ** 可重复使用的瓶子 **  
+            耐用的 5 盎司/150 毫升瓶
+      -
+        type: 功能
+        icon: "/assets/pump-nitty-gritty-icons_bpa-free.svg"
+        details: |
+            ** 不含双酚 A **  
+            采用不含双酚 A、可用洗碗机清洗的塑料制成
+    section_classes: 'BG-埃尔维埃-白派-16'
+  -
+    type: 媒体
+    custom_arrangement: 'SM, mD, lg, XL'
+    heights: '375,700'
+    video: 美国电子商务委员会
+    background: false
+  -
+    type: 推荐
+    testimonials:
+      - 澳大利亚国家电子商务中心
+      - 电子邮件：电子邮件
+      - 美国国家电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电
+      - 不同类型的数据库
+      - "电子商务中心-电子商务中心-电子商务中心-电子商务中心-电子商务中心-电子商务中心-电子商务中心-电子商务"
+  -
+    type: 自定义部分
+    path: 泵/什么 _ 在 _ 框中
+  -
+    type: 常见问题
+    faqs:
+      - 美国人民共和国人民共和国人民共和国人民共和国人民共和国人民共和国人民共和国人民共和国人民共和国人民共和国人
+      - 电子电子电子电子电子电子电子电子电子电子电子电子电子电子邮件
+      - 美国国际社会发展委员会
+      - 国际化学品质量标准化学品质量标准化学品质量标准化学品质量标准化学品质量标准化学品质量标准化学品质量标准化学
+      - 美国电子邮件系统
+    link_to: 电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电子电
+    link_text: '更多问题？<br>访问艾尔维泵常见问题解答'
+  -
+    type: UGC
+    heading: '跟随革命'
+    ugcs:
+      -
+        type: 教育大学
+        customer_content: "/assets/ugc/ugc-pump-momommorgan.jpg"
+        customer: '@momommorgan'
+        link_customer: 'https://www.instagram.com/p/BzA-KflF1Me/'
+        link_customer_modal: '在 Instagram 上查看'
+        text: '留下 4 个月大的缺点 🐄🤱👶🏼'
+        close_modal: 白色
+      -
+        type: 教育大学
+        customer_content: "/assets/ugc/ugc-pump-rinart007.jpg"
+        customer: '@rinart007'
+        link_customer: 'https://www.instagram.com/p/BwkvwpeHvJ8/'
+        link_customer_modal: '在 Instagram 上查看'
+        text: '我们把我们的第一次旅行与莉莉锡安国家公园.感谢 @elvie，我可以在旅途中泵。莉莉得吃饭，并获得外出！我的精灵适合，他们看起来像恐龙蛋！'
+        close_modal: 白色
+      -
+        type: 教育大学
+        customer_content: "/assets/ugc/ugc-pump-definitely.jpg"
+        customer: '@definitely_definitely'
+        link_customer: 'https://www.instagram.com/p/Bt4TqRNgnD4/'
+        link_customer_modal: '在 Instagram 上查看'
+        text: '今天在健身房里像老板一样抽水谢谢 @elvie！#roboboobs #mumatron #happymummy #happybaby #gymtimebaby'
+        close_modal: 白色
+      -
+        type: 教育大学
+        customer_content: "/assets/ugc/ugc-pump-butfirstkw.jpg"
+        customer: '@butfirstkw'
+        link_customer: 'https://www.instagram.com/p/BuZjH1EgWxY/'
+        link_customer_modal: '在 Instagram 上查看'
+        text: '击中斜坡之前和之后抽水 ⛷ @elvie'
+        close_modal: 白色
+      -
+        type: 教育大学
+        customer_content: "/assets/ugc/ugc-pump-carlyrowena.jpg"
+        customer: '@carlyrowena'
+        link_customer: 'https://www.instagram.com/p/BzC57EdJFo7/'
+        link_customer_modal: '在 Instagram 上查看'
+        text: '为了成功减少我的牛奶供应，同时保持它的运行，以便我可以为 Jax 做夜间饲料，我白天用我的 @elvie 抽水和倾倒！这个小工具已经成为我的胸部最好的朋友，没有更多的感觉像一头牛，它给了我自由，独立'
+        close_modal: 白色
+      -
+        type: 教育大学
+        customer_content: "/assets/ugc/ugc-pump-wideeyedmum.jpg"
+        customer: '@wide_eyed_mum'
+        link_customer: 'https://www.instagram.com/p/BynBbTOlsDW/'
+        link_customer_modal: '在 Instagram 上查看'
+        text: '经过两晚没有我的 #baby 男孩，我可以肯定地说 @elvie 是一个救命者。我用它在机场，在飞机上，在酒吧，在一家餐厅，而走在克拉科夫的街道 🙌🏻'
+        close_modal: 黑暗
+      -
+        type: 教育大学
+        customer_content: "/assets/ugc/ugc-pump-vasavigail.jpg"
+        customer: '@vasavigail'
+        link_customer: 'https://www.instagram.com/p/ByYdz1BAEcH/'
+        link_customer_modal: '在 Instagram 上查看'
+        text: '🍼 我做牛奶。你的超级大国是什么？🍼'
+        close_modal: 黑暗
+    link_to: 'https://www.instagram.com/elvie/'
+    link_text: '关注 @hello .elvie'
+    section_classes: "BG-埃尔维埃-白色"
+robots: 索引跟踪
+navigation: 中学
+product_id:
+  - 单泵
+hide_site_banner: false
+newsletter_modal: true
+seo:
+  title: '艾尔维泵 | 静音，可穿戴，智能吸奶器 | Elvie'
+  description: '最后，吸奶器可让您随时随地抽奶。Elvie 泵是世界上第一款静音可穿戴式吸奶器。立即获得 2 年保修和免费送货。'
+  priority: '1.0'
+  change_frequency: 每月
+template: 商店/产品
+title: '艾尔维泵'
+fieldset: 产品 _ 页
+id: "英文版-英文版-英文版-英文版-英文版-英文版-英文版-英文版-英文版-英文版-英文版-英文版-英文版-英文版"

@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8'?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:m="http://www.memsource.com/mxlf/2.0" version="1.2" m:version="2.7" m:level="1">
+<file original="et_logi_select_thankyou_survey.html" source-language="en-001" target-language="da" datatype="x-undefined" m:file-format="HTML" m:task-id="Njfd100EFrDf2SH53_dc4" m:begin-group-id="0" m:end-group-id="1" m:project-uid="oQnzhYBb7NrS69ejPbnm90" m:job-uid="V715xvdYehScgq3yFWCTd6">
+<body>
+
+<group id="0" m:para-id="0">
+<trans-unit id="Njfd100EFrDf2SH53_dc4:0" xml:space="preserve" m:score="1.01" m:gross-score="1.01" m:trans-origin="tm" m:confirmed="1" m:locked="true" m:para-id="0" m:created-at="1658302616456" m:created-by="332915" m:modified-at="1658302616842" m:modified-by="332915" m:level-edited="false">
+<source>Thank you, EDITED</source>
+<target>Med venlig hilsen</target>
+<alt-trans origin="machine-trans" match-quality="1.0"><target>Mange tak</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="1.01" tm-id="1027864"><target>Med venlig hilsen</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">1.01</m:trans-prop>
+  <m:trans-prop name="gross-score">1.01</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="1" m:para-id="0">
+<trans-unit id="Njfd100EFrDf2SH53_dc4:1" xml:space="preserve" m:score="1.0" m:gross-score="1.0" m:trans-origin="mt" m:trans-origin-detail="qe_v2" m:confirmed="1" m:locked="false" m:para-id="0" m:created-at="1658302616456" m:created-by="332915" m:modified-at="1658303643984" m:modified-by="332915" m:level-edited="false">
+<source>Logitech Services Team CHANGE</source>
+<target>Logitechs serviceteam</target>
+<alt-trans origin="machine-trans" match-quality="1.0"><target>Logitech Services Team</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="0.8461538461538461" tm-id="1027864"><target>Logitechs serviceteam</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">0.8461538461538461</m:trans-prop>
+  <m:trans-prop name="gross-score">0.8461538461538461</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+  <m:trans-prop name="origin-detail">ANLWdXwGr9qlbh3Jm2v373</m:trans-prop>
+</m:latest-trans-props>
+<m:editing-stats>
+<m:editing-time>7232</m:editing-time>
+<m:thinking-time>4336</m:thinking-time>
+</m:editing-stats>
+</trans-unit>
+</group>
+</body>
+</file><file original="et_logi_select_survey.html" source-language="en-001" target-language="da" datatype="x-undefined" m:file-format="HTML" m:task-id="m8gA100ADWGh2SH53_dc4" m:begin-group-id="0" m:end-group-id="7" m:project-uid="oQnzhYBb7NrS69ejPbnm90" m:job-uid="CKwcoXgJh8HQ4hKne04hy3">
+<body>
+
+<group id="0" m:para-id="0">
+<trans-unit id="m8gA100ADWGh2SH53_dc4:0" xml:space="preserve" m:score="1.01" m:gross-score="1.01" m:trans-origin="tm" m:confirmed="1" m:locked="true" m:para-id="0" m:created-at="1658302592958" m:created-by="332915" m:modified-at="1658302593600" m:modified-by="332915" m:level-edited="false">
+<source>Dear {1},</source>
+<target>Kære {1},</target>
+<alt-trans origin="machine-trans" match-quality="0.99"><target>Kære {1},</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="1.01" tm-id="1027864"><target>Kære {1},</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">1.01</m:trans-prop>
+  <m:trans-prop name="gross-score">1.01</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+</m:latest-trans-props>
+<m:tunit-metadata>
+<m:mark id="1">
+<m:type>text</m:type>
+<m:content>{{ticket.requester.first_name}}</m:content>
+</m:mark>
+</m:tunit-metadata>
+<m:tunit-target-metadata>
+<m:mark id="1">
+<m:type>text</m:type>
+<m:content>{{ticket.requester.first_name}}</m:content>
+</m:mark>
+</m:tunit-target-metadata>
+</trans-unit>
+</group>
+<group id="1" m:para-id="0">
+<trans-unit id="m8gA100ADWGh2SH53_dc4:1" xml:space="preserve" m:score="1.01" m:gross-score="1.01" m:trans-origin="tm" m:confirmed="1" m:locked="true" m:para-id="0" m:created-at="1658302592958" m:created-by="332915" m:modified-at="1658302593600" m:modified-by="332915" m:level-edited="false">
+<source>Your opinion matters to the Services Team at Logitech.</source>
+<target>Din mening betyder noget for Logitechs serviceteam.</target>
+<alt-trans origin="machine-trans" match-quality="0.75"><target>Din mening betyder noget for Services Team hos Logitech.</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="1.01" tm-id="1027864"><target>Din mening betyder noget for Logitechs serviceteam.</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">1.01</m:trans-prop>
+  <m:trans-prop name="gross-score">1.01</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="2" m:para-id="0">
+<trans-unit id="m8gA100ADWGh2SH53_dc4:2" xml:space="preserve" m:score="1.01" m:gross-score="1.01" m:trans-origin="tm" m:confirmed="1" m:locked="true" m:para-id="0" m:created-at="1658302592958" m:created-by="332915" m:modified-at="1658302593600" m:modified-by="332915" m:level-edited="false">
+<source>We want to offer you the highest quality of Service and we value your feedback.</source>
+<target>Vi ønsker at tilbyde dig service af højeste kvalitet, og vi sætter pris på din feedback.</target>
+<alt-trans origin="machine-trans" match-quality="0.75"><target>Vi ønsker at tilbyde dig service af højeste kvalitet, og vi sætter pris på din feedback.</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="1.01" tm-id="1027864"><target>Vi ønsker at tilbyde dig service af højeste kvalitet, og vi sætter pris på din feedback.</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">1.01</m:trans-prop>
+  <m:trans-prop name="gross-score">1.01</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="3" m:para-id="0">
+<trans-unit id="m8gA100ADWGh2SH53_dc4:3" xml:space="preserve" m:score="1.01" m:gross-score="1.01" m:trans-origin="tm" m:confirmed="1" m:locked="true" m:para-id="0" m:created-at="1658302592958" m:created-by="332915" m:modified-at="1658302593600" m:modified-by="332915" m:level-edited="false">
+<source>We use your feedback to improve our process and your experience.</source>
+<target>Vi bruger din feedback til at forbedre vores arbejdsprocesser og din oplevelse.</target>
+<alt-trans origin="machine-trans" match-quality="1.0"><target>Vi bruger din feedback til at forbedre vores proces og din oplevelse.</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="1.01" tm-id="1027864"><target>Vi bruger din feedback til at forbedre vores arbejdsprocesser og din oplevelse.</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">1.01</m:trans-prop>
+  <m:trans-prop name="gross-score">1.01</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="4" m:para-id="0">
+<trans-unit id="m8gA100ADWGh2SH53_dc4:4" xml:space="preserve" m:score="1.01" m:gross-score="1.01" m:trans-origin="tm" m:confirmed="1" m:locked="true" m:para-id="0" m:created-at="1658302592958" m:created-by="332915" m:modified-at="1658302593600" m:modified-by="332915" m:level-edited="false">
+<source>We encourage you to be honest with your answers.</source>
+<target>Vi opfordrer dig til at være ærlig med dine svar.</target>
+<alt-trans origin="machine-trans" match-quality="1.0"><target>Vi opfordrer dig til at være ærlig med dine svar.</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="1.01" tm-id="1027864"><target>Vi opfordrer dig til at være ærlig med dine svar.</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">1.01</m:trans-prop>
+  <m:trans-prop name="gross-score">1.01</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+</m:latest-trans-props>
+</trans-unit>
+</group>
+<group id="5" m:para-id="0">
+<trans-unit id="m8gA100ADWGh2SH53_dc4:5" xml:space="preserve" m:score="0.99" m:gross-score="0.99" m:trans-origin="tm" m:confirmed="1" m:locked="false" m:para-id="0" m:created-at="1658302592958" m:created-by="332915" m:modified-at="1658303646793" m:modified-by="332915" m:level-edited="false">
+<source>Your responses will be shared anonymously with our Services team.</source>
+<target>Dine svar vil blive delt anonymt med vores serviceteam.</target>
+<alt-trans origin="machine-trans" match-quality="0.75"><target>Dine svar vil blive delt anonymt med vores tjenester.</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="0.99" tm-id="1027864"><target>Dine svar vil blive delt anonymt med vores serviceteam</target></alt-trans>
+<m:editing-stats>
+<m:editing-time>1835</m:editing-time>
+<m:thinking-time>1143</m:thinking-time>
+</m:editing-stats>
+</trans-unit>
+</group>
+<group id="6" m:para-id="0">
+<trans-unit id="m8gA100ADWGh2SH53_dc4:6" xml:space="preserve" m:score="1.0" m:gross-score="1.0" m:trans-origin="tm" m:confirmed="1" m:locked="false" m:para-id="0" m:created-at="1658302592958" m:created-by="332915" m:modified-at="1658303648811" m:modified-by="332915" m:level-edited="false">
+<source>Most respondents complete our survey in less than five minutes.</source>
+<target>De fleste respondenter gennemfører vores undersøgelse på mindre end fem minutter.</target>
+<alt-trans origin="machine-trans" match-quality="0.0"><target/></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="1.0" tm-id="1027864"><target>De fleste respondenter gennemfører vores undersøgelse på mindre end fem minutter.</target></alt-trans>
+<m:editing-stats>
+<m:editing-time>0</m:editing-time>
+<m:thinking-time>0</m:thinking-time>
+</m:editing-stats>
+</trans-unit>
+</group>
+<group id="7" m:para-id="0">
+<trans-unit id="m8gA100ADWGh2SH53_dc4:7" xml:space="preserve" m:score="1.01" m:gross-score="1.01" m:trans-origin="tm" m:confirmed="1" m:locked="true" m:para-id="0" m:created-at="1658302592958" m:created-by="332915" m:modified-at="1658302593600" m:modified-by="332915" m:level-edited="false">
+<source>Ticket: {2}</source>
+<target>Sag: {2}</target>
+<alt-trans origin="machine-trans" match-quality="0.0"><target>Billet: {2}</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="1.01" tm-id="1027864"><target>Sag: {2}</target></alt-trans>
+<m:latest-trans-props>
+  <m:trans-prop name="score">1.01</m:trans-prop>
+  <m:trans-prop name="gross-score">1.01</m:trans-prop>
+  <m:trans-prop name="origin">tm</m:trans-prop>
+</m:latest-trans-props>
+<m:tunit-metadata>
+<m:mark id="2">
+<m:type>text</m:type>
+<m:content>{{ticket.id}}</m:content>
+</m:mark>
+</m:tunit-metadata>
+<m:tunit-target-metadata>
+<m:mark id="2">
+<m:type>text</m:type>
+<m:content>{{ticket.id}}</m:content>
+</m:mark>
+</m:tunit-target-metadata>
+</trans-unit>
+</group>
+</body>
+</file><file original="et_logi_select_survey_button.html" source-language="en-001" target-language="da" datatype="x-undefined" m:file-format="HTML" m:task-id="1ejl300yuRKk2SH53_dc2" m:begin-group-id="0" m:end-group-id="0" m:project-uid="oQnzhYBb7NrS69ejPbnm90" m:job-uid="bFyyIJ4nN6p0vaqfZQGv11">
+<body>
+
+<group id="0" m:para-id="0">
+<trans-unit id="1ejl300yuRKk2SH53_dc2:0" xml:space="preserve" m:score="1.0" m:gross-score="1.0" m:trans-origin="mt" m:trans-origin-detail="qe_v2" m:confirmed="1" m:locked="false" m:para-id="0" m:created-at="1658302611092" m:created-by="332915" m:modified-at="1658303758614" m:modified-by="332915" m:level-edited="false">
+<source>Take the survey</source>
+<target>Udfyld spørgeundersøgelsen</target>
+<alt-trans origin="machine-trans" match-quality="1.0"><target>Deltag i undersøgelsen</target></alt-trans>
+<alt-trans origin="memsource-tm" match-quality="0.99" tm-id="1027864"><target>UDFYLD SPØRGEUNDERSØGELSEN</target></alt-trans>
+<m:editing-stats>
+<m:editing-time>103986</m:editing-time>
+<m:thinking-time>9233</m:thinking-time>
+</m:editing-stats>
+</trans-unit>
+</group>
+</body>
+</file>
+<m:extra>
+<m:users>
+<m:user id="332915" uid="JXgUP8hLkVU05qsn5JCX81" username="fcampart" fullname="François Campart"/>
+</m:users>
+</m:extra>
+</xliff>

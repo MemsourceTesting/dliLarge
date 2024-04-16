@@ -1,0 +1,18 @@
+{
+	"DNL_test": "check",
+	"test":
+	[
+	{
+		"DNL_itemType": "Web Service - not yet a toolkit",
+		"message": "LabVIEW cannot load this item because it requires the LabVIEW Web Service Authoring Toolkit. Use NI Package Manager to install this toolkit."
+	},
+	{
+		"DNL_ChassisType": "RT PXI Chassis",
+		"message": "LabVIEW cannot load this item because it requires the LabVIEW Real-Time Module. Use NI Package Manager to install this module."
+	},
+	{
+		"DNL_TargetType": "FPGA Target",
+		"message": "LabVIEW cannot load this item because it requires the LabVIEW FPGA Module. Use NI Package Manager to install this module."
+	}
+]
+}

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % common_entities SYSTEM "../common.ent">
+%common_entities;
+]>
+<!-- Chapters should have an id that is a short version of the title. -->
+<chapter id="intro">
+  <title>Introducing Red&nbsp;Hat Fuse and Camel</title>
+  <abstract>
+    <para>
+      <informaltable frame="all">
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="2.2*"/>
+          <tbody>
+            <row>
+              <entry>
+                <emphasis role="bold">Goal</emphasis>
+              </entry>
+              <entry>
+                Describe how Fuse and Camel are used to integrate applications.
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis role="bold">Objectives</emphasis>
+              </entry>
+              <entry>
+                <!-- List Chapter Objectives -->
+                <!-- If only one objective, remove the <itemizedlist> -->
+                <itemizedlist>
+                  <listitem>
+                    <para>
+                      Discuss integration concepts with Red&nbsp;Hat Fuse and Camel.
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Describe the basic concepts of Camel and enterprise integration patterns.
+                    </para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <emphasis role="bold">Sections</emphasis>
+              </entry>
+              <entry>
+                <!-- Enter lecture section titles here. Do not list practice titles. Should be a 1-1 match with performance objectives. -->
+                <!-- If only one section, remove the <itemizedlist> -->
+                <itemizedlist>
+                  <listitem>
+                    <para>
+                      Developing Cloud-native Integration Solutions with Red&nbsp;Hat Fuse and Camel
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Configuring the Classroom Environment (Guided Exercise)
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Describing Enterprise Integration Patterns and Camel Concepts
+                    </para>
+                  </listitem>
+                  <listitem>
+                    <para>
+                      Describing Enterprise Integration Patterns and Camel Concepts (Guided Exercise)
+                    </para>
+                  </listitem>
+                </itemizedlist>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </abstract>
+  <!-- Include section content from the topics directory. -->
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/intro/basics-lecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/intro/setup-ge.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/intro/concepts-lecture.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/intro/demo-ge.xml"/>
+
+  <section id="intro-summary">
+    <title>Summary</title>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="topics/intro/summary-content.xml" xpointer="xpointer(/section/node()[not(self::title)])">
+      <!--<xi:fallback>
+          
+            
+            
+            
+          <note>
+            <para>
+              This section is under development.
+            </para>
+          </note>
+      </xi:fallback>-->
+    </xi:include>
+  </section>
+</chapter>

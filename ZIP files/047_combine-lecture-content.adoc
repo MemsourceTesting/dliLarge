@@ -1,0 +1,250 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='patterncombine-lecture']
+= Splitting and Aggregating Messages
+
+== The Splitter Pattern
+
+The Splitter pattern provides a way to break the contents of a message into smaller chunks.
+This is especially useful when you are dealing with lists of objects, and you want to process each item in the list separately.
+An example where this is useful is splitting the individual items from a customer's order to create order items from it and process the order items for shipment.
+
+To implement this pattern, Camel provides the `+split+` method, which you can use when creating the route.
+The following example demonstrates the use of an XPath predicate to split XML data stored in the exchange body:
+
+[subs=+quotes]
+----
+from("activemq:queue:NewOrders")
+     .split(body(xpath("/order/product")))
+     .to("activemq:queue:Orders.Items");
+----
+
+The `+split+` function also supports the splitting of certain Java types by default without any predicate specified.
+A common use case is to split a Collection, Iterator, or array from the exchange body.
+
+The `+split+` method creates separate exchanges for each part of the data that is split and then sends those exchanges along the route separately.
+
+For example, consider a route that has unmarshaled CSV data into a List object.
+Once the data is unmarshaled, the exchange body contains a List of model objects, and a call to split creates a new exchange for each record from the CSV file.
+
+The following examples demonstrate splitting the exchange body as well as splitting an exchange header:
+
+[subs=+quotes]
+----
+from("direct:splitUsingBody").split(body()).to("mock:result"); <1>
+
+from("direct:splitUsingHeader").split(header("foo")).to("mock:result"); <2>
+----
+
+<1> This example splits the body containing an Iterable Java object (List, Set, Map, etc) into separate exchanges.
+
+<2> This example splits a header containing an Iterable Java object into separate exchanges with the same body.
+For example, if the exchange header contains a list of users then split could transform it into multiple exchanges, one per user in the list, all containing the same exchange body.
+
+=== Using the Tokenizer with the Splitter Pattern
+
+The tokenizer language is intended to tokenize or break up text documents, such as CSV or XML, by using a specified delimiter pattern.
+You can use the tokenizer expression with the `+split+` method to split the exchange body by using a token.
+This allows you to split your text content without the need to first unmarshal it into Java objects.
+
+The following code snippet is an example of a route that uses the tokenizer expression by using the `+tokenize+` method.
+The route reads a text-based file and splits the messages per line, and then sends it to a Kafka topic one by one.
+
+[subs=+quotes]
+----
+from("file:messages.txt")
+  .`+split+`(body().`+tokenize("\n")+`)
+  .to("kafka:messages");
+----
+
+Additionally, if you are splitting XML data, Camel provides the DSL method `+tokenizeXML+` as an optimized version of the tokenizer.
+
+[subs=+quotes]
+----
+from("file:inbox")
+  .split().`+tokenizeXML("order")+`
+  .to("activemq:queue:order");
+----
+
+=== Addressing Memory Usage Issues in the Splitter Pattern with Streaming
+
+When consuming large pieces of data with Camel, the Splitter pattern is used to divide up this data into smaller, more manageable pieces.
+But this large amount of data can make the Route consume large amounts of memory.
+To avoid this problem, Camel offers an option called streaming, which alleviates memory issues by not loading the entire piece of data into memory.
+
+If streaming is enabled then Camel splits the input message into chunks, instead of attempting to load the entire body into memory at once, and then splitting it.
+This reduces the memory required for each invocation of the route.
+
+When dealing with extremely large payloads, it is recommended that you enable streaming.
+If data is small enough to fit in memory, streaming is an unnecessary overhead.
+
+You can split streams by enabling the streaming mode using the streaming builder method.
+
+[subs=+quotes]
+----
+from("direct:streaming")
+    .split(body().tokenizeXML("order")).`+streaming()+`
+    .to("activemq:queue.order");
+----
+
+If the data you are splitting is in XML format then be sure to use `+tokenizeXML+` instead of an XPath expression.
+This is because the XPath engine in Java loads the entire XML content into memory, negating the effects of streaming for very big XML payloads.
+
+== The Aggregator Pattern
+
+You can group fragmented data from multiple source messages into a single unique message by using the Aggregator pattern.
+The Aggregator pattern is suitable for use cases where fragmented data is not the best way to deliver information.
+
+For example, when you want to batch process data that you receive in fragments, such as combining individual orders that need to be fulfilled by the same vendor.
+By using this pattern, you can define custom aggregation behavior to control how Camel uses the source data fragments to build the final aggregated message.
+
+To build the final message, there are three pieces of information needed:
+
+The correlation value::
+The correlation value is a field obtained by using an expression to group messages together for aggregation.
+A common strategy used to group messages is to use an exchange header, but it could also refer to a message body field using `+xpath+` or `+jsonpath+`.
+
+Logic for how to compile the final message::
+You must provide Java code to build the final message exchange sent by the aggregator.
+This can be as simple as concatenating the exchange bodies together, or much more complex custom business logic.
+To build this, implement the `+AggregationStrategy+` interface, which builds the exchange payload with the messages captured by using the correlation value.
+
+The complete condition::
+You must define the complete condition, which uses a predicate or time condition to instruct Camel to validate when the final message `+exchange+` object, built from the individual incoming exchanges should be sent out of the aggregator.
+
+To use this pattern in your Camel route, use the `+aggregate+` DSL method, which requires two parameters:
+[subs=+quotes]
+----
+.aggregate(`+correlationExpression, AggregationStrategyImpl+`)
+----
+
+Additionally, you must define a completion condition to specify when to send the aggregated exchange.
+You can define the completion condition by using methods from the Java domain-specific language (DSL).
+The Java DSL takes place in the subsequent parts of this section.
+
+For example, in the following route, the messages with a matching header field called `+destination+` are aggregated using the `+MyNewStrategy+` `+AggregationStrategy+` implementation.:
+
+[subs=+quotes]
+----
+from("file:in")
+    .aggregate(header("destination"),new MyNewStrategy())...
+    .to("file:out");
+----
+
+=== The AggregationStrategy Interface
+
+The `+AggregationStrategy+` is a required implementation when merging multiple messages into a single message.
+It declares a single method (aggregate) and requires the following guidelines:
+
+* The `+aggregate+` method requires two exchange parameters, but the first parameter is always `+null+` for the first message.
+This is because when you receive the first message exchange you have not yet created the aggregated message.
+Therefore, an `+if+` clause must exist to verify whether the first exchange is `+null+`, and instantiate the aggregated message and return it.
+
+* The exchange object that is returned by the `+aggregate+` method is automatically passed into the next execution of the `+AggregationStrategy+` implementation.
+In the `+AggregationStrategy+` implementation, an exchange object is expected to be returned by the method execution, with body contents that represent the aggregation of the two exchange objects passed into the `+aggregate+` method execution.
+
+[subs=+quotes]
+----
+final class BodyAggregationStrategy implements AggregationStrategy {
+    @Override
+    public Exchange aggregate(Exchange oldExchange, Exchange newExchange) { <1> <2>
+        if (oldExchange == null){ <3>
+            return newExchange;
+             }
+        String newBody = newExchange.getIn().getBody(String.class);
+        String oldBody = oldExchange.getIn().getBody(String.class); <4>
+        newBody = newBody.concat(oldBody); <5>
+        newExchange.getIn().setBody(newBody); <6>
+        return newExchange; <7>
+    }
+}
+----
+
+<1> The exchange object that was previously processed and returned by this `+AggregationStrategy+` implementation.
+
+<2> The exchange object containing the newest exchange object received by this `+AggregationStrategy+` implementation.
+
+<3> Mandatory condition to verify if this is the first message processed by this `+AggregationStrategy+` implementation.
+The first invocation of the `+aggregate+` method always has a `+null+` value for the `+oldExchange+` parameter.
+
+<4> Retrieves the body contents from the exchange object sent by the previous execution of this `+AggregationStrategy+` implementation and transforms it into a `+String+`.
+
+<5> Merge the body content from both exchanges.
+This implementation uses a simple string concatenation to merge the two exchange bodies.
+
+<6> Updates the body of the `+exchange+` object with the merged body content to be sent to the next execution of this `+AggregatorStrategy+` implementation.
+
+<7> Sends the updated `+exchange+` object to the next execution of this `+AggregationStrategy+` implementation.
+
+=== Controlling the Size of the Aggregation
+
+When using the Aggregator pattern, Camel requires that developers identify the conditions under which the aggregated message exchange must be sent to the remainder of the route.
+The following are the six most commonly used methods that Camel provides to identify the complete condition:
+
+completionInterval(long completionInterval)::
+Build the aggregated message after a certain time interval (in milliseconds).
+
+completionPredicate(Predicate predicate)::
+Build the aggregated message if the predicate is true.
+
+completionSize(int completionSize)::
+Build the aggregated message when the number of messages defined in the `+completionSize+` is reached.
+
+completionSize(Expression completionSize)::
+
+Build the aggregated message when the number of messages processed by a Camel expression is reached.
+
+completionTimeout(long completionTimeout)::
+Build the aggregated message when there are no additional messages for processing and the `+completionTimeout+` (in milliseconds) is reached.
+
+completionTimeout(Expression completionTimeout)::
+Build the aggregated message when there are no additional messages for processing and the timeout defined by a Camel expression is reached.
+
+In the following route, the `+completionSize+` method is used to trigger the aggregated message creation:
+
+[subs=+quotes]
+----
+from("file:in")
+    .aggregate(header("destination"),new MyNewStrategy())
+    .completionSize(5)
+    .to("file:out");
+----
+
+[NOTE]
+====
+The `+completionSize+` method waits until the number of messages defined in the `+completionSize+` parameter is reached.
+If this number is not reached, the aggregate method hangs when you try to stop the Camel context.
+To avoid this, you must set the `+AGGREGATION_COMPLETE_ALL_GROUPS+` header to true in the implementation of your aggregation strategy:
+
+[subs=+quotes]
+-----
+newExchange.getIn().setHeader
+(Exchange.AGGREGATION_COMPLETE_ALL_GROUPS,true).
+-----
+====
+
+It is also possible to use multiple completion conditions, as shown in the following example:
+
+[subs=+quotes]
+----
+from("file:in")
+    .aggregate(header("destination"),new MyNewStrategy())
+    .completionInterval(10000)
+    .completionSize(5)
+    .to("file:out");
+----
+
+When multiple completion conditions are defined, which ever condition is met first triggers the completion of the aggregation.
+In the previous example, for completion of the batch to occur, either five total exchanges are processed, or 10 seconds have passed, whichever occurs first.
+
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+For more information, refer to the _Splitter_ chapter in the _Apache Camel Development Guide_ https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#MsgRout-Splitte
+
+For more information, refer to the _Aggregator_ chapter in the _Apache Camel Development Guide_ https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/apache_camel_development_guide/index#MsgRout-Aggregator
+
+_Camel in Action, Second Edition_ (2018) by Claus Ibsen and Jonathan Anstey; Manning. ISBN 978-1-617-29293-4.
+====

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ButtonLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ButtonConnect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="DeviceList" xml:space="preserve">
+    <value>Device list</value>
+  </data>
+  <data name="ConnectedPage_ConnectedTo" xml:space="preserve">
+    <value>Connected to </value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DevicesPage_RefreshList" xml:space="preserve">
+    <value>Refresh list</value>
+  </data>
+  <data name="MakeAnySpaceYourSpace" xml:space="preserve">
+    <value>Experience better meetings.</value>
+  </data>
+  <data name="MakeAnySpaceYourSpaceDetail" xml:space="preserve">
+    <value>Sign in to access your personal calendar and launch meetings, content and apps on the main room display.</value>
+  </data>
+  <data name="SignInWithMicrosoft" xml:space="preserve">
+    <value>Sign in with Microsoft</value>
+  </data>
+  <data name="NeedHelpQuestion" xml:space="preserve">
+    <value>Need help?</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="DevicesPage_LookingForNearbyDevices" xml:space="preserve">
+    <value>Looking for screens</value>
+  </data>
+  <data name="CannotConnectDescription" xml:space="preserve">
+    <value>A user is already connected</value>
+  </data>
+  <data name="CannotConnectTitle" xml:space="preserve">
+    <value>Busy device</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="ContinueConnected" xml:space="preserve">
+    <value>Continue connected</value>
+  </data>
+  <data name="DeviceNotDetected" xml:space="preserve">
+    <value>Device is not detected</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Launcher</value>
+  </data>
+  <data name="DeviceID" xml:space="preserve">
+    <value>Device ID</value>
+  </data>
+  <data name="DeviceIDError" xml:space="preserve">
+    <value>Enter the ID shown on the main display.</value>
+  </data>
+  <data name="EnterDeviceID" xml:space="preserve">
+    <value>Enter Device ID</value>
+  </data>
+  <data name="EnterTheDeviceID" xml:space="preserve">
+    <value>Enter the device ID</value>
+  </data>
+  <data name="EnterYourCredentials" xml:space="preserve">
+    <value>Enter your credentials</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PleaseEnterYourCredentials" xml:space="preserve">
+    <value>Please enter your credentials</value>
+  </data>
+  <data name="SkypeForBusiness" xml:space="preserve">
+    <value>Skype For Business</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="NoInternetTitle" xml:space="preserve">
+    <value>No internet connection</value>
+  </data>
+  <data name="SpotNotFound" xml:space="preserve">
+    <value>We can't find the launcher application</value>
+  </data>
+  <data name="SpotNotFound_DetailNoInternet" xml:space="preserve">
+    <value>Internet connection is needed to reach launcher application.</value>
+  </data>
+  <data name="Connecting" xml:space="preserve">
+    <value>Connecting</value>
+  </data>
+  <data name="ScanQRCodeWindowTitle" xml:space="preserve">
+    <value>Scan QR Code</value>
+  </data>
+  <data name="NetworkLost" xml:space="preserve">
+    <value>Your network connection has been lost, the application is trying to reconnect.</value>
+  </data>
+  <data name="Device" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="EventAttendeesCount" xml:space="preserve">
+    <value>{0} attendees</value>
+  </data>
+  <data name="EventAttendeeCount" xml:space="preserve">
+    <value>{0} attendee</value>
+  </data>
+  <data name="BeaconNotificationMessage" xml:space="preserve">
+    <value>We have found a Launcher in your proximity.</value>
+  </data>
+  <data name="BeaconNotificationTitle" xml:space="preserve">
+    <value>Launcher found!</value>
+  </data>
+  <data name="DevicesPage_Title" xml:space="preserve">
+    <value>Discover</value>
+  </data>
+  <data name="ConnectQRButton" xml:space="preserve">
+    <value>Connect with QR code</value>
+  </data>
+  <data name="DevicesPage_InfoLookingFor" xml:space="preserve">
+    <value>This should only take a second…</value>
+  </data>
+  <data name="DevicesPage_InfoNoDevices" xml:space="preserve">
+    <value>Launcher screens will appear here if found nearby.</value>
+  </data>
+  <data name="DevicesPage_NearbyDevice" xml:space="preserve">
+    <value>{0} screen nearby</value>
+  </data>
+  <data name="DevicesPage_NearbyDevices" xml:space="preserve">
+    <value>{0} screens nearby</value>
+  </data>
+  <data name="DevicesPage_NoDevices" xml:space="preserve">
+    <value>No screens nearby</value>
+  </data>
+  <data name="LogoutDialog_Content" xml:space="preserve">
+    <value>Are you sure you want to disconnect your Microsoft account?</value>
+  </data>
+  <data name="LogoutDialog_OkButton" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="LogoutDialog_Title" xml:space="preserve">
+    <value>Sign out of Microsoft</value>
+  </data>
+  <data name="LogutDialog_CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="LocationInfo_Content" xml:space="preserve">
+    <value>To quickly find a Launcher screen in the room or nearby, and connect with one tap we recommend you allow access to your location while using the app.</value>
+  </data>
+  <data name="LocationInfo_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="LocationInfo_Title" xml:space="preserve">
+    <value>Discover your nearest screen.</value>
+  </data>
+  <data name="DevicesPage_NoDiscovery" xml:space="preserve">
+    <value>No discovery right now</value>
+  </data>
+  <data name="DevicesPage_NoDiscovery_Content" xml:space="preserve">
+    <value>To find Launcher screens near you, we need access to your location while you are using the app.</value>
+  </data>
+  <data name="DevicesPage_LocationSettings" xml:space="preserve">
+    <value>Open location settings</value>
+  </data>
+  <data name="ConnectedPage_LaterToday" xml:space="preserve">
+    <value>Later today</value>
+  </data>
+  <data name="ConnectedPage_LaunchMeeting" xml:space="preserve">
+    <value>Launch on screen</value>
+  </data>
+  <data name="ConnectedPage_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="ConnectedPage_Title" xml:space="preserve">
+    <value>Meetings</value>
+  </data>
+  <data name="ConnectedPage_NoMoreMeetings" xml:space="preserve">
+    <value>No more meetings today</value>
+  </data>
+  <data name="ConnectedPage_CalendarProblem" xml:space="preserve">
+    <value>There’s been a problem connecting to your calendar, 
+
+Please try again later.</value>
+  </data>
+  <data name="ConnectedPage_NoMeetingsToday" xml:space="preserve">
+    <value>No meetings today</value>
+  </data>
+  <data name="ConnectedPage_NoMeetingsToday_Content" xml:space="preserve">
+    <value>Any meetings in your Outlook calendar will be listed here.</value>
+  </data>
+  <data name="EventDetails_Application" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="EventDetails_Attendees" xml:space="preserve">
+    <value>Attendees ({0})</value>
+  </data>
+  <data name="EventDetails_DateTime" xml:space="preserve">
+    <value>Date &amp; time</value>
+  </data>
+  <data name="EventDetails_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="EventDetails_MeetingDetails" xml:space="preserve">
+    <value>Meeting details</value>
+  </data>
+  <data name="EventDetails_Organiser" xml:space="preserve">
+    <value>Organiser</value>
+  </data>
+  <data name="EventDetails_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="UnscheduledStart_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="UnscheduledStart_Content" xml:space="preserve">
+    <value>This meeting is scheduled to start at {0}. Are you sure you want to launch it now?</value>
+  </data>
+  <data name="UnscheduledStart_Ok" xml:space="preserve">
+    <value>Launch now</value>
+  </data>
+  <data name="UnscheduledStart_Title" xml:space="preserve">
+    <value>Unscheduled start</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Error_Initialising" xml:space="preserve">
+    <value>Cannot connect to our services, please restart the application</value>
+  </data>
+</root>

@@ -1,0 +1,21 @@
+{
+  "boolean_key": "\n",
+  "empty_string_translation": "",
+  "key_with_description": "compruebalo This key has a description! ",
+  "key_with_line-break": "",
+  "nested.deeply.key": "clave",
+  "nested.key": "",
+  "null_translation": null,
+  "pluralized_key": {
+    "one": "",
+    "other": "",
+    "zero": ""
+  },
+  "sample_collection": [
+    "",
+    "",
+    ""
+  ],
+  "simple_key": "",
+  "unverified_key": " "
+}

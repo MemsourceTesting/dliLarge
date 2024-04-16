@@ -1,0 +1,74 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+// Sections should have an id that is a short version of the title.
+[id='transactionimplementation-multchoice']
+= Multiple Choice Sample Title
+
+In this quiz, consider that you are developing Camel routes for data integration and processing in a video streaming platform.
+Your Camel routes communicate with a relational database and use Spring Boot as the runtime.
+
+
+[role='MultChoice']
+== Instructions
+Choose the correct answers to the following questions:
+
+
+1) The data science team has provided you with a complex and fine-tuned SQL query to extract popularity statistics about each show from the database.
+They would like you to extract the results of the query and post the data to the REST API of a data lake for further processing.
+Which two of the following components are suitable components to execute the query? (Choose two.)
+
+** The CSV component
+** [role='solution'] The JDBC component
+** [role='solution'] The SQL component
+** The JMS component
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+2) One of your Camel routes consumes the `+Documentary+` JPA entity from the database for analysis.
+This route must read data without deleting records from the database after consumption.
+Which one of the following options should you use? (Choose one.)
+
+** [role='solution'] `+consumeDelete=false+`
+** `+consumer.delete=true+`
+** `+consumer.delete=false+`
+** `+consumeDelete=true+`
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+3) The application runs a statistical analysis on subscription payment data to find potential frauds and anomalies.
+In the Camel route that implements this mechanism, each message contains the payment object as the body.
+The headers of each message are `+paymentId+`, which uniquely identifies the payment, and `+subscriptionId+`, which refers to the subscription associated to the payment.
+The route must process each payment once, however, the existing implementation contains a bug.
+Which one of the following options fixes the bug? (Choose one.)
+
+----
+MemoryIdempotentRepository repository = MemoryIdempotentRepository.memoryIdempotentRepository();
+
+from("direct:paymentAnalysis")
+    .idempotentConsumer(
+        body("subscriptionId"),
+        repository
+    )
+    .process(new PaymentAnalyzer())
+    .to("jms:queue:analisys_results");
+----
+
+** Replace the repository with a database repository, to ensure that uniqueness is persisted.
+** [role='solution'] Use the `+header("paymentId")+` expression as the unique key.
+** Run the `+PaymentAnalyzer+` processor before the `+idempotentConsumer+` processor.
+** Use the `+header("subscriptionId")+` expression as the unique key.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+4) One of the Camel integrations of the application requires the use of the same transaction to control all Camel processors in route.
+Which one of the following options should you choose as the transaction policy? (Choose one.)
+
+** [role='solution'] `+PROPAGATION_REQUIRED+`
+** `+PROPAGATION_REQUIRES_NEW+`
+** `+PROPAGATION_NOT_SUPPORTED+`
+** `+PROPAGATION_SUPPORTED+`

@@ -1,0 +1,646 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE book [
+<!ENTITY % BOOK_ENTITIES SYSTEM "Red_Hat_OpenShift_Software_Certification_Policy_Guide.ent">
+%BOOK_ENTITIES;
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
+%DOCBOOK_ENTS;
+]>
+<book version="5.0" xml:lang="ja-JP" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<info>
+		<title>Red Hat OpenShift Software Certification Policy Guide</title>
+		 <subtitle>For Use with Red Hat OpenShift</subtitle>
+		 <productname>Red Hat OpenShift Certification</productname>
+		 <productnumber>4.9</productnumber>
+		 <abstract>
+			<para>
+				The Red Hat OpenShift Certification Policy Guide describes the procedural, technical and policy requirements for achieving a Red Hat certification for a software product.
+			</para>
+			 <para>
+			</para>
+
+		</abstract>
+	</info>
+	 <part xml:id="con-conscious-language-message">
+		<title>Making open source more inclusive</title>
+		<partintro role="_abstract">
+			<simpara>
+				Red Hat is committed to replacing problematic language in our code and documentation. We are beginning with these four terms: master, slave, blacklist, and whitelist. Due to the enormity of this endeavor, these changes will be gradually implemented over upcoming releases. For more details on making our language more inclusive, see our <link xlink:href="https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language">CTO Chris Wright’s message</link>.
+			</simpara>
+		</partintro>
+		<chapter xml:id="assembly-introduction-to-openshift-certification_openshift-sw-cert-policy">
+			<title>Introduction to Red Hat OpenShift certification policies</title>
+			<simpara role="_abstract">
+				The Red Hat Openshift certification policy guide covers the technical and operational certification requirements to obtain and maintain Red Hat certification for a software product on Red Hat OpenShift.
+			</simpara>
+			<simpara>
+				To know the test requirements and procedure for achieving Red Hat certification for a software product on Red Hat OpenShift, see the <link xlink:href="https://redhat-connect.gitbook.io/partner-guide-for-red-hat-openshift-and-container/">Red Hat Openshift certification workflow guide</link>.
+			</simpara>
+			<section xml:id="con-audience_openshift-sw-cert-policy-introduction">
+				<title>Audience</title>
+				<simpara role="_abstract">
+					Red Hat OpenShift certification is offered to commercial software vendors that deliver cloud-native software products targeting Red Hat OpenShift as the deployment platform utilizing Kubernetes Operators.
+				</simpara>
+			</section>
+			<section xml:id="con-create-value-for-customers_openshift-sw-cert-policy-introduction">
+				<title>Create value for customers</title>
+				<simpara role="_abstract">
+					The certification process allows partners to continuously verify if their product meets Red Hat standards of interoperability, security, and life cycle management when deployed on Red Hat OpenShift.
+				</simpara>
+				<simpara>
+					The customers benefit from a trusted application and infrastructure stack, tested and jointly supported by Red Hat and the Partner.
+				</simpara>
+			</section>
+			<section xml:id="con-red-hat-openshift-certification-prerequisites_openshift-sw-cert-policy-introduction">
+				<title>Red Hat Openshift certification prerequisites</title>
+				<itemizedlist role="_abstract">
+					<listitem>
+						<simpara>
+							Join the <link xlink:href="https://connect.redhat.com/">Red Hat Partner Connect</link> program.
+						</simpara>
+					</listitem>
+					<listitem>
+						<simpara>
+							Accept the standard Partner Agreements along with the terms and conditions specific to containerized software.
+						</simpara>
+					</listitem>
+					<listitem>
+						<simpara>
+							Enter basic information about your company and the products you wish to certify through the Red Hat Partner Connect portal.
+						</simpara>
+					</listitem>
+					<listitem>
+						<simpara>
+							Support OpenShift as a platform for the product being certified and establish a support relationship with Red Hat. You can do this through the multi-vendor support network of <link xlink:href="https://redhatconnect.connect.tsanet.org/#/">TSANet</link>, or through a custom support agreement.
+						</simpara>
+					</listitem>
+				</itemizedlist>
+				<itemizedlist role="_additional-resources">
+					<title>Additional resources</title>
+					<listitem>
+						<simpara>
+							For more information about onboarding and managing your account, see <link xlink:href="https://redhat-connect.gitbook.io/red-hat-partner-connect-general-guide/">General Program Guide for Partners</link>.
+						</simpara>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section xml:id="con-supported-openshift-versions_openshift-sw-cert-policy-introduction">
+				<title>Supported OpenShift Versions</title>
+				<simpara role="_abstract">
+					Certification is available for OpenShift Container Platform v4. This provides a modern release-driven, phased life cycle, specifically for minor OpenShift versions under maintenance or extended support.
+				</simpara>
+				<itemizedlist role="_additional-resources">
+					<title>Additional resources</title>
+					<listitem>
+						<simpara>
+							For more information, see <link xlink:href="https://access.redhat.com/support/policy/updates/openshift">Red Hat OpenShift Container Platform Lifecycle Policy</link>.
+						</simpara>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section xml:id="con-certification-lifecycle_openshift-sw-cert-policy-introduction">
+				<title>Certification lifecycle</title>
+				<simpara role="_abstract">
+					Kubernetes innovates at a fast pace and it reflects in the <link xlink:href="https://access.redhat.com/support/policy/updates/openshift#dates">fast cadence of OpenShift</link>. It is important to approach OpenShift testing and certification as a continuous process to ensure ongoing interoperability and support for customers as they handle both platform and application updates.
+				</simpara>
+				<simpara>
+					Verify if your product is compatible with new minor releases (4. x) of OpenShift and check if it is working after a platform upgrade. The Operator packaging format captures the compatibility information as a part of the metadata, so users can know the supported versions of OpenShift and set upgrade policies accordingly. For more details on encoding this information, see metadata requirements for <link linkend="con-operator-requirements_openshift-sw-cert-policy-products-managed">Operators</link>.
+				</simpara>
+				<simpara>
+					Recertify your Operator for major releases of your product or on the addition of new functionality that warrants repeating the verification tests.
+				</simpara>
+				<simpara>
+					Verify the content of individual components (containers) continuously to mitigate security risks. Red Hat provides this as a service for all certified containers, constantly monitoring to identify any critical vulnerabilities (CVEs) for all the Red Hat packages.
+				</simpara>
+				<itemizedlist role="_additional-resources">
+					<title>Additional resources</title>
+					<listitem>
+						<simpara>
+							For more information about OpenShift Lifecycle and release cadence, see the corresponding <link xlink:href="https://access.redhat.com/support/policy/updates/openshift">Lifecycle Policy</link>.
+						</simpara>
+					</listitem>
+					<listitem>
+						<simpara>
+							For more information about Container scanning and keeping your images up to date, see <link xlink:href="https://redhat-connect.gitbook.io/partner-guide-for-red-hat-openshift-and-container/appendix/maintaining-image-grades">Maintain image grades</link>.
+						</simpara>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section xml:id="con-targeted-products-for-certification_openshift-sw-cert-policy-introduction">
+				<title>Targeted products for certification</title>
+				<simpara role="_abstract">
+					The products targeted for OpenShift certification must be installed and managed by a Kubernetes Operator, and its components must be packaged as containers.
+				</simpara>
+				<itemizedlist role="_additional-resources">
+					<title>Additional resources</title>
+					<listitem>
+						<simpara>
+							For more information about building Operators that meet the certification criteria, see <link xlink:href="https://redhat-connect.gitbook.io/certified-operator-guide/">Certified Operator Guide</link>.
+						</simpara>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section xml:id="con-functional-verification-and-openshift-environment_openshift-sw-cert-policy-introduction">
+				<title>Functional verification and OpenShift environment</title>
+				<simpara role="_abstract">
+					Verify if your product is working with the supported configuration on the <link xlink:href="https://www.openshift.com/products/container-platform">Red Hat OpenShift Container Platform</link>, using the same components and packaging that you submitted for certification. Install your product using the corresponding Operator.
+				</simpara>
+				<simpara>
+					Determine the specifics of the functional testing solely at your own discretion based on your criteria for correct application behavior.
+				</simpara>
+				<simpara>
+					Ensure your product does not make any modifications to the OpenShift stack, including the host operating system, other than configuration changes that are covered in the product documentation. Unauthorized changes can impact the support from Red Hat.
+				</simpara>
+				<simpara>
+					Check if your product is capable of running on any OpenShift cluster node, regardless of the type of OpenShift deployment (bare metal, virtual environment, or cloud service), installation process (IPI or UPI), or cluster size. If there are any limitations due to dependencies on hardware components, a specific type of configuration, or cluster size, mention them in the product documentation.
+				</simpara>
+			</section>
+		</chapter>
+		<chapter xml:id="assembly-requirements-for-container-images_openshift-sw-cert-policy-introduction">
+			<title>Requirements for container images</title>
+			<simpara role="_abstract">
+				The following requirements cover the content of the containers that are part of the certified product. These requirements are important to ensure that the images are scanned continuously to monitor security vulnerabilities in the operating system components, and the same components are covered as a part of the end user OpenShift support subscription.
+			</simpara>
+			<section xml:id="con-image-content-requirements_openshift-sw-cert-policy-container-images">
+				<title>Image content requirements</title>
+				<informaltable colsep="1" frame="all" role="_abstract" rowsep="1" xml:id="tabl-image-content-requirements">
+					<tgroup cols="2">
+						<colspec colname="col_1" colwidth="50*"></colspec>
+						<colspec colname="col_2" colwidth="50*"></colspec>
+						<thead>
+							<row>
+								<entry align="left" valign="top">Requirement</entry>
+								<entry align="left" valign="top">Justification</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									Image must contain a licenses directory. You can use this directory to add files that have the software terms and conditions.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									To ensure that the end-user is aware of the terms and conditions applicable to the software.
+								</simpara>
+								<simpara>
+									To check the open-source licensing information if the open source components are included in the image.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									The container image must use a base image provided by Red Hat, such as RHEL7 or Universal Base Image (UBI) which can be standard, micro, minimal, or multi-service.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									To ensure that if it completely supports application runtime dependencies, such as operating system components and libraries.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									Container image does not include Red Hat Enterprise Linux (RHEL) kernel packages.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									To ensure compliance with RHEL redistribution rules for partners.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									Container images cannot modify content provided by Red Hat packages or layers, except for files that end users can modify, such as configuration files.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									Unauthorized changes to Red Hat components would impact or invalidate their support.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									Red Hat components in the container image cannot contain any critical vulnerabilities that are defined in <link xlink:href="https://access.redhat.com/security/updates/classification">Severity Ratings</link>.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									These vulnerabilities introduce risk to our customers.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									Should not modify, replace or combine the Red Hat base layers.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									To ensure that the Red Hat provided base layer can still be identified and inspected.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									The uncompressed container image should have less than 40 layers.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									Too many layers within a container image can degrade container performance.
+								</simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+			</section>
+			<section xml:id="con-image-metadata-requirements_openshift-sw-cert-policy-container-images">
+				<title>Image metadata requirements</title>
+				<informaltable colsep="1" frame="all" role="_abstract" rowsep="1" xml:id="tabl-image-metadata-requirements">
+					<tgroup cols="2">
+						<colspec colname="col_1" colwidth="50*"></colspec>
+						<colspec colname="col_2" colwidth="50*"></colspec>
+						<thead>
+							<row>
+								<entry align="left" valign="top">Requirement</entry>
+								<entry align="left" valign="top">Justification</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									Container image must include the following labels:
+								</simpara>
+								<itemizedlist>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">name</emphasis>: Image Name<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">vendor</emphasis>: Company name<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">version</emphasis>: Version of the image<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">release</emphasis>: A number used to identify the specific build for this image<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">summary</emphasis>: A short overview of the application or component in this image<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">description</emphasis>: A long description of the application or component in this image
+										</simpara>
+									</listitem>
+								</itemizedlist>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									Providing metadata in a consistent format helps customers inspect and manage images.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									The image should include a tag other than "<emphasis>latest</emphasis>."
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									So that the image can be uniquely identified.
+								</simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<itemizedlist role="_additional-resources">
+					<title>Additional resources</title>
+					<listitem>
+						<simpara>
+							For more information about container images and Red Hat support, see <link xlink:href="https://access.redhat.com/articles/2726611">Red Hat Container Support Policy</link>.
+						</simpara>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section xml:id="con-image-maintenance-requirements_openshift-sw-cert-policy-container-images">
+				<title>Image maintenance requirements</title>
+				<simpara role="_abstract">
+					Partners are responsible for monitoring the health status of their certified containers and, when a rebuild is required, submit an updated container image for certification and publication. Partners must keep the application components up-to-date and rebuild their container images periodically.
+				</simpara>
+			</section>
+		</chapter>
+		<chapter xml:id="assembly-products-managed-by-an-operator_openshift-sw-cert-policy-container-images">
+			<title>Products managed by an Operator</title>
+			<simpara role="_abstract">
+				Operators must be capable of deploying your software product on Red Hat OpenShift, using the Operator Lifecycle Manager from the targeted Red Hat OpenShift releases.
+			</simpara>
+			<section xml:id="con-operator-requirements_openshift-sw-cert-policy-products-managed">
+				<title>Operator requirements</title>
+				<informaltable colsep="1" frame="all" role="_abstract" rowsep="1" xml:id="tabl-image-operator-requirements">
+					<tgroup cols="2">
+						<colspec colname="col_1" colwidth="50*"></colspec>
+						<colspec colname="col_2" colwidth="50*"></colspec>
+						<thead>
+							<row>
+								<entry align="left" valign="top">Requirement</entry>
+								<entry align="left" valign="top">Justification</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									Operator bundle must successfully pass the <link xlink:href="https://sdk.operatorframework.io/docs/cli/operator-sdk_bundle_validate/">Operator SDK bundle validation</link>.
+								</simpara>
+								<simpara>
+									Red Hat recommends the usage of the SDK to create the Operator, to ensure that the format is correct.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									To ensure correct format and compatibility with the Operator Lifecycle Manager (OLM).
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									The Operator must update the status field of each Custom Resource (CR).
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									To ensure that users can determine the running state of the CR and identify potential failures.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									The Cluster Service Version (CSV) in the Operator bundle must include all the fields indicated as required in the <link xlink:href="https://docs.openshift.com/container-platform/latest/operators/operator_sdk/osdk-generating-csvs.html#osdk-manually-defined-csv-fields_osdk-generating-csvs">CSV fields</link> and the following fields as metadata.<?asciidoc-br ?>
+								</simpara>
+								<itemizedlist>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">categories</emphasis>: Comma-separated string of the <link xlink:href="https://github.com/operator-framework/community-operators/blob/master/categories.json">community-operators/categories</link> list that applies to this product<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">description</emphasis>: Short description of the Operator<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">container Image</emphasis>: The full location (registry, repository, name, and tag) of the Operator image<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">created at</emphasis>: A rough (to the day) timestamp of the creation of the Operator image<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">support</emphasis>: Name of your company, as the vendor supporting this product<?asciidoc-br ?>
+										</simpara>
+									</listitem>
+									<listitem>
+										<simpara>
+											<emphasis role="strong">operators.openshift.io/valid-subscription</emphasis>: Information about subscriptions or licenses that are required to use the product (as free form text, for examples, see <link xlink:href="https://docs.openshift.com/container-platform/latest/operators/operator_sdk/osdk-generating-csvs.html#osdk-csv-manual-annotations_osdk-generating-csvs">Operator metadata annotations)</link>
+										</simpara>
+									</listitem>
+								</itemizedlist>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									Provides detailed information about the product managed by this Operator to users and support organizations.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									The Operator bundle must indicate in its metadata the minor versions of OpenShift supported for the target product by setting the <emphasis>com.redhat.openshift.versions</emphasis> through a label. For details on the syntax, see the <link xlink:href="https://redhat-connect.gitbook.io/certified-operator-guide/ocp-deployment/operator-metadata/bundle-directory/managing-openshift-versions">Managing OpenShift Versions</link> The version range must include an actively supported OpenShift version. The Operator must not make use of APIs that have been removed in a version of OpenShift included in this range.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									Declare OpenShift versions supported by the Operator.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									CSV in Operator bundle must indicate all the <link xlink:href="https://docs.openshift.com/container-platform/latest/operators/operator_sdk/osdk-generating-csvs.html#osdk-crds-owned_osdk-generating-csvs">CRDs Owned</link> by the Operator.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									To ensure adequate tracking and management of CRD lifecycle.
+								</simpara>
+								</entry>
+							</row>
+							<row>
+								<entry align="left" valign="top">
+								<simpara>
+									The Operator name must be different from any other Operator name already published in the Community, Certified, and Red Hat catalogs.
+								</simpara>
+								</entry>
+								<entry align="left" valign="top">
+								<simpara>
+									To avoid name conflicts.
+								</simpara>
+								</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<itemizedlist role="_additional-resources">
+					<title>Additional resources</title>
+					<listitem>
+						<simpara>
+							For more information about creating an Operator, see <link xlink:href="https://docs.openshift.com/container-platform/latest/operators/operator_sdk/osdk-about.html">Operator SDK</link>.
+						</simpara>
+					</listitem>
+					<listitem>
+						<simpara>
+							For more information about building Operators that meet the certification criteria, see <link xlink:href="https://redhat-connect.gitbook.io/certified-operator-guide/">Certified Operator Guide</link>.
+						</simpara>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section xml:id="con-operand-requirements_openshift-sw-cert-policy-products-managed">
+				<title>Operand requirements</title>
+				<simpara role="_abstract">
+					Each container managed by the Operator (Operands) must be certified by Red Hat and must fulfill the requirements listed in the <link linkend="con-image-content-requirements_openshift-sw-cert-policy-container-images">Requirements for container images</link> section.
+				</simpara>
+			</section>
+		</chapter>
+		<chapter xml:id="assembly-specialized-certifications-for-openshift-badges_openshift-sw-cert-policy-products-managed">
+			<title>Specialized certification for OpenShift badges</title>
+			<simpara role="_abstract">
+				Certification badges extend the Red Hat OpenShift certification into specific functional areas or infrastructure services. These badges are the key for our customers helping them perform cloud-native deployments. A badge indicates that a certified product delivers capabilities that have been verified by Red Hat, such as conformance with Kubernetes Container Storage Interface (CSI) or Container Networking Interface (CNI) APIs.
+			</simpara>
+			<simpara>
+				If your product delivers any of the capabilities described in this section, Red Hat encourages you to conduct additional tests. This helps you to identify your product accordingly on the <link xlink:href="https://catalog.redhat.com/">Red Hat Ecosystem Catalog</link>.
+			</simpara>
+			<section xml:id="con-container-network-interface_openshift-sw-cert-policy-specialized-certification">
+				<title>Container Network Interface (CNI)</title>
+				<simpara role="_abstract">
+					The CNI badge is a specialization within Red Hat OpenShift certification. It is available for networking products that integrate with OpenShift using a <link xlink:href="https://github.com/containernetworking/cni">CNI plug-in</link>.
+				</simpara>
+				<section xml:id="_plug_in_requirements">
+					<title>Plug-in requirements</title>
+					<simpara>
+						The plug-in must conform to the <link xlink:href="https://github.com/containernetworking/cni/blob/master/SPEC.md">CNI specification</link> version 0.3.1 or later.
+					</simpara>
+					<simpara>
+						You can deploy and manage the CNI plug-in through an Operator and it must meet the requirements described in this document. Do the initial setup of the networking product before deploying OpenShift, and manage the updates to the CNI plug-in through its Operator. This implies, the Operator must have the <emphasis>Seamless Upgrades</emphasis> capability and reflects this in the CSV.
+					</simpara>
+				</section>
+				<section xml:id="_openshift_interoperability_requirements">
+					<title>OpenShift interoperability requirements</title>
+					<simpara>
+						In addition to the default requirements for <link linkend="con-functional-verification-and-openshift-environment_openshift-sw-cert-policy-introduction">functional verification</link>, the OpenShift cluster that you use to verify the CNI functionality must have the Multus CNI plug-in enabled during all tests. All the components that are installed on the host must be tested and supported on the versions of Red Hat Enterprise Linux and Red Hat CoreOS.
+					</simpara>
+					<simpara>
+						The CNI plug-in must support OpenShift Virtualization. Any unsupported or degraded features of the plug-in or OpenShift Virtualization when used in combination, must be indicated in the documentation of the CNI product.
+					</simpara>
+				</section>
+				<section xml:id="_lifecycle_management_requirements">
+					<title>Lifecycle management requirements</title>
+					<simpara>
+						The plug-in must ensure minimal impact on upgrades for either major or minor plug-in releases. The plug-in upgrades should not require a full node reboot (whether major or minor) and must preserve existing connections during cluster upgrades.
+					</simpara>
+					<simpara>
+						The plug-in must allow new connections during upgrades. If new or existing connection preservation is not possible, this must be documented along with detailed upgrade steps. For example, if a full cluster drain or node cordoning/drain is required.
+					</simpara>
+					<simpara>
+						The plug-in documentation must show any difference in upgrade procedure between minor releases, bug fixes, or major updates.
+					</simpara>
+					<simpara>
+						Certifications are specific to the OpenShift minor release tested. Partners are required to recertify their product on new minor OpenShift releases.
+					</simpara>
+				</section>
+				<section xml:id="_cni_test_compliance">
+					<title>CNI test compliance</title>
+					<simpara>
+						The plug-in must pass the network tests of the <link xlink:href="https://catalog.redhat.com/software/containers/detail/5cdacc3dd70cc57c44b1d01f">OpenShift End-to-End Tests</link>, based on the <link xlink:href="https://github.com/kubernetes/community/blob/master/contributors/devel/sig-testing/e2e-tests.md#end-to-end-testing-in-kubernetes">Kubernetes End-to-End Tests</link>.These tests exercise the basic functions of the plug-in and show conformance to Kubernetes networking expectations.
+					</simpara>
+					<simpara>
+						The plug-in must complete the corresponding virtualization tests to validate the interoperability between the CNI plug-in and OpenShift Virtualization.
+					</simpara>
+					<itemizedlist role="_additional-resources">
+						<title>Additional resources</title>
+						<listitem>
+							<simpara>
+								For more information about the specific test suite components and commands, see <link xlink:href="https://redhat-connect.gitbook.io/openshift-badges/badges/container-network-interface-cni/workflow">Workflow Guide</link>.
+							</simpara>
+						</listitem>
+						<listitem>
+							<simpara>
+								For more information about the capability level of Operators, with Seamless Upgrades, see <link xlink:href="https://operatorframework.io/operator-capabilities/">Operator Framework documentation</link>.
+							</simpara>
+						</listitem>
+					</itemizedlist>
+				</section>
+			</section>
+			<section xml:id="con-container-storage-interface_openshift-sw-cert-policy-specialized-certification">
+				<title>Container storage interface (CSI)</title>
+				<simpara role="_abstract">
+					The CSI badge is a specialization within Red Hat OpenShift Certification. It is available to the storage products that integrate with OpenShift using a CSI driver.
+				</simpara>
+				<simpara>
+					to the storage products that integrate with OpenShift using a CSI driver.
+				</simpara>
+				<section xml:id="_driver_requirements">
+					<title>Driver requirements</title>
+					<simpara>
+						The CSI driver must implement version 1.0 or later of the <link xlink:href="https://github.com/container-storage-interface/spec">CSI specification</link>. The CSI driver must implement the Create and Delete volume capabilities. All other capabilities are optional but, if implemented and supported, they must be declared via a manifest file see (<link xlink:href="https://gist.github.com/bertinatto/4dab35cc4455f21b356a56c82b1fd0b4">example manifest file</link>) so they can be tested.
+					</simpara>
+					<itemizedlist role="_additional-resources">
+						<title>Additional resources</title>
+						<listitem>
+							<simpara>
+								For more information about the CSI versions supported by a specific OpenShift version, see specific <link xlink:href="https://docs.openshift.com/container-platform/latest/storage/container_storage_interface/persistent-storage-csi.html">release</link> documents.
+							</simpara>
+						</listitem>
+					</itemizedlist>
+				</section>
+				<section xml:id="_operator_and_sidecar_requirements">
+					<title>Operator and sidecar requirements</title>
+					<simpara>
+						You can deploy and manage the CSI driver on Red Hat OpenShift through an Operator and it must meet the requirements described in this document. The requirements to use certified operands (containers) also apply to the driver’s sidecar images. You should build and maintain their sidecar images so they can meet this criterion. You can select a sidecar image published and maintained by Red Hat, available as a part of OpenShift. If you do so, verify the interoperability of your CSI driver with the sidecars, as well as test and incorporate sidecar updates when available.
+					</simpara>
+				</section>
+				<section xml:id="_openshift_interoperability_requirements_2">
+					<title>OpenShift interoperability requirements</title>
+					<simpara>
+						All components installed on the host must be tested and supported on the versions of Red Hat Enterprise Linux and Red Hat CoreOS, used by the OpenShift release targeted for certification.
+					</simpara>
+					<simpara>
+						The CSI driver should support the storage features listed in the <link xlink:href="https://docs.openshift.com/container-platform/4.5/virt/virtual_machines/virtual_disks/virt-features-for-storage.html">OpenShift Virtualization feature matrix</link>, so users can take full advantage of platform services for virtual machines. The CSI product documentation must indicate if any of these features are not supported by the driver.
+					</simpara>
+				</section>
+				<section xml:id="_csi_test_compliance">
+					<title>CSI test compliance</title>
+					<simpara>
+						The plugin must complete the CSI tests of the <link xlink:href="https://catalog.redhat.com/software/containers/detail/5cdacc3dd70cc57c44b1d01f">OpenShift End-to-End Tests</link>, based on the <link xlink:href="https://github.com/kubernetes/community/blob/master/contributors/devel/sig-testing/e2e-tests.md#end-to-end-testing-in-kubernetes">Kubernetes End-to-End Tests</link>.
+					</simpara>
+					<simpara>
+						Execute the tests for each of the storage protocols supported (such as iSCSI, NFS, FC) and must match the declared capabilities.
+					</simpara>
+				</section>
+			</section>
+		</chapter>
+		<chapter xml:id="con-partner-documentation-requirements_openshift-sw-cert-policy-specialized-certification">
+			<title>Partner documentation requirements</title>
+			<simpara role="_abstract">
+				The product documentation that partners provide to their customers must:
+			</simpara>
+			<itemizedlist>
+				<listitem>
+					<simpara>
+						Include instructions on how to install and update your product on OpenShift using the certified Operator.
+					</simpara>
+				</listitem>
+				<listitem>
+					<simpara>
+						List OpenShift as a supported platform.
+					</simpara>
+				</listitem>
+			</itemizedlist>
+			<simpara>
+				Add links to your product documentation in the Product Listing information, provided as a part of the certification process.
+			</simpara>
+		</chapter>
+	</part>
+</book>
+

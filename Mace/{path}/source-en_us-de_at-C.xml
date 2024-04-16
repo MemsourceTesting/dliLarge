@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Activity Strings-->
+    <string name="app_name" translatable="false">&#160;Test translation</string>
+    <string name="main_start_shopping_skip_tutorial_btn_text">test</string>
+    <string name="main_start_shopping_btn_text">For testing I add two non-breaking spaces here&#160;&#160;here they are</string>
+    <string name="main_primary_message_default">test again</string>
+    <string name="main_secondary_message_default">Or just one here between yes&#160;no</string>
+
+</resources>

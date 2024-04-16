@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % common_entities SYSTEM "../../../common.ent">
+%common_entities;
+]>
+<section id="route-messages-lecture">
+  <title>Routing Messages</title>
+
+  <section>
+    <title>Objectives</title>
+
+    <para>
+      After completing this section, you should be able to implement routes that include dynamic routing.
+    </para>
+  </section>
+
+  <!-- The file below contains the body of this section.
+    This supports dynamic changes to the DCO and/or course structure. -->
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="messages-lecture-content.xml" xpointer="xpointer(/section/*[not(self::title)] )">
+    <!--<xi:fallback>
+      <section>
+        <title>Under Development</title>
+        <note>
+          <para>
+            This section is under development.
+          </para>
+        </note>
+      </section>
+    </xi:fallback>-->
+  </xi:include>
+
+  <!-- References are **NOT** generated from entries in the DCO yet.
+    You should include references in the messages-lecture-content.xml file. -->
+</section>

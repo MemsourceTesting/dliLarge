@@ -1,0 +1,192 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='testkit-practice']
+= Sample Title
+
+In this exercise, you will implement a test case for a route based on the Content Based Router EIP.
+
+Consider a legacy application that exposes its errors and warnings as HTML files.
+The provided code for this exercise implements a route that parses HTML markup and extracts the text of the most recent error messages.
+The routing logic is as follows:
+
+[compact]
+* For errors, the route must write the latest error text to the `+out/latest-error.txt+` file.
+* For warnings, the route must write the latest warning text to the `+out/latest-warning.txt+` file.
+* The HTML markup for errors is different from the markup for warnings.
+
+== Outcomes
+
+You should be able to implement a test case for a Camel route, by using the Camel Test Kit.
+
+The solution files for this exercise are in the `+AD221-apps+` repository, within the `+test-kit/solutions+` directory.
+
+== Prerequisites
+
+To perform this exercise, ensure you have the `+AD221-apps+` repository cloned in your workstation.
+
+From your workspace directory, use the `+lab+` command to prepare your system for this exercise.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab start test-kit*
+----
+
+The `+lab+` command copies the exercise files from the `+~/AD221/AD221-apps/test-kit/apps+` directory, into the `+~/AD221/test-kit+` directory.
+
+[role='Checklist']
+== Instructions
+
+1) Navigate to the `+~/AD221/test-kit+` directory and open the project with an editor, such as VSCodium.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+2) Add the `+spring-boot-starter-test+` and `+camel-test-spring+` dependencies to the POM file.
+These libraries are required to test Camel Spring Boot applications.
+
+[subs=+quotes]
+----
+<!-- TODO: Add camel test dependencies by uncommenting the following code -->
+`<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-test-spring</artifactId>
+    <scope>test</scope>
+</dependency>`
+----
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+3) Review the Camel route implemented in the `+HtmlRouteBuilder+` class.
+
+The route uses the `+language+` component and XPath to parse the HTML content and select the destination file.
+Note how the XPath expression for warnings is different from the one for errors.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+4) In the `+src/main/resources+` directory, inspect the `+test_errors.html+` and `+test_warnings.html+` files.
+These files are examples of the HTML markup that the route should parse, including errors and warnings from different microservices.
+The tests use these files to verify the route.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+5) Review the test cases in the `+HtmlRouteBuilderTest+` class.
+
+* `+testRouteWritesLatestWarningToFile+` verifies that the route creates the `+out/latest-warning.txt+` file.
+* `+testRouteWritesLatestErrorToFile+` verifies that the route creates the `+out/latest-error.txt+` file.
+* `+testRouteParsesLatestWarningText+` verifies that the route parses the first warning text.
+* `+testRouteParsesLatestErrorText+` should verify that the route parses the first error text.
+You must implement this method.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+6) Run the tests with `+./mvnw clean test+` and verify that tests fail.
+// We can provide one of the test cases already implemented (the test case for warnings, for example)
+// so that they only have to implement the test case for fatal errors
+
+[subs=+quotes]
+----
+_...output omitted..._
+
+Tests in error:
+testRouteParsesLatestWarningText(...)
+testRouteWritesLatestWarningToFile(...)
+testRouteWritesLatestErrorToFile(...)
+
+Tests run: 4, `+Failures: 1, Errors: 3+`, Skipped: 0
+----
+
+Tests do not pass because the test class is missing the annotations required for Spring Boot and Camel Test Kit.
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+7) Annotate the `+HtmlRouteBuilderTest+` class to use the Camel Test Kit in Spring Boot.
+
+7.1) Add the following annotations to the `+HtmlRouteBuilderTest+` class.
+
+[compact]
+* `+@RunWith( CamelSpringBootRunner.class )+`
+* `+@SpringBootTest( classes = Application.class )+`
+
+7.1) Rerun the tests.
+Only the `+testRouteParsesLatestErrorText+` test case should fail.
+
+[subs=+quotes]
+----
+Failed tests: `+testRouteParsesLatestErrorText+`(...)
+
+Tests run: 4, `+Failures: 1, Errors: 0+`, Skipped: 0
+----
+
+
+// ------------------------------------------------------------------------------------------------
+
+
+8) Implement the `+testRouteParsesLatestErrorText+` test method.
+This test must validate that, given the HTML content of the `+test_errors.html+` file, the route parses and extracts the text from the first `+<article>+` HTML tag.
+
+8.1) Read the contents from the `+test_errors.html+` file resource.
+
+[subs=+quotes]
+----
+// TODO: read errors file
+`+String errorsHtml = new String( errors.getInputStream().readAllBytes() );+`
+----
+
+8.1) Send the errors HTML as the body to the `+direct:parseHtmlErrors+` endpoint.
+Use the `+producerTemplate.sendBody+` method.
+
+[subs=+quotes]
+----
+// TODO: send errorsHtml as the body to direct:parseHtmlErrors
+`+producerTemplate.sendBody( "direct:parseHtmlErrors", errorsHtml );+`
+----
+
+8.1) Read the resulting body from the `+file:out+` endpoint.
+Use the `+consumerTemplate.receiveBody+` method.
+
+[subs=+quotes]
+----
+// TODO: receive the body from file:out
+`+String body = consumerTemplate.receiveBody( "file:out", String.class );+`
+----
+
+
+8.1) Assert that the resulting body contains the expected fragment of the first `+<article>+` in the `+test_errors.html+` file.
+
+[subs=+quotes]
+----
+// TODO: assert body contains a portion of the first article
+`assertTrue(
+    body.contains(
+        "Exception occurred during execution on the exchange"
+    )
+);`
+----
+
+8.1) Verify that all tests pass.
+
+
+== Finish
+
+Return to your workspace directory and use the `+lab+` command to complete this exercise.
+This is important to ensure that resources from previous exercises do not impact upcoming exercises.
+
+[subs=+quotes]
+----
+[student@workstation AD221]$ *lab finish test-kit*
+----

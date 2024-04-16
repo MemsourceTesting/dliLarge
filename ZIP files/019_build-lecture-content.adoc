@@ -1,0 +1,361 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+[id='routebuild-lecture']
+= Camel Routes
+
+== Basic Developer Setup
+To facilitate the development of Fuse applications, this course uses a set of tools including VSCodium, Maven, and Spring Boot.
+
+=== Visual Studio Code Camel Support
+The following extension applies both Visual Studio Code (VSCode) and VSCodium.
+VSCodium is used in the exercises of this course.
+Red{nbsp}Hat provides an Apache Camel extension pack for Visual Studio Code that includes multiple extensions related to Camel development.
+The pack enables code completion for both Java Domain-specific Language (DSL) and XML DSL.
+To install the extension, within VSCode, select `+View > Extentions+`.
+A search on `+Camel+` finds the following extension.
+
+.VSCode Camel extension
+image::images/route/vscodium-camel-extension.png[align="center"]
+
+Visual Studio Code is not required for performing the lab exercises, but it is recommended.
+
+=== Maven Configuration
+Fuse applications are typically built with Maven.
+To access artifacts that are in Red{nbsp}Hat Maven repositories, you must add those repositories to Maven's settings.xml file in the .m2 directory of your home directory.
+The system-level `+settings.xml+` file at `+M2_HOME/conf/settings.xml+` is used if a user specific file is not found.
+Add the Red{nbsp}Hat repositories as illustrated in the following example.
+
+[subs="+quotes"]
+----
+<?xml version="1.0"?>
+<settings>
+
+  <profiles>
+    <profile>
+      <id>extra-repos</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+       <repository>
+            <id>redhat-ga-repository</id>
+            *<url>https://maven.repository.redhat.com/ga</url>*
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>redhat-ea-repository</id>
+           *<url>https://maven.repository.redhat.com/earlyaccess/all</url>*
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+          <id>jboss-public</id>
+          <name>JBoss Public Repository Group</name>
+          *<url>https://repository.jboss.org/nexus/content/groups/public/</url>*
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+            <id>redhat-ga-repository</id>
+            *<url>https://maven.repository.redhat.com/ga</url>*
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>redhat-ea-repository</id>
+            *<url>https://maven.repository.redhat.com/earlyaccess/all</url>*
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>jboss-public</id>
+          <name>JBoss Public Repository Group</name>
+          *<url>https://repository.jboss.org/nexus/content/groups/public</url>*
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    *<activeProfile>extra-repos</activeProfile>*
+  </activeProfiles>
+</settings>
+----
+
+=== Maven Support for Spring Boot
+Spring Boot, discussed in the next section, makes it easy to create stand-alone, production-grade Spring based Applications.
+Since version 2.17, Apache Camel ships a Spring Boot Starter module.
+In order to build Spring Boot applications for Fuse, the Fuse Bill of Materials (BOM) is required.
+The BOM defines a curated set of Red{nbsp}Hat supported dependencies from the Red{nbsp}Hat Maven repository.
+The BOM exploits Maven's dependency management mechanism to define the appropriate versions of Maven dependencies.
+The BOM is provided by the following `+pom.xml+` configuration.
+
+[subs="+quotes"]
+----
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.redhat-fuse</groupId>
+      <artifactId>fuse-springboot-bom</artifactId>
+      <version>${fuse.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+----
+
+In addition to the BOM, the Spring Boot Maven Plugin is also required.
+The Spring Boot Maven Plugin implements the build process for a Spring Boot application in Maven.
+This plugin is responsible for packaging your Spring Boot application as an executable Jar file.
+The Spring Boot maven plugin is provided by the following pom.xml configuration.
+
+[subs="+quotes"]
+----
+<plugin>
+    <groupId>org.jboss.redhat-fuse</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <version>${fuse.version}</version>
+    <executions>
+	  <execution>
+		<goals>
+		  <goal>repackage</goal>
+		</goals>
+	  </execution>
+    </executions>
+</plugin>
+----
+
+=== Spring Boot
+Red{nbsp}Hat Fuse includes a Spring Boot Starter module.
+With this module, you can use Camel in Spring Boot applications by using starters.
+
+To use the starter, add the following dependency to your pom.xml file.
+
+[subs="+quotes"]
+----
+<dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-spring-boot-starter</artifactId>
+    <version>${camel.version}</version> <!-- use the same version as your Camel core version -->
+</dependency>
+----
+
+With Spring Boot, you can add classes with your Camel routes, by annotating a `+RouteBuilder+` class with the `+org.springframework.stereotype.Component+` annotation.
+The annotation allows Spring Boot to find the class, register it as a Java Bean, and start a camel context that includes the route.
+// JR: Fixed
+The following example defines a simple route:
+
+[subs="+quotes"]
+----
+package com.example;
+
+import org.apache.camel.builder.RouteBuilder;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyRoute extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+        from("timer:foo").to("log:bar");
+    }
+}
+----
+
+An `+application.properties+` file is used to customize Spring Boot.
+By design, you will often find that the default values are sufficient for your needs.
+
+== Camel Routes
+In Camel, a route describes the path of a message from one endpoint (the origin) to another endpoint (the destination).
+The origin of a route is associated with the `+from+` method in the Java DSL and normally consumes messages from a source.
+
+The `+from+` method uses an integration component configured as a consumer endpoint.
+Likewise, the destination is associated with the `+to+` method in the Java DSL and produces, or send messages to a destination.
+The `+to+` method uses an integration component configured as a producer endpoint.
+
+Routes are a critical aspect of Camel because they define integration between endpoints.
+With the help of components, routes can move, transform, and split messages.
+Traditionally, integration implementation requires lots of complicated and unnecessary coding.
+With Camel, routes are defined in a few simple, human-readable lines of code in either Java DSL or XML DSL.
+
+A route starts with a consumer, which receives the data from a point of origin.
+With Camel, consider that the consumer is referring to where and how the initial message is being picked up.
+The origin determines which type of consumer endpoint Camel component is used, such as a location on the file system, a JMS queue, or even a tweet from Twitter.
+The route then directs the message to the producer, which sends data to a destination.
+By abstracting the integration code, developers are able to implement Enterprise Exchange Patterns (EIPs) that manipulate or transform the data within the Camel route without requiring changes to either the origin or the destination.
+
+=== Components
+One of the most compelling reasons to use Camel is for the library of over 180 components.
+Each component typically has an exhaustive set of options that allow you to customize how the component interacts with the origin or destination.
+In this course a subset of these components is used for labs and demonstrations.
+The following items are examples of components used in this course.
+
+* File component: read from or write to a file system
+* JMS component: reads from or writes to a Java Messaging Service
+* FTP component: integrates with the File Transfer Protocol
+* Scheduler component: Generates messages on a given schedule
+
+Some core Camel components are especially helpful to use when developing Camel applications.
+
+The Direct component is a Camel core component that can be used to create consumer or producer endpoints for receiving and sending messages within the same CamelContext.
+External systems cannot send messages to `+direct+` component endpoints.
+In this example XML DSL route, the `+from+` element is using the `+direct+` component to receive messages from other routes running within the same CamelContext as this route.
+The `+log_body+` context provided in the `+uri+` attribute specifies the identity for this `+direct+` component.
+// JR: too many "provide" uses. Sounds a bit redundant. I just changed the latter to "specifies"
+Another route can send a message to this `+direct+` component, within the same CamelContext by using a producing `+direct+` component with the same `+uri+` value.
+
+
+[subs=+quotes]
+----
+<route id="XML DSL route">
+  <from uri="direct:log_body"/>
+  <log message="Message body: ${body}"/>
+  <to uri="mock:next_service"/>
+</route>
+----
+
+The producer in the `+to+` element in this route, is using a `+mock+` component.
+The `+mock+` component is used to make testing routes easier, by simulating a real component.
+The `+mock+` component is often used when a real component is not available.
+
+A complete coverage of all components is out of scope for this course.
+It only takes a general understanding of how to use components, however, to be able to use any of the other 180 components.
+All of them conform to the same usage pattern.
+Refer to the Camel documentation for complete coverage on any component and all the options available for each component.
+
+=== Endpoints
+A Camel endpoint consists of a component and a URI. The URI defines how the component is used to consume new messages from an origin or produce exchange messages to a destination.
+The syntax of the URI endpoint consists of three parts: the scheme, the context path, and the options.
+
+[subs="+quotes"]
+----
+URI syntax:  scheme:context_path?options
+----
+
+For example:
+
+----
+ftp://services.lab.example.com?username=delete=true&include=order.*xml
+----
+
+In this example URI, the scheme instructs Camel to use the `+ftp+` component.
+The context path of `+services.lab.example.com+` provides the address of the ftp service to use.
+After the `+?+` two options are specified and separated by the `+&+` character to provide additional details for how the component is to be used.
+
+Each Camel route must have a consumer endpoint and can have multiple producer endpoints.
+The most powerful way of creating the routes is via Camel's Java Domain-specific Language (DSL).
+
+=== Java DSL Routes
+Java DSL routes in Camel are created by extending the `+org.apache.camel.builder.RouteBuilder+` class and overriding the `+configure+` method.
+A route is composed of two endpoints: a consumer and a producer.
+In Java DSL, this is represented by the `+from+` method for the consumer and the `+to+` method for the producer.
+Inside the overridden `+configure+` method, the `+from+` and `+to+` methods are used to define the route.
+The `+org.springframework.stereotype.Component+` annotation enables Spring Boot to recognize that this class is providing a Camel Route.
+
+[subs="+quotes"]
+----
+@Component
+public class FileRouteBuilder extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+
+        from("file:orders/incoming")
+        .to("file:orders/outgoing");
+    }
+}
+----
+
+In this example, the consumer uses the `+file+` component to read all files from the `+orders/incoming+` path.
+Likewise, the producer also uses a `+file+` component to send the file to the `+orders/outgoing+` path.
+
+Inside a `+RouteBuilder+` class, each route can be uniquely identified by using a `+routeId+` method.
+Naming a route makes it easy to verify route execution in the logs, and also simplifies the process of creating unit tests.
+Add additional calls to the `+from+` method to create multiple routes in the `+configure+` method.
+
+[subs="+quotes"]
+----
+public void configure() throws Exception {
+
+   from("file:orders/incoming")
+   .routeId("route1")
+   .to("file:orders/outgoing");
+
+   from("file:orders/new")
+   .routeId("routefinancial")
+   .to("file:orders/financial");
+}
+----
+
+Each component can specify endpoint options to further configure how the component should function at that endpoint.
+The endpoint options are listed after the `+?+` character as illustrated in the next example.
+Refer to the Camel documentation for component-specific attributes.
+
+[subs=+quotes]
+----
+public void configure() throws Exception {
+
+   from("file:orders/incoming?include=order.*xml") <1>
+   .to("file:orders/outgoing/?fileExist=Fail"); <2>
+}
+----
+<1> The route consumes only XML files with a name starting with `+order+`.
+<2> The producer component throws an exception if a given file already exists.
+
+In addition to Java DSL, routes can be created via XML DSL files.
+Java DSL is a richer language to work with because you have the full power of the Java language at your fingertips.
+Often, messages require customized handling that is beyond the scope of Camel routes.
+Java provides an elegant solution as discussed later in this course.
+Also, some Java DSL features, such as value builders (for building expressions and predicates), are not available in the XML DSL.
+
+On the other hand, using XML DSL routes gives a convenient alternative for externalizing route configurations.
+
+=== XML DSL Routes
+Method names from the Java DSL map directly to XML elements in the Spring DSL in most cases.
+However, due to syntax differences between Java and XML, sometimes the name and the structure of elements are different in Spring DSL.
+Refer to Camel documentation for the correct structure of the route methods.
+
+To use the Spring DSL with Spring Boot, declare a `+routes+` element, using the custom Camel Spring namespace, inside an XML configuration file located in a `+camel+` folder on the Java classpath.
+Inside the `+routes+` element, declare one or more `+route+` elements starting with a `+from+` element and usually ending with a `+to+` element.
+These `+from+` and `+to+` elements are similar to the Java DSL `+from+` and `+to+` methods.
+
+[subs="+quotes"]
+----
+<routes xmlns="http://camel.apache.org/schema/spring">
+  <route id="XML example">
+    <from uri="file:orders/incoming"/>
+    <to uri="file:orders/outgoing"/>
+  </route>
+</routes>
+----
+
+== {nbsp}
+
+[role="References"]
+[NOTE]
+====
+// Template for a reference that does not link to Red{nbsp}Hat Documentation.
+https://camel.apache.org/camel-spring-boot/3.12.x/spring-boot.html[Apache Camel Spring Boot Documentation]
+
+// Template for a reference that does link to Red{nbsp}Hat Documentation.
+For more information, refer to the _Fuse Tooling Support for Apache Camel_ chapter in the _Red{nbsp}Hat{nbsp}Fuse{nbsp}7.10 Release Notes_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/release_notes_for_red_hat_fuse_7.10/index#fuse_tooling_support_for_apache_camel
+
+For more information, refer to the _Getting Started with Fuse on Spring Boot_ chapter in the _Red{nbsp}Hat{nbsp}Fuse{nbsp}7.10 Documentation_ at https://access.redhat.com/documentation/en-us/red_hat_fuse/7.10/html-single/getting_started_with_fuse_on_spring_boot/index
+
+====

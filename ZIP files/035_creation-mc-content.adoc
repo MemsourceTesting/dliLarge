@@ -1,0 +1,80 @@
+ifndef::backend-docbook5,backend-docbook45[:imagesdir: ../../..]
+// Sections should have an id that is a short version of the title.
+[id='route-creation-multchoice']
+= Creating Camel Routes
+
+[role='MultChoice']
+== Instructions
+
+In this quiz, consider you are developing a system that processes orders from a file stored in an FTP server and distributes them among two partners depending on the type. One partner uses a different date format, so you need to modify the date on each order before sending it to that specific partner.
+You must write each partner's orders in its own file so they can read their orders.
+
+Choose the correct answers to the following questions:
+
+1) The first step is to connect to the FTP server to retrieve the orders.
+Regarding the following line, which two of the sentences are true? (Choose two.):
+
+[subs="+quotes,+macros"]
+----
+from( "ftp://ftpserver/integration?include?include=incoming_orders.*csv" )
+----
+** Connects to the FTP server in `+localhost+`.
+** [role='solution'] Connects to the FTP server in `+ftpserver+`.
+** Picks up the file `+incoming_orders.csv+` in the `+integration+` directory.
+** [role='solution'] Picks up all the CSV files in the `+integration+` directory that start with `+incoming_orders+`.
+
+2) The next step is to split orders by type.
+Regarding the following code, which three sentences are true? (Choose three.)
+
+[subs="+quotes,+macros"]
+----
+.choice()
+    .when( header( "CamelFileName" ).contains( "parts") )
+        .to( "direct:parts" )
+    .when( header( "CamelFileName" ).contains( "accessories" ) )
+        .to( "direct:accessories" )
+    .otherwise()
+        .log( "File: ${header.CamelFileName} does not have correct type." )
+----
+** Files containing `+parts+` in their name are logged in the `+parts+` log.
+** [role='solution'] Files containing `+parts+` in their name are sent to the `+direct:parts+` endpoint.
+** [role='solution'] Files containing `+accessories+` in their name are sent to the `+direct:accessories+` endpoint.
+** [role='solution'] Files with neither `+parts+` nor `+accessories+` in their name are logged.
+** All files are logged.
+
+3) After the splitting step, orders in the `+accesories+` consumer need to be processed to attend to the specifications of a legacy system.
+Regarding the following processing, which of the following sentences is true?
+
+[subs="+quotes,+macros"]
+----
+from( "direct:accessories" )
+    .process( new Processor() {
+        String inputMessage = exchange.getIn().getBody( String.class );
+
+        String output = inputMessage.replace( "\n", "\r\n" );
+
+        exchange.getIn().setBody( output );
+    })
+.to( "direct:accessories2" )
+----
+** [role='solution'] The processor replaces each newline character with legacy characters in messages received from the `+accessories+` consumer, and the route sends the result to the `+accessories2+` producer.
+** The processor replaces each newline character with legacy characters in the `+accessories+` consumer.
+** The processor replaces each newline character with legacy characters in the `+accessories2+` producer.
+** The processor replaces each return carriage character with newline characters in the `+accessories+` consumer.
+** The processor replaces each newline character with legacy characters in the `+accessories+` consumer to the `+accessories2+` producer.
+
+4) To finish the route, you must store each type of order in files.
+Regarding the following code, which two sentences are true? (Choose two.)
+
+[subs="+quotes,+macros"]
+----
+from( "direct:accessories2" )
+.to( "file:/shared/?fileName=accessories_${date:now:yyyyMMdd}.csv" )
+
+from( "direct:parts" )
+.to( "file:/shared/?fileName=parts_${date:now:yyyyMMdd}.csv" )
+----
+** The route stores orders in the `+accessories+` and `+parts+` consumers into their respective files.
+** The route stores orders in the `+accessories2+` and `+parts+` producers into their respective files.
+** [role='solution'] The route stores orders in the `+accessories2+` and `+parts+` consumers into their respective files.
+** [role='solution'] The route appends the current date to each file name.
